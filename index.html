@@ -1,4 +1,139 @@
+Html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>LifeKey Hub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial;
+      background: radial-gradient(circle at top, #0f172a, #020617);
+      color: white;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      background: rgba(17,24,39,0.9);
+      padding: 15px;
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #38bdf8;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .hero h1 {
+      font-size: 55px;
+      color: #38bdf8;
+      text-shadow: 0 0 20px #38bdf8;
+    }
+
+    .hero p {
+      color: #cbd5f5;
+    }
+
+    .section {
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+      gap: 15px;
+    }
+
+    .card {
+      background: rgba(17,24,39,0.8);
+      padding: 20px;
+      border-radius: 15px;
+      transition: 0.3s;
+      box-shadow: 0 0 10px rgba(56,189,248,0.2);
+    }
+
+    .card:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 0 20px #38bdf8;
+    }
+
+    .btn {
+      color: #38bdf8;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    h2 {
+      color: #38bdf8;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="blog.html">Blog</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<div class="hero">
+  <h1>LifeKey Hub</h1>
+  <p>Learn • Earn • Grow • Stay Informed</p>
+</div>
+
+<div class="section">
+  <h2>🔥 Trending & Money Making</h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3>💰 Make Money Online</h3>
+      <p>Start earning from blogging and digital skills.</p>
+      <a class="btn" href="post1.html">Read More →</a>
+    </div>
+
+    <div class="card">
+      <h3>💻 Learn Tech Fast</h3>
+      <p>Build real skills that pay.</p>
+      <a class="btn" href="post2.html">Read More →</a>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>🌍 Explore Categories</h2>
+
+  <div class="grid">
+    <div class="card"><h3>🌿 Health</h3></div>
+    <div class="card"><h3>💰 Money</h3></div>
+    <div class="card"><h3>📰 News</h3></div>
+    <div class="card"><h3>🎬 Entertainment</h3></div>
+    <div class="card"><h3>📜 History</h3></div>
+    <div class="card"><h3>💻 Tech</h3></div>
+  </div>
+</div>
+
+</body>
+</html>
 Html
 <!DOCTYPE html>
 <html>
