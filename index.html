@@ -1,1643 +1,1782 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>LifeKey Hub | Unlock Your Next Level</title>
-
-  <meta name="description" content="LifeKey Hub - Business, digital opportunities, money, technology, health, education, agriculture and practical ideas for a better life.">
-
-  <style>
-    /* =========================================================
-       LIFEKEY HUB V2
-       FUTURISTIC SINGLE-PAGE WEBSITE
-       ========================================================= */
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-
-    :root {
-      --bg: #050816;
-      --bg2: #081126;
-      --card: rgba(13, 23, 48, 0.72);
-      --card-border: rgba(80, 180, 255, 0.22);
-      --text: #f4f8ff;
-      --muted: #aab7d4;
-      --cyan: #00e5ff;
-      --blue: #477cff;
-      --purple: #9b5cff;
-      --green: #20e3a2;
-      --pink: #ff4fd8;
-      --orange: #ff9d42;
-      --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background:
-        radial-gradient(circle at 10% 10%, rgba(0,229,255,.10), transparent 30%),
-        radial-gradient(circle at 90% 20%, rgba(155,92,255,.12), transparent 30%),
-        radial-gradient(circle at 50% 90%, rgba(32,227,162,.07), transparent 30%),
-        var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button,
-    input {
-      font: inherit;
-    }
-
-    /* =========================================================
-       BACKGROUND EFFECT
-       ========================================================= */
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      opacity: .25;
-      background-image:
-        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
-      background-size: 40px 40px;
-      mask-image: linear-gradient(to bottom, black, transparent);
-      z-index: -1;
-    }
-
-    /* =========================================================
-       HEADER
-       ========================================================= */
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      backdrop-filter: blur(18px);
-      background: rgba(5, 8, 22, .82);
-      border-bottom: 1px solid rgba(255,255,255,.08);
-    }
-
-    .nav {
-      width: min(1180px, 92%);
-      margin: auto;
-      min-height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .logo {
-      font-size: 1.45rem;
-      font-weight: 900;
-      letter-spacing: -.5px;
-      white-space: nowrap;
-    }
-
-    .logo span {
-      color: var(--cyan);
-      text-shadow: 0 0 20px rgba(0,229,255,.6);
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 22px;
-    }
-
-    nav a {
-      color: var(--muted);
-      font-size: .92rem;
-      transition: .25s;
-    }
-
-    nav a:hover {
-      color: var(--cyan);
-    }
-
-    .menu-btn {
-      display: none;
-      background: transparent;
-      border: 1px solid var(--card-border);
-      color: white;
-      padding: 8px 12px;
-      border-radius: 10px;
-      cursor: pointer;
-    }
-
-    /* =========================================================
-       HERO
-       ========================================================= */
-
-    .hero {
-      width: min(1180px, 92%);
-      margin: auto;
-      min-height: 650px;
-      display: grid;
-      grid-template-columns: 1.2fr .8fr;
-      align-items: center;
-      gap: 50px;
-      padding: 70px 0;
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 14px;
-      border: 1px solid rgba(0,229,255,.3);
-      background: rgba(0,229,255,.06);
-      border-radius: 50px;
-      color: var(--cyan);
-      font-size: .82rem;
-      margin-bottom: 22px;
-    }
-
-    .pulse {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--green);
-      box-shadow: 0 0 15px var(--green);
-      animation: pulse 1.8s infinite;
-    }
-
-    @keyframes pulse {
-      0%,100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.6); opacity: .5; }
-    }
-
-    .hero h1 {
-      font-size: clamp(2.6rem, 7vw, 5.5rem);
-      line-height: .98;
-      letter-spacing: -4px;
-      margin-bottom: 25px;
-    }
-
-    .gradient-text {
-      background: linear-gradient(90deg, var(--cyan), var(--blue), var(--purple), var(--pink));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .hero p {
-      color: var(--muted);
-      max-width: 650px;
-      font-size: 1.08rem;
-      margin-bottom: 30px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      border: none;
-      padding: 13px 21px;
-      border-radius: 12px;
-      cursor: pointer;
-      font-weight: 800;
-      transition: .25s;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-    }
-
-    .btn-primary {
-      color: #001016;
-      background: linear-gradient(135deg, var(--cyan), #62f4ff);
-      box-shadow: 0 0 30px rgba(0,229,255,.2);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 0 40px rgba(0,229,255,.4);
-    }
-
-    .btn-secondary {
-      color: white;
-      background: rgba(255,255,255,.05);
-      border: 1px solid rgba(255,255,255,.15);
-    }
-
-    .btn-secondary:hover {
-      transform: translateY(-3px);
-      border-color: var(--cyan);
-    }
-
-    /* =========================================================
-       HERO ORB
-       ========================================================= */
-
-    .hero-visual {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .orb {
-      width: 320px;
-      height: 320px;
-      border-radius: 50%;
-      position: relative;
-      background:
-        radial-gradient(circle at 35% 30%, #ffffff, var(--cyan) 4%, rgba(0,229,255,.25) 18%, transparent 45%),
-        radial-gradient(circle, rgba(71,124,255,.5), transparent 65%);
-      box-shadow:
-        0 0 60px rgba(0,229,255,.25),
-        0 0 120px rgba(71,124,255,.15);
-      animation: float 5s ease-in-out infinite;
-    }
-
-    .orb::before,
-    .orb::after {
-      content: "";
-      position: absolute;
-      inset: -25px;
-      border: 1px solid rgba(0,229,255,.25);
-      border-radius: 50%;
-      transform: rotate(30deg);
-    }
-
-    .orb::after {
-      inset: -50px;
-      border-color: rgba(155,92,255,.2);
-      transform: rotate(-30deg);
-    }
-
-    @keyframes float {
-      0%,100% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-15px) rotate(5deg); }
-    }
-
-    /* =========================================================
-       SEARCH
-       ========================================================= */
-
-    .search-section {
-      width: min(900px, 92%);
-      margin: 0 auto 60px;
-    }
-
-    .search-box {
-      display: flex;
-      background: rgba(255,255,255,.05);
-      border: 1px solid rgba(0,229,255,.2);
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-    }
-
-    .search-box input {
-      flex: 1;
-      padding: 17px 20px;
-      background: transparent;
-      border: none;
-      outline: none;
-      color: white;
-      font-size: 1rem;
-    }
-
-    .search-box input::placeholder {
-      color: #7885a5;
-    }
-
-    .search-box button {
-      border: none;
-      background: var(--cyan);
-      color: #001016;
-      padding: 0 22px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    /* =========================================================
-       SECTION
-       ========================================================= */
-
-    section {
-      width: min(1180px, 92%);
-      margin: auto;
-      padding: 70px 0;
-    }
-
-    .section-heading {
-      text-align: center;
-      margin-bottom: 45px;
-    }
-
-    .section-heading .small {
-      color: var(--cyan);
-      text-transform: uppercase;
-      font-size: .78rem;
-      font-weight: 800;
-      letter-spacing: 2px;
-    }
-
-    .section-heading h2 {
-      font-size: clamp(2rem, 5vw, 3rem);
-      margin: 10px 0;
-    }
-
-    .section-heading p {
-      color: var(--muted);
-      max-width: 650px;
-      margin: auto;
-    }
-
-    /* =========================================================
-       CARDS
-       ========================================================= */
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-
-    .card {
-      position: relative;
-      min-height: 220px;
-      padding: 24px;
-      border-radius: 20px;
-      background: linear-gradient(
-        145deg,
-        rgba(18,32,64,.85),
-        rgba(8,15,34,.8)
-      );
-      border: 1px solid var(--card-border);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      transition: .3s;
-      cursor: pointer;
-    }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      width: 100px;
-      height: 100px;
-      top: -50px;
-      right: -50px;
-      border-radius: 50%;
-      background: var(--cyan);
-      opacity: .08;
-      filter: blur(10px);
-    }
-
-    .card:hover {
-      transform: translateY(-8px);
-      border-color: rgba(0,229,255,.55);
-      box-shadow:
-        0 20px 60px rgba(0,0,0,.4),
-        0 0 30px rgba(0,229,255,.08);
-    }
-
-    .icon {
-      width: 52px;
-      height: 52px;
-      display: grid;
-      place-items: center;
-      font-size: 1.6rem;
-      border-radius: 14px;
-      background: rgba(0,229,255,.08);
-      border: 1px solid rgba(0,229,255,.15);
-      margin-bottom: 20px;
-    }
-
-    .card h3 {
-      font-size: 1.05rem;
-      margin-bottom: 9px;
-    }
-
-    .card p {
-      color: var(--muted);
-      font-size: .9rem;
-    }
-
-    .card-link {
-      display: inline-block;
-      margin-top: 16px;
-      color: var(--cyan);
-      font-size: .82rem;
-      font-weight: bold;
-    }
-
-    /* =========================================================
-       FEATURE STRIP
-       ========================================================= */
-
-    .feature-strip {
-      width: min(1180px, 92%);
-      margin: 30px auto 0;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .feature {
-      padding: 25px;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,.08);
-      background: rgba(255,255,255,.035);
-    }
-
-    .feature strong {
-      display: block;
-      font-size: 1.5rem;
-      color: var(--cyan);
-      margin-bottom: 5px;
-    }
-
-    .feature span {
-      color: var(--muted);
-      font-size: .9rem;
-    }
-
-    /* =========================================================
-       CTA
-       ========================================================= */
-
-    .cta {
-      padding: 70px 30px;
-      border-radius: 28px;
-      text-align: center;
-      background:
-        radial-gradient(circle at 20% 30%, rgba(0,229,255,.12), transparent 30%),
-        radial-gradient(circle at 80% 70%, rgba(155,92,255,.12), transparent 30%),
-        rgba(255,255,255,.035);
-      border: 1px solid rgba(0,229,255,.15);
-    }
-
-    .cta h2 {
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      margin-bottom: 15px;
-    }
-
-    .cta p {
-      color: var(--muted);
-      max-width: 650px;
-      margin: 0 auto 25px;
-    }
-
-    /* =========================================================
-       NEWSLETTER
-       ========================================================= */
-
-    .newsletter {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 35px;
-      align-items: center;
-      padding: 45px;
-      border-radius: 24px;
-      background: rgba(255,255,255,.035);
-      border: 1px solid rgba(255,255,255,.08);
-    }
-
-    .newsletter h2 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-
-    .newsletter p {
-      color: var(--muted);
-    }
-
-    .newsletter-form {
-      display: flex;
-      gap: 10px;
-    }
-
-    .newsletter-form input {
-      flex: 1;
-      min-width: 0;
-      padding: 14px;
-      border-radius: 11px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(0,0,0,.2);
-      color: white;
-      outline: none;
-    }
-
-    /* =========================================================
-       FOOTER
-       ========================================================= */
-
-    footer {
-      margin-top: 60px;
-      padding: 50px 0 25px;
-      border-top: 1px solid rgba(255,255,255,.08);
-      background: rgba(0,0,0,.2);
-    }
-
-    .footer-inner {
-      width: min(1180px, 92%);
-      margin: auto;
-      display: grid;
-      grid-template-columns: 1.4fr 1fr 1fr 1fr;
-      gap: 30px;
-    }
-
-    .footer-col h3 {
-      margin-bottom: 15px;
-      color: white;
-    }
-
-    .footer-col p,
-    .footer-col a {
-      color: var(--muted);
-      font-size: .9rem;
-      display: block;
-      margin-bottom: 9px;
-    }
-
-    .footer-col a:hover {
-      color: var(--cyan);
-    }
-
-    .socials {
-      display: flex;
-      gap: 9px;
-      margin-top: 15px;
-      flex-wrap: wrap;
-    }
-
-    .social {
-      width: 38px;
-      height: 38px;
-      display: grid;
-      place-items: center;
-      border-radius: 10px;
-      border: 1px solid rgba(255,255,255,.1);
-      background: rgba(255,255,255,.04);
-    }
-
-    .copyright {
-      width: min(1180px, 92%);
-      margin: 35px auto 0;
-      padding-top: 20px;
-      border-top: 1px solid rgba(255,255,255,.06);
-      color: #71809e;
-      font-size: .8rem;
-      text-align: center;
-    }
-
-    /* =========================================================
-       BACK TO TOP
-       ========================================================= */
-
-    #topBtn {
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-      width: 45px;
-      height: 45px;
-      border: 1px solid rgba(0,229,255,.3);
-      background: rgba(5,8,22,.85);
-      color: var(--cyan);
-      border-radius: 50%;
-      cursor: pointer;
-      display: none;
-      z-index: 999;
-    }
-
-    /* =========================================================
-       MOBILE
-       ========================================================= */
-
-    @media (max-width: 950px) {
-
-      nav {
-        display: none;
-        position: absolute;
-        top: 72px;
-        left: 0;
-        right: 0;
-        padding: 20px;
-        background: rgba(5,8,22,.97);
-        border-bottom: 1px solid rgba(255,255,255,.08);
-        flex-direction: column;
-      }
-
-      nav.active {
-        display: flex;
-      }
-
-      .menu-btn {
-        display: block;
-      }
-
-      .hero {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-
-      .hero p {
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .hero-buttons {
-        justify-content: center;
-      }
-
-      .hero-visual {
-        order: -1;
-      }
-
-      .orb {
-        width: 230px;
-        height: 230px;
-      }
-
-      .cards {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .footer-inner {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 650px) {
-
-      .hero {
-        padding-top: 45px;
-      }
-
-      .hero h1 {
-        letter-spacing: -2px;
-      }
-
-      .cards {
-        grid-template-columns: 1fr;
-      }
-
-      .feature-strip {
-        grid-template-columns: 1fr;
-      }
-
-      .newsletter {
-        grid-template-columns: 1fr;
-        padding: 30px 22px;
-      }
-
-      .newsletter-form {
-        flex-direction: column;
-      }
-
-      .footer-inner {
-        grid-template-columns: 1fr;
-      }
-
-      section {
-        padding: 50px 0;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>LifeKey Hub | Unlock Your Next Level</title>
+
+<meta name="description" content="LifeKey Hub - Business, money, technology, trading, digital skills, health, education, agriculture, history and opportunities.">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+:root{
+--bg:#050816;
+--bg2:#081126;
+--card:rgba(13,23,48,.72);
+--border:rgba(80,180,255,.22);
+--text:#f4f8ff;
+--muted:#aab7d4;
+--cyan:#00e5ff;
+--blue:#477cff;
+--purple:#9b5cff;
+--green:#20e3a2;
+--pink:#ff4fd8;
+--orange:#ff9d42;
+}
+
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:
+radial-gradient(circle at 10% 10%,rgba(0,229,255,.10),transparent 30%),
+radial-gradient(circle at 90% 20%,rgba(155,92,255,.12),transparent 30%),
+radial-gradient(circle at 50% 90%,rgba(32,227,162,.07),transparent 30%),
+var(--bg);
+color:var(--text);
+line-height:1.6;
+overflow-x:hidden;
+}
+
+body::before{
+content:"";
+position:fixed;
+inset:0;
+pointer-events:none;
+opacity:.25;
+background-image:
+linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+background-size:40px 40px;
+mask-image:linear-gradient(to bottom,black,transparent);
+z-index:-1;
+}
+
+a{
+color:inherit;
+text-decoration:none;
+}
+
+button,input{
+font:inherit;
+}
+
+/* ================= HEADER ================= */
+
+header{
+position:sticky;
+top:0;
+z-index:1000;
+backdrop-filter:blur(18px);
+background:rgba(5,8,22,.84);
+border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.nav{
+width:min(1180px,92%);
+margin:auto;
+min-height:72px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:20px;
+}
+
+.logo{
+font-size:1.45rem;
+font-weight:900;
+letter-spacing:-.5px;
+white-space:nowrap;
+}
+
+.logo span{
+color:var(--cyan);
+text-shadow:0 0 20px rgba(0,229,255,.6);
+}
+
+nav{
+display:flex;
+align-items:center;
+gap:20px;
+}
+
+nav a{
+color:var(--muted);
+font-size:.9rem;
+transition:.25s;
+}
+
+nav a:hover{
+color:var(--cyan);
+}
+
+.menu-btn{
+display:none;
+background:transparent;
+border:1px solid var(--border);
+color:white;
+padding:8px 12px;
+border-radius:10px;
+cursor:pointer;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+width:min(1180px,92%);
+margin:auto;
+min-height:650px;
+display:grid;
+grid-template-columns:1.15fr .85fr;
+align-items:center;
+gap:40px;
+padding:70px 0;
+}
+
+.hero-badge{
+display:inline-flex;
+align-items:center;
+gap:8px;
+padding:8px 14px;
+border:1px solid rgba(0,229,255,.3);
+background:rgba(0,229,255,.06);
+border-radius:50px;
+color:var(--cyan);
+font-size:.82rem;
+margin-bottom:22px;
+}
+
+.pulse{
+width:8px;
+height:8px;
+border-radius:50%;
+background:var(--green);
+box-shadow:0 0 15px var(--green);
+animation:pulse 1.8s infinite;
+}
+
+@keyframes pulse{
+0%,100%{transform:scale(1);opacity:1}
+50%{transform:scale(1.6);opacity:.5}
+}
+
+.hero h1{
+font-size:clamp(2.6rem,7vw,5.5rem);
+line-height:.98;
+letter-spacing:-4px;
+margin-bottom:25px;
+}
+
+.gradient-text{
+background:linear-gradient(90deg,var(--cyan),var(--blue),var(--purple),var(--pink));
+-webkit-background-clip:text;
+background-clip:text;
+color:transparent;
+}
+
+.hero p{
+color:var(--muted);
+max-width:650px;
+font-size:1.08rem;
+margin-bottom:30px;
+}
+
+.hero-buttons{
+display:flex;
+gap:14px;
+flex-wrap:wrap;
+}
+
+.btn{
+border:none;
+padding:13px 21px;
+border-radius:12px;
+cursor:pointer;
+font-weight:800;
+transition:.25s;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+gap:8px;
+}
+
+.btn-primary{
+color:#001016;
+background:linear-gradient(135deg,var(--cyan),#62f4ff);
+box-shadow:0 0 30px rgba(0,229,255,.2);
+}
+
+.btn-primary:hover{
+transform:translateY(-3px);
+box-shadow:0 0 40px rgba(0,229,255,.4);
+}
+
+.btn-secondary{
+color:white;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.15);
+}
+
+.btn-secondary:hover{
+transform:translateY(-3px);
+border-color:var(--cyan);
+}
+
+/* ================= LIFEKEY ORB ================= */
+
+.hero-visual{
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.orb-wrap{
+position:relative;
+width:350px;
+height:350px;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.orb{
+width:280px;
+height:280px;
+border-radius:50%;
+position:relative;
+
+background:
+radial-gradient(
+circle at 35% 28%,
+#ffffff 0%,
+var(--cyan) 3%,
+rgba(0,229,255,.35) 18%,
+rgba(71,124,255,.28) 38%,
+rgba(155,92,255,.18) 55%,
+transparent 72%
+);
+
+box-shadow:
+0 0 50px rgba(0,229,255,.35),
+0 0 100px rgba(71,124,255,.2),
+0 0 150px rgba(155,92,255,.12);
+
+animation:float 5s ease-in-out infinite;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.orb::before,
+.orb::after{
+content:"";
+position:absolute;
+border-radius:50%;
+border:1px solid rgba(0,229,255,.3);
+}
+
+.orb::before{
+inset:-25px;
+transform:rotate(30deg);
+}
+
+.orb::after{
+inset:-50px;
+border-color:rgba(155,92,255,.22);
+transform:rotate(-30deg);
+}
+
+@keyframes float{
+0%,100%{
+transform:translateY(0) rotate(0deg);
+}
+50%{
+transform:translateY(-15px) rotate(5deg);
+}
+}
+
+.orb-content{
+position:relative;
+z-index:5;
+text-align:center;
+}
+
+.key-symbol{
+font-size:3.2rem;
+filter:drop-shadow(0 0 15px var(--cyan));
+margin-bottom:3px;
+}
+
+.orb-title{
+font-size:1.35rem;
+font-weight:900;
+letter-spacing:1px;
+}
+
+.orb-title span{
+color:var(--cyan);
+}
+
+.orb-subtitle{
+font-size:.68rem;
+color:#dce8ff;
+letter-spacing:2px;
+text-transform:uppercase;
+margin-top:4px;
+}
+
+/* ================= SEARCH ================= */
+
+.search-section{
+width:min(900px,92%);
+margin:0 auto 60px;
+}
+
+.search-box{
+display:flex;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(0,229,255,.2);
+border-radius:16px;
+overflow:hidden;
+box-shadow:0 20px 60px rgba(0,0,0,.35);
+}
+
+.search-box input{
+flex:1;
+padding:17px 20px;
+background:transparent;
+border:none;
+outline:none;
+color:white;
+font-size:1rem;
+}
+
+.search-box input::placeholder{
+color:#7885a5;
+}
+
+.search-box button{
+border:none;
+background:var(--cyan);
+color:#001016;
+padding:0 22px;
+cursor:pointer;
+font-weight:bold;
+}
+
+/* ================= SECTIONS ================= */
+
+section{
+width:min(1180px,92%);
+margin:auto;
+padding:70px 0;
+}
+
+.section-heading{
+text-align:center;
+margin-bottom:45px;
+}
+
+.section-heading .small{
+color:var(--cyan);
+text-transform:uppercase;
+font-size:.78rem;
+font-weight:800;
+letter-spacing:2px;
+}
+
+.section-heading h2{
+font-size:clamp(2rem,5vw,3rem);
+margin:10px 0;
+}
+
+.section-heading p{
+color:var(--muted);
+max-width:650px;
+margin:auto;
+}
+
+/* ================= CATEGORY GROUP ================= */
+
+.category-title{
+display:flex;
+align-items:center;
+gap:12px;
+margin:50px 0 20px;
+font-size:1.5rem;
+}
+
+.category-title span{
+color:var(--cyan);
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:18px;
+}
+
+.card{
+position:relative;
+min-height:215px;
+padding:24px;
+border-radius:20px;
+
+background:linear-gradient(
+145deg,
+rgba(18,32,64,.85),
+rgba(8,15,34,.8)
+);
+
+border:1px solid var(--border);
+box-shadow:0 20px 60px rgba(0,0,0,.35);
+overflow:hidden;
+transition:.3s;
+cursor:pointer;
+}
+
+.card::before{
+content:"";
+position:absolute;
+width:100px;
+height:100px;
+top:-50px;
+right:-50px;
+border-radius:50%;
+background:var(--cyan);
+opacity:.08;
+filter:blur(10px);
+}
+
+.card:hover{
+transform:translateY(-8px);
+border-color:rgba(0,229,255,.55);
+box-shadow:
+0 20px 60px rgba(0,0,0,.4),
+0 0 30px rgba(0,229,255,.08);
+}
+
+.icon{
+width:52px;
+height:52px;
+display:grid;
+place-items:center;
+font-size:1.6rem;
+border-radius:14px;
+background:rgba(0,229,255,.08);
+border:1px solid rgba(0,229,255,.15);
+margin-bottom:20px;
+}
+
+.card h3{
+font-size:1.05rem;
+margin-bottom:9px;
+}
+
+.card p{
+color:var(--muted);
+font-size:.9rem;
+}
+
+.card-link{
+display:inline-block;
+margin-top:16px;
+color:var(--cyan);
+font-size:.82rem;
+font-weight:bold;
+}
+
+/* ================= FEATURE STRIP ================= */
+
+.feature-strip{
+width:min(1180px,92%);
+margin:30px auto 0;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px;
+}
+
+.feature{
+padding:25px;
+border-radius:18px;
+border:1px solid rgba(255,255,255,.08);
+background:rgba(255,255,255,.035);
+}
+
+.feature strong{
+display:block;
+font-size:1.5rem;
+color:var(--cyan);
+margin-bottom:5px;
+}
+
+.feature span{
+color:var(--muted);
+font-size:.9rem;
+}
+
+/* ================= CTA ================= */
+
+.cta{
+padding:70px 30px;
+border-radius:28px;
+text-align:center;
+
+background:
+radial-gradient(circle at 20% 30%,rgba(0,229,255,.12),transparent 30%),
+radial-gradient(circle at 80% 70%,rgba(155,92,255,.12),transparent 30%),
+rgba(255,255,255,.035);
+
+border:1px solid rgba(0,229,255,.15);
+}
+
+.cta h2{
+font-size:clamp(2rem,5vw,3.5rem);
+margin-bottom:15px;
+}
+
+.cta p{
+color:var(--muted);
+max-width:650px;
+margin:0 auto 25px;
+}
+
+/* ================= NEWSLETTER ================= */
+
+.newsletter{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:35px;
+align-items:center;
+padding:45px;
+border-radius:24px;
+background:rgba(255,255,255,.035);
+border:1px solid rgba(255,255,255,.08);
+}
+
+.newsletter h2{
+font-size:2rem;
+margin-bottom:10px;
+}
+
+.newsletter p{
+color:var(--muted);
+}
+
+.newsletter-form{
+display:flex;
+gap:10px;
+}
+
+.newsletter-form input{
+flex:1;
+min-width:0;
+padding:14px;
+border-radius:11px;
+border:1px solid rgba(255,255,255,.12);
+background:rgba(0,0,0,.2);
+color:white;
+outline:none;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+margin-top:60px;
+padding:50px 0 25px;
+border-top:1px solid rgba(255,255,255,.08);
+background:rgba(0,0,0,.2);
+}
+
+.footer-inner{
+width:min(1180px,92%);
+margin:auto;
+display:grid;
+grid-template-columns:1.4fr 1fr 1fr 1fr;
+gap:30px;
+}
+
+.footer-col h3{
+margin-bottom:15px;
+}
+
+.footer-col p,
+.footer-col a{
+color:var(--muted);
+font-size:.9rem;
+display:block;
+margin-bottom:9px;
+}
+
+.footer-col a:hover{
+color:var(--cyan);
+}
+
+.socials{
+display:flex;
+gap:9px;
+margin-top:15px;
+flex-wrap:wrap;
+}
+
+.social{
+width:38px;
+height:38px;
+display:grid;
+place-items:center;
+border-radius:10px;
+border:1px solid rgba(255,255,255,.1);
+background:rgba(255,255,255,.04);
+}
+
+.copyright{
+width:min(1180px,92%);
+margin:35px auto 0;
+padding-top:20px;
+border-top:1px solid rgba(255,255,255,.06);
+color:#71809e;
+font-size:.8rem;
+text-align:center;
+}
+
+/* ================= TOP BUTTON ================= */
+
+#topBtn{
+position:fixed;
+right:20px;
+bottom:20px;
+width:45px;
+height:45px;
+border:1px solid rgba(0,229,255,.3);
+background:rgba(5,8,22,.85);
+color:var(--cyan);
+border-radius:50%;
+cursor:pointer;
+display:none;
+z-index:999;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:950px){
+
+nav{
+display:none;
+position:absolute;
+top:72px;
+left:0;
+right:0;
+padding:20px;
+background:rgba(5,8,22,.97);
+border-bottom:1px solid rgba(255,255,255,.08);
+flex-direction:column;
+}
+
+nav.active{
+display:flex;
+}
+
+.menu-btn{
+display:block;
+}
+
+.hero{
+grid-template-columns:1fr;
+text-align:center;
+}
+
+.hero p{
+margin-left:auto;
+margin-right:auto;
+}
+
+.hero-buttons{
+justify-content:center;
+}
+
+.hero-visual{
+order:-1;
+}
+
+.orb-wrap{
+transform:scale(.85);
+}
+
+.cards{
+grid-template-columns:repeat(2,1fr);
+}
+
+.footer-inner{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media(max-width:650px){
+
+.hero{
+padding-top:40px;
+}
+
+.hero h1{
+letter-spacing:-2px;
+}
+
+.orb-wrap{
+transform:scale(.72);
+margin-top:-25px;
+margin-bottom:-30px;
+}
+
+.cards{
+grid-template-columns:1fr;
+}
+
+.feature-strip{
+grid-template-columns:1fr;
+}
+
+.newsletter{
+grid-template-columns:1fr;
+padding:30px 22px;
+}
+
+.newsletter-form{
+flex-direction:column;
+}
+
+.footer-inner{
+grid-template-columns:1fr;
+}
+
+section{
+padding:50px 0;
+}
+
+.category-title{
+font-size:1.3rem;
+}
+
+}
+
+</style>
 </head>
 
 <body>
 
-  <!-- =======================================================
-       HEADER
-       ======================================================= -->
+<!-- ================= HEADER ================= -->
 
-  <header>
-    <div class="nav">
+<header>
 
-      <a href="#home" class="logo">
-        Life<span>Key</span> Hub
-      </a>
+<div class="nav">
 
-      <button class="menu-btn" id="menuBtn">
-        ☰
-      </button>
+<a href="#home" class="logo">
+Life<span>Key</span> Hub
+</a>
 
-      <nav id="navMenu">
-        <a href="#home">Home</a>
-        <a href="#explore">Explore</a>
-        <a href="#opportunities">Opportunities</a>
-        <a href="#health">Health</a>
-        <a href="#blog">Blog</a>
-        <a href="#contact">Contact</a>
-      </nav>
+<button class="menu-btn" id="menuBtn">
+☰
+</button>
 
-    </div>
-  </header>
+<nav id="navMenu">
 
+<a href="#home">Home</a>
+<a href="#explore">Explore</a>
+<a href="#opportunities">Opportunities</a>
+<a href="#health">Health</a>
+<a href="#blog">Blog</a>
+<a href="#contact">Contact</a>
 
-  <!-- =======================================================
-       HERO
-       ======================================================= -->
+</nav>
 
-  <main id="home">
+</div>
 
-    <div class="hero">
+</header>
 
-      <div>
 
-        <div class="hero-badge">
-          <span class="pulse"></span>
-          Your gateway to ideas, opportunities & growth
-        </div>
+<!-- ================= HERO ================= -->
 
-        <h1>
-          Unlock Your
-          <span class="gradient-text">Next Level.</span>
-        </h1>
+<main id="home">
 
-        <p>
-          LifeKey Hub brings together practical knowledge, business ideas,
-          digital opportunities, technology, money-making strategies,
-          health, education and useful resources — all in one place.
-        </p>
+<div class="hero">
 
-        <div class="hero-buttons">
+<div>
 
-          <a href="#explore" class="btn btn-primary">
-            🚀 Explore LifeKey
-          </a>
+<div class="hero-badge">
 
-          <a href="#opportunities" class="btn btn-secondary">
-            💰 Find Opportunities
-          </a>
+<span class="pulse"></span>
 
-        </div>
+Welcome to LifeKey Hub
 
-      </div>
+</div>
 
+<h1>
 
-      <div class="hero-visual">
-        <div class="orb"></div>
-      </div>
+Unlock Your
 
-    </div>
+<span class="gradient-text">
+Next Level.
+</span>
 
+</h1>
 
-    <!-- =====================================================
-         SEARCH
-         ===================================================== -->
+<p>
 
-    <div class="search-section">
+LifeKey Hub brings together knowledge, skills,
+business ideas, digital opportunities, technology,
+money, health, education and useful information —
+all in one growing platform.
 
-      <div class="search-box">
+</p>
 
-        <input
-          type="text"
-          id="searchInput"
-          placeholder="Search LifeKey Hub..."
-          autocomplete="off"
-        >
+<div class="hero-buttons">
 
-        <button onclick="searchSite()">
-          🔍 Search
-        </button>
+<a href="#explore" class="btn btn-primary">
+🚀 Explore LifeKey
+</a>
 
-      </div>
+<a href="#opportunities" class="btn btn-secondary">
+💰 Discover Opportunities
+</a>
 
-      <p
-        id="searchMessage"
-        style="text-align:center;color:#aab7d4;margin-top:12px;font-size:.85rem;"
-      ></p>
+</div>
 
-    </div>
+</div>
 
 
-    <!-- =====================================================
-         QUICK STATS
-         ===================================================== -->
+<!-- LIFEKEY ORB -->
 
-    <div class="feature-strip">
+<div class="hero-visual">
 
-      <div class="feature">
-        <strong>10+</strong>
-        <span>Knowledge & opportunity categories</span>
-      </div>
+<div class="orb-wrap">
 
-      <div class="feature">
-        <strong>∞</strong>
-        <span>Ideas for learning, building and growing</span>
-      </div>
+<div class="orb">
 
-      <div class="feature">
-        <strong>24/7</strong>
-        <span>Your digital knowledge hub</span>
-      </div>
+<div class="orb-content">
 
-    </div>
+<div class="key-symbol">
+🔑
+</div>
 
+<div class="orb-title">
+Life<span>Key</span>
+</div>
 
-    <!-- =====================================================
-         EXPLORE
-         ===================================================== -->
+<div class="orb-subtitle">
+Unlock Your Next Level
+</div>
 
-    <section id="explore">
+</div>
 
-      <div class="section-heading">
+</div>
 
-        <div class="small">
-          Explore
-        </div>
+</div>
 
-        <h2>
-          Everything Starts With an Idea
-        </h2>
+</div>
 
-        <p>
-          Discover practical areas that can help you learn new skills,
-          discover opportunities and build something valuable.
-        </p>
+</div>
 
-      </div>
 
+<!-- ================= SEARCH ================= -->
 
-      <div class="cards">
+<div class="search-section">
 
+<div class="search-box">
 
-        <!-- BUSINESS -->
+<input
+type="text"
+id="searchInput"
+placeholder="Search LifeKey Hub..."
+autocomplete="off"
+>
 
-        <div
-          class="card"
-          onclick="openCategory('Business & Entrepreneurship')"
-        >
+<button onclick="searchSite()">
+🔍 Search
+</button>
 
-          <div class="icon">💼</div>
+</div>
 
-          <h3>
-            Business & Entrepreneurship
-          </h3>
+<p
+id="searchMessage"
+style="text-align:center;color:#aab7d4;margin-top:12px;font-size:.85rem;"
+></p>
 
-          <p>
-            Business ideas, strategies, planning, growth and practical
-            entrepreneurship knowledge.
-          </p>
+</div>
 
-          <span class="card-link">
-            Explore →
-          </span>
 
-        </div>
+<!-- ================= STATS ================= -->
 
+<div class="feature-strip">
 
-        <!-- DIGITAL -->
+<div class="feature">
 
-        <div
-          class="card"
-          onclick="openCategory('Digital Marketing & Technology')"
-        >
+<strong>16+</strong>
 
-          <div class="icon">💻</div>
+<span>
+Knowledge, skill and opportunity categories
+</span>
 
-          <h3>
-            Digital Marketing & Technology
-          </h3>
+</div>
 
-          <p>
-            Learn about websites, digital marketing, AI, technology,
-            social media and online growth.
-          </p>
+<div class="feature">
 
-          <span class="card-link">
-            Explore →
-          </span>
+<strong>∞</strong>
 
-        </div>
+<span>
+Ideas for learning, building and growing
+</span>
 
+</div>
 
-        <!-- MONEY -->
+<div class="feature">
 
-        <div
-          class="card"
-          id="opportunities"
-          onclick="openCategory('Money & Opportunities')"
-        >
+<strong>24/7</strong>
 
-          <div class="icon">💰</div>
+<span>
+Your digital knowledge hub
+</span>
 
-          <h3>
-            Money & Opportunities
-          </h3>
+</div>
 
-          <p>
-            Discover legitimate income ideas, investments, opportunities
-            and ways to improve your financial knowledge.
-          </p>
+</div>
 
-          <span class="card-link">
-            Explore →
-          </span>
 
-        </div>
+<!-- ================= EXPLORE ================= -->
 
+<section id="explore">
 
-        <!-- FREELANCE -->
+<div class="section-heading">
 
-        <div
-          class="card"
-          onclick="openCategory('Freelancing')"
-        >
+<div class="small">
+Explore LifeKey
+</div>
 
-          <div class="icon">👨‍💻</div>
+<h2>
+Discover. Learn. Build. Grow.
+</h2>
 
-          <h3>
-            Freelancing
-          </h3>
+<p>
 
-          <p>
-            Skills, platforms, services and strategies for building
-            income through freelance work.
-          </p>
+Explore different areas of life, business,
+technology, money, creativity and knowledge.
 
-          <span class="card-link">
-            Explore →
-          </span>
+</p>
 
-        </div>
+</div>
 
 
-        <!-- AFFILIATE -->
+<!-- MONEY -->
 
-        <div
-          class="card"
-          onclick="openCategory('Affiliate Marketing')"
-        >
+<div class="category-title">
 
-          <div class="icon">🔗</div>
+<span>💰</span>
 
-          <h3>
-            Affiliate Marketing
-          </h3>
+Money & Opportunity
 
-          <p>
-            Learn how affiliate marketing works and how useful products
-            and services can be promoted responsibly.
-          </p>
+</div>
 
-          <span class="card-link">
-            Explore →
-          </span>
+<div class="cards">
 
-        </div>
+<div class="card" onclick="openCategory('Money & Opportunities')">
 
+<div class="icon">💰</div>
 
-        <!-- DIGITAL PRODUCTS -->
+<h3>Money & Opportunities</h3>
 
-        <div
-          class="card"
-          onclick="openCategory('Digital Products')"
-        >
+<p>
+Legitimate income ideas, financial knowledge,
+opportunities and wealth-building concepts.
+</p>
 
-          <div class="icon">📦</div>
+<span class="card-link">Explore →</span>
 
-          <h3>
-            Digital Products
-          </h3>
+</div>
 
-          <p>
-            Discover ebooks, templates, guides, courses and other
-            digital products that can create value online.
-          </p>
 
-          <span class="card-link">
-            Explore →
-          </span>
+<div class="card" onclick="openCategory('Trading & Investing')">
 
-        </div>
+<div class="icon">📈</div>
 
+<h3>Trading & Investing</h3>
 
-        <!-- DROPSHIPPING -->
+<p>
+Learn about markets, trading concepts,
+investing, risk management and financial education.
+</p>
 
-        <div
-          class="card"
-          onclick="openCategory('Dropshipping')"
-        >
+<span class="card-link">Explore →</span>
 
-          <div class="icon">🛒</div>
+</div>
 
-          <h3>
-            Dropshipping
-          </h3>
 
-          <p>
-            Learn the fundamentals of online product businesses,
-            suppliers, stores, marketing and fulfillment.
-          </p>
+<div class="card" onclick="openCategory('Freelancing')">
 
-          <span class="card-link">
-            Explore →
-          </span>
+<div class="icon">👨‍💻</div>
 
-        </div>
+<h3>Freelancing</h3>
 
+<p>
+Skills, services, platforms and strategies
+for building freelance income.
+</p>
 
-        <!-- REAL ESTATE -->
+<span class="card-link">Explore →</span>
 
-        <div
-          class="card"
-          onclick="openCategory('Real Estate')"
-        >
+</div>
 
-          <div class="icon">🏠</div>
 
-          <h3>
-            Real Estate
-          </h3>
+<div class="card" onclick="openCategory('Affiliate Marketing')">
 
-          <p>
-            Property knowledge, real-estate ideas, investment concepts
-            and opportunities.
-          </p>
+<div class="icon">🔗</div>
 
-          <span class="card-link">
-            Explore →
-          </span>
+<h3>Affiliate Marketing</h3>
 
-        </div>
+<p>
+Learn how useful products and services
+can be promoted through affiliate marketing.
+</p>
 
+<span class="card-link">Explore →</span>
 
-        <!-- AGRICULTURE -->
+</div>
 
-        <div
-          class="card"
-          onclick="openCategory('Fish Farming & Agriculture')"
-        >
 
-          <div class="icon">🐟</div>
+<div class="card" onclick="openCategory('Digital Products')">
 
-          <h3>
-            Fish Farming & Agriculture
-          </h3>
+<div class="icon">📦</div>
 
-          <p>
-            Practical agricultural knowledge, fish farming, food
-            production and agribusiness opportunities.
-          </p>
+<h3>Digital Products</h3>
 
-          <span class="card-link">
-            Explore →
-          </span>
+<p>
+Ebooks, templates, guides, courses and
+other digital products.
+</p>
 
-        </div>
+<span class="card-link">Explore →</span>
 
+</div>
 
-        <!-- HEALTH -->
 
-        <div
-          class="card"
-          id="health"
-          onclick="openCategory('Health & Wellness')"
-        >
+<div class="card" onclick="openCategory('Dropshipping')">
 
-          <div class="icon">❤️</div>
+<div class="icon">🛒</div>
 
-          <h3>
-            Health & Wellness
-          </h3>
+<h3>Dropshipping</h3>
 
-          <p>
-            General wellness information, healthy habits, lifestyle
-            education and useful health resources.
-          </p>
+<p>
+Learn online product business, suppliers,
+stores, marketing and fulfillment.
+</p>
 
-          <span class="card-link">
-            Explore →
-          </span>
+<span class="card-link">Explore →</span>
 
-        </div>
+</div>
 
 
-        <!-- EDUCATION -->
+<div class="card" onclick="openCategory('Real Estate')">
 
-        <div
-          class="card"
-          onclick="openCategory('Education & Innovation')"
-        >
+<div class="icon">🏠</div>
 
-          <div class="icon">📚</div>
+<h3>Real Estate</h3>
 
-          <h3>
-            Education & Innovation
-          </h3>
+<p>
+Property knowledge, investment concepts
+and real estate opportunities.
+</p>
 
-          <p>
-            Learning resources, useful knowledge, inventions,
-            innovation and new ideas.
-          </p>
+<span class="card-link">Explore →</span>
 
-          <span class="card-link">
-            Explore →
-          </span>
+</div>
 
-        </div>
+</div>
 
 
-        <!-- PORTFOLIO -->
+<!-- BUSINESS & TECHNOLOGY -->
 
-        <div
-          class="card"
-          onclick="openCategory('Portfolio')"
-        >
+<div class="category-title">
 
-          <div class="icon">📁</div>
+<span>🚀</span>
 
-          <h3>
-            Portfolio
-          </h3>
+Business & Technology
 
-          <p>
-            Projects, experiments, businesses, services and work
-            showcased through LifeKey Hub.
-          </p>
+</div>
 
-          <span class="card-link">
-            View →
-          </span>
+<div class="cards">
 
-        </div>
+<div class="card" onclick="openCategory('Business & Entrepreneurship')">
 
+<div class="icon">💼</div>
 
-        <!-- BLOG -->
+<h3>Business & Entrepreneurship</h3>
 
-        <div
-          class="card"
-          id="blog"
-          onclick="openCategory('Blog')"
-        >
+<p>
+Business ideas, strategies, planning,
+growth and entrepreneurship.
+</p>
 
-          <div class="icon">📝</div>
+<span class="card-link">Explore →</span>
 
-          <h3>
-            LifeKey Blog
-          </h3>
+</div>
 
-          <p>
-            Articles, guides, tutorials, ideas, discoveries and useful
-            information published regularly.
-          </p>
 
-          <span class="card-link">
-            Read →
-          </span>
+<div class="card" onclick="openCategory('Digital Marketing & Technology')">
 
-        </div>
+<div class="icon">💻</div>
 
+<h3>Digital Marketing & Technology</h3>
 
-      </div>
+<p>
+Digital marketing, websites, AI,
+technology and online growth.
+</p>
 
-    </section>
+<span class="card-link">Explore →</span>
 
+</div>
 
-    <!-- =====================================================
-         FEATURE CTA
-         ===================================================== -->
 
-    <section>
+<div class="card" onclick="openCategory('Web Design')">
 
-      <div class="cta">
+<div class="icon">🌐</div>
 
-        <h2>
-          Knowledge Can Become Opportunity.
-        </h2>
+<h3>Web Design</h3>
 
-        <p>
-          Learn something useful. Discover an opportunity. Build a skill.
-          Create value. LifeKey Hub is being built to bring these
-          possibilities together.
-        </p>
+<p>
+Website creation, design principles,
+HTML, CSS, JavaScript and web development.
+</p>
 
-        <a
-          href="#newsletter"
-          class="btn btn-primary"
-        >
-          📩 Join LifeKey
-        </a>
+<span class="card-link">Explore →</span>
 
-      </div>
+</div>
 
-    </section>
 
+<div class="card" onclick="openCategory('Graphic Design')">
 
-    <!-- =====================================================
-         NEWSLETTER
-         ===================================================== -->
+<div class="icon">🎨</div>
 
-    <section id="newsletter">
+<h3>Graphic Design</h3>
 
-      <div class="newsletter">
+<p>
+Visual design, branding, graphics,
+creative tools and design skills.
+</p>
 
-        <div>
+<span class="card-link">Explore →</span>
 
-          <div class="small" style="color:#00e5ff;">
-            STAY CONNECTED
-          </div>
+</div>
 
-          <h2>
-            Get LifeKey Updates
-          </h2>
 
-          <p>
-            New opportunities, useful articles, digital ideas,
-            technology, health and business content can be delivered
-            straight to your inbox.
-          </p>
+<div class="card" onclick="openCategory('Innovation')">
 
-        </div>
+<div class="icon">💡</div>
 
+<h3>Innovation</h3>
 
-        <form
-          class="newsletter-form"
-          onsubmit="subscribeUser(event)"
-        >
+<p>
+New ideas, inventions, problem solving,
+technology and creative solutions.
+</p>
 
-          <input
-            type="email"
-            id="emailInput"
-            placeholder="Enter your email"
-            required
-          >
+<span class="card-link">Explore →</span>
 
-          <button
-            class="btn btn-primary"
-            type="submit"
-          >
-            Subscribe
-          </button>
+</div>
 
-        </form>
+</div>
 
-      </div>
 
-    </section>
+<!-- LIFE & DEVELOPMENT -->
 
+<div class="category-title">
 
-    <!-- =====================================================
-         CONTACT CTA
-         ===================================================== -->
+<span>🌱</span>
 
-    <section id="contact">
+Life & Development
 
-      <div class="section-heading">
+</div>
 
-        <div class="small">
-          Connect
-        </div>
+<div class="cards">
 
-        <h2>
-          Have an Idea or Question?
-        </h2>
+<div class="card" id="health" onclick="openCategory('Health & Wellness')">
 
-        <p>
-          LifeKey Hub will eventually connect visitors with useful
-          resources, services, products and opportunities.
-        </p>
+<div class="icon">❤️</div>
 
-      </div>
+<h3>Health & Wellness</h3>
 
-      <div style="text-align:center;">
+<p>
+General wellness information, healthy habits,
+lifestyle education and useful resources.
+</p>
 
-        <a
-          class="btn btn-primary"
-          href="https://wa.me/"
-          target="_blank"
-        >
-          💬 Contact on WhatsApp
-        </a>
+<span class="card-link">Explore →</span>
 
-      </div>
+</div>
 
-    </section>
 
-  </main>
+<div class="card" onclick="openCategory('Education & Innovation')">
 
+<div class="icon">📚</div>
 
-  <!-- =======================================================
-       FOOTER
-       ======================================================= -->
+<h3>Education & Learning</h3>
 
-  <footer>
+<p>
+Learning resources, knowledge, skills,
+education and personal development.
+</p>
 
-    <div class="footer-inner">
+<span class="card-link">Explore →</span>
 
+</div>
 
-      <div class="footer-col">
 
-        <div class="logo">
-          Life<span>Key</span> Hub
-        </div>
+<div class="card" onclick="openCategory('Fish Farming & Agriculture')">
 
-        <p style="margin-top:15px;">
-          Unlocking knowledge, ideas and opportunities
-          for a better future.
-        </p>
+<div class="icon">🐟</div>
 
-        <div class="socials">
+<h3>Fish Farming & Agriculture</h3>
 
-          <a class="social" href="#" aria-label="Facebook">
-            f
-          </a>
+<p>
+Agriculture, fish farming, food production
+and agribusiness opportunities.
+</p>
 
-          <a class="social" href="#" aria-label="Instagram">
-            ◎
-          </a>
+<span class="card-link">Explore →</span>
 
-          <a class="social" href="#" aria-label="YouTube">
-            ▶
-          </a>
+</div>
 
-          <a class="social" href="#" aria-label="TikTok">
-            ♪
-          </a>
+</div>
 
-          <a class="social" href="#" aria-label="WhatsApp">
-            ☎
-          </a>
 
-        </div>
+<!-- KNOWLEDGE & SOCIETY -->
 
-      </div>
+<div class="category-title">
 
+<span>🌍</span>
 
-      <div class="footer-col">
+Knowledge & Society
 
-        <h3>Explore</h3>
+</div>
 
-        <a href="#explore">Business</a>
-        <a href="#explore">Technology</a>
-        <a href="#opportunities">Money</a>
-        <a href="#explore">Freelancing</a>
-        <a href="#health">Health</a>
+<div class="cards">
 
-      </div>
+<div class="card" onclick="openCategory('History')">
 
+<div class="icon">📜</div>
 
-      <div class="footer-col">
+<h3>History</h3>
 
-        <h3>Resources</h3>
+<p>
+Explore historical events, people,
+civilizations and lessons from the past.
+</p>
 
-        <a href="#explore">Digital Products</a>
-        <a href="#explore">Agriculture</a>
-        <a href="#explore">Real Estate</a>
-        <a href="#blog">Blog</a>
-        <a href="#newsletter">Newsletter</a>
+<span class="card-link">Explore →</span>
 
-      </div>
+</div>
 
 
-      <div class="footer-col">
+<div class="card" onclick="openCategory('Politics & Current Affairs')">
 
-        <h3>LifeKey</h3>
+<div class="icon">🏛️</div>
 
-        <a href="#home">About</a>
-        <a href="#contact">Contact</a>
-        <a href="#">Privacy</a>
-        <a href="#">Terms</a>
-        <a href="#">Disclaimer</a>
+<h3>Politics & Current Affairs</h3>
 
-      </div>
+<p>
+Political education, current affairs,
+government, society and public issues.
+</p>
 
-    </div>
+<span class="card-link">Explore →</span>
 
+</div>
 
-    <div class="copyright">
 
-      © <span id="year"></span> LifeKey Hub.
-      All rights reserved.
+<div class="card" onclick="openCategory('Portfolio')">
 
-    </div>
+<div class="icon">📁</div>
 
-  </footer>
+<h3>Portfolio</h3>
 
+<p>
+Projects, experiments, businesses,
+services and work showcased through LifeKey.
+</p>
 
-  <!-- BACK TO TOP -->
+<span class="card-link">View →</span>
 
-  <button id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-    ↑
-  </button>
+</div>
 
 
-  <!-- =======================================================
-       JAVASCRIPT
-       ======================================================= -->
+<div class="card" id="blog" onclick="openCategory('LifeKey Blog')">
 
-  <script>
+<div class="icon">📝</div>
 
-    /* -------------------------------------------------------
-       MOBILE MENU
-       ------------------------------------------------------- */
+<h3>LifeKey Blog</h3>
 
-    const menuBtn = document.getElementById("menuBtn");
-    const navMenu = document.getElementById("navMenu");
+<p>
+Articles, guides, tutorials, ideas,
+discoveries and useful information.
+</p>
 
-    menuBtn.addEventListener("click", function () {
-      navMenu.classList.toggle("active");
-    });
+<span class="card-link">Read →</span>
 
+</div>
 
-    /* -------------------------------------------------------
-       CLOSE MOBILE MENU AFTER CLICK
-       ------------------------------------------------------- */
+</div>
 
-    document.querySelectorAll("#navMenu a").forEach(function(link) {
+</section>
 
-      link.addEventListener("click", function() {
-        navMenu.classList.remove("active");
-      });
 
-    });
+<!-- ================= CTA ================= -->
 
+<section>
 
-    /* -------------------------------------------------------
-       CATEGORY PLACEHOLDER
-       ------------------------------------------------------- */
+<div class="cta">
 
-    function openCategory(category) {
+<h2>
+Knowledge Can Become Opportunity.
+</h2>
 
-      alert(
-        category +
-        " is coming to LifeKey Hub.\n\n" +
-        "We will build this section in the next stage."
-      );
+<p>
 
-    }
+Learn something useful.
+Discover an opportunity.
+Build a skill.
+Create value.
 
+LifeKey Hub brings these possibilities together.
 
-    /* -------------------------------------------------------
-       SEARCH
-       ------------------------------------------------------- */
+</p>
 
-    function searchSite() {
+<a href="#newsletter" class="btn btn-primary">
+📩 Join LifeKey
+</a>
 
-      const input =
-        document.getElementById("searchInput").value
-        .trim()
-        .toLowerCase();
+</div>
 
-      const message =
-        document.getElementById("searchMessage");
+</section>
 
-      if (!input) {
 
-        message.textContent =
-          "Please enter something to search.";
+<!-- ================= NEWSLETTER ================= -->
 
-        return;
-      }
+<section id="newsletter">
 
-      const cards =
-        document.querySelectorAll(".card");
+<div class="newsletter">
 
-      let found = false;
+<div>
 
-      cards.forEach(function(card) {
+<div class="section-heading" style="text-align:left;margin-bottom:10px;">
 
-        const text =
-          card.innerText.toLowerCase();
+<div class="small">
+Stay Connected
+</div>
 
-        if (text.includes(input)) {
+</div>
 
-          card.style.display = "block";
+<h2>
+Get LifeKey Updates
+</h2>
 
-          card.scrollIntoView({
-            behavior: "smooth",
-            block: "center"
-          });
+<p>
 
-          found = true;
+New opportunities, useful articles,
+digital ideas, technology, health,
+business and more can be delivered
+to your inbox.
 
-        }
+</p>
 
-      });
+</div>
 
-      if (found) {
 
-        message.textContent =
-          "Showing a matching LifeKey section.";
+<form
+class="newsletter-form"
+onsubmit="subscribeUser(event)"
+>
 
-      } else {
+<input
+type="email"
+id="emailInput"
+placeholder="Enter your email"
+required
+>
 
-        message.textContent =
-          "No matching section found yet. More content will be added soon.";
+<button
+class="btn btn-primary"
+type="submit"
+>
 
-      }
+Subscribe
 
-    }
+</button>
 
+</form>
 
-    /* -------------------------------------------------------
-       ENTER KEY SEARCH
-       ------------------------------------------------------- */
+</div>
 
-    document
-      .getElementById("searchInput")
-      .addEventListener("keypress", function(event) {
+</section>
 
-        if (event.key === "Enter") {
-          searchSite();
-        }
 
-      });
+<!-- ================= CONTACT ================= -->
 
+<section id="contact">
 
-    /* -------------------------------------------------------
-       NEWSLETTER
-       ------------------------------------------------------- */
+<div class="section-heading">
 
-    function subscribeUser(event) {
+<div class="small">
+Connect
+</div>
 
-      event.preventDefault();
+<h2>
+Have an Idea or Question?
+</h2>
 
-      const email =
-        document.getElementById("emailInput").value;
+<p>
 
-      alert(
-        "Thank you!\n\n" +
-        email +
-        " has been added to the LifeKey Hub newsletter list.\n\n" +
-        "The real email system will be connected in a future stage."
-      );
+LifeKey Hub will connect people with
+knowledge, resources, products,
+services and opportunities.
 
-      document
-        .getElementById("emailInput")
-        .value = "";
+</p>
 
-    }
+</div>
 
+<div style="text-align:center;">
 
-    /* -------------------------------------------------------
-       YEAR
-       ------------------------------------------------------- */
+<a
+class="btn btn-primary"
+href="https://wa.me/"
+target="_blank"
+>
 
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
+💬 Contact on WhatsApp
 
+</a>
 
-    /* -------------------------------------------------------
-       BACK TO TOP BUTTON
-       ------------------------------------------------------- */
+</div>
 
-    const topBtn =
-      document.getElementById("topBtn");
+</section>
 
-    window.addEventListener("scroll", function() {
+</main>
 
-      if (window.scrollY > 500) {
 
-        topBtn.style.display = "block";
+<!-- ================= FOOTER ================= -->
 
-      } else {
+<footer>
 
-        topBtn.style.display = "none";
+<div class="footer-inner">
 
-      }
+<div class="footer-col">
 
-    });
+<div class="logo">
+Life<span>Key</span> Hub
+</div>
 
+<p style="margin-top:15px;">
 
-    /* -------------------------------------------------------
-       SIMPLE CARD ANIMATION ON LOAD
-       ------------------------------------------------------- */
+Unlocking knowledge, ideas,
+skills and opportunities
+for a better future.
 
-    const cards =
-      document.querySelectorAll(".card");
+</p>
 
-    cards.forEach(function(card, index) {
+<div class="socials">
 
-      card.style.opacity = "0";
-      card.style.transform = "translateY(20px)";
+<a class="social" href="#" aria-label="Facebook">
+f
+</a>
 
-      setTimeout(function() {
+<a class="social" href="#" aria-label="Instagram">
+◎
+</a>
 
-        card.style.transition =
-          "opacity .6s ease, transform .6s ease";
+<a class="social" href="#" aria-label="YouTube">
+▶
+</a>
 
-        card.style.opacity = "1";
-        card.style.transform = "translateY(0)";
+<a class="social" href="#" aria-label="TikTok">
+♪
+</a>
 
-      }, index * 70);
+<a class="social" href="#" aria-label="WhatsApp">
+☎
+</a>
 
-    });
+</div>
 
-  </script>
+</div>
+
+
+<div class="footer-col">
+
+<h3>Money</h3>
+
+<a href="#explore">Money</a>
+<a href="#explore">Trading</a>
+<a href="#explore">Freelancing</a>
+<a href="#explore">Affiliate Marketing</a>
+<a href="#explore">Digital Products</a>
+<a href="#explore">Real Estate</a>
+
+</div>
+
+
+<div class="footer-col">
+
+<h3>Technology</h3>
+
+<a href="#explore">Digital Marketing</a>
+<a href="#explore">Web Design</a>
+<a href="#explore">Graphic Design</a>
+<a href="#explore">Innovation</a>
+<a href="#explore">Technology</a>
+
+</div>
+
+
+<div class="footer-col">
+
+<h3>Life & Knowledge</h3>
+
+<a href="#health">Health</a>
+<a href="#explore">Education</a>
+<a href="#explore">Agriculture</a>
+<a href="#explore">History</a>
+<a href="#explore">Politics</a>
+<a href="#blog">Blog</a>
+
+</div>
+
+</div>
+
+
+<div class="copyright">
+
+© <span id="year"></span> LifeKey Hub.
+All rights reserved.
+
+</div>
+
+</footer>
+
+
+<!-- ================= TOP BUTTON ================= -->
+
+<button
+id="topBtn"
+onclick="window.scrollTo({top:0,behavior:'smooth'})"
+>
+
+↑
+
+</button>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+/* MOBILE MENU */
+
+const menuBtn=document.getElementById("menuBtn");
+const navMenu=document.getElementById("navMenu");
+
+menuBtn.addEventListener("click",function(){
+
+navMenu.classList.toggle("active");
+
+});
+
+
+/* CLOSE MOBILE MENU */
+
+document.querySelectorAll("#navMenu a").forEach(function(link){
+
+link.addEventListener("click",function(){
+
+navMenu.classList.remove("active");
+
+});
+
+});
+
+
+/* CATEGORY PLACEHOLDER */
+
+function openCategory(category){
+
+alert(
+category+
+" is part of LifeKey Hub.\n\n"+
+"We are building this section next."
+);
+
+}
+
+
+/* SEARCH */
+
+function searchSite(){
+
+const input=document
+.getElementById("searchInput")
+.value
+.trim()
+.toLowerCase();
+
+const message=document
+.getElementById("searchMessage");
+
+if(!input){
+
+message.textContent=
+"Please enter something to search.";
+
+return;
+
+}
+
+const cards=document.querySelectorAll(".card");
+
+let found=false;
+
+cards.forEach(function(card){
+
+const text=card.innerText.toLowerCase();
+
+if(text.includes(input)){
+
+card.scrollIntoView({
+behavior:"smooth",
+block:"center"
+});
+
+card.style.borderColor=
+"rgba(0,229,255,.8)";
+
+found=true;
+
+setTimeout(function(){
+
+card.style.borderColor="";
+
+},3000);
+
+}
+
+});
+
+if(found){
+
+message.textContent=
+"Matching LifeKey content found.";
+
+}else{
+
+message.textContent=
+"No matching section found yet. More content will be added soon.";
+
+}
+
+}
+
+
+/* ENTER SEARCH */
+
+document
+.getElementById("searchInput")
+.addEventListener("keypress",function(event){
+
+if(event.key==="Enter"){
+
+searchSite();
+
+}
+
+});
+
+
+/* NEWSLETTER */
+
+function subscribeUser(event){
+
+event.preventDefault();
+
+const email=document
+.getElementById("emailInput")
+.value;
+
+alert(
+"Thank you!\n\n"+
+email+
+" has been received for the LifeKey newsletter.\n\n"+
+"The real email system will be connected in a future stage."
+);
+
+document
+.getElementById("emailInput")
+.value="";
+
+}
+
+
+/* YEAR */
+
+document
+.getElementById("year")
+.textContent=
+new Date().getFullYear();
+
+
+/* BACK TO TOP */
+
+const topBtn=document
+.getElementById("topBtn");
+
+window.addEventListener("scroll",function(){
+
+if(window.scrollY>500){
+
+topBtn.style.display="block";
+
+}else{
+
+topBtn.style.display="none";
+
+}
+
+});
+
+
+/* CARD ANIMATION */
+
+const cards=document
+.querySelectorAll(".card");
+
+cards.forEach(function(card,index){
+
+card.style.opacity="0";
+card.style.transform="translateY(20px)";
+
+setTimeout(function(){
+
+card.style.transition=
+"opacity .6s ease, transform .6s ease";
+
+card.style.opacity="1";
+card.style.transform="translateY(0)";
+
+},index*60);
+
+});
+
+</script>
 
 </body>
 </html>
