@@ -1,0 +1,1601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Money & Opportunities | LifeKey Hub</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:
+        radial-gradient(circle at 20% 10%,rgba(168,85,247,.18),transparent 28%),
+        radial-gradient(circle at 80% 30%,rgba(10,110,70,.12),transparent 25%),
+        linear-gradient(135deg,#030308,#09050f,#03100b);
+    color:#fff;
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+
+/* =========================
+   BACKGROUND ENERGY
+========================= */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+
+    background:
+        linear-gradient(
+            115deg,
+            transparent 0%,
+            rgba(168,85,247,.035) 40%,
+            transparent 60%
+        );
+
+    animation:energyMove 9s ease-in-out infinite alternate;
+}
+
+@keyframes energyMove{
+    from{transform:translateX(-5%);}
+    to{transform:translateX(5%);}
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+nav{
+    position:sticky;
+    top:0;
+    z-index:100;
+
+    padding:16px 7%;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    background:rgba(3,3,8,.75);
+
+    border-bottom:
+        1px solid rgba(192,132,252,.18);
+
+    backdrop-filter:blur(18px);
+}
+
+.logo{
+    font-size:1.35rem;
+    font-weight:900;
+    color:#fff;
+
+    text-decoration:none;
+
+    text-shadow:
+        0 0 12px rgba(168,85,247,.7);
+}
+
+.logo span{
+    color:#c084fc;
+}
+
+.back{
+    color:#ddd;
+    text-decoration:none;
+
+    padding:10px 17px;
+
+    border:1px solid rgba(192,132,252,.25);
+
+    border-radius:12px;
+
+    background:rgba(168,85,247,.05);
+
+    transition:.3s;
+}
+
+.back:hover{
+    color:#fff;
+
+    background:rgba(168,85,247,.15);
+
+    box-shadow:
+        0 0 20px rgba(168,85,247,.2);
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:470px;
+
+    padding:80px 7% 65px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    position:relative;
+}
+
+.hero-content{
+    max-width:900px;
+    position:relative;
+    z-index:2;
+}
+
+.badge{
+    display:inline-block;
+
+    padding:9px 18px;
+
+    border-radius:30px;
+
+    border:1px solid rgba(192,132,252,.35);
+
+    background:rgba(168,85,247,.07);
+
+    color:#c084fc;
+
+    font-size:.85rem;
+
+    letter-spacing:1px;
+
+    box-shadow:
+        0 0 25px rgba(168,85,247,.12);
+}
+
+.hero h1{
+    margin-top:22px;
+
+    font-size:
+        clamp(2.5rem,7vw,5.5rem);
+
+    line-height:1.05;
+
+    font-weight:950;
+
+    background:
+        linear-gradient(
+            100deg,
+            #ffffff,
+            #c084fc,
+            #a855f7,
+            #52d49a
+        );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
+
+    text-shadow:
+        0 0 35px rgba(168,85,247,.22);
+}
+
+.hero p{
+    max-width:700px;
+
+    margin:24px auto 0;
+
+    color:#c2becd;
+
+    line-height:1.8;
+
+    font-size:1.05rem;
+}
+
+
+/* =========================
+   3D MONEY CORE
+========================= */
+
+.money-core{
+    width:150px;
+    height:150px;
+
+    margin:0 auto 25px;
+
+    border-radius:50%;
+
+    position:relative;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:
+        radial-gradient(
+            circle at 30% 25%,
+            #fff,
+            #c084fc 8%,
+            #7c3aed 25%,
+            #241033 55%,
+            #020307 78%
+        );
+
+    box-shadow:
+        inset -25px -25px 45px rgba(0,0,0,.75),
+        inset 15px 12px 30px rgba(255,255,255,.2),
+        0 0 30px rgba(168,85,247,.65),
+        0 0 80px rgba(168,85,247,.25);
+
+    animation:
+        coreFloat 5s ease-in-out infinite;
+}
+
+.money-core::before,
+.money-core::after{
+    content:"";
+
+    position:absolute;
+
+    border-radius:50%;
+
+    border:1px solid rgba(192,132,252,.35);
+}
+
+.money-core::before{
+    inset:-20px;
+
+    transform:
+        rotateX(65deg);
+
+    animation:
+        orbit 8s linear infinite;
+}
+
+.money-core::after{
+    inset:-35px;
+
+    border-color:rgba(0,229,255,.20);
+
+    transform:
+        rotateX(70deg)
+        rotateZ(45deg);
+
+    animation:
+        orbit 12s linear infinite reverse;
+}
+
+.money-symbol{
+    font-size:3.5rem;
+
+    position:relative;
+    z-index:2;
+
+    text-shadow:
+        0 0 12px #fff,
+        0 0 30px #a855f7;
+}
+
+@keyframes coreFloat{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-13px);
+    }
+}
+
+@keyframes orbit{
+
+    from{
+        transform:
+            rotateX(65deg)
+            rotateZ(0deg);
+    }
+
+    to{
+        transform:
+            rotateX(65deg)
+            rotateZ(360deg);
+    }
+}
+
+
+/* =========================
+   INTRO
+========================= */
+
+.container{
+    width:min(1180px,90%);
+    margin:auto;
+}
+
+.intro{
+    text-align:center;
+
+    max-width:850px;
+
+    margin:
+        20px auto 55px;
+}
+
+.intro h2{
+    font-size:2rem;
+
+    margin-bottom:15px;
+
+    color:#fff;
+}
+
+.intro p{
+    color:#aaa6b7;
+
+    line-height:1.8;
+}
+
+
+/* =========================
+   TOPIC GRID
+========================= */
+
+.topic-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:22px;
+
+    perspective:1200px;
+}
+
+.topic{
+
+    min-height:225px;
+
+    padding:28px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:22px;
+
+    border:
+        1px solid rgba(192,132,252,.20);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.065),
+            rgba(168,85,247,.035),
+            rgba(5,25,15,.08)
+        );
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.08),
+        0 18px 45px rgba(0,0,0,.32);
+
+    backdrop-filter:blur(14px);
+
+    transition:.4s;
+
+    transform-style:preserve-3d;
+}
+
+.topic::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:150px;
+    height:150px;
+
+    right:-80px;
+    top:-80px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(168,85,247,.25),
+            transparent 70%
+        );
+
+    filter:blur(12px);
+}
+
+.topic::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:10%;
+    right:10%;
+    bottom:0;
+
+    height:1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(192,132,252,.5),
+            rgba(0,229,255,.25),
+            transparent
+        );
+}
+
+.topic:hover{
+
+    transform:
+        translateY(-10px)
+        rotateX(3deg)
+        rotateY(-2deg);
+
+    border-color:
+        rgba(192,132,252,.55);
+
+    box-shadow:
+        0 30px 65px rgba(0,0,0,.45),
+        0 0 35px rgba(168,85,247,.14);
+}
+
+.topic-icon{
+
+    font-size:2.3rem;
+
+    margin-bottom:17px;
+
+    display:inline-block;
+
+    filter:
+        drop-shadow(0 0 9px rgba(168,85,247,.55));
+
+    transform:translateZ(30px);
+}
+
+.topic h3{
+
+    font-size:1.25rem;
+
+    margin-bottom:10px;
+
+    color:#fff;
+
+    transform:translateZ(20px);
+}
+
+.topic p{
+
+    color:#aaa7b7;
+
+    line-height:1.65;
+
+    font-size:.92rem;
+
+    transform:translateZ(15px);
+}
+
+.topic a{
+
+    display:inline-block;
+
+    margin-top:15px;
+
+    color:#c084fc;
+
+    text-decoration:none;
+
+    font-weight:bold;
+}
+
+.topic a:hover{
+    color:#00e5ff;
+}
+
+
+/* =========================
+   SECTION
+========================= */
+
+.section{
+    padding:80px 0 20px;
+}
+
+.section-title{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin-bottom:30px;
+
+    padding:14px 18px;
+
+    border-left:
+        3px solid #a855f7;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(168,85,247,.10),
+            transparent
+        );
+
+    border-radius:12px;
+}
+
+.section-title h2{
+    color:#fff;
+}
+
+.section-title span{
+    color:#c084fc;
+}
+
+
+/* =========================
+   OPPORTUNITY LIST
+========================= */
+
+.opportunity-list{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:16px;
+}
+
+.opportunity{
+
+    padding:20px;
+
+    border-radius:17px;
+
+    background:
+        rgba(255,255,255,.035);
+
+    border:
+        1px solid rgba(192,132,252,.14);
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    transition:.3s;
+}
+
+.opportunity:hover{
+
+    transform:translateX(5px);
+
+    background:
+        rgba(168,85,247,.07);
+
+    border-color:
+        rgba(192,132,252,.4);
+
+    box-shadow:
+        0 0 25px rgba(168,85,247,.10);
+}
+
+.opportunity-icon{
+    font-size:1.7rem;
+}
+
+.opportunity h3{
+    font-size:1rem;
+
+    margin-bottom:5px;
+
+    color:#fff;
+}
+
+.opportunity p{
+    color:#9692a2;
+
+    font-size:.86rem;
+}
+
+
+/* =========================
+   CTA
+========================= */
+
+.cta{
+
+    margin:
+        85px auto 70px;
+
+    max-width:1000px;
+
+    padding:55px 35px;
+
+    text-align:center;
+
+    border-radius:28px;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(168,85,247,.18),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(20,130,75,.13),
+            transparent 35%
+        ),
+        rgba(255,255,255,.035);
+
+    border:
+        1px solid rgba(192,132,252,.25);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.10),
+        0 25px 70px rgba(0,0,0,.38);
+
+    backdrop-filter:blur(16px);
+}
+
+.cta h2{
+    font-size:2rem;
+
+    color:#fff;
+
+    margin-bottom:15px;
+}
+
+.cta p{
+    color:#aaa6b7;
+
+    max-width:700px;
+
+    margin:auto;
+
+    line-height:1.7;
+}
+
+.cta-button{
+
+    display:inline-block;
+
+    margin-top:25px;
+
+    padding:14px 25px;
+
+    border-radius:14px;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    color:#fff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7c3aed,
+            #a855f7,
+            #087f76
+        );
+
+    box-shadow:
+        0 0 25px rgba(168,85,247,.22);
+
+    transition:.3s;
+}
+
+.cta-button:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+        0 0 35px rgba(168,85,247,.40);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+
+    margin-top:50px;
+
+    padding:35px 7%;
+
+    text-align:center;
+
+    border-top:
+        1px solid rgba(168,85,247,.15);
+
+    background:
+        rgba(0,0,0,.30);
+}
+
+footer p{
+    color:#888494;
+
+    font-size:.85rem;
+
+    line-height:1.7;
+}
+
+footer strong{
+    color:#c084fc;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:850px){
+
+    .topic-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:600px){
+
+    nav{
+        padding:14px 5%;
+    }
+
+    .hero{
+        padding:
+            60px 5% 45px;
+    }
+
+    .money-core{
+        width:125px;
+        height:125px;
+    }
+
+    .topic-grid{
+        grid-template-columns:1fr;
+    }
+
+    .opportunity-list{
+        grid-template-columns:1fr;
+    }
+
+    .topic{
+        min-height:200px;
+    }
+
+    .cta{
+        padding:40px 22px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<nav>
+
+<a href="index.html" class="logo">
+    Life<span>Key</span>
+</a>
+
+<a href="index.html" class="back">
+    ← LifeKey Hub
+</a>
+
+</nav>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<div class="money-core">
+    <div class="money-symbol">₦</div>
+</div>
+
+<div class="badge">
+    LIFEKEY • MONEY & OPPORTUNITIES
+</div>
+
+<h1>
+    Build Your
+    <br>
+    Financial Future
+</h1>
+
+<p>
+    Explore legitimate ways to develop skills,
+    create income streams, build businesses,
+    invest wisely and discover opportunities
+    in the digital and real world.
+</p>
+
+</div>
+
+</section>
+
+
+<main class="container">
+
+
+<!-- =========================
+     INTRO
+========================= -->
+
+<section class="intro">
+
+<h2>
+    Explore Your Opportunities
+</h2>
+
+<p>
+    There is no single path to financial growth.
+    Learn different skills, understand different
+    opportunities and choose the paths that fit
+    your abilities, resources and goals.
+</p>
+
+</section>
+
+
+<!-- =========================
+     DIGITAL INCOME
+========================= -->
+
+<section class="section">
+
+<div class="section-title">
+
+<span>01</span>
+
+<h2>
+    Digital Income
+</h2>
+
+</div>
+
+
+<div class="topic-grid">
+
+
+<div class="topic">
+
+<div class="topic-icon">🔗</div>
+
+<h3>
+    Affiliate Marketing
+</h3>
+
+<p>
+    Learn how affiliate marketing works,
+    how to choose useful products and
+    how to build traffic and trust.
+</p>
+
+<a href="#">
+    Explore →
+</a>
+
+</div>
+
+
+<div class="topic">
+
+<div class="topic-icon">📦</div>
+
+<h3>
+    Digital Products
+</h3>
+
+<p>
+    Explore e-books, templates,
+    guides, courses, graphics and
+    other digital products.
+</p>
+
+<a href="#">
+    Explore →
+</a>
+
+</div>
+
+
+<div class="topic">
+
+<div class="topic-icon">👨‍💻</div>
+
+<h3>
+    Freelancing
+</h3>
+
+<p>
+    Turn practical skills into services
+    that businesses and individuals
+    can pay you to provide.
+</p>
+
+<a href="#">
+    Explore →
+</a>
+
+</div>
+
+
+<div class="topic">
+
+<div class="topic-icon">📧</div>
+
+<h3>
+    Email Marketing
+</h3>
+
+<p>
+    Learn how newsletters, email lists
+    and valuable content can become
+    part of a digital business.
+</p>
+
+<a href="#">
+    Explore →
+</a>
+
+</div>
+
+
+<div class="topic">
+
+<div class="topic-icon">🛒</div>
+
+<h3>
+    Dropshipping
+</h3>
+
+<p>
+    Understand online product selling,
+    stores, suppliers, customers,
+    marketing and fulfillment.
+</p>
+
+<a href="#">
+    Explore →
+</a>
+
+</div>
+
+
+<div class="topic">
+
+<div class="topic-icon">✍️</div>
+
+<h3>
+    Copywriting
+</h3>
+
+<p>
+    Learn how persuasive writing is
+    used in advertisements, landing
+    pages, emails and sales pages.
+</p>
+
+<a href="#">
+    Explore →
+</a>
+
+</div>
+
+
+<div class="topic">
+
+<div class="topic-icon">🎥</div>
+
+<h3>
+    Content Creation
+</h3>
+
+<p>
+    Build useful content through
+    video, articles, social media,
+    education and entertainment.
+</p>
+
+<a href="#">
+    Explore →
+</a>
+
+</div>
+
+
+<div class="topic">
+
+<div class="topic-icon">🌐</div>
+
+<h3>
+    Web Design
+</h3>
+
+<p>
+    Build websites for businesses,
+    professionals, organizations
+    and personal brands.
+</p>
+
+<a href="#">
+    Explore →
+</a>
+
+</div>
+
+
+<div class="topic">
+
+<div class="topic-icon">🎨</div>
+
+<h3>
+    Graphic Design
+</h3>
+
+<p>
+    Create logos, flyers, social
+    graphics, branding materials
+    and visual content.
+</p>
+
+<a href="#">
+    Explore →
+</a>
+
+</div>
+
+
+<div class="topic">
+
+<div class="topic-icon">📝</div>
+
+<h3>
+    Blogging
+</h3>
+
+<p>
+    Learn how useful written content
+    can attract audiences and support
+    digital businesses.
+</p>
+
+<a href="#">
+    Explore →
+</a>
+
+</div>
+
+
+<div class="topic">
+
+<div class="topic-icon">📱</div>
+
+<h3>
+    Social Media Services
+</h3>
+
+<p>
+    Help businesses manage content,
+    branding, engagement and
+    social-media presence.
+</p>
+
+<a href="#">
+    Explore →
+</a>
+
+</div>
+
+
+<div class="topic">
+
+<div class="topic-icon">🎓</div>
+
+<h3>
+    Online Education
+</h3>
+
+<p>
+    Turn knowledge and useful skills
+    into courses, tutorials and
+    educational resources.
+</p>
+
+<a href="#">
+    Explore →
+</a>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     BUSINESS
+========================= -->
+
+<section class="section">
+
+<div class="section-title">
+
+<span>02</span>
+
+<h2>
+    Business & Entrepreneurship
+</h2>
+
+</div>
+
+
+<div class="opportunity-list">
+
+
+<div class="opportunity">
+
+<div class="opportunity-icon">🚀</div>
+
+<div>
+
+<h3>
+    Start a Small Business
+</h3>
+
+<p>
+    Discover practical business ideas,
+    planning and customer development.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="opportunity">
+
+<div class="opportunity-icon">🏪</div>
+
+<div>
+
+<h3>
+    Local Services
+</h3>
+
+<p>
+    Build income around useful services
+    people already need.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="opportunity">
+
+<div class="opportunity-icon">🛍️</div>
+
+<div>
+
+<h3>
+    E-commerce
+</h3>
+
+<p>
+    Explore selling products through
+    online platforms.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="opportunity">
+
+<div class="opportunity-icon">♻️</div>
+
+<div>
+
+<h3>
+    Reselling
+</h3>
+
+<p>
+    Learn how buying, improving and
+    reselling products can work.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="opportunity">
+
+<div class="opportunity-icon">📦</div>
+
+<div>
+
+<h3>
+    Import & Export
+</h3>
+
+<p>
+    Explore product sourcing and
+    international trade concepts.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="opportunity">
+
+<div class="opportunity-icon">⭐</div>
+
+<div>
+
+<h3>
+    Personal Branding
+</h3>
+
+<p>
+    Build credibility around your
+    skills, knowledge and work.
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     FINANCE
+========================= -->
+
+<section class="section">
+
+<div class="section-title">
+
+<span>03</span>
+
+<h2>
+    Finance & Investing
+</h2>
+
+</div>
+
+
+<div class="topic-grid">
+
+
+<div class="topic">
+
+<div class="topic-icon">📈</div>
+
+<h3>
+    Investing
+</h3>
+
+<p>
+    Understand long-term investing,
+    diversification, risk and
+    financial planning.
+</p>
+
+<a href="#">
+    Learn More →
+</a>
+
+</div>
+
+
+<div class="topic">
+
+<div class="topic-icon">💹</div>
+
+<h3>
+    Trading
+</h3>
+
+<p>
+    Learn the fundamentals of markets,
+    risk management and responsible
+    trading education.
+</p>
+
+<a href="#">
+    Learn More →
+</a>
+
+</div>
+
+
+<div class="topic">
+
+<div class="topic-icon">🏦</div>
+
+<h3>
+    Stocks
+</h3>
+
+<p>
+    Explore how shares and public
+    companies work.
+</p>
+
+<a href="#">
+    Learn More →
+</a>
+
+</div>
+
+
+<div class="topic">
+
+<div class="topic-icon">₿</div>
+
+<h3>
+    Digital Assets
+</h3>
+
+<p>
+    Learn about digital assets,
+    blockchain concepts and risks.
+</p>
+
+<a href="#">
+    Learn More →
+</a>
+
+</div>
+
+
+<div class="topic">
+
+<div class="topic-icon">💰</div>
+
+<h3>
+    Personal Finance
+</h3>
+
+<p>
+    Learn budgeting, saving,
+    financial planning and
+    responsible money management.
+</p>
+
+<a href="#">
+    Learn More →
+</a>
+
+</div>
+
+
+<div class="topic">
+
+<div class="topic-icon">🏆</div>
+
+<h3>
+    Wealth Building
+</h3>
+
+<p>
+    Explore long-term approaches
+    to building financial stability.
+</p>
+
+<a href="#">
+    Learn More →
+</a>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     PHYSICAL OPPORTUNITIES
+========================= -->
+
+<section class="section">
+
+<div class="section-title">
+
+<span>04</span>
+
+<h2>
+    Real-World Opportunities
+</h2>
+
+</div>
+
+
+<div class="opportunity-list">
+
+
+<div class="opportunity">
+
+<div class="opportunity-icon">🏠</div>
+
+<div>
+
+<h3>
+    Real Estate
+</h3>
+
+<p>
+    Learn about property, real-estate
+    business and investment concepts.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="opportunity">
+
+<div class="opportunity-icon">🐟</div>
+
+<div>
+
+<h3>
+    Fish Farming
+</h3>
+
+<p>
+    Explore aquaculture and
+    agricultural business opportunities.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="opportunity">
+
+<div class="opportunity-icon">🌱</div>
+
+<div>
+
+<h3>
+    Agriculture
+</h3>
+
+<p>
+    Discover farming, food production
+    and agricultural businesses.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="opportunity">
+
+<div class="opportunity-icon">🔧</div>
+
+<div>
+
+<h3>
+    Skilled Services
+</h3>
+
+<p>
+    Turn practical technical skills
+    into valuable services.
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     CTA
+========================= -->
+
+<section class="cta">
+
+<h2>
+    Your Next Opportunity Could Start Here.
+</h2>
+
+<p>
+    Learn a skill. Solve a problem.
+    Build something useful. Serve people.
+    Create value and keep developing.
+</p>
+
+<a href="index.html" class="cta-button">
+    ← Return to LifeKey Hub
+</a>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+<p>
+    <strong>LifeKey Hub</strong>
+    — Your digital gateway to knowledge,
+    opportunities, skills and innovation.
+</p>
+
+<p>
+    Learn • Build • Create • Grow
+</p>
+
+</footer>
+
+
+</body>
+</html>
