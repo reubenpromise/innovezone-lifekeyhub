@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Trading & Investing | LifeKey Hub</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    color:#fff;
+    min-height:100vh;
+    overflow-x:hidden;
+
+    background:
+        radial-gradient(circle at 15% 10%,rgba(168,85,247,.18),transparent 28%),
+        radial-gradient(circle at 85% 25%,rgba(0,150,100,.14),transparent 28%),
+        linear-gradient(135deg,#030308,#08050e,#03100b);
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+
+    background:
+        linear-gradient(
+            115deg,
+            transparent,
+            rgba(168,85,247,.035),
+            transparent
+        );
+
+    animation:energy 10s ease-in-out infinite alternate;
+}
+
+@keyframes energy{
+    from{transform:translateX(-5%);}
+    to{transform:translateX(5%);}
+}
+
+
+/* NAVIGATION */
+
+nav{
+    position:sticky;
+    top:0;
+    z-index:100;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:16px 7%;
+
+    background:rgba(3,3,8,.78);
+
+    border-bottom:1px solid rgba(192,132,252,.18);
+
+    backdrop-filter:blur(18px);
+}
+
+.logo{
+    text-decoration:none;
+    color:#fff;
+
+    font-size:1.35rem;
+    font-weight:900;
+
+    text-shadow:0 0 14px rgba(168,85,247,.7);
+}
+
+.logo span{
+    color:#c084fc;
+}
+
+.back{
+    text-decoration:none;
+    color:#ddd;
+
+    padding:10px 17px;
+
+    border-radius:12px;
+
+    border:1px solid rgba(192,132,252,.25);
+
+    background:rgba(168,85,247,.05);
+
+    transition:.3s;
+}
+
+.back:hover{
+    color:#fff;
+    background:rgba(168,85,247,.15);
+}
+
+
+/* HERO */
+
+.hero{
+    min-height:500px;
+
+    padding:65px 7% 75px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    position:relative;
+}
+
+.hero-content{
+    max-width:950px;
+    position:relative;
+    z-index:2;
+}
+
+
+/* 3D MARKET ORB */
+
+.market-orb{
+    width:155px;
+    height:155px;
+
+    margin:0 auto 30px;
+
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    position:relative;
+
+    background:
+        radial-gradient(
+            circle at 30% 25%,
+            #fff,
+            #c084fc 8%,
+            #7c3aed 25%,
+            #21102f 56%,
+            #020307 80%
+        );
+
+    box-shadow:
+        inset -25px -25px 45px rgba(0,0,0,.78),
+        inset 15px 12px 30px rgba(255,255,255,.18),
+        0 0 35px rgba(168,85,247,.65),
+        0 0 90px rgba(168,85,247,.22);
+
+    animation:floatOrb 5s ease-in-out infinite;
+}
+
+.market-orb::before{
+    content:"";
+
+    position:absolute;
+
+    inset:-20px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(192,132,252,.4);
+
+    transform:rotateX(68deg);
+
+    animation:orbitOne 8s linear infinite;
+}
+
+.market-orb::after{
+    content:"";
+
+    position:absolute;
+
+    inset:-35px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(0,229,255,.18);
+
+    transform:rotateX(70deg) rotateZ(45deg);
+
+    animation:orbitTwo 12s linear infinite reverse;
+}
+
+.market-symbol{
+    font-size:3.1rem;
+
+    position:relative;
+    z-index:3;
+
+    text-shadow:
+        0 0 10px #fff,
+        0 0 30px #a855f7;
+}
+
+@keyframes floatOrb{
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-13px);
+    }
+}
+
+@keyframes orbitOne{
+    from{
+        transform:rotateX(68deg) rotateZ(0deg);
+    }
+
+    to{
+        transform:rotateX(68deg) rotateZ(360deg);
+    }
+}
+
+@keyframes orbitTwo{
+    from{
+        transform:rotateX(70deg) rotateZ(0deg);
+    }
+
+    to{
+        transform:rotateX(70deg) rotateZ(360deg);
+    }
+}
+
+
+/* HERO TEXT */
+
+.badge{
+    display:inline-block;
+
+    padding:9px 18px;
+
+    border-radius:30px;
+
+    border:1px solid rgba(192,132,252,.35);
+
+    background:rgba(168,85,247,.07);
+
+    color:#c084fc;
+
+    font-size:.84rem;
+
+    letter-spacing:1px;
+}
+
+.hero h1{
+    margin-top:22px;
+
+    font-size:clamp(2.5rem,7vw,5.4rem);
+
+    line-height:1.05;
+
+    font-weight:950;
+
+    background:
+        linear-gradient(
+            100deg,
+            #fff,
+            #c084fc,
+            #a855f7,
+            #55d49a
+        );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
+
+    text-shadow:
+        0 0 35px rgba(168,85,247,.22);
+}
+
+.hero p{
+    max-width:760px;
+
+    margin:25px auto 0;
+
+    color:#bcb8c8;
+
+    line-height:1.8;
+
+    font-size:1.05rem;
+}
+
+
+/* MAIN */
+
+.container{
+    width:min(1180px,90%);
+    margin:auto;
+}
+
+.intro{
+    text-align:center;
+
+    max-width:850px;
+
+    margin:10px auto 55px;
+}
+
+.intro h2{
+    font-size:2rem;
+    margin-bottom:14px;
+}
+
+.intro p{
+    color:#aaa6b7;
+    line-height:1.8;
+}
+
+
+/* SECTION */
+
+.section{
+    padding:70px 0 15px;
+}
+
+.section-title{
+    display:flex;
+    align-items:center;
+    gap:15px;
+
+    margin-bottom:30px;
+
+    padding:14px 18px;
+
+    border-left:3px solid #a855f7;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(168,85,247,.10),
+            transparent
+        );
+
+    border-radius:12px;
+}
+
+.section-title span{
+    color:#c084fc;
+    font-weight:bold;
+}
+
+.section-title h2{
+    color:#fff;
+}
+
+
+/* CARDS */
+
+.card-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:22px;
+
+    perspective:1200px;
+}
+
+.card{
+    min-height:235px;
+
+    padding:28px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:22px;
+
+    border:1px solid rgba(192,132,252,.20);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.065),
+            rgba(168,85,247,.035),
+            rgba(5,25,15,.08)
+        );
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.08),
+        0 18px 45px rgba(0,0,0,.32);
+
+    backdrop-filter:blur(14px);
+
+    transition:.4s;
+
+    transform-style:preserve-3d;
+}
+
+.card:hover{
+    transform:
+        translateY(-10px)
+        rotateX(3deg)
+        rotateY(-2deg);
+
+    border-color:rgba(192,132,252,.55);
+
+    box-shadow:
+        0 30px 65px rgba(0,0,0,.45),
+        0 0 35px rgba(168,85,247,.14);
+}
+
+.card::before{
+    content:"";
+
+    position:absolute;
+
+    width:150px;
+    height:150px;
+
+    right:-80px;
+    top:-80px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(168,85,247,.24),
+            transparent 70%
+        );
+
+    filter:blur(10px);
+}
+
+.icon{
+    font-size:2.3rem;
+
+    margin-bottom:17px;
+
+    display:inline-block;
+
+    filter:
+        drop-shadow(
+            0 0 9px
+            rgba(168,85,247,.55)
+        );
+
+    transform:translateZ(30px);
+}
+
+.card h3{
+    font-size:1.25rem;
+
+    margin-bottom:10px;
+
+    transform:translateZ(20px);
+}
+
+.card p{
+    color:#aaa7b7;
+
+    line-height:1.65;
+
+    font-size:.92rem;
+
+    transform:translateZ(15px);
+}
+
+
+/* MARKET LIST */
+
+.market-list{
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:16px;
+}
+
+.market-item{
+    padding:20px;
+
+    border-radius:17px;
+
+    background:rgba(255,255,255,.035);
+
+    border:1px solid rgba(192,132,252,.14);
+
+    display:flex;
+
+    gap:15px;
+
+    align-items:flex-start;
+
+    transition:.3s;
+}
+
+.market-item:hover{
+    transform:translateX(5px);
+
+    background:rgba(168,85,247,.07);
+
+    border-color:rgba(192,132,252,.4);
+}
+
+.market-item .mini-icon{
+    font-size:1.7rem;
+}
+
+.market-item h3{
+    font-size:1rem;
+    margin-bottom:5px;
+}
+
+.market-item p{
+    color:#9692a2;
+    font-size:.86rem;
+    line-height:1.6;
+}
+
+
+/* RISK BOX */
+
+.warning{
+    margin-top:55px;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    border:1px solid rgba(255,190,80,.22);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,190,80,.07),
+            rgba(168,85,247,.035)
+        );
+}
+
+.warning h3{
+    margin-bottom:10px;
+}
+
+.warning p{
+    color:#aaa6b7;
+    line-height:1.8;
+}
+
+
+/* CTA */
+
+.cta{
+    margin:85px auto 70px;
+
+    max-width:1000px;
+
+    padding:55px 35px;
+
+    text-align:center;
+
+    border-radius:28px;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(168,85,247,.18),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(20,130,75,.13),
+            transparent 35%
+        ),
+        rgba(255,255,255,.035);
+
+    border:1px solid rgba(192,132,252,.25);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.10),
+        0 25px 70px rgba(0,0,0,.38);
+
+    backdrop-filter:blur(16px);
+}
+
+.cta h2{
+    font-size:2rem;
+    margin-bottom:15px;
+}
+
+.cta p{
+    color:#aaa6b7;
+
+    max-width:700px;
+
+    margin:auto;
+
+    line-height:1.7;
+}
+
+.button{
+    display:inline-block;
+
+    margin-top:25px;
+
+    padding:14px 25px;
+
+    border-radius:14px;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    color:#fff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7c3aed,
+            #a855f7,
+            #087f76
+        );
+
+    box-shadow:
+        0 0 25px rgba(168,85,247,.22);
+
+    transition:.3s;
+}
+
+.button:hover{
+    transform:translateY(-4px);
+
+    box-shadow:
+        0 0 35px rgba(168,85,247,.40);
+}
+
+
+/* FOOTER */
+
+footer{
+    margin-top:50px;
+
+    padding:35px 7%;
+
+    text-align:center;
+
+    border-top:1px solid rgba(168,85,247,.15);
+
+    background:rgba(0,0,0,.30);
+}
+
+footer p{
+    color:#888494;
+
+    font-size:.85rem;
+
+    line-height:1.7;
+}
+
+footer strong{
+    color:#c084fc;
+}
+
+
+/* MOBILE */
+
+@media(max-width:850px){
+
+    .card-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:600px){
+
+    nav{
+        padding:14px 5%;
+    }
+
+    .hero{
+        padding:55px 5% 45px;
+    }
+
+    .market-orb{
+        width:125px;
+        height:125px;
+    }
+
+    .card-grid{
+        grid-template-columns:1fr;
+    }
+
+    .market-list{
+        grid-template-columns:1fr;
+    }
+
+    .card{
+        min-height:205px;
+    }
+
+    .cta{
+        padding:40px 22px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- NAVIGATION -->
+
+<nav>
+
+<a href="index.html" class="logo">
+Life<span>Key</span>
+</a>
+
+<a href="index.html" class="back">
+← LifeKey Hub
+</a>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<div class="market-orb">
+<div class="market-symbol">📈</div>
+</div>
+
+<div class="badge">
+LIFEKEY • TRADING & INVESTING
+</div>
+
+<h1>
+Trading
+&
+Investing
+</h1>
+
+<p>
+Explore the world of financial markets,
+investment principles, market analysis,
+risk management and long-term wealth
+building through responsible financial education.
+</p>
+
+</div>
+
+</section>
+
+
+<main class="container">
+
+
+<!-- INTRO -->
+
+<section class="intro">
+
+<h2>
+Understand the Markets. Build Knowledge.
+</h2>
+
+<p>
+Trading and investing are different approaches
+to participating in financial markets. Learn the
+fundamentals first, understand risk and develop
+your knowledge before putting real money at risk.
+</p>
+
+</section>
+
+
+<!-- TRADING -->
+
+<section class="section">
+
+<div class="section-title">
+
+<span>01</span>
+
+<h2>Trading</h2>
+
+</div>
+
+
+<div class="card-grid">
+
+
+<div class="card">
+
+<div class="icon">💱</div>
+
+<h3>Forex Trading</h3>
+
+<p>
+Understand currency markets,
+currency pairs, spreads, leverage
+and the risks involved in forex.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">📊</div>
+
+<h3>Technical Analysis</h3>
+
+<p>
+Learn charts, price action, trends,
+support, resistance and common
+technical indicators.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🔎</div>
+
+<h3>Fundamental Analysis</h3>
+
+<p>
+Understand how economic data,
+company information and market
+conditions can influence prices.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🧠</div>
+
+<h3>Trading Psychology</h3>
+
+<p>
+Explore discipline, patience,
+emotional control and the importance
+of following a trading plan.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🛡️</div>
+
+<h3>Risk Management</h3>
+
+<p>
+Learn why position sizing, stop-loss
+planning and controlled risk are
+essential to responsible trading.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🧪</div>
+
+<h3>Demo Trading</h3>
+
+<p>
+Practice market analysis and
+strategies in simulated environments
+before considering real capital.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- MARKETS -->
+
+<section class="section">
+
+<div class="section-title">
+
+<span>02</span>
+
+<h2>Markets</h2>
+
+</div>
+
+
+<div class="market-list">
+
+
+<div class="market-item">
+
+<div class="mini-icon">💵</div>
+
+<div>
+
+<h3>Foreign Exchange</h3>
+
+<p>
+The global market for currencies
+and currency pairs.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="market-item">
+
+<div class="mini-icon">🏢</div>
+
+<div>
+
+<h3>Stocks</h3>
+
+<p>
+Shares representing ownership
+in publicly traded companies.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="market-item">
+
+<div class="mini-icon">₿</div>
+
+<div>
+
+<h3>Crypto Assets</h3>
+
+<p>
+Learn about digital assets,
+blockchain markets and their
+high volatility and risks.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="market-item">
+
+<div class="mini-icon">🛢️</div>
+
+<div>
+
+<h3>Commodities</h3>
+
+<p>
+Explore markets involving assets
+such as energy, metals and
+agricultural commodities.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="market-item">
+
+<div class="mini-icon">📜</div>
+
+<div>
+
+<h3>Indices</h3>
+
+<p>
+Understand market indexes that
+track groups of companies or
+specific market segments.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="market-item">
+
+<div class="mini-icon">🌍</div>
+
+<div>
+
+<h3>Global Markets</h3>
+
+<p>
+Learn how international economic
+events can affect financial markets.
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- INVESTING -->
+
+<section class="section">
+
+<div class="section-title">
+
+<span>03</span>
+
+<h2>Investing</h2>
+
+</div>
+
+
+<div class="card-grid">
+
+
+<div class="card">
+
+<div class="icon">🏦</div>
+
+<h3>Long-Term Investing</h3>
+
+<p>
+Explore patient, long-term approaches
+to building wealth through diversified
+investments.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">📈</div>
+
+<h3>Stock Investing</h3>
+
+<p>
+Learn how investors research companies,
+evaluate businesses and understand
+share ownership.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">💎</div>
+
+<h3>Dividend Investing</h3>
+
+<p>
+Understand dividends and how some
+companies distribute part of their
+profits to shareholders.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🧺</div>
+
+<h3>Diversification</h3>
+
+<p>
+Learn why spreading investments
+across different assets can help
+manage portfolio risk.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">⏳</div>
+
+<h3>Compound Growth</h3>
+
+<p>
+Understand how returns can potentially
+grow over time when gains are
+reinvested.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🔬</div>
+
+<h3>Investment Research</h3>
+
+<p>
+Develop the habit of examining
+information, risks, costs and
+investment objectives.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- FINANCIAL EDUCATION -->
+
+<section class="section">
+
+<div class="section-title">
+
+<span>04</span>
+
+<h2>Financial Knowledge</h2>
+
+</div>
+
+
+<div class="market-list">
+
+
+<div class="market-item">
+
+<div class="mini-icon">💰</div>
+
+<div>
+
+<h3>Personal Finance</h3>
+
+<p>
+Budgeting, saving, managing expenses
+and preparing for financial goals.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="market-item">
+
+<div class="mini-icon">🧾</div>
+
+<div>
+
+<h3>Fees & Costs</h3>
+
+<p>
+Understand transaction costs,
+brokerage fees, spreads and
+other investment expenses.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="market-item">
+
+<div class="mini-icon">⚖️</div>
+
+<div>
+
+<h3>Risk vs Reward</h3>
+
+<p>
+Learn why potentially higher returns
+usually come with greater uncertainty
+or risk.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="market-item">
+
+<div class="mini-icon">📚</div>
+
+<div>
+
+<h3>Financial Education</h3>
+
+<p>
+Build knowledge before making
+important financial decisions.
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- WARNING -->
+
+<div class="warning">
+
+<h3>
+⚠️ Important Financial Reminder
+</h3>
+
+<p>
+Trading and investing involve risk and can
+result in loss of money. LifeKey Hub provides
+educational information, not personalized
+financial advice or guaranteed returns.
+Always research independently, understand
+the risks and never invest money you cannot
+afford to lose.
+</p>
+
+</div>
+
+
+<!-- CTA -->
+
+<section class="cta">
+
+<h2>
+Your Knowledge Is Your First Investment.
+</h2>
+
+<p>
+Learn the fundamentals, practice responsibly,
+understand risk and continue developing your
+financial knowledge.
+</p>
+
+<a href="index.html" class="button">
+← Return to LifeKey Hub
+</a>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+<p>
+<strong>LifeKey Hub</strong>
+— Your digital gateway to knowledge,
+opportunities, skills and innovation.
+</p>
+
+<p>
+Learn • Build • Create • Grow
+</p>
+
+</footer>
+
+
+</body>
+</html>
