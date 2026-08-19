@@ -881,6 +881,191 @@ footer * {
 .hero-badge {
     color:#00e5ff !important;
 }
+/* ===== FUTURISTIC 3D ORB ===== */
+
+.orb-wrap{
+    perspective:1000px;
+}
+
+.orb{
+    transform-style:preserve-3d;
+
+    background:
+        radial-gradient(
+            circle at 30% 20%,
+            #ffffff 0%,
+            rgba(255,255,255,.95) 2%,
+            rgba(192,132,252,.9) 8%,
+            rgba(168,85,247,.65) 20%,
+            rgba(80,30,130,.55) 38%,
+            rgba(10,30,20,.65) 58%,
+            rgba(2,4,8,.95) 78%
+        );
+
+    box-shadow:
+        inset -35px -30px 60px rgba(0,0,0,.85),
+        inset 20px 15px 35px rgba(255,255,255,.22),
+        0 0 30px rgba(168,85,247,.7),
+        0 0 70px rgba(168,85,247,.35),
+        0 0 120px rgba(22,138,85,.18);
+
+    animation:
+        orbFloat 5s ease-in-out infinite,
+        orbGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes orbFloat{
+
+    0%,100%{
+        transform:
+            translateY(0)
+            rotateX(0deg)
+            rotateY(0deg);
+    }
+
+    50%{
+        transform:
+            translateY(-14px)
+            rotateX(5deg)
+            rotateY(8deg);
+    }
+}
+
+@keyframes orbGlow{
+
+    from{
+        filter:
+            brightness(.95)
+            saturate(1);
+    }
+
+    to{
+        filter:
+            brightness(1.18)
+            saturate(1.25);
+    }
+}
+
+/* 3D atmospheric rings */
+
+.orb::before{
+    content:"";
+
+    position:absolute;
+
+    inset:-22px;
+
+    border-radius:50%;
+
+    border:
+        2px solid rgba(168,85,247,.35);
+
+    box-shadow:
+        0 0 20px rgba(168,85,247,.35);
+
+    transform:
+        rotateX(65deg)
+        rotateZ(15deg);
+
+    animation:
+        ringOne 8s linear infinite;
+}
+
+.orb::after{
+    content:"";
+
+    position:absolute;
+
+    inset:-42px;
+
+    border-radius:50%;
+
+    border:
+        1px solid rgba(0,229,255,.22);
+
+    box-shadow:
+        0 0 25px rgba(0,229,255,.15);
+
+    transform:
+        rotateX(70deg)
+        rotateZ(-25deg);
+
+    animation:
+        ringTwo 12s linear infinite reverse;
+}
+
+@keyframes ringOne{
+
+    from{
+        transform:
+            rotateX(65deg)
+            rotateZ(0deg);
+    }
+
+    to{
+        transform:
+            rotateX(65deg)
+            rotateZ(360deg);
+    }
+}
+
+@keyframes ringTwo{
+
+    from{
+        transform:
+            rotateX(70deg)
+            rotateZ(0deg);
+    }
+
+    to{
+        transform:
+            rotateX(70deg)
+            rotateZ(360deg);
+    }
+}
+
+.orb-content{
+    transform:
+        translateZ(45px);
+
+    text-shadow:
+        0 0 15px rgba(255,255,255,.5);
+}
+
+.key-symbol{
+    color:#ffffff !important;
+
+    font-size:3.5rem;
+
+    filter:
+        drop-shadow(0 0 8px #ffffff)
+        drop-shadow(0 0 20px #a855f7)
+        drop-shadow(0 0 35px #00e5ff);
+}
+
+.orb-title{
+    color:#ffffff !important;
+
+    font-weight:900;
+
+    letter-spacing:1px;
+
+    text-shadow:
+        0 0 8px #ffffff,
+        0 0 20px rgba(168,85,247,.8);
+}
+
+.orb-title span{
+    color:#c084fc !important;
+}
+
+.orb-subtitle{
+    color:#00e5ff !important;
+
+    text-shadow:
+        0 0 8px #00e5ff,
+        0 0 18px rgba(0,229,255,.55);
+}
 </style>
 </head>
 
