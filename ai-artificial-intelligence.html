@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>AI & Artificial Intelligence | LifeKey Hub</title>
+
+<meta name="description"
+content="Learn artificial intelligence, AI tools, prompt engineering, AI for business, freelancing, content creation, automation, coding and responsible AI use.">
+
+<style>
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:Arial,Helvetica,sans-serif;
+color:#fff;
+
+background:
+radial-gradient(circle at 10% 10%,rgba(90,100,255,.18),transparent 30%),
+radial-gradient(circle at 90% 20%,rgba(0,220,180,.13),transparent 30%),
+linear-gradient(135deg,#03050d,#070a18,#03100f);
+
+min-height:100vh;
+}
+
+nav{
+position:sticky;
+top:0;
+z-index:100;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:16px 7%;
+
+background:rgba(3,5,13,.84);
+
+border-bottom:1px solid rgba(130,150,255,.20);
+
+backdrop-filter:blur(18px);
+}
+
+.logo{
+text-decoration:none;
+color:#fff;
+font-size:1.35rem;
+font-weight:900;
+}
+
+.logo span{
+color:#7cf5df;
+}
+
+.back{
+text-decoration:none;
+color:#ddd;
+
+padding:10px 17px;
+
+border-radius:12px;
+
+border:1px solid rgba(124,245,223,.25);
+
+background:rgba(124,245,223,.05);
+}
+
+.hero{
+padding:70px 7% 75px;
+text-align:center;
+}
+
+.hero-icon{
+font-size:5rem;
+margin-bottom:20px;
+
+filter:
+drop-shadow(
+0 0 25px
+rgba(100,130,255,.65)
+);
+}
+
+.badge{
+display:inline-block;
+
+padding:9px 18px;
+
+border-radius:30px;
+
+border:1px solid rgba(124,245,223,.35);
+
+background:rgba(124,245,223,.07);
+
+color:#7cf5df;
+
+font-size:.82rem;
+
+letter-spacing:1px;
+}
+
+.hero h1{
+margin-top:22px;
+
+font-size:clamp(2.5rem,7vw,5rem);
+
+line-height:1.05;
+
+background:
+linear-gradient(
+100deg,
+#fff,
+#9cecff,
+#7cf5df,
+#9d9cff
+);
+
+-webkit-background-clip:text;
+background-clip:text;
+color:transparent;
+}
+
+.hero p{
+max-width:850px;
+
+margin:25px auto 0;
+
+color:#bcbfd0;
+
+line-height:1.8;
+
+font-size:1.05rem;
+}
+
+.container{
+width:min(1180px,90%);
+
+margin:auto;
+}
+
+.intro{
+max-width:850px;
+
+margin:0 auto 55px;
+
+text-align:center;
+}
+
+.intro h2{
+font-size:2rem;
+margin-bottom:15px;
+}
+
+.intro p{
+color:#aaaec0;
+line-height:1.8;
+}
+
+.section{
+padding:55px 0;
+}
+
+.section-title{
+display:flex;
+align-items:center;
+gap:15px;
+
+margin-bottom:30px;
+
+padding:14px 18px;
+
+border-left:3px solid #7cf5df;
+
+background:
+linear-gradient(
+90deg,
+rgba(124,245,223,.10),
+transparent
+);
+
+border-radius:12px;
+}
+
+.section-title span{
+color:#7cf5df;
+font-weight:bold;
+}
+
+.cards{
+display:grid;
+
+grid-template-columns:
+repeat(3,1fr);
+
+gap:20px;
+}
+
+.card{
+padding:28px;
+
+border-radius:22px;
+
+border:1px solid rgba(124,245,223,.17);
+
+background:
+linear-gradient(
+145deg,
+rgba(255,255,255,.06),
+rgba(124,245,223,.025)
+);
+
+box-shadow:
+0 18px 45px rgba(0,0,0,.30);
+
+transition:.35s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+
+border-color:
+rgba(124,245,223,.50);
+
+box-shadow:
+0 25px 60px rgba(0,0,0,.42),
+0 0 30px rgba(124,245,223,.12);
+}
+
+.icon{
+font-size:2.4rem;
+margin-bottom:15px;
+}
+
+.card h3{
+margin-bottom:10px;
+}
+
+.card p{
+color:#aaaec0;
+
+line-height:1.65;
+
+font-size:.91rem;
+}
+
+.tag{
+display:inline-block;
+
+margin-top:15px;
+
+padding:6px 10px;
+
+border-radius:20px;
+
+font-size:.72rem;
+
+color:#7cf5df;
+
+background:rgba(124,245,223,.07);
+
+border:1px solid rgba(124,245,223,.15);
+}
+
+.tool{
+border-color:
+rgba(150,150,255,.22);
+}
+
+.tool:hover{
+border-color:
+rgba(150,150,255,.55);
+}
+
+.tool .tag{
+color:#a7a5ff;
+
+background:rgba(120,120,255,.07);
+
+border-color:rgba(150,150,255,.15);
+}
+
+.info{
+margin-top:45px;
+
+padding:28px;
+
+border-radius:22px;
+
+border:1px solid rgba(100,180,255,.20);
+
+background:
+rgba(70,130,200,.045);
+}
+
+.info h3{
+margin-bottom:12px;
+}
+
+.info p{
+color:#aaaec0;
+
+line-height:1.8;
+}
+
+.cta{
+margin:70px auto;
+
+padding:50px 30px;
+
+max-width:950px;
+
+text-align:center;
+
+border-radius:28px;
+
+border:1px solid rgba(124,245,223,.22);
+
+background:
+radial-gradient(
+circle at 20% 20%,
+rgba(124,245,223,.13),
+transparent 35%
+),
+
+rgba(255,255,255,.035);
+}
+
+.cta h2{
+font-size:2rem;
+margin-bottom:14px;
+}
+
+.cta p{
+color:#aaaec0;
+
+line-height:1.7;
+
+max-width:720px;
+
+margin:auto;
+}
+
+.button{
+display:inline-block;
+
+margin-top:25px;
+
+padding:14px 24px;
+
+border-radius:13px;
+
+text-decoration:none;
+
+font-weight:bold;
+
+color:#fff;
+
+background:
+linear-gradient(
+135deg,
+#3157d8,
+#7cf5df,
+#5364ff
+);
+}
+
+footer{
+padding:35px 7%;
+
+text-align:center;
+
+border-top:
+1px solid rgba(124,245,223,.15);
+}
+
+footer p{
+color:#888c9d;
+
+font-size:.85rem;
+
+line-height:1.7;
+}
+
+footer strong{
+color:#7cf5df;
+}
+
+@media(max-width:900px){
+
+.cards{
+grid-template-columns:
+repeat(2,1fr);
+}
+
+}
+
+@media(max-width:600px){
+
+.cards{
+grid-template-columns:1fr;
+}
+
+.hero{
+padding:55px 5%;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<nav>
+
+<a href="index.html"
+class="logo">
+
+Life<span>Key</span>
+
+</a>
+
+<a href="index.html"
+class="back">
+
+← LifeKey Hub
+
+</a>
+
+</nav>
+
+
+<section class="hero">
+
+<div class="hero-icon">
+🤖
+</div>
+
+<div class="badge">
+LIFEKEY • AI & ARTIFICIAL INTELLIGENCE
+</div>
+
+<h1>
+AI & Artificial Intelligence
+</h1>
+
+<p>
+Learn what artificial intelligence is, how to use
+AI tools, how to write better prompts, how AI can
+help with work and business, and how to turn useful
+AI skills into practical projects and opportunities.
+</p>
+
+</section>
+
+
+<main class="container">
+
+
+<section class="intro">
+
+<h2>
+Understand AI. Use AI. Build With AI.
+</h2>
+
+<p>
+LifeKey will make AI practical and understandable,
+from the basic concepts to useful tools, automation,
+coding, content creation, business applications
+and responsible use.
+</p>
+
+</section>
+
+
+<!-- AI BASICS -->
+
+<section class="section">
+
+<div class="section-title">
+
+<span>01</span>
+
+<h2>AI Fundamentals</h2>
+
+</div>
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<div class="icon">🧠</div>
+
+<h3>What Is AI?</h3>
+
+<p>
+Understand artificial intelligence, machine
+learning, generative AI and how modern AI systems
+produce useful outputs.
+</p>
+
+<span class="tag">
+Lesson
+</span>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">⚙️</div>
+
+<h3>How AI Works</h3>
+
+<p>
+Learn the basic ideas behind models, training,
+data, inference, context and multimodal systems.
+</p>
+
+<span class="tag">
+Lesson
+</span>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">✨</div>
+
+<h3>Generative AI</h3>
+
+<p>
+Understand AI that can generate text, images,
+audio, video, code and other content.
+</p>
+
+<span class="tag">
+Lesson
+</span>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🔤</div>
+
+<h3>Prompt Engineering</h3>
+
+<p>
+Learn how to give AI clear instructions, useful
+context, constraints and examples.
+</p>
+
+<span class="tag">
+Lesson
+</span>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🔍</div>
+
+<h3>Fact Checking AI</h3>
+
+<p>
+Learn why AI can make mistakes and how to verify
+important information before relying on it.
+</p>
+
+<span class="tag">
+Important
+</span>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">⚖️</div>
+
+<h3>Responsible AI</h3>
+
+<p>
+Understand privacy, copyright, safety, bias,
+misinformation and responsible use.
+</p>
+
+<span class="tag">
+Important
+</span>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- AI TOOLS -->
+
+<section class="section">
+
+<div class="section-title">
+
+<span>02</span>
+
+<h2>Useful AI Tools</h2>
+
+</div>
+
+
+<div class="cards">
+
+
+<div class="card tool">
+
+<div class="icon">💬</div>
+
+<h3>ChatGPT</h3>
+
+<p>
+AI assistant for learning, writing, reasoning,
+coding, research, images, files and data analysis.
+</p>
+
+<span class="tag">
+AI Assistant
+</span>
+
+</div>
+
+
+<div class="card tool">
+
+<div class="icon">✨</div>
+
+<h3>Google Gemini</h3>
+
+<p>
+Google's AI assistant with capabilities across
+text, images, coding, research and other tasks.
+</p>
+
+<span class="tag">
+AI Assistant
+</span>
+
+</div>
+
+
+<div class="card tool">
+
+<div class="icon">🧠</div>
+
+<h3>Claude</h3>
+
+<p>
+AI assistant useful for writing, analysis,
+coding, documents, images and research.
+</p>
+
+<span class="tag">
+AI Assistant
+</span>
+
+</div>
+
+
+<div class="card tool">
+
+<div class="icon">🎨</div>
+
+<h3>AI Image Tools</h3>
+
+<p>
+Explore tools for creating illustrations,
+design concepts, marketing graphics and images.
+</p>
+
+<span class="tag">
+Image AI
+</span>
+
+</div>
+
+
+<div class="card tool">
+
+<div class="icon">🎬</div>
+
+<h3>AI Video Tools</h3>
+
+<p>
+Explore AI-assisted video generation, editing,
+animation and creative production.
+</p>
+
+<span class="tag">
+Video AI
+</span>
+
+</div>
+
+
+<div class="card tool">
+
+<div class="icon">🎵</div>
+
+<h3>AI Audio Tools</h3>
+
+<p>
+Explore AI tools for voice, transcription,
+audio editing, music and sound generation.
+</p>
+
+<span class="tag">
+Audio AI
+</span>
+
+</div>
+
+
+<div class="card tool">
+
+<div class="icon">💻</div>
+
+<h3>AI Coding Tools</h3>
+
+<p>
+Explore AI tools that assist with programming,
+debugging, code explanation and development.
+</p>
+
+<span class="tag">
+Coding AI
+</span>
+
+</div>
+
+
+<div class="card tool">
+
+<div class="icon">🔎</div>
+
+<h3>AI Research Tools</h3>
+
+<p>
+Explore tools designed to help research,
+summarize information and organize findings.
+</p>
+
+<span class="tag">
+Research AI
+</span>
+
+</div>
+
+
+<div class="card tool">
+
+<div class="icon">⚡</div>
+
+<h3>AI Automation Tools</h3>
+
+<p>
+Learn how AI can connect tasks, services and
+workflows to reduce repetitive work.
+</p>
+
+<span class="tag">
+Automation
+</span>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- AI FOR WORK -->
+
+<section class="section">
+
+<div class="section-title">
+
+<span>03</span>
+
+<h2>AI for Work & Business</h2>
+
+</div>
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<div class="icon">🏢</div>
+
+<h3>AI for Business</h3>
+
+<p>
+Research, customer service, marketing,
+documents, planning and business analysis.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">📣</div>
+
+<h3>AI Marketing</h3>
+
+<p>
+Generate ideas, research audiences, plan
+campaigns and improve marketing workflows.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">✍️</div>
+
+<h3>AI Content Creation</h3>
+
+<p>
+Use AI responsibly to assist with articles,
+social posts, scripts, ideas and creative work.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">📊</div>
+
+<h3>AI Data Analysis</h3>
+
+<p>
+Use AI to understand spreadsheets, datasets,
+patterns, calculations and visualizations.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">📧</div>
+
+<h3>AI Email & Communication</h3>
+
+<p>
+Improve professional communication, drafts,
+summaries and customer responses.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🔄</div>
+
+<h3>AI Automation</h3>
+
+<p>
+Learn how repetitive workflows can be assisted
+or automated with AI and connected tools.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- AI INCOME -->
+
+<section class="section">
+
+<div class="section-title">
+
+<span>04</span>
+
+<h2>AI & Income Opportunities</h2>
+
+</div>
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<div class="icon">👨‍💻</div>
+
+<h3>AI Freelancing</h3>
+
+<p>
+Learn how AI can increase productivity while
+you provide legitimate services to clients.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🎨</div>
+
+<h3>AI Design Services</h3>
+
+<p>
+Explore responsible AI-assisted design and
+creative services.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">🌐</div>
+
+<h3>AI Website Services</h3>
+
+<p>
+Use AI to assist with website planning,
+coding, content and troubleshooting.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">📦</div>
+
+<h3>AI Digital Products</h3>
+
+<p>
+Explore useful templates, guides, educational
+resources and other original digital products.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">⚙️</div>
+
+<h3>AI Automation Services</h3>
+
+<p>
+Learn how businesses can benefit from
+workflow automation and AI assistance.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">💡</div>
+
+<h3>AI Business Ideas</h3>
+
+<p>
+Explore practical business ideas built around
+solving real problems with AI.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- AI LEARNING PATH -->
+
+<section class="section">
+
+<div class="section-title">
+
+<span>05</span>
+
+<h2>LifeKey AI Learning Path</h2>
+
+</div>
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<div class="icon">1️⃣</div>
+
+<h3>Learn</h3>
+
+<p>
+Understand AI concepts and terminology.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">2️⃣</div>
+
+<h3>Experiment</h3>
+
+<p>
+Try different AI tools and learn their strengths.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">3️⃣</div>
+
+<h3>Practice</h3>
+
+<p>
+Complete practical AI exercises and projects.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">4️⃣</div>
+
+<h3>Build</h3>
+
+<p>
+Create something useful with what you've learned.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">5️⃣</div>
+
+<h3>Apply</h3>
+
+<p>
+Use AI to solve real work or business problems.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">6️⃣</div>
+
+<h3>Grow</h3>
+
+<p>
+Keep learning as AI tools and capabilities evolve.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<div class="info">
+
+<h3>
+⚠️ AI Tools Change Quickly
+</h3>
+
+<p>
+AI products, features, prices, availability and
+usage policies can change. LifeKey will therefore
+keep the AI tools directory updateable instead of
+treating today's tool list as permanent.
+</p>
+
+</div>
+
+
+<section class="cta">
+
+<h2>
+Learn AI. Use AI. Build With AI.
+</h2>
+
+<p>
+LifeKey will gradually turn these sections into
+practical lessons, tool guides, examples, projects,
+prompts and resources.
+</p>
+
+<a href="index.html"
+class="button">
+
+← Return to LifeKey Hub
+
+</a>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+<p>
+<strong>LifeKey Hub</strong>
+— Learn • Build • Create • Grow
+</p>
+
+<p>
+Practical knowledge for the digital world.
+</p>
+
+</footer>
+
+
+</body>
+
+</html>
