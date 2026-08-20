@@ -1,0 +1,1775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Real Estate | LifeKey Hub</title>
+
+<style>
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:Arial,Helvetica,sans-serif;
+color:#fff;
+min-height:100vh;
+overflow-x:hidden;
+
+background:
+radial-gradient(circle at 12% 10%,rgba(255,190,80,.14),transparent 28%),
+radial-gradient(circle at 88% 25%,rgba(0,190,255,.13),transparent 30%),
+linear-gradient(135deg,#070605,#0c0a05,#031014);
+}
+
+body:before{
+content:"";
+position:fixed;
+inset:0;
+pointer-events:none;
+
+background:
+linear-gradient(
+120deg,
+transparent,
+rgba(255,190,80,.035),
+transparent
+);
+
+animation:energy 10s ease-in-out infinite alternate;
+}
+
+@keyframes energy{
+from{transform:translateX(-5%)}
+to{transform:translateX(5%)}
+}
+
+
+/* NAVIGATION */
+
+nav{
+position:sticky;
+top:0;
+z-index:100;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:16px 7%;
+
+background:rgba(7,6,5,.78);
+
+border-bottom:1px solid rgba(255,190,80,.18);
+
+backdrop-filter:blur(18px);
+}
+
+.logo{
+text-decoration:none;
+color:#fff;
+
+font-size:1.35rem;
+font-weight:900;
+
+text-shadow:0 0 14px rgba(255,190,80,.65);
+}
+
+.logo span{
+color:#ffc45c;
+}
+
+.back{
+text-decoration:none;
+color:#ddd;
+
+padding:10px 17px;
+
+border-radius:12px;
+
+border:1px solid rgba(255,190,80,.25);
+
+background:rgba(255,190,80,.05);
+}
+
+
+/* HERO */
+
+.hero{
+min-height:500px;
+
+padding:65px 7% 75px;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+text-align:center;
+
+position:relative;
+}
+
+.hero-content{
+max-width:950px;
+
+position:relative;
+z-index:2;
+}
+
+
+/* 3D PROPERTY ORB */
+
+.property-orb{
+width:155px;
+height:155px;
+
+margin:0 auto 30px;
+
+border-radius:50%;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+position:relative;
+
+background:
+radial-gradient(
+circle at 30% 25%,
+#fff,
+#ffe7a6 8%,
+#d59b22 27%,
+#493612 56%,
+#030302 80%
+);
+
+box-shadow:
+
+inset -25px -25px 45px rgba(0,0,0,.78),
+
+inset 15px 12px 30px rgba(255,255,255,.18),
+
+0 0 35px rgba(255,190,80,.65),
+
+0 0 90px rgba(255,190,80,.20);
+
+animation:floatOrb 5s ease-in-out infinite;
+}
+
+.property-orb:before{
+content:"";
+
+position:absolute;
+
+inset:-20px;
+
+border-radius:50%;
+
+border:1px solid rgba(255,210,120,.42);
+
+transform:rotateX(68deg);
+
+animation:orbitOne 8s linear infinite;
+}
+
+.property-orb:after{
+content:"";
+
+position:absolute;
+
+inset:-35px;
+
+border-radius:50%;
+
+border:1px solid rgba(0,190,255,.22);
+
+transform:rotateX(70deg) rotateZ(45deg);
+
+animation:orbitTwo 12s linear infinite reverse;
+}
+
+.property-symbol{
+font-size:3.1rem;
+
+position:relative;
+z-index:3;
+
+text-shadow:
+0 0 10px #fff,
+0 0 30px #ffc45c;
+}
+
+@keyframes floatOrb{
+
+0%,100%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-13px);
+}
+
+}
+
+@keyframes orbitOne{
+
+from{
+transform:rotateX(68deg) rotateZ(0deg);
+}
+
+to{
+transform:rotateX(68deg) rotateZ(360deg);
+}
+
+}
+
+@keyframes orbitTwo{
+
+from{
+transform:rotateX(70deg) rotateZ(0deg);
+}
+
+to{
+transform:rotateX(70deg) rotateZ(360deg);
+}
+
+}
+
+
+/* HERO TEXT */
+
+.badge{
+display:inline-block;
+
+padding:9px 18px;
+
+border-radius:30px;
+
+border:1px solid rgba(255,210,120,.35);
+
+background:rgba(255,190,80,.07);
+
+color:#ffd77d;
+
+font-size:.84rem;
+
+letter-spacing:1px;
+}
+
+.hero h1{
+margin-top:22px;
+
+font-size:clamp(2.5rem,7vw,5.3rem);
+
+line-height:1.05;
+
+font-weight:950;
+
+background:
+linear-gradient(
+100deg,
+#fff,
+#ffe7a6,
+#ffc45c,
+#67dfff
+);
+
+-webkit-background-clip:text;
+
+background-clip:text;
+
+color:transparent;
+}
+
+.hero p{
+max-width:760px;
+
+margin:25px auto 0;
+
+color:#bcb8c8;
+
+line-height:1.8;
+
+font-size:1.05rem;
+}
+
+
+/* CONTAINER */
+
+.container{
+width:min(1180px,90%);
+margin:auto;
+}
+
+
+/* INTRO */
+
+.intro{
+text-align:center;
+
+max-width:850px;
+
+margin:10px auto 55px;
+}
+
+.intro h2{
+font-size:2rem;
+
+margin-bottom:14px;
+}
+
+.intro p{
+color:#aaa6b7;
+
+line-height:1.8;
+}
+
+
+/* SECTION */
+
+.section{
+padding:70px 0 15px;
+}
+
+.section-title{
+display:flex;
+
+align-items:center;
+
+gap:15px;
+
+margin-bottom:30px;
+
+padding:14px 18px;
+
+border-left:3px solid #ffc45c;
+
+background:
+linear-gradient(
+90deg,
+rgba(255,190,80,.10),
+transparent
+);
+
+border-radius:12px;
+}
+
+.section-title span{
+color:#ffd77d;
+
+font-weight:bold;
+}
+
+.section-title h2{
+color:#fff;
+}
+
+
+/* CARDS */
+
+.card-grid{
+display:grid;
+
+grid-template-columns:
+repeat(3,1fr);
+
+gap:22px;
+
+perspective:1200px;
+}
+
+.card{
+min-height:235px;
+
+padding:28px;
+
+position:relative;
+
+overflow:hidden;
+
+border-radius:22px;
+
+border:1px solid rgba(255,210,120,.20);
+
+background:
+linear-gradient(
+145deg,
+rgba(255,255,255,.065),
+rgba(255,190,80,.035),
+rgba(10,15,18,.08)
+);
+
+box-shadow:
+inset 0 1px 0 rgba(255,255,255,.08),
+0 18px 45px rgba(0,0,0,.32);
+
+backdrop-filter:blur(14px);
+
+transition:.4s;
+
+transform-style:preserve-3d;
+}
+
+.card:hover{
+transform:
+translateY(-10px)
+rotateX(3deg)
+rotateY(-2deg);
+
+border-color:rgba(255,210,120,.55);
+
+box-shadow:
+0 30px 65px rgba(0,0,0,.45),
+0 0 35px rgba(255,190,80,.14);
+}
+
+.card:before{
+content:"";
+
+position:absolute;
+
+width:150px;
+height:150px;
+
+right:-80px;
+top:-80px;
+
+border-radius:50%;
+
+background:
+radial-gradient(
+circle,
+rgba(255,190,80,.24),
+transparent 70%
+);
+
+filter:blur(10px);
+}
+
+.icon{
+font-size:2.3rem;
+
+margin-bottom:17px;
+
+display:inline-block;
+
+filter:
+drop-shadow(
+0 0 9px
+rgba(255,190,80,.55)
+);
+
+transform:translateZ(30px);
+}
+
+.card h3{
+font-size:1.25rem;
+
+margin-bottom:10px;
+
+transform:translateZ(20px);
+}
+
+.card p{
+color:#aaa7b7;
+
+line-height:1.65;
+
+font-size:.92rem;
+
+transform:translateZ(15px);
+}
+
+
+/* INFO LIST */
+
+.info-list{
+display:grid;
+
+grid-template-columns:
+repeat(2,1fr);
+
+gap:16px;
+}
+
+.info-item{
+padding:20px;
+
+border-radius:17px;
+
+background:rgba(255,255,255,.035);
+
+border:1px solid rgba(255,210,120,.14);
+
+display:flex;
+
+gap:15px;
+
+align-items:flex-start;
+
+transition:.3s;
+}
+
+.info-item:hover{
+transform:translateX(5px);
+
+background:rgba(255,190,80,.07);
+
+border-color:rgba(255,210,120,.4);
+}
+
+.info-icon{
+font-size:1.7rem;
+}
+
+.info-item h3{
+font-size:1rem;
+
+margin-bottom:5px;
+}
+
+.info-item p{
+color:#9692a2;
+
+font-size:.86rem;
+
+line-height:1.6;
+}
+
+
+/* STEPS */
+
+.steps{
+display:grid;
+
+grid-template-columns:
+repeat(5,1fr);
+
+gap:15px;
+}
+
+.step{
+padding:25px 16px;
+
+text-align:center;
+
+border-radius:20px;
+
+border:1px solid rgba(255,210,120,.16);
+
+background:rgba(255,255,255,.035);
+
+transition:.35s;
+}
+
+.step:hover{
+transform:translateY(-8px);
+
+border-color:rgba(255,210,120,.45);
+}
+
+.step-number{
+width:45px;
+height:45px;
+
+margin:0 auto 15px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+border-radius:50%;
+
+background:
+linear-gradient(
+135deg,
+#b47b15,
+#ffc45c
+);
+
+font-weight:bold;
+
+box-shadow:
+0 0 20px
+rgba(255,190,80,.25);
+}
+
+.step h3{
+margin-bottom:9px;
+}
+
+.step p{
+color:#9793a3;
+
+font-size:.83rem;
+
+line-height:1.55;
+}
+
+
+/* PROPERTY TYPES */
+
+.property-types{
+display:grid;
+
+grid-template-columns:
+repeat(4,1fr);
+
+gap:16px;
+}
+
+.property-type{
+padding:25px 18px;
+
+text-align:center;
+
+border-radius:20px;
+
+border:1px solid rgba(255,210,120,.15);
+
+background:rgba(255,255,255,.035);
+
+transition:.35s;
+}
+
+.property-type:hover{
+transform:translateY(-7px);
+
+border-color:rgba(255,210,120,.42);
+}
+
+.property-type .big{
+font-size:2.2rem;
+
+margin-bottom:12px;
+}
+
+.property-type h3{
+font-size:1rem;
+
+margin-bottom:8px;
+}
+
+.property-type p{
+color:#9692a2;
+
+font-size:.82rem;
+
+line-height:1.55;
+}
+
+
+/* FINANCE */
+
+.finance{
+margin-top:60px;
+
+display:grid;
+
+grid-template-columns:
+repeat(3,1fr);
+
+gap:20px;
+}
+
+.finance-box{
+padding:30px;
+
+text-align:center;
+
+border-radius:22px;
+
+border:1px solid rgba(255,210,120,.16);
+
+background:
+rgba(255,255,255,.035);
+}
+
+.finance-box .big{
+font-size:2.4rem;
+
+margin-bottom:12px;
+}
+
+.finance-box h3{
+margin-bottom:9px;
+}
+
+.finance-box p{
+color:#9995a5;
+
+font-size:.88rem;
+
+line-height:1.7;
+}
+
+
+/* TRUST */
+
+.trust-box{
+margin-top:60px;
+
+padding:30px;
+
+border-radius:22px;
+
+border:1px solid rgba(0,190,120,.20);
+
+background:
+linear-gradient(
+135deg,
+rgba(0,150,100,.08),
+rgba(255,190,80,.04)
+);
+}
+
+.trust-box h3{
+margin-bottom:12px;
+}
+
+.trust-box p{
+color:#aaa6b7;
+
+line-height:1.8;
+}
+
+
+/* WARNING */
+
+.warning{
+margin-top:55px;
+
+padding:30px;
+
+border-radius:20px;
+
+border:1px solid rgba(255,190,80,.22);
+
+background:
+linear-gradient(
+135deg,
+rgba(255,190,80,.07),
+rgba(0,190,255,.035)
+);
+}
+
+.warning h3{
+margin-bottom:10px;
+}
+
+.warning p{
+color:#aaa6b7;
+
+line-height:1.8;
+}
+
+
+/* CTA */
+
+.cta{
+margin:85px auto 70px;
+
+max-width:1000px;
+
+padding:55px 35px;
+
+text-align:center;
+
+border-radius:28px;
+
+background:
+radial-gradient(
+circle at 20% 20%,
+rgba(255,190,80,.18),
+transparent 35%
+),
+
+radial-gradient(
+circle at 80% 80%,
+rgba(0,190,255,.13),
+transparent 35%
+),
+
+rgba(255,255,255,.035);
+
+border:1px solid rgba(255,210,120,.25);
+
+box-shadow:
+inset 0 1px 0 rgba(255,255,255,.10),
+0 25px 70px rgba(0,0,0,.38);
+
+backdrop-filter:blur(16px);
+}
+
+.cta h2{
+font-size:2rem;
+
+margin-bottom:15px;
+}
+
+.cta p{
+color:#aaa6b7;
+
+max-width:700px;
+
+margin:auto;
+
+line-height:1.7;
+}
+
+.button{
+display:inline-block;
+
+margin-top:25px;
+
+padding:14px 25px;
+
+border-radius:14px;
+
+text-decoration:none;
+
+font-weight:bold;
+
+color:#fff;
+
+background:
+linear-gradient(
+135deg,
+#b47b15,
+#ffc45c,
+#008bb5
+);
+
+box-shadow:
+0 0 25px rgba(255,190,80,.22);
+
+transition:.3s;
+}
+
+.button:hover{
+transform:translateY(-4px);
+
+box-shadow:
+0 0 35px rgba(255,190,80,.40);
+}
+
+
+/* FOOTER */
+
+footer{
+margin-top:50px;
+
+padding:35px 7%;
+
+text-align:center;
+
+border-top:1px solid rgba(255,190,80,.15);
+
+background:rgba(0,0,0,.30);
+}
+
+footer p{
+color:#888494;
+
+font-size:.85rem;
+
+line-height:1.7;
+}
+
+footer strong{
+color:#ffd77d;
+}
+
+
+/* RESPONSIVE */
+
+@media(max-width:1050px){
+
+.property-types{
+grid-template-columns:
+repeat(2,1fr);
+}
+
+.steps{
+grid-template-columns:
+repeat(3,1fr);
+}
+
+}
+
+@media(max-width:850px){
+
+.card-grid{
+grid-template-columns:
+repeat(2,1fr);
+}
+
+.finance{
+grid-template-columns:
+repeat(2,1fr);
+}
+
+.steps{
+grid-template-columns:
+repeat(2,1fr);
+}
+
+}
+
+@media(max-width:600px){
+
+nav{
+padding:14px 5%;
+}
+
+.hero{
+padding:55px 5% 45px;
+}
+
+.property-orb{
+width:125px;
+height:125px;
+}
+
+.card-grid{
+grid-template-columns:1fr;
+}
+
+.info-list{
+grid-template-columns:1fr;
+}
+
+.property-types{
+grid-template-columns:1fr;
+}
+
+.finance{
+grid-template-columns:1fr;
+}
+
+.steps{
+grid-template-columns:1fr;
+}
+
+.card{
+min-height:205px;
+}
+
+.cta{
+padding:40px 22px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<!-- NAVIGATION -->
+
+<nav>
+
+<a href="index.html" class="logo">
+Life<span>Key</span>
+</a>
+
+<a href="index.html" class="back">
+← LifeKey Hub
+</a>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+
+<div class="property-orb">
+
+<div class="property-symbol">
+🏠
+</div>
+
+</div>
+
+
+<div class="badge">
+LIFEKEY • REAL ESTATE HUB
+</div>
+
+
+<h1>
+Real Estate
+</h1>
+
+
+<p>
+Learn the fundamentals of property, real estate
+markets, buying, selling, renting, property
+management and responsible real-estate investing.
+</p>
+
+
+</div>
+
+</section>
+
+
+<main class="container">
+
+
+<!-- INTRO -->
+
+<section class="intro">
+
+<h2>
+Understand Property Before You Invest
+</h2>
+
+<p>
+Real estate involves land and property, but successful
+property decisions require much more than simply
+buying a building. Location, financing, legal documents,
+maintenance, demand, taxes, risks and cash flow can
+all influence the outcome.
+</p>
+
+</section>
+
+
+<!-- FUNDAMENTALS -->
+
+<section class="section">
+
+<div class="section-title">
+
+<span>01</span>
+
+<h2>Real Estate Fundamentals</h2>
+
+</div>
+
+
+<div class="card-grid">
+
+
+<div class="card">
+
+<div class="icon">
+🏠
+</div>
+
+<h3>Residential Property</h3>
+
+<p>
+Houses, apartments, flats and other
+properties primarily used as homes.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">
+🏢
+</div>
+
+<h3>Commercial Property</h3>
+
+<p>
+Office spaces, retail properties and
+other buildings used for business.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">
+🏭
+</div>
+
+<h3>Industrial Property</h3>
+
+<p>
+Warehouses, factories and properties
+used for industrial activities.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">
+🌳
+</div>
+
+<h3>Land</h3>
+
+<p>
+Undeveloped or developed land can
+have different uses, risks and
+investment considerations.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">
+🔑
+</div>
+
+<h3>Rentals</h3>
+
+<p>
+Learn how rental property works,
+including tenants, leases, expenses
+and property management.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">
+📈
+</div>
+
+<h3>Property Investment</h3>
+
+<p>
+Study potential returns, cash flow,
+appreciation and the risks involved
+before making investment decisions.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- TYPES -->
+
+<section class="section">
+
+<div class="section-title">
+
+<span>02</span>
+
+<h2>Property Categories</h2>
+
+</div>
+
+
+<div class="property-types">
+
+
+<div class="property-type">
+
+<div class="big">
+🏡
+</div>
+
+<h3>Residential</h3>
+
+<p>
+Homes and accommodation
+for individuals and families.
+</p>
+
+</div>
+
+
+<div class="property-type">
+
+<div class="big">
+🏬
+</div>
+
+<h3>Commercial</h3>
+
+<p>
+Properties used for
+commercial activities.
+</p>
+
+</div>
+
+
+<div class="property-type">
+
+<div class="big">
+🏗️
+</div>
+
+<h3>Development</h3>
+
+<p>
+Land and projects being
+developed into property.
+</p>
+
+</div>
+
+
+<div class="property-type">
+
+<div class="big">
+🌍
+</div>
+
+<h3>Land</h3>
+
+<p>
+Plots and land with
+different potential uses.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- BUYING PROCESS -->
+
+<section class="section">
+
+<div class="section-title">
+
+<span>03</span>
+
+<h2>Buying Property: A Basic Process</h2>
+
+</div>
+
+
+<div class="steps">
+
+
+<div class="step">
+
+<div class="step-number">
+1
+</div>
+
+<h3>Research</h3>
+
+<p>
+Study the location,
+market and property.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">
+2
+</div>
+
+<h3>Inspect</h3>
+
+<p>
+Examine the property
+and its condition.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">
+3
+</div>
+
+<h3>Verify</h3>
+
+<p>
+Check ownership,
+documents and legal status.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">
+4
+</div>
+
+<h3>Finance</h3>
+
+<p>
+Understand your funding,
+costs and obligations.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">
+5
+</div>
+
+<h3>Complete</h3>
+
+<p>
+Use appropriate legal
+and professional processes.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- IMPORTANT FACTORS -->
+
+<section class="section">
+
+<div class="section-title">
+
+<span>04</span>
+
+<h2>Important Factors</h2>
+
+</div>
+
+
+<div class="info-list">
+
+
+<div class="info-item">
+
+<div class="info-icon">
+📍
+</div>
+
+<div>
+
+<h3>Location</h3>
+
+<p>
+Location can influence demand, rental
+potential, accessibility and property value.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="info-item">
+
+<div class="info-icon">
+📜
+</div>
+
+<div>
+
+<h3>Documentation</h3>
+
+<p>
+Property ownership and transaction documents
+should be carefully verified through appropriate
+professionals and authorities.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="info-item">
+
+<div class="info-icon">
+🏗️
+</div>
+
+<div>
+
+<h3>Property Condition</h3>
+
+<p>
+Repairs, maintenance, structural condition
+and renovation costs can significantly affect
+the economics of a property.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="info-item">
+
+<div class="info-icon">
+👥
+</div>
+
+<div>
+
+<h3>Demand</h3>
+
+<p>
+Consider whether people or businesses
+actually want to live, work or operate
+in the area.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="info-item">
+
+<div class="info-icon">
+💰
+</div>
+
+<div>
+
+<h3>Total Cost</h3>
+
+<p>
+Look beyond the purchase price. Consider
+taxes, fees, repairs, maintenance, financing
+and other expenses.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="info-item">
+
+<div class="info-icon">
+⚠️
+</div>
+
+<div>
+
+<h3>Risk</h3>
+
+<p>
+Property values, rental demand, financing
+costs and regulations can change. No
+investment return is guaranteed.
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- FINANCE -->
+
+<section class="section">
+
+<div class="section-title">
+
+<span>05</span>
+
+<h2>Real Estate Financial Concepts</h2>
+
+</div>
+
+
+<div class="finance">
+
+
+<div class="finance-box">
+
+<div class="big">
+💵
+</div>
+
+<h3>Rental Income</h3>
+
+<p>
+Money received from tenants before
+subtracting property-related expenses.
+</p>
+
+</div>
+
+
+<div class="finance-box">
+
+<div class="big">
+🧾
+</div>
+
+<h3>Expenses</h3>
+
+<p>
+Maintenance, management, taxes,
+insurance, financing and other costs.
+</p>
+
+</div>
+
+
+<div class="finance-box">
+
+<div class="big">
+📊
+</div>
+
+<h3>Cash Flow</h3>
+
+<p>
+The amount remaining after relevant
+income and expenses are considered.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- SKILLS -->
+
+<section class="section">
+
+<div class="section-title">
+
+<span>06</span>
+
+<h2>Useful Real Estate Skills</h2>
+
+</div>
+
+
+<div class="card-grid">
+
+
+<div class="card">
+
+<div class="icon">
+🔎
+</div>
+
+<h3>Market Research</h3>
+
+<p>
+Learn how to compare locations,
+properties, prices and demand.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">
+🧮
+</div>
+
+<h3>Financial Analysis</h3>
+
+<p>
+Understand income, expenses,
+financing and potential returns.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">
+🤝
+</div>
+
+<h3>Negotiation</h3>
+
+<p>
+Develop communication and negotiation
+skills for property transactions.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">
+🛠️
+</div>
+
+<h3>Property Management</h3>
+
+<p>
+Learn about maintenance, tenants,
+records and property operations.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">
+📑
+</div>
+
+<h3>Documentation</h3>
+
+<p>
+Understand why careful documentation
+and professional verification matter.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">
+🌐
+</div>
+
+<h3>Digital Marketing</h3>
+
+<p>
+Learn how property listings can be
+presented and promoted online.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- TRUST -->
+
+<div class="trust-box">
+
+<h3>
+🤝 Make Decisions Carefully
+</h3>
+
+<p>
+Real estate can involve large amounts of money and
+important legal obligations. Before purchasing,
+selling or investing, verify property information and
+seek qualified local legal, financial and property
+professionals where appropriate. LifeKey provides
+general educational information, not personalized
+legal or investment advice.
+</p>
+
+</div>
+
+
+<!-- WARNING -->
+
+<div class="warning">
+
+<h3>
+⚠️ Beware of Property Scams
+</h3>
+
+<p>
+Be cautious of pressure to pay immediately, unclear
+ownership, suspicious documents, properties offered
+far below market value, fake agents and promises of
+guaranteed returns. Verify property ownership and
+transaction details independently before committing
+money.
+</p>
+
+</div>
+
+
+<!-- CTA -->
+
+<section class="cta">
+
+<h2>
+Learn the Property Market Before Entering It.
+</h2>
+
+<p>
+Study the fundamentals, understand the numbers,
+verify the documents and make decisions based on
+careful research rather than hype.
+</p>
+
+<a href="index.html" class="button">
+← Return to LifeKey Hub
+</a>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+<p>
+<strong>LifeKey Hub</strong>
+— Your digital gateway to knowledge,
+opportunities, skills and innovation.
+</p>
+
+<p>
+Learn • Build • Create • Grow
+</p>
+
+</footer>
+
+
+</body>
+</html>
