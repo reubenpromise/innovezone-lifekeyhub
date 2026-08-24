@@ -2264,6 +2264,22 @@ Tools • Knowledge • Resources • Opportunities
 
 <script>
 
+function openMathChallenge(){
+
+    const game = document.querySelector(".lifekey-game");
+
+    if(game){
+        game.scrollIntoView({
+            behavior:"smooth",
+            block:"center"
+        });
+    }else{
+        alert("LifeKey Math Challenge could not be found.");
+    }
+
+}
+
+
 /* =========================================================
    LIFEKEY TOOLS — INTERACTIVE SYSTEM
    ========================================================= */
