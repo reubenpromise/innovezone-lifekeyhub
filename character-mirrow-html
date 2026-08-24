@@ -1,0 +1,1955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Character Mirror | LifeKey</title>
+
+<meta name="description"
+content="LifeKey Character Mirror is an interactive self-discovery experience designed to help you explore behavioural patterns, character development and personal growth.">
+
+<meta name="robots" content="index, follow">
+
+<link rel="canonical"
+href="https://reubenpromise.github.io/innovezone-lifekeyhub/character-mirror.html">
+
+<style>
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+
+font-family:
+Arial,
+Helvetica,
+sans-serif;
+
+min-height:100vh;
+
+color:#fff;
+
+background:
+
+radial-gradient(
+circle at 15% 10%,
+rgba(83,110,255,.18),
+transparent 32%
+),
+
+radial-gradient(
+circle at 85% 20%,
+rgba(0,230,190,.12),
+transparent 30%
+),
+
+linear-gradient(
+135deg,
+#02050c,
+#07101d,
+#03130f
+);
+
+overflow-x:hidden;
+
+}
+
+/* NAV */
+
+nav{
+
+position:sticky;
+top:0;
+z-index:100;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:15px 6%;
+
+background:rgba(2,5,12,.88);
+
+border-bottom:
+1px solid rgba(100,220,200,.18);
+
+backdrop-filter:blur(18px);
+
+}
+
+.logo{
+
+color:#fff;
+text-decoration:none;
+
+font-size:1.3rem;
+font-weight:900;
+
+}
+
+.logo span{
+color:#72f1d5;
+}
+
+.back{
+
+color:#ddd;
+text-decoration:none;
+
+padding:9px 15px;
+
+border:1px solid
+rgba(100,220,200,.22);
+
+border-radius:12px;
+
+background:
+rgba(100,220,200,.05);
+
+}
+
+/* MAIN */
+
+.app{
+
+width:min(1000px,92%);
+
+margin:auto;
+
+padding:35px 0 70px;
+
+}
+
+/* HEADER */
+
+.header{
+
+text-align:center;
+
+padding:25px 0 35px;
+
+}
+
+.small-title{
+
+color:#72f1d5;
+
+font-size:.75rem;
+
+font-weight:bold;
+
+letter-spacing:2px;
+
+}
+
+.header h1{
+
+font-size:
+clamp(2rem,6vw,4rem);
+
+margin-top:12px;
+
+background:
+linear-gradient(
+100deg,
+#fff,
+#9eeaff,
+#72f1d5,
+#a9a4ff
+);
+
+-webkit-background-clip:text;
+background-clip:text;
+
+color:transparent;
+
+}
+
+.header p{
+
+max-width:700px;
+
+margin:16px auto 0;
+
+color:#aeb7c5;
+
+line-height:1.7;
+
+}
+
+/* GAME */
+
+.game{
+
+position:relative;
+
+min-height:600px;
+
+border-radius:30px;
+
+border:
+1px solid
+rgba(100,220,200,.20);
+
+background:
+
+radial-gradient(
+circle at 50% 20%,
+rgba(100,220,200,.08),
+transparent 35%
+),
+
+rgba(255,255,255,.035);
+
+box-shadow:
+0 30px 90px rgba(0,0,0,.45);
+
+overflow:hidden;
+
+}
+
+/* SCREENS */
+
+.screen{
+
+display:none;
+
+padding:45px 25px;
+
+text-align:center;
+
+animation:fadeIn .5s ease;
+
+}
+
+.screen.active{
+display:block;
+}
+
+@keyframes fadeIn{
+
+from{
+opacity:0;
+transform:translateY(12px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+/* INTRO */
+
+.mirror-symbol{
+
+font-size:5rem;
+
+margin:20px 0;
+
+filter:
+drop-shadow(
+0 0 30px
+rgba(114,241,213,.55)
+);
+
+}
+
+.intro-title{
+
+font-size:
+clamp(1.8rem,5vw,3rem);
+
+margin-bottom:15px;
+
+}
+
+.intro-text{
+
+max-width:650px;
+
+margin:auto;
+
+color:#adb6c3;
+
+line-height:1.8;
+
+}
+
+.notice{
+
+max-width:650px;
+
+margin:25px auto;
+
+padding:17px;
+
+border-radius:16px;
+
+background:
+rgba(100,160,255,.06);
+
+border:
+1px solid
+rgba(100,180,255,.15);
+
+color:#aebbd0;
+
+font-size:.88rem;
+
+line-height:1.6;
+
+}
+
+/* BUTTON */
+
+.button{
+
+border:none;
+
+cursor:pointer;
+
+padding:14px 25px;
+
+border-radius:14px;
+
+font-weight:bold;
+
+font-size:.95rem;
+
+color:#fff;
+
+background:
+
+linear-gradient(
+135deg,
+#3157d8,
+#72f1d5,
+#5364ff
+);
+
+box-shadow:
+0 10px 30px
+rgba(50,100,255,.20);
+
+transition:.3s;
+
+}
+
+.button:hover{
+
+transform:translateY(-3px);
+
+box-shadow:
+0 15px 35px
+rgba(100,220,200,.22);
+
+}
+
+/* CHARACTER */
+
+.character-stage{
+
+min-height:250px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+position:relative;
+
+}
+
+/* SIMPLE CSS HUMAN */
+
+.character{
+
+position:relative;
+
+width:125px;
+
+height:230px;
+
+animation:
+floatCharacter 3s ease-in-out infinite;
+
+}
+
+@keyframes floatCharacter{
+
+0%,100%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-8px);
+}
+
+}
+
+.head{
+
+position:absolute;
+
+top:5px;
+left:30px;
+
+width:65px;
+height:65px;
+
+border-radius:50%;
+
+background:
+linear-gradient(
+145deg,
+#ffd8b5,
+#d99b72
+);
+
+border:2px solid
+rgba(255,255,255,.15);
+
+}
+
+.eye{
+
+position:absolute;
+
+top:27px;
+
+width:7px;
+height:7px;
+
+border-radius:50%;
+
+background:#111;
+
+}
+
+.eye.left{
+left:17px;
+}
+
+.eye.right{
+right:17px;
+}
+
+.mouth{
+
+position:absolute;
+
+left:22px;
+top:43px;
+
+width:20px;
+height:8px;
+
+border-bottom:
+2px solid #333;
+
+border-radius:50%;
+
+}
+
+.body{
+
+position:absolute;
+
+top:67px;
+left:23px;
+
+width:79px;
+height:110px;
+
+border-radius:25px 25px 15px 15px;
+
+background:
+linear-gradient(
+145deg,
+#3157d8,
+#18305f
+);
+
+border:2px solid
+rgba(114,241,213,.25);
+
+}
+
+.arm{
+
+position:absolute;
+
+top:78px;
+
+width:20px;
+height:90px;
+
+border-radius:20px;
+
+background:
+linear-gradient(
+145deg,
+#ffd8b5,
+#d99b72
+);
+
+}
+
+.arm.left{
+left:7px;
+transform:rotate(8deg);
+}
+
+.arm.right{
+right:7px;
+transform:rotate(-8deg);
+}
+
+.leg{
+
+position:absolute;
+
+top:165px;
+
+width:25px;
+height:62px;
+
+border-radius:15px;
+
+background:#17213b;
+
+}
+
+.leg.left{
+left:35px;
+}
+
+.leg.right{
+right:35px;
+}
+
+/* SPEECH */
+
+.speech{
+
+max-width:700px;
+
+margin:0 auto 25px;
+
+padding:22px;
+
+border-radius:20px;
+
+background:
+rgba(255,255,255,.055);
+
+border:
+1px solid
+rgba(114,241,213,.17);
+
+text-align:left;
+
+position:relative;
+
+}
+
+.speech:after{
+
+content:"";
+
+position:absolute;
+
+bottom:-10px;
+left:50%;
+
+width:20px;
+height:20px;
+
+background:
+rgba(255,255,255,.055);
+
+border-right:
+1px solid
+rgba(114,241,213,.17);
+
+border-bottom:
+1px solid
+rgba(114,241,213,.17);
+
+transform:
+translateX(-50%)
+rotate(45deg);
+
+}
+
+.speaker{
+
+color:#72f1d5;
+
+font-size:.75rem;
+
+font-weight:bold;
+
+letter-spacing:1px;
+
+margin-bottom:8px;
+
+}
+
+.dialogue{
+
+font-size:1.05rem;
+
+line-height:1.7;
+
+}
+
+/* SCENARIO */
+
+.scenario-number{
+
+color:#72f1d5;
+
+font-size:.75rem;
+
+font-weight:bold;
+
+letter-spacing:2px;
+
+margin-bottom:12px;
+
+}
+
+.scenario-title{
+
+font-size:
+clamp(1.5rem,4vw,2.3rem);
+
+margin-bottom:12px;
+
+}
+
+.scenario-text{
+
+color:#aeb7c5;
+
+line-height:1.7;
+
+max-width:700px;
+
+margin:auto;
+
+}
+
+/* CHOICES */
+
+.choices{
+
+display:grid;
+
+grid-template-columns:
+repeat(2,1fr);
+
+gap:15px;
+
+max-width:750px;
+
+margin:30px auto 0;
+
+}
+
+.choice{
+
+padding:20px;
+
+border-radius:18px;
+
+border:
+1px solid
+rgba(120,170,255,.18);
+
+background:
+rgba(255,255,255,.045);
+
+color:#fff;
+
+text-align:left;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.choice:hover{
+
+transform:translateY(-4px);
+
+border-color:
+rgba(114,241,213,.55);
+
+background:
+rgba(114,241,213,.07);
+
+}
+
+.choice strong{
+
+display:block;
+
+color:#72f1d5;
+
+margin-bottom:7px;
+
+}
+
+/* PROGRESS */
+
+.progress{
+
+height:6px;
+
+background:
+rgba(255,255,255,.08);
+
+border-radius:10px;
+
+margin-bottom:25px;
+
+overflow:hidden;
+
+}
+
+.progress-bar{
+
+height:100%;
+
+width:0%;
+
+background:
+linear-gradient(
+90deg,
+#3157d8,
+#72f1d5
+);
+
+transition:.5s;
+
+}
+
+/* RESULT */
+
+.result-icon{
+
+font-size:4rem;
+
+margin:15px;
+
+}
+
+.result-title{
+
+font-size:2.3rem;
+
+margin-bottom:12px;
+
+}
+
+.result-intro{
+
+max-width:700px;
+
+margin:auto;
+
+color:#aeb7c5;
+
+line-height:1.7;
+
+}
+
+/* SCORE CARDS */
+
+.patterns{
+
+max-width:750px;
+
+margin:30px auto;
+
+display:grid;
+
+gap:13px;
+
+}
+
+.pattern{
+
+padding:17px;
+
+border-radius:16px;
+
+background:
+rgba(255,255,255,.04);
+
+border:
+1px solid
+rgba(255,255,255,.08);
+
+text-align:left;
+
+}
+
+.pattern-top{
+
+display:flex;
+
+justify-content:space-between;
+
+margin-bottom:9px;
+
+}
+
+.pattern-name{
+
+font-weight:bold;
+
+}
+
+.pattern-score{
+
+color:#72f1d5;
+
+font-weight:bold;
+
+}
+
+.bar{
+
+height:7px;
+
+background:
+rgba(255,255,255,.08);
+
+border-radius:10px;
+
+overflow:hidden;
+
+}
+
+.bar-fill{
+
+height:100%;
+
+background:
+linear-gradient(
+90deg,
+#5364ff,
+#72f1d5
+);
+
+border-radius:10px;
+
+}
+
+/* TRAINING */
+
+.training{
+
+max-width:700px;
+
+margin:25px auto;
+
+padding:25px;
+
+border-radius:20px;
+
+border:
+1px solid
+rgba(114,241,213,.20);
+
+background:
+rgba(114,241,213,.045);
+
+text-align:left;
+
+}
+
+.training h3{
+
+margin-bottom:10px;
+
+color:#72f1d5;
+
+}
+
+.training p{
+
+color:#aeb7c5;
+
+line-height:1.7;
+
+}
+
+/* FOOTER */
+
+.footer-note{
+
+text-align:center;
+
+margin-top:25px;
+
+color:#6f7785;
+
+font-size:.78rem;
+
+line-height:1.6;
+
+}
+
+/* MOBILE */
+
+@media(max-width:650px){
+
+.choices{
+
+grid-template-columns:1fr;
+
+}
+
+.game{
+
+border-radius:22px;
+
+}
+
+.screen{
+
+padding:35px 17px;
+
+}
+
+.character-stage{
+
+min-height:220px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+
+<a href="index.html" class="logo">
+Life<span>Key</span>
+</a>
+
+<a href="lifekey-tools.html" class="back">
+← Tools
+</a>
+
+</nav>
+
+
+<div class="app">
+
+<header class="header">
+
+<div class="small-title">
+LIFEKEY • CHARACTER DEVELOPMENT
+</div>
+
+<h1>
+Character Mirror
+</h1>
+
+<p>
+An interactive experience for discovering
+behavioural patterns, reflecting on your
+responses and developing better habits.
+</p>
+
+</header>
+
+
+<div class="game">
+
+
+<!-- INTRO -->
+
+<section id="intro" class="screen active">
+
+<div class="mirror-symbol">
+🪞
+</div>
+
+<h2 class="intro-title">
+What does your behaviour reveal?
+</h2>
+
+<p class="intro-text">
+
+Sometimes we know ourselves very well.
+
+Sometimes we don't notice patterns in the
+way we react, speak, think or handle difficult
+situations.
+
+Character Mirror gives you situations and
+choices that allow you to explore those patterns.
+
+</p>
+
+<div class="notice">
+
+⚠️ This experience does not permanently define
+who you are. Your results represent patterns
+shown during the challenges and are intended
+for reflection and personal development.
+
+</div>
+
+<button class="button" onclick="startGame()">
+BEGIN DISCOVERY
+</button>
+
+</section>
+
+
+<!-- CHARACTER INTRO -->
+
+<section id="characterIntro" class="screen">
+
+<div class="character-stage">
+
+<div class="character">
+
+<div class="head">
+
+<div class="eye left"></div>
+<div class="eye right"></div>
+
+<div class="mouth"></div>
+
+</div>
+
+<div class="body"></div>
+
+<div class="arm left"></div>
+<div class="arm right"></div>
+
+<div class="leg left"></div>
+<div class="leg right"></div>
+
+</div>
+
+</div>
+
+<div class="speech">
+
+<div class="speaker">
+LIFEKEY CHARACTER
+</div>
+
+<div class="dialogue">
+
+“I'm going to place you in a few
+ordinary situations.
+
+There isn't always a perfect answer.
+
+Choose what you would genuinely
+be most likely to do.”
+
+</div>
+
+</div>
+
+<button class="button" onclick="beginScenarios()">
+ENTER THE MIRROR
+</button>
+
+</section>
+
+
+<!-- SCENARIOS -->
+
+<section id="scenarioScreen" class="screen">
+
+<div class="progress">
+
+<div id="progressBar" class="progress-bar"></div>
+
+</div>
+
+<div id="scenarioNumber" class="scenario-number">
+SCENARIO 1
+</div>
+
+<h2 id="scenarioTitle" class="scenario-title">
+</h2>
+
+<p id="scenarioText" class="scenario-text">
+</p>
+
+<div id="choices" class="choices">
+</div>
+
+</section>
+
+
+<!-- RESULT -->
+
+<section id="resultScreen" class="screen">
+
+<div class="result-icon">
+🪞
+</div>
+
+<h2 class="result-title">
+Your Character Mirror
+</h2>
+
+<p class="result-intro">
+
+The challenge is complete.
+
+Your choices produced several behavioural
+signals. These are not labels or permanent
+judgements. They are areas worth observing
+and developing.
+
+</p>
+
+<div id="patterns" class="patterns">
+</div>
+
+<div id="training" class="training">
+</div>
+
+<button class="button" onclick="restartGame()">
+TRY AGAIN
+</button>
+
+</section>
+
+
+</div>
+
+
+<div class="footer-note">
+
+LifeKey Character Mirror • Discovery • Reflection • Development
+
+<br>
+
+Your result is for self-reflection and personal growth,
+not professional psychological diagnosis.
+
+</div>
+
+</div>
+
+
+<script>
+
+/* ==========================================
+   LIFEKEY CHARACTER MIRROR V1.0
+   BEHAVIOURAL ENGINE
+========================================== */
+
+
+/*
+Each scenario contains several behavioural
+signals.
+
+The system does NOT say:
+
+"You are a liar."
+
+Instead it accumulates patterns such as:
+
+honesty
+anger
+responsibility
+empathy
+self_control
+communication
+*/
+
+
+const scenarios = [
+
+{
+
+title:"A Promise",
+
+text:
+"You promised a friend that you would help them with an important task. On the day, you realise you don't really want to go.",
+
+choices:[
+
+{
+label:"A",
+text:"Tell them honestly that you changed your mind.",
+scores:{
+honesty:3,
+responsibility:1,
+communication:2
+}
+},
+
+{
+label:"B",
+text:"Make up an excuse so you don't look bad.",
+scores:{
+honesty:-3,
+responsibility:-1,
+communication:-1
+}
+},
+
+{
+label:"C",
+text:"Ignore their messages and hope they stop asking.",
+scores:{
+honesty:-2,
+responsibility:-3,
+selfControl:-1
+}
+},
+
+{
+label:"D",
+text:"Go because you gave your word, even though you don't feel like it.",
+scores:{
+responsibility:3,
+selfControl:2,
+honesty:2
+}
+}
+
+]
+
+},
+
+{
+
+title:"Someone Insults You",
+
+text:
+"Someone says something disrespectful about you in front of other people.",
+
+choices:[
+
+{
+label:"A",
+text:"Immediately insult them back.",
+scores:{
+anger:3,
+selfControl:-2,
+communication:-2
+}
+},
+
+{
+label:"B",
+text:"Take a moment before responding.",
+scores:{
+selfControl:3,
+anger:-2,
+communication:2
+}
+},
+
+{
+label:"C",
+text:"Calmly tell them that you don't appreciate what they said.",
+scores:{
+communication:3,
+selfControl:2,
+anger:-1
+}
+},
+
+{
+label:"D",
+text:"Pretend you're fine but plan how to get revenge later.",
+scores:{
+anger:2,
+malice:3,
+selfControl:-1
+}
+}
+
+]
+
+},
+
+{
+
+title:"A Mistake",
+
+text:
+"You accidentally damage something belonging to another person. Nobody saw what happened.",
+
+choices:[
+
+{
+label:"A",
+text:"Tell the owner what happened and accept responsibility.",
+scores:{
+honesty:3,
+responsibility:3
+}
+},
+
+{
+label:"B",
+text:"Keep quiet because nobody knows.",
+scores:{
+honesty:-3,
+responsibility:-3
+}
+},
+
+{
+label:"C",
+text:"Blame someone else if they ask.",
+scores:{
+honesty:-4,
+responsibility:-3,
+malice:1
+}
+},
+
+{
+label:"D",
+text:"Try to repair or replace it before telling them.",
+scores:{
+responsibility:2,
+honesty:1
+}
+}
+
+]
+
+},
+
+{
+
+title:"Someone Succeeds",
+
+text:
+"A person you know achieves something you badly wanted for yourself.",
+
+choices:[
+
+{
+label:"A",
+text:"Congratulate them sincerely.",
+scores:{
+empathy:3,
+selfControl:2
+}
+},
+
+{
+label:"B",
+text:"Pretend to congratulate them while secretly wishing they fail.",
+scores:{
+malice:2,
+empathy:-2
+}
+},
+
+{
+label:"C",
+text:"Avoid them because you feel jealous.",
+scores:{
+selfControl:-1,
+empathy:-1
+}
+},
+
+{
+label:"D",
+text:"Ask them how they achieved it so you can learn.",
+scores:{
+empathy:2,
+selfControl:3,
+responsibility:2
+}
+}
+
+]
+
+},
+
+{
+
+title:"An Angry Moment",
+
+text:
+"You are already frustrated when someone makes a small mistake that causes you more inconvenience.",
+
+choices:[
+
+{
+label:"A",
+text:"Shout at them immediately.",
+scores:{
+anger:4,
+selfControl:-3,
+communication:-2
+}
+},
+
+{
+label:"B",
+text:"Take a breath and explain the problem.",
+scores:{
+anger:-2,
+selfControl:3,
+communication:3
+}
+},
+
+{
+label:"C",
+text:"Say nothing, but remain visibly hostile.",
+scores:{
+anger:2,
+communication:-1,
+selfControl:1
+}
+},
+
+{
+label:"D",
+text:"Ask what happened before deciding how to respond.",
+scores:{
+anger:-2,
+selfControl:3,
+communication:2,
+empathy:2
+}
+}
+
+]
+
+},
+
+{
+
+title:"The Difficult Truth",
+
+text:
+"You discover that telling the complete truth may embarrass you.",
+
+choices:[
+
+{
+label:"A",
+text:"Tell the truth even though it makes you uncomfortable.",
+scores:{
+honesty:4,
+selfControl:2
+}
+},
+
+{
+label:"B",
+text:"Change part of the story to protect yourself.",
+scores:{
+honesty:-2,
+selfControl:-1
+}
+},
+
+{
+label:"C",
+text:"Tell a completely different story.",
+scores:{
+honesty:-4
+}
+},
+
+{
+label:"D",
+text:"Say that you would rather discuss it privately.",
+scores:{
+honesty:2,
+communication:3,
+selfControl:2
+}
+}
+
+]
+
+}
+
+];
+
+
+/* BEHAVIOURAL PROFILE */
+
+let profile = {
+
+honesty:0,
+
+anger:0,
+
+responsibility:0,
+
+empathy:0,
+
+selfControl:0,
+
+communication:0,
+
+malice:0
+
+};
+
+let currentScenario = 0;
+
+
+/* START */
+
+function startGame(){
+
+showScreen("characterIntro");
+
+}
+
+
+/* BEGIN SCENARIOS */
+
+function beginScenarios(){
+
+currentScenario = 0;
+
+resetProfile();
+
+showScreen("scenarioScreen");
+
+loadScenario();
+
+}
+
+
+/* RESET */
+
+function resetProfile(){
+
+profile = {
+
+honesty:0,
+
+anger:0,
+
+responsibility:0,
+
+empathy:0,
+
+selfControl:0,
+
+communication:0,
+
+malice:0
+
+};
+
+}
+
+
+/* LOAD SCENARIO */
+
+function loadScenario(){
+
+const scenario =
+scenarios[currentScenario];
+
+document.getElementById("scenarioNumber")
+.innerText =
+"SCENARIO " +
+(currentScenario + 1) +
+" OF " +
+scenarios.length;
+
+document.getElementById("scenarioTitle")
+.innerText =
+scenario.title;
+
+document.getElementById("scenarioText")
+.innerText =
+scenario.text;
+
+
+const choices =
+document.getElementById("choices");
+
+choices.innerHTML = "";
+
+
+scenario.choices.forEach(choice => {
+
+const button =
+document.createElement("button");
+
+button.className = "choice";
+
+button.innerHTML =
+
+"<strong>" +
+choice.label +
+"</strong>" +
+
+choice.text;
+
+button.onclick = () => {
+
+selectChoice(choice);
+
+};
+
+choices.appendChild(button);
+
+});
+
+
+const progress =
+((currentScenario) /
+scenarios.length) * 100;
+
+document.getElementById("progressBar")
+.style.width =
+progress + "%";
+
+}
+
+
+/* CHOICE */
+
+function selectChoice(choice){
+
+for(const key in choice.scores){
+
+if(profile[key] !== undefined){
+
+profile[key] +=
+choice.scores[key];
+
+}
+
+}
+
+
+currentScenario++;
+
+
+if(currentScenario >= scenarios.length){
+
+showResults();
+
+}else{
+
+loadScenario();
+
+}
+
+}
+
+
+/* RESULTS */
+
+function showResults(){
+
+document.getElementById("progressBar")
+.style.width = "100%";
+
+showScreen("resultScreen");
+
+const patterns =
+document.getElementById("patterns");
+
+patterns.innerHTML = "";
+
+
+/*
+Convert scores into understandable
+display values.
+
+This is an early prototype.
+We will make the scoring system
+more sophisticated later.
+*/
+
+const maxValues = {
+
+honesty:12,
+
+anger:12,
+
+responsibility:10,
+
+empathy:8,
+
+selfControl:12,
+
+communication:10,
+
+malice:6
+
+};
+
+
+const names = {
+
+honesty:"Honesty",
+
+anger:"Anger Response",
+
+responsibility:"Responsibility",
+
+empathy:"Empathy",
+
+selfControl:"Self-Control",
+
+communication:"Communication",
+
+malice:"Hostility / Malice"
+
+};
+
+
+const sorted =
+Object.keys(profile)
+.sort((a,b) =>
+Math.abs(profile[b]) -
+Math.abs(profile[a])
+);
+
+
+sorted.forEach(key => {
+
+let raw =
+profile[key];
+
+let percentage =
+50 +
+(raw /
+maxValues[key]) *
+50;
+
+percentage =
+Math.max(
+5,
+Math.min(95,percentage)
+);
+
+const div =
+document.createElement("div");
+
+div.className = "pattern";
+
+div.innerHTML = `
+
+<div class="pattern-top">
+
+<span class="pattern-name">
+${names[key]}
+</span>
+
+<span class="pattern-score">
+${Math.round(percentage)}%
+</span>
+
+</div>
+
+<div class="bar">
+
+<div
+class="bar-fill"
+style="width:${Math.round(percentage)}%">
+</div>
+
+</div>
+
+`;
+
+patterns.appendChild(div);
+
+});
+
+
+createTraining(sorted);
+
+}
+
+
+/* TRAINING */
+
+function createTraining(sorted){
+
+const training =
+document.getElementById("training");
+
+const strongest =
+sorted[0];
+
+
+let title = "";
+let text = "";
+
+
+if(strongest === "anger"){
+
+title =
+"🔥 Your Development Focus: Emotional Control";
+
+text =
+"Practice creating a short pause between feeling angry and responding. Before answering during a difficult moment, take one breath and deliberately choose your words.";
+
+}
+
+else if(strongest === "honesty"){
+
+title =
+"🟢 Your Development Focus: Integrity";
+
+text =
+"Continue strengthening honesty by choosing truth even when honesty is uncomfortable or inconvenient.";
+
+}
+
+else if(strongest === "responsibility"){
+
+title =
+"⚙️ Your Development Focus: Responsibility";
+
+text =
+"Continue practising ownership of your decisions. A strong character does not always avoid mistakes—it learns to acknowledge and correct them.";
+
+}
+
+else if(strongest === "empathy"){
+
+title =
+"❤️ Your Development Focus: Understanding Others";
+
+text =
+"Continue practising the habit of considering what another person may be experiencing before judging their behaviour.";
+
+}
+
+else if(strongest === "selfControl"){
+
+title =
+"🧠 Your Development Focus: Self-Control";
+
+text =
+"Self-control grows through repeated small decisions. Practise pausing before reacting whenever you feel pressure, anger or temptation.";
+
+}
+
+else if(strongest === "communication"){
+
+title =
+"🗣️ Your Development Focus: Communication";
+
+text =
+"Practise expressing disagreement without attacking the person. Focus on explaining the problem rather than trying to win the argument.";
+
+}
+
+else if(strongest === "malice"){
+
+title =
+"🧭 Your Development Focus: Intentional Responses";
+
+text =
+"Notice moments when anger or jealousy makes you want to hurt, embarrass or undermine another person. Practise stepping back before acting on that impulse.";
+
+}
+
+else{
+
+title =
+"🌱 Your Development Focus";
+
+text =
+"Continue observing your behaviour across different situations. Repeated patterns are more useful than a single result.";
+
+}
+
+
+training.innerHTML = `
+
+<h3>${title}</h3>
+
+<p>${text}</p>
+
+`;
+
+}
+
+
+/* SCREEN SWITCH */
+
+function showScreen(id){
+
+document
+.querySelectorAll(".screen")
+.forEach(screen => {
+
+screen.classList.remove("active");
+
+});
+
+document
+.getElementById(id)
+.classList.add("active");
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+
+/* RESTART */
+
+function restartGame(){
+
+resetProfile();
+
+currentScenario = 0;
+
+showScreen("intro");
+
+}
+
+</script>
+
+</body>
+</html>
