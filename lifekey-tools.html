@@ -1443,6 +1443,206 @@ and digital concepts.
 
 </div>
 
+<!-- ================= LIFEKEY BRAIN CHALLENGE ================= -->
+
+<div
+    id="mathChallengeArea"
+    class="lifekey-game"
+    style="display:none;"
+>
+
+    <div class="game-header">
+
+        <div class="game-icon">
+            🧮
+        </div>
+
+        <div>
+
+            <div class="game-label">
+                LIFEKEY • BRAIN CHALLENGE
+            </div>
+
+            <h3>
+                Math Challenge
+            </h3>
+
+            <p>
+                Test your speed, accuracy and calculation skills.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- CHALLENGE MODE -->
+
+    <div
+        id="mathModeScreen"
+        class="math-screen"
+    >
+
+        <div class="big-game-icon">
+            🧠
+        </div>
+
+        <h4>
+            Choose Your Challenge
+        </h4>
+
+        <p>
+            How hard do you want to test yourself?
+        </p>
+
+
+        <button
+            class="game-button"
+            onclick="startMathGame(30,'easy')"
+        >
+            🟢 Quick Test
+            <br>
+            <small>30 Seconds</small>
+        </button>
+
+
+        <button
+            class="game-button"
+            onclick="startMathGame(60,'medium')"
+        >
+            🔵 Brain Test
+            <br>
+            <small>60 Seconds</small>
+        </button>
+
+
+        <button
+            class="game-button"
+            onclick="startMathGame(60,'hard')"
+        >
+            🔴 Hard Challenge
+            <br>
+            <small>60 Seconds</small>
+        </button>
+
+
+        <button
+            class="game-button"
+            onclick="customMathChallenge()"
+        >
+            ⚙️ Custom Challenge
+        </button>
+
+    </div>
+
+
+    <!-- GAME SCREEN -->
+
+    <div
+        id="mathPlayScreen"
+        class="math-screen"
+        style="display:none;"
+    >
+
+        <div class="game-stats">
+
+            <div class="game-stat">
+                <span>⏱️ Time</span>
+                <strong id="mathTime">30</strong>
+            </div>
+
+            <div class="game-stat">
+                <span>🏆 Score</span>
+                <strong id="mathScore">0</strong>
+            </div>
+
+            <div class="game-stat">
+                <span>❓ Question</span>
+                <strong id="mathQuestionNumber">1</strong>
+            </div>
+
+        </div>
+
+
+        <div class="question-label">
+            Solve this:
+        </div>
+
+
+        <div
+            id="mathQuestion"
+            class="math-question"
+        >
+            5 + 5 = ?
+        </div>
+
+
+        <input
+            type="number"
+            id="mathAnswer"
+            class="math-answer"
+            placeholder="Your answer"
+            autocomplete="off"
+        >
+
+
+        <button
+            class="game-button"
+            onclick="submitMathAnswer()"
+        >
+            ✓ Submit Answer
+        </button>
+
+
+        <p
+            id="mathFeedback"
+            class="math-feedback"
+        ></p>
+
+    </div>
+
+
+    <!-- RESULT SCREEN -->
+
+    <div
+        id="mathEndScreen"
+        class="math-screen"
+        style="display:none;"
+    >
+
+        <div class="big-game-icon">
+            🏆
+        </div>
+
+        <h4>
+            Challenge Complete!
+        </h4>
+
+        <p>
+            Your final score:
+        </p>
+
+        <div
+            id="mathFinalScore"
+            class="final-score"
+        >
+            0
+        </div>
+
+
+        <button
+            class="game-button"
+            onclick="openMathChallenge()"
+        >
+            🔄 Play Again
+        </button>
+
+    </div>
+
+</div>
+
+<!-- ================= END LIFEKEY BRAIN CHALLENGE ================= -->
+
 </section>
 
 
