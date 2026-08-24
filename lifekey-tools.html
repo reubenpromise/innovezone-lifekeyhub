@@ -2675,37 +2675,44 @@ function openMathChallenge(){
 function customMathChallenge(){
 
     const seconds = prompt(
-        "CUSTOM LIFEKEY CHALLENGE\n\n" +
-        "Choose your time in seconds.\n\n" +
+        "⚙️ LIFEKEY CUSTOM CHALLENGE\n\n" +
+        "Choose how long you want to play.\n\n" +
+        "Enter time in seconds.\n\n" +
         "Examples:\n" +
         "30 = 30 seconds\n" +
         "60 = 1 minute\n" +
         "90 = 1 minute 30 seconds\n" +
-        "120 = 2 minutes"
+        "120 = 2 minutes\n" +
+        "300 = 5 minutes\n\n" +
+        "Minimum: 10 seconds\n" +
+        "Maximum: 5 minutes"
     );
 
     if(seconds === null){
         return;
     }
 
-    const time = parseInt(seconds);
+    const time = Number(seconds);
 
     if(
-        isNaN(time) ||
+        !Number.isFinite(time) ||
+        !Number.isInteger(time) ||
         time < 10 ||
         time > 300
     ){
 
         alert(
-            "Please choose a time between 10 and 300 seconds."
+            "❌ Invalid time.\n\n" +
+            "Please enter a whole number between 10 and 300 seconds."
         );
 
         return;
     }
 
-    startMathGame(time,"medium");
+    startMathGame(time,"custom");
 
 }
+   
 
 
 /* ---------- START GAME ---------- */
