@@ -2613,6 +2613,524 @@ function startMemoryGame(){
 
 }
 
+/* =========================================================
+   LIFEKEY BRAIN CHALLENGE — GAME ENGINE
+   ========================================================= */
+
+let mathTimer;
+let mathTimeLeft = 30;
+let mathScore = 0;
+let mathQuestionCount = 0;
+let mathCorrect = 0;
+let mathWrong = 0;
+let mathStreak = 0;
+let mathBestStreak = 0;
+let mathMode = "easy";
+let mathDuration = 30;
+let currentMathAnswer = 0;
+
+
+/* ---------- OPEN CHALLENGE ---------- */
+
+function openMathChallenge(){
+
+    const game = document.getElementById("mathChallengeArea");
+
+    if(!game){
+        return;
+    }
+
+    game.style.display = "block";
+
+    document.getElementById("mathModeScreen").style.display = "block";
+    document.getElementById("mathPlayScreen").style.display = "none";
+    document.getElementById("mathEndScreen").style.display = "none";
+
+    game.scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+    });
+
+}
+
+
+/* ---------- CUSTOM CHALLENGE ---------- */
+
+function customMathChallenge(){
+
+    const seconds = prompt(
+        "CUSTOM LIFEKEY CHALLENGE\n\n" +
+        "Choose your time in seconds.\n\n" +
+        "Examples:\n" +
+        "30 = 30 seconds\n" +
+        "60 = 1 minute\n" +
+        "90 = 1 minute 30 seconds\n" +
+        "120 = 2 minutes"
+    );
+
+    if(seconds === null){
+        return;
+    }
+
+    const time = parseInt(seconds);
+
+    if(
+        isNaN(time) ||
+        time < 10 ||
+        time > 300
+    ){
+
+        alert(
+            "Please choose a time between 10 and 300 seconds."
+        );
+
+        return;
+    }
+
+    startMathGame(time,"medium");
+
+}
+
+
+/* ---------- START GAME ---------- */
+
+function startMathGame(duration = 30, mode = "easy"){
+
+    clearInterval(mathTimer);
+
+    mathDuration = duration;
+    mathTimeLeft = duration;
+    mathScore = 0;
+    mathQuestionCount = 0;
+    mathCorrect = 0;
+    mathWrong = 0;
+    mathStreak = 0;
+    mathBestStreak = 0;
+    mathMode = mode;
+
+    document.getElementById("mathModeScreen").style.display = "none";
+    document.getElementById("mathPlayScreen").style.display = "block";
+    document.getElementById("mathEndScreen").style.display = "none";
+
+    document.getElementById("mathTime").textContent = mathTimeLeft;
+    document.getElementById("mathScore").textContent = mathScore;
+    document.getElementById("mathQuestionNumber").textContent = 1;
+
+    document.getElementById("mathFeedback").textContent = "";
+
+    generateMathQuestion();
+
+    const answerBox = document.getElementById("mathAnswer");
+
+    answerBox.value = "";
+
+    answerBox.focus();
+
+    mathTimer = setInterval(function(){
+
+        mathTimeLeft--;
+
+        document.getElementById("mathTime").textContent =
+            mathTimeLeft;
+
+        if(mathTimeLeft <= 0){
+
+            endMathGame();
+
+        }
+
+    },1000);
+
+}
+
+
+/* ---------- GENERATE QUESTION ---------- */
+
+function generateMathQuestion(){
+
+    let a;
+    let b;
+    let operation;
+
+    if(mathMode === "easy"){
+
+        a = randomNumber(1,20);
+        b = randomNumber(1,20);
+
+        operation = randomItem([
+            "+",
+            "-",
+            "×"
+        ]);
+
+    }
+
+    else if(mathMode === "medium"){
+
+        a = randomNumber(10,100);
+        b = randomNumber(2,30);
+
+        operation = randomItem([
+            "+",
+            "-",
+            "×",
+            "÷"
+        ]);
+
+    }
+
+    else{
+
+        a = randomNumber(20,200);
+        b = randomNumber(2,50);
+
+        operation = randomItem([
+            "+",
+            "-",
+            "×",
+            "÷",
+            "%"
+        ]);
+
+    }
+
+
+    /* Make division questions produce whole numbers */
+
+    if(operation === "÷"){
+
+        const divisor = randomNumber(2,15);
+        const answer = randomNumber(2,20);
+
+        a = divisor * answer;
+        b = divisor;
+
+        currentMathAnswer = answer;
+
+    }
+
+
+    else if(operation === "%"){
+
+        const percentage = randomItem([
+            10,
+            20,
+            25,
+            50
+        ]);
+
+        a = randomNumber(2,20) * 10;
+        b = percentage;
+
+        currentMathAnswer =
+            (a * b) / 100;
+
+        document.getElementById("mathQuestion").textContent =
+            a + " × " + b + "% = ?";
+
+        mathQuestionCount++;
+
+        document.getElementById("mathQuestionNumber").textContent =
+            mathQuestionCount;
+
+        return;
+
+    }
+
+
+    else if(operation === "+"){
+
+        currentMathAnswer = a + b;
+
+    }
+
+    else if(operation === "-"){
+
+        currentMathAnswer = a - b;
+
+    }
+
+    else if(operation === "×"){
+
+        currentMathAnswer = a * b;
+
+    }
+
+
+    document.getElementById("mathQuestion").textContent =
+        a + " " + operation + " " + b + " = ?";
+
+    mathQuestionCount++;
+
+    document.getElementById("mathQuestionNumber").textContent =
+        mathQuestionCount;
+
+}
+
+
+/* ---------- SUBMIT ANSWER ---------- */
+
+function submitMathAnswer(){
+
+    const input =
+        document.getElementById("mathAnswer");
+
+    const userAnswer =
+        parseFloat(input.value);
+
+    const feedback =
+        document.getElementById("mathFeedback");
+
+
+    if(isNaN(userAnswer)){
+
+        feedback.textContent =
+            "Enter an answer first.";
+
+        return;
+
+    }
+
+
+    if(userAnswer === currentMathAnswer){
+
+        mathCorrect++;
+
+        mathStreak++;
+
+        if(mathStreak > mathBestStreak){
+
+            mathBestStreak = mathStreak;
+
+        }
+
+        /* Normal point */
+
+        mathScore++;
+
+        /* Streak bonus */
+
+        if(mathStreak > 0 && mathStreak % 5 === 0){
+
+            mathScore += 2;
+
+            feedback.textContent =
+                "🔥 " +
+                mathStreak +
+                " streak! +2 bonus points!";
+
+        }
+
+        else{
+
+            feedback.textContent =
+                "✅ Correct!";
+
+        }
+
+    }
+
+    else{
+
+        mathWrong++;
+
+        mathStreak = 0;
+
+        feedback.textContent =
+            "❌ Wrong!";
+
+    }
+
+
+    document.getElementById("mathScore").textContent =
+        mathScore;
+
+
+    input.value = "";
+
+    input.focus();
+
+
+    setTimeout(function(){
+
+        if(mathTimeLeft > 0){
+
+            feedback.textContent = "";
+
+            generateMathQuestion();
+
+        }
+
+    },350);
+
+}
+
+
+/* ---------- END GAME ---------- */
+
+function endMathGame(){
+
+    clearInterval(mathTimer);
+
+    document.getElementById("mathPlayScreen").style.display =
+        "none";
+
+    document.getElementById("mathEndScreen").style.display =
+        "block";
+
+
+    document.getElementById("mathFinalScore").textContent =
+        mathScore;
+
+
+    const totalAnswered =
+        mathCorrect + mathWrong;
+
+
+    let accuracy = 0;
+
+    if(totalAnswered > 0){
+
+        accuracy =
+            Math.round(
+                (mathCorrect / totalAnswered) * 100
+            );
+
+    }
+
+
+    const questionsPerMinute =
+        mathDuration > 0
+        ? Math.round(
+            (totalAnswered / mathDuration) * 60
+          )
+        : 0;
+
+
+    let rank;
+
+
+    if(mathScore >= 40){
+
+        rank = "🏆 LIFEKEY BRAIN CHAMPION";
+
+    }
+
+    else if(mathScore >= 30){
+
+        rank = "🔥 SPEED MASTER";
+
+    }
+
+    else if(mathScore >= 20){
+
+        rank = "⚡ BRAIN SPRINTER";
+
+    }
+
+    else if(mathScore >= 10){
+
+        rank = "🧠 QUICK THINKER";
+
+    }
+
+    else{
+
+        rank = "🌱 BRAIN STARTER";
+
+    }
+
+
+    document.getElementById("mathEndScreen").innerHTML = `
+
+        <div class="big-game-icon">
+            🏆
+        </div>
+
+        <h4>
+            Challenge Complete!
+        </h4>
+
+        <p>
+            Your final result
+        </p>
+
+        <div class="final-score">
+            ${mathScore}
+        </div>
+
+        <p>
+            ✅ Correct: ${mathCorrect}<br>
+            ❌ Wrong: ${mathWrong}<br>
+            🎯 Accuracy: ${accuracy}%<br>
+            ⚡ Speed: ${questionsPerMinute} questions/min<br>
+            🔥 Best Streak: ${mathBestStreak}
+        </p>
+
+        <br>
+
+        <h3>
+            ${rank}
+        </h3>
+
+        <button
+            class="game-button"
+            onclick="openMathChallenge()"
+        >
+            🔄 Try Again
+        </button>
+
+    `;
+
+}
+
+
+/* ---------- RANDOM NUMBER ---------- */
+
+function randomNumber(min,max){
+
+    return Math.floor(
+        Math.random() * (max - min + 1)
+    ) + min;
+
+}
+
+
+/* ---------- RANDOM ITEM ---------- */
+
+function randomItem(array){
+
+    return array[
+        Math.floor(
+            Math.random() * array.length
+        )
+    ];
+
+}
+
+
+/* ---------- ENTER KEY ---------- */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        const answer =
+            document.getElementById("mathAnswer");
+
+        if(
+            answer &&
+            event.target === answer &&
+            event.key === "Enter"
+        ){
+
+            submitMathAnswer();
+
+        }
+
+    }
+);
+
 
 /* ---------- TOOL CARD ACTIVATION ---------- */
 
