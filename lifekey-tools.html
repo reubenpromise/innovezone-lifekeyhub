@@ -2355,6 +2355,395 @@ Tools • Knowledge • Resources • Opportunities
 
 <!-- ================= END MATH CHALLENGE ================= -->
 
+<script>
+
+/* =========================================================
+   LIFEKEY TOOLS — INTERACTIVE SYSTEM
+   ========================================================= */
+
+/* ---------- GENERAL CALCULATOR ---------- */
+
+function openCalculator(){
+
+    const expression = prompt(
+        "LifeKey General Calculator\n\n" +
+        "Enter a calculation.\n" +
+        "Example: 2500 * 12 + 500"
+    );
+
+    if(expression === null || expression.trim() === ""){
+        return;
+    }
+
+    try{
+
+        const result = Function(
+            '"use strict"; return (' + expression + ')'
+        )();
+
+        alert(
+            "LifeKey Calculator\n\n" +
+            expression +
+            " = " +
+            result
+        );
+
+    }catch(error){
+
+        alert(
+            "Sorry, LifeKey could not calculate that.\n\n" +
+            "Please check your calculation."
+        );
+
+    }
+
+}
+
+
+/* ---------- UNIT CONVERTER ---------- */
+
+function openUnitConverter(){
+
+    const value = parseFloat(
+        prompt("Enter the value to convert:")
+    );
+
+    if(isNaN(value)){
+        alert("Please enter a valid number.");
+        return;
+    }
+
+    const choice = prompt(
+        "Choose conversion:\n\n" +
+        "1 = Kilometres → Miles\n" +
+        "2 = Miles → Kilometres\n" +
+        "3 = Celsius → Fahrenheit\n" +
+        "4 = Fahrenheit → Celsius\n" +
+        "5 = Kilograms → Pounds\n" +
+        "6 = Pounds → Kilograms\n" +
+        "7 = Metres → Feet\n" +
+        "8 = Feet → Metres"
+    );
+
+    let result;
+
+    switch(choice){
+
+        case "1":
+            result = value * 0.621371;
+            alert(value + " km = " + result.toFixed(3) + " miles");
+            break;
+
+        case "2":
+            result = value * 1.609344;
+            alert(value + " miles = " + result.toFixed(3) + " km");
+            break;
+
+        case "3":
+            result = (value * 9/5) + 32;
+            alert(value + "°C = " + result.toFixed(2) + "°F");
+            break;
+
+        case "4":
+            result = (value - 32) * 5/9;
+            alert(value + "°F = " + result.toFixed(2) + "°C");
+            break;
+
+        case "5":
+            result = value * 2.20462;
+            alert(value + " kg = " + result.toFixed(3) + " lb");
+            break;
+
+        case "6":
+            result = value * 0.453592;
+            alert(value + " lb = " + result.toFixed(3) + " kg");
+            break;
+
+        case "7":
+            result = value * 3.28084;
+            alert(value + " m = " + result.toFixed(3) + " ft");
+            break;
+
+        case "8":
+            result = value * 0.3048;
+            alert(value + " ft = " + result.toFixed(3) + " m");
+            break;
+
+        default:
+            alert("Invalid conversion choice.");
+
+    }
+
+}
+
+
+/* ---------- MONEY CALCULATOR ---------- */
+
+function openMoneyCalculator(){
+
+    const income = parseFloat(
+        prompt("Enter your total income:")
+    );
+
+    const expenses = parseFloat(
+        prompt("Enter your total expenses:")
+    );
+
+    if(isNaN(income) || isNaN(expenses)){
+
+        alert("Please enter valid numbers.");
+
+        return;
+
+    }
+
+    const profit = income - expenses;
+
+    alert(
+        "LifeKey Money Calculator\n\n" +
+        "Income: " + income + "\n" +
+        "Expenses: " + expenses + "\n" +
+        "Balance / Profit: " + profit
+    );
+
+}
+
+
+/* ---------- SAVINGS CALCULATOR ---------- */
+
+function openSavingsCalculator(){
+
+    const target = parseFloat(
+        prompt("What is your savings target?")
+    );
+
+    const monthly = parseFloat(
+        prompt("How much can you save each month?")
+    );
+
+    if(isNaN(target) || isNaN(monthly) || monthly <= 0){
+
+        alert("Please enter valid amounts.");
+
+        return;
+
+    }
+
+    const months = Math.ceil(target / monthly);
+
+    alert(
+        "LifeKey Savings Calculator\n\n" +
+        "Target: " + target + "\n" +
+        "Monthly saving: " + monthly + "\n\n" +
+        "Estimated time: " +
+        months +
+        " month(s)"
+    );
+
+}
+
+
+/* ---------- SIMPLE QUIZ ---------- */
+
+function startQuiz(){
+
+    let score = 0;
+
+    const q1 = prompt(
+        "LIFEKEY QUICK QUIZ\n\n" +
+        "1/3\n" +
+        "What does HTML mainly create?\n\n" +
+        "A. Website structure\n" +
+        "B. Electricity\n" +
+        "C. Database"
+    );
+
+    if(q1 && q1.toUpperCase() === "A"){
+        score++;
+    }
+
+    const q2 = prompt(
+        "2/3\n" +
+        "Which one is normally used for styling websites?\n\n" +
+        "A. HTML\n" +
+        "B. CSS\n" +
+        "C. SQL"
+    );
+
+    if(q2 && q2.toUpperCase() === "B"){
+        score++;
+    }
+
+    const q3 = prompt(
+        "3/3\n" +
+        "Which device is commonly used to measure voltage?\n\n" +
+        "A. Multimeter\n" +
+        "B. Hammer\n" +
+        "C. Spanner"
+    );
+
+    if(q3 && q3.toUpperCase() === "A"){
+        score++;
+    }
+
+    alert(
+        "Quiz Complete!\n\n" +
+        "Your score: " +
+        score +
+        "/3\n\n" +
+        (score === 3
+            ? "Excellent! 🔥"
+            : score === 2
+            ? "Good work! 👍"
+            : "Keep learning! 🚀")
+    );
+
+}
+
+
+/* ---------- KNOWLEDGE CHALLENGE ---------- */
+
+function startChallenge(){
+
+    const questions = [
+
+        {
+            question:
+            "What is 15 × 4?",
+            answer:"60"
+        },
+
+        {
+            question:
+            "How many volts are commonly found in Nigerian household AC supply?",
+            answer:"230"
+        },
+
+        {
+            question:
+            "What does AC stand for?",
+            answer:"alternating current"
+        },
+
+        {
+            question:
+            "What does DC stand for?",
+            answer:"direct current"
+        }
+
+    ];
+
+    const item =
+        questions[
+            Math.floor(
+                Math.random() * questions.length
+            )
+        ];
+
+    const answer = prompt(
+        "LIFEKEY KNOWLEDGE CHALLENGE\n\n" +
+        item.question
+    );
+
+    if(answer === null){
+        return;
+    }
+
+    if(
+        answer.trim().toLowerCase() ===
+        item.answer.toLowerCase()
+    ){
+
+        alert(
+            "Correct! 🎯\n\n" +
+            "Excellent work."
+        );
+
+    }else{
+
+        alert(
+            "Not quite. Keep learning! 🚀\n\n" +
+            "Correct answer: " +
+            item.answer
+        );
+
+    }
+
+}
+
+
+/* ---------- MEMORY GAME ---------- */
+
+function startMemoryGame(){
+
+    alert(
+        "🧠 LIFEKEY MEMORY GAME\n\n" +
+        "Remember these numbers:\n\n" +
+        "7 • 2 • 9 • 4 • 6\n\n" +
+        "You will be asked to enter them next."
+    );
+
+    const answer = prompt(
+        "Enter the numbers in the same order:"
+    );
+
+    if(answer === "72946"){
+
+        alert(
+            "🎉 Excellent memory!\n\n" +
+            "You got it right."
+        );
+
+    }else{
+
+        alert(
+            "Good attempt!\n\n" +
+            "The correct sequence was:\n\n" +
+            "7 • 2 • 9 • 4 • 6"
+        );
+
+    }
+
+}
+
+
+/* ---------- TOOL CARD ACTIVATION ---------- */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        const cards =
+            document.querySelectorAll(".tool-card");
+
+        cards.forEach(function(card){
+
+            card.addEventListener(
+                "mouseenter",
+                function(){
+
+                    card.style.transform =
+                        "translateY(-6px)";
+
+                }
+            );
+
+            card.addEventListener(
+                "mouseleave",
+                function(){
+
+                    card.style.transform =
+                        "";
+
+                }
+            );
+
+        });
+
+    }
+);
+
+</script>
 
 </body>
 
