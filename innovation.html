@@ -694,6 +694,262 @@
   font-size:.78rem;
   font-weight:800;
 }
+
+/* =========================
+   DISCOVERY ARTICLE
+========================= */
+
+.discovery-article{
+  border-radius:30px;
+  padding:30px;
+}
+
+.discovery-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:20px;
+  padding-bottom:25px;
+  border-bottom:1px solid var(--border);
+}
+
+.discovery-status{
+  display:inline-flex;
+  padding:7px 11px;
+  border-radius:999px;
+  font-size:.72rem;
+  font-weight:850;
+  letter-spacing:.5px;
+  margin-bottom:12px;
+}
+
+.discovery-status.existing{
+  color:#8fe5ff;
+  background:rgba(85,216,255,.07);
+  border:1px solid rgba(85,216,255,.2);
+}
+
+.discovery-top h3{
+  font-size:clamp(1.5rem,4vw,2.3rem);
+}
+
+.discovery-top p{
+  color:var(--muted);
+  margin-top:5px;
+  font-size:.86rem;
+}
+
+.discovery-number{
+  font-size:4rem;
+  line-height:1;
+  font-weight:900;
+  color:rgba(85,216,255,.12);
+}
+
+.discovery-block{
+  display:grid;
+  grid-template-columns:55px 1fr;
+  gap:18px;
+  padding:27px 0;
+  border-bottom:1px solid rgba(255,255,255,.07);
+}
+
+.discovery-icon{
+  width:48px;
+  height:48px;
+  border-radius:15px;
+  display:grid;
+  place-items:center;
+  font-size:1.35rem;
+  background:rgba(255,255,255,.045);
+  border:1px solid var(--border);
+}
+
+.discovery-block h3,
+.discovery-highlight h3,
+.discovery-warning h3,
+.discovery-connection h3{
+  margin-bottom:7px;
+}
+
+.discovery-block p,
+.discovery-highlight p,
+.discovery-warning p,
+.discovery-connection p{
+  color:var(--muted);
+  font-size:.91rem;
+  margin-top:7px;
+}
+
+.discovery-highlight,
+.discovery-warning,
+.discovery-connection{
+  display:grid;
+  grid-template-columns:55px 1fr;
+  gap:18px;
+  padding:25px;
+  margin-top:20px;
+  border-radius:22px;
+  background:rgba(85,216,255,.035);
+  border:1px solid rgba(85,216,255,.12);
+}
+
+.discovery-warning{
+  background:rgba(255,211,106,.035);
+  border-color:rgba(255,211,106,.14);
+}
+
+.discovery-connection{
+  background:rgba(139,124,255,.045);
+  border-color:rgba(139,124,255,.16);
+}
+
+.discovery-grid-mini{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:13px;
+  margin-top:22px;
+}
+
+.mini-discovery{
+  border-radius:18px;
+  padding:20px;
+}
+
+.mini-discovery span{
+  font-size:1.7rem;
+}
+
+.mini-discovery h4{
+  margin:10px 0 5px;
+}
+
+.mini-discovery p{
+  color:var(--muted);
+  font-size:.82rem;
+}
+
+.lifekey-question{
+  margin-top:25px;
+  padding:30px;
+  text-align:center;
+  border-radius:25px;
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(85,216,255,.11),
+      transparent 55%
+    ),
+    rgba(255,255,255,.035);
+  border:1px solid var(--border);
+}
+
+.lifekey-question h3{
+  font-size:clamp(1.4rem,3vw,2rem);
+  margin-top:7px;
+}
+
+.lifekey-question p{
+  color:var(--muted);
+  margin-top:5px;
+}
+
+.question-flow{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:20px;
+}
+
+.question-flow span{
+  padding:7px 10px;
+  border-radius:999px;
+  font-size:.72rem;
+  color:#dff8ff;
+  background:rgba(255,255,255,.05);
+  border:1px solid var(--border);
+}
+
+.question-flow b{
+  color:var(--accent);
+}
+
+.discovery-sources{
+  margin-top:28px;
+  padding-top:25px;
+  border-top:1px solid var(--border);
+}
+
+.discovery-sources h3{
+  margin-bottom:5px;
+}
+
+.discovery-sources p{
+  color:var(--muted);
+  font-size:.82rem;
+}
+
+.source-links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
+  margin-top:15px;
+}
+
+.source-links a{
+  padding:9px 12px;
+  border-radius:12px;
+  background:rgba(255,255,255,.045);
+  border:1px solid var(--border);
+  color:var(--accent);
+  font-size:.75rem;
+  transition:.2s ease;
+}
+
+.source-links a:hover{
+  transform:translateY(-2px);
+  border-color:rgba(85,216,255,.3);
+}
+
+@media(max-width:680px){
+
+  .discovery-article{
+    padding:20px;
+  }
+
+  .discovery-top{
+    flex-direction:column;
+  }
+
+  .discovery-number{
+    display:none;
+  }
+
+  .discovery-block,
+  .discovery-highlight,
+  .discovery-warning,
+  .discovery-connection{
+    grid-template-columns:1fr;
+  }
+
+  .discovery-grid-mini{
+    grid-template-columns:1fr;
+  }
+
+  .lifekey-question{
+    padding:22px;
+  }
+
+  .question-flow{
+    flex-direction:column;
+  }
+
+  .question-flow b{
+    transform:rotate(90deg);
+  }
+}
     
   /* =========================
        HOW IT WORKS
