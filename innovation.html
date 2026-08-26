@@ -1,0 +1,2256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="LifeKey Innovation Lab — discover, research and explore futuristic concepts, product modernization, inventions and practical solutions for everyday problems.">
+  <meta name="keywords" content="LifeKey Innovation, Innovzone, inventions, product innovation, futuristic design, modernization, technology, Nigeria, African innovation">
+  <meta name="author" content="LifeKey Hub">
+
+  <meta property="og:title" content="LifeKey Innovation Lab">
+  <meta property="og:description" content="Imagine. Improve. Invent. Explore researched concepts, product modernization and future solutions from LifeKey Hub.">
+  <meta property="og:type" content="website">
+
+  <link rel="canonical" href="https://reubenpromise.github.io/innovezone-lifekeyhub/innovation.html">
+
+  <title>LifeKey Innovation Lab | Imagine • Improve • Invent</title>
+
+  <style>
+    :root{
+      --bg:#071018;
+      --bg2:#0b1722;
+      --glass:rgba(255,255,255,.065);
+      --glass2:rgba(255,255,255,.095);
+      --border:rgba(255,255,255,.14);
+      --text:#edf7ff;
+      --muted:#a8bdca;
+      --accent:#55d8ff;
+      --accent2:#8b7cff;
+      --success:#61e6a5;
+      --warning:#ffd36a;
+      --shadow:0 24px 70px rgba(0,0,0,.32);
+      --radius:24px;
+    }
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 15% 10%,rgba(85,216,255,.12),transparent 28%),
+        radial-gradient(circle at 85% 18%,rgba(139,124,255,.12),transparent 30%),
+        linear-gradient(160deg,var(--bg),var(--bg2) 55%,#050b11);
+      min-height:100vh;
+      line-height:1.6;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    .container{
+      width:min(1160px,92%);
+      margin:auto;
+    }
+
+    .glass{
+      background:linear-gradient(
+        145deg,
+        rgba(255,255,255,.095),
+        rgba(255,255,255,.035)
+      );
+      border:1px solid var(--border);
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px);
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      background:rgba(5,12,18,.72);
+      border-bottom:1px solid rgba(255,255,255,.1);
+      backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px);
+    }
+
+    .nav{
+      min-height:70px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:800;
+      letter-spacing:.4px;
+      white-space:nowrap;
+    }
+
+    .brand-mark{
+      width:38px;
+      height:38px;
+      border-radius:13px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(
+        135deg,
+        rgba(85,216,255,.3),
+        rgba(139,124,255,.28)
+      );
+      border:1px solid rgba(255,255,255,.18);
+      box-shadow:0 0 25px rgba(85,216,255,.12);
+    }
+
+    .nav-links{
+      display:flex;
+      gap:8px;
+      align-items:center;
+    }
+
+    .nav-links a{
+      color:var(--muted);
+      padding:9px 13px;
+      border-radius:12px;
+      font-size:.92rem;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active{
+      color:var(--text);
+      background:rgba(255,255,255,.07);
+    }
+
+    .menu-btn{
+      display:none;
+      border:1px solid var(--border);
+      background:var(--glass);
+      color:var(--text);
+      border-radius:12px;
+      padding:9px 12px;
+      font-size:1.2rem;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero{
+      padding:78px 0 45px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:32px;
+      align-items:center;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      color:var(--accent);
+      font-size:.78rem;
+      font-weight:800;
+      letter-spacing:1.8px;
+      text-transform:uppercase;
+      margin-bottom:15px;
+    }
+
+    .dot{
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:var(--success);
+      box-shadow:0 0 14px var(--success);
+    }
+
+    h1{
+      font-size:clamp(2.6rem,7vw,5.3rem);
+      line-height:.98;
+      letter-spacing:-3px;
+      margin-bottom:20px;
+    }
+
+    .gradient{
+      background:linear-gradient(
+        100deg,
+        var(--accent),
+        #d6f6ff 45%,
+        #a89cff
+      );
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+
+    .hero p{
+      color:var(--muted);
+      font-size:1.08rem;
+      max-width:680px;
+    }
+
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:27px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:12px 18px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      font-weight:750;
+      transition:.25s ease;
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+    }
+
+    .btn-primary{
+      color:#031018;
+      background:linear-gradient(
+        135deg,
+        #9aeaff,
+        var(--accent)
+      );
+      border-color:transparent;
+    }
+
+    .btn-secondary{
+      background:rgba(255,255,255,.06);
+      color:var(--text);
+    }
+
+    /* =========================
+       HERO VISUAL
+    ========================= */
+
+    .hero-visual{
+      min-height:420px;
+      border-radius:32px;
+      position:relative;
+      overflow:hidden;
+      display:grid;
+      place-items:center;
+      background:
+        radial-gradient(
+          circle at 50% 40%,
+          rgba(85,216,255,.18),
+          transparent 35%
+        ),
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.09),
+          rgba(255,255,255,.025)
+        );
+    }
+
+    .orb{
+      position:absolute;
+      width:250px;
+      height:250px;
+      border-radius:50%;
+      border:1px solid rgba(85,216,255,.3);
+      box-shadow:
+        0 0 90px rgba(85,216,255,.12),
+        inset 0 0 60px rgba(139,124,255,.08);
+      animation:float 6s ease-in-out infinite;
+    }
+
+    .orb:before,
+    .orb:after{
+      content:"";
+      position:absolute;
+      inset:22px;
+      border-radius:50%;
+      border:1px dashed rgba(255,255,255,.13);
+    }
+
+    .orb:after{
+      inset:55px;
+      border-color:rgba(85,216,255,.24);
+    }
+
+    .visual-card{
+      width:min(330px,72%);
+      aspect-ratio:1.2/1;
+      border-radius:25px;
+      position:relative;
+      z-index:2;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      padding:22px;
+      background:linear-gradient(
+        145deg,
+        rgba(255,255,255,.15),
+        rgba(255,255,255,.045)
+      );
+      border:1px solid rgba(255,255,255,.2);
+      box-shadow:
+        0 30px 70px rgba(0,0,0,.38),
+        inset 0 0 40px rgba(85,216,255,.04);
+      transform:
+        perspective(900px)
+        rotateY(-9deg)
+        rotateX(4deg);
+      animation:float2 7s ease-in-out infinite;
+    }
+
+    .visual-screen{
+      height:48%;
+      border-radius:17px;
+      border:1px solid rgba(85,216,255,.24);
+      background:linear-gradient(
+        135deg,
+        rgba(85,216,255,.09),
+        rgba(139,124,255,.08)
+      );
+      padding:15px;
+    }
+
+    .screen-line{
+      height:7px;
+      border-radius:8px;
+      background:rgba(255,255,255,.12);
+      margin:9px 0;
+    }
+
+    .screen-line.short{
+      width:55%;
+    }
+
+    .screen-data{
+      display:flex;
+      justify-content:space-between;
+      color:var(--accent);
+      font-size:.72rem;
+      margin-top:16px;
+    }
+
+    .visual-label{
+      font-size:.72rem;
+      color:var(--muted);
+      letter-spacing:1.4px;
+      text-transform:uppercase;
+    }
+
+    .visual-name{
+      font-size:1.35rem;
+      font-weight:850;
+    }
+
+    @keyframes float{
+      50%{
+        transform:translateY(-12px) rotate(4deg);
+      }
+    }
+
+    @keyframes float2{
+      50%{
+        transform:
+          perspective(900px)
+          rotateY(-4deg)
+          rotateX(2deg)
+          translateY(-10px);
+      }
+    }
+
+    /* =========================
+       SECTIONS
+    ========================= */
+
+    section{
+      padding:42px 0;
+    }
+
+    .section-head{
+      margin-bottom:22px;
+    }
+
+    .section-head h2{
+      font-size:clamp(1.7rem,4vw,2.5rem);
+      letter-spacing:-1px;
+    }
+
+    .section-head p{
+      color:var(--muted);
+      max-width:760px;
+      margin-top:6px;
+    }
+
+    /* =========================
+       BIO
+    ========================= */
+
+    .bio{
+      border-radius:var(--radius);
+      padding:30px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:28px;
+    }
+
+    .bio h3{
+      font-size:1.35rem;
+      margin-bottom:9px;
+    }
+
+    .bio p{
+      color:var(--muted);
+    }
+
+    .pill-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:9px;
+      margin-top:18px;
+    }
+
+    .pill{
+      padding:7px 11px;
+      border:1px solid var(--border);
+      border-radius:999px;
+      color:#cfe8f2;
+      background:rgba(255,255,255,.045);
+      font-size:.82rem;
+    }
+
+    /* =========================
+       CATEGORIES
+    ========================= */
+
+    .categories{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:14px;
+    }
+
+    .category{
+      border-radius:18px;
+      padding:19px;
+      min-height:125px;
+      transition:.25s ease;
+    }
+
+    .category:hover{
+      transform:translateY(-4px);
+      border-color:rgba(85,216,255,.3);
+    }
+
+    .category-icon{
+      font-size:1.7rem;
+      margin-bottom:8px;
+    }
+
+    .category h3{
+      font-size:1rem;
+    }
+
+    .category p{
+      font-size:.8rem;
+      color:var(--muted);
+      margin-top:4px;
+    }
+
+    /* =========================
+       FEATURED INNOVATION
+    ========================= */
+
+    .featured{
+      border-radius:30px;
+      overflow:hidden;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+    }
+
+    .featured-art{
+      min-height:430px;
+      display:grid;
+      place-items:center;
+      position:relative;
+      background:
+        radial-gradient(
+          circle at 50% 40%,
+          rgba(85,216,255,.16),
+          transparent 35%
+        ),
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.07),
+          rgba(255,255,255,.02)
+        );
+    }
+
+    /* Temporary concept object.
+       This will later be replaced by our real 3D render. */
+
+    .freshbox{
+      width:230px;
+      height:275px;
+      border-radius:28px;
+      border:1px solid rgba(255,255,255,.22);
+      background:linear-gradient(
+        145deg,
+        rgba(255,255,255,.14),
+        rgba(255,255,255,.04)
+      );
+      box-shadow:
+        0 35px 80px rgba(0,0,0,.4),
+        inset 0 0 50px rgba(85,216,255,.06);
+      position:relative;
+      transform:
+        perspective(800px)
+        rotateY(-14deg)
+        rotateX(4deg);
+    }
+
+    .freshbox:before{
+      content:"";
+      position:absolute;
+      left:16px;
+      right:16px;
+      top:16px;
+      height:125px;
+      border-radius:18px;
+      background:linear-gradient(
+        135deg,
+        rgba(85,216,255,.16),
+        rgba(139,124,255,.09)
+      );
+      border:1px solid rgba(85,216,255,.2);
+    }
+
+    .freshbox:after{
+      content:"FRESHBOX";
+      position:absolute;
+      left:23px;
+      top:164px;
+      font-weight:850;
+      letter-spacing:2px;
+      color:#dff9ff;
+    }
+
+    .freshbox-led{
+      position:absolute;
+      left:24px;
+      bottom:28px;
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      background:var(--success);
+      box-shadow:0 0 16px var(--success);
+    }
+
+    .featured-copy{
+      padding:38px;
+    }
+
+    .number{
+      color:var(--accent);
+      font-size:.78rem;
+      letter-spacing:1.8px;
+      font-weight:800;
+      text-transform:uppercase;
+    }
+
+    .featured-copy h2{
+      font-size:clamp(2rem,4vw,3.1rem);
+      line-height:1;
+      margin:10px 0 15px;
+    }
+
+    .featured-copy p{
+      color:var(--muted);
+    }
+
+    .status{
+      display:inline-flex;
+      margin:18px 0;
+      padding:7px 10px;
+      border-radius:999px;
+      color:var(--warning);
+      border:1px solid rgba(255,211,106,.2);
+      background:rgba(255,211,106,.06);
+      font-size:.75rem;
+      font-weight:800;
+    }
+
+    /* =========================
+       CONCEPT CARDS
+    ========================= */
+
+    .concept-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+    }
+
+    .concept-card{
+      border-radius:22px;
+      padding:24px;
+      min-height:210px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .concept-card .big-icon{
+      font-size:2rem;
+    }
+
+    .concept-card h3{
+      margin:12px 0 7px;
+    }
+
+    .concept-card p{
+      color:var(--muted);
+      font-size:.9rem;
+    }
+
+    .concept-card .mini-status{
+      position:absolute;
+      right:18px;
+      top:18px;
+      font-size:.68rem;
+      color:var(--accent);
+      border:1px solid rgba(85,216,255,.2);
+      padding:5px 8px;
+      border-radius:999px;
+    }
+
+    /* =========================
+       HOW IT WORKS
+    ========================= */
+
+    .flow{
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      gap:10px;
+      align-items:stretch;
+    }
+
+    .flow-item{
+      border-radius:18px;
+      padding:18px 14px;
+      text-align:center;
+      background:rgba(255,255,255,.045);
+      border:1px solid var(--border);
+    }
+
+    .flow-item strong{
+      display:block;
+      font-size:.9rem;
+    }
+
+    .flow-item span{
+      display:block;
+      color:var(--muted);
+      font-size:.72rem;
+      margin-top:5px;
+    }
+
+    /* =========================
+       VIDEO
+    ========================= */
+
+    .video{
+      border-radius:28px;
+      min-height:360px;
+      display:grid;
+      place-items:center;
+      text-align:center;
+      padding:30px;
+      background:
+        radial-gradient(
+          circle at center,
+          rgba(85,216,255,.12),
+          transparent 35%
+        ),
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.075),
+          rgba(255,255,255,.025)
+        );
+    }
+
+    .play{
+      width:78px;
+      height:78px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      font-size:1.6rem;
+      margin:0 auto 18px;
+      color:#031018;
+      background:linear-gradient(
+        135deg,
+        #b9f2ff,
+        var(--accent)
+      );
+      box-shadow:0 0 40px rgba(85,216,255,.2);
+    }
+
+    .video p{
+      color:var(--muted);
+      max-width:650px;
+      margin:8px auto 0;
+    }
+
+    /* =========================
+       RESEARCH
+    ========================= */
+
+    .research{
+      border-radius:var(--radius);
+      padding:28px;
+    }
+
+    .research-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:13px;
+      margin-top:20px;
+    }
+
+    .research-item{
+      padding:17px;
+      border-radius:17px;
+      background:rgba(255,255,255,.045);
+      border:1px solid var(--border);
+    }
+
+    .research-item b{
+      display:block;
+      font-size:.86rem;
+    }
+
+    .research-item span{
+      font-size:.75rem;
+      color:var(--muted);
+    }
+
+    /* =========================
+       CTA
+    ========================= */
+
+    .cta{
+      border-radius:30px;
+      padding:42px;
+      text-align:center;
+      background:
+        radial-gradient(
+          circle at 50% 0%,
+          rgba(85,216,255,.15),
+          transparent 45%
+        ),
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.09),
+          rgba(255,255,255,.035)
+        );
+    }
+
+    .cta h2{
+      font-size:clamp(1.9rem,4vw,3rem);
+    }
+
+    .cta p{
+      color:var(--muted);
+      max-width:720px;
+      margin:10px auto 20px;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer{
+      margin-top:30px;
+      padding:28px 0 45px;
+      border-top:1px solid rgba(255,255,255,.08);
+      color:var(--muted);
+      font-size:.82rem;
+    }
+
+    .footer-row{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .footer-links{
+      display:flex;
+      gap:15px;
+      flex-wrap:wrap;
+    }
+
+    .footer-links a:hover{
+      color:var(--text);
+    }
+
+    /* =========================
+       TABLET
+    ========================= */
+
+    @media(max-width:900px){
+
+      .hero-grid,
+      .bio,
+      .featured{
+        grid-template-columns:1fr;
+      }
+
+      .categories{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .concept-grid{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .flow{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .research-grid{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .hero{
+        padding-top:52px;
+      }
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media(max-width:680px){
+
+      .nav-links{
+        display:none;
+        position:absolute;
+        left:4%;
+        right:4%;
+        top:68px;
+        padding:12px;
+        border-radius:18px;
+        flex-direction:column;
+        align-items:stretch;
+        background:rgba(5,12,18,.96);
+        border:1px solid var(--border);
+      }
+
+      .nav-links.show{
+        display:flex;
+      }
+
+      .nav-links a{
+        padding:12px;
+      }
+
+      .menu-btn{
+        display:block;
+      }
+
+      h1{
+        letter-spacing:-2px;
+      }
+
+      .categories,
+      .concept-grid,
+      .research-grid{
+        grid-template-columns:1fr;
+      }
+
+      .flow{
+        grid-template-columns:1fr;
+      }
+
+      .bio,
+      .featured-copy,
+      .cta{
+        padding:24px;
+      }
+
+      .hero-visual{
+        min-height:350px;
+      }
+
+      .featured-art{
+        min-height:350px;
+      }
+
+      .freshbox{
+        width:190px;
+        height:235px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       HEADER
+  ========================= -->
+
+  <header>
+
+    <div class="container nav">
+
+      <a class="brand" href="index.html" aria-label="LifeKey Hub home">
+
+        <span class="brand-mark">✦</span>
+
+        <span>LifeKey Hub</span>
+
+      </a>
+
+      <button
+        class="menu-btn"
+        id="menuBtn"
+        aria-label="Open navigation"
+      >
+        ☰
+      </button>
+
+      <nav class="nav-links" id="navLinks">
+
+        <a href="index.html">
+          Home
+        </a>
+
+        <a href="index.html#explore">
+          Explore
+        </a>
+
+        <a href="index.html#opportunities">
+          Opportunities
+        </a>
+
+        <a class="active" href="innovation.html">
+          Innovation
+        </a>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+
+  <!-- =========================
+       MAIN
+  ========================= -->
+
+  <main>
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+      <div class="container hero-grid">
+
+        <div>
+
+          <div class="eyebrow">
+
+            <span class="dot"></span>
+
+            LifeKey Innovation Lab
+
+          </div>
+
+          <h1>
+
+            Imagine.<br>
+
+            <span class="gradient">
+              Improve. Invent.
+            </span>
+
+          </h1>
+
+          <p>
+
+            A futuristic space for discovering everyday problems,
+            modernizing existing products, exploring new technologies
+            and developing practical concepts that could become
+            tomorrow's solutions.
+
+          </p>
+
+          <div class="hero-actions">
+
+            <a
+              class="btn btn-primary"
+              href="#featured"
+            >
+              Explore Innovation #001 →
+            </a>
+
+            <a
+              class="btn btn-secondary"
+              href="#categories"
+            >
+              Browse Categories
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <div
+          class="hero-visual glass"
+          aria-label="Futuristic LifeKey Innovation concept visualization"
+        >
+
+          <div class="orb"></div>
+
+          <div class="visual-card">
+
+            <div class="visual-screen">
+
+              <div class="visual-label">
+                Concept interface
+              </div>
+
+              <div class="screen-line"></div>
+
+              <div class="screen-line short"></div>
+
+              <div class="screen-data">
+
+                <span>
+                  IDEA 001
+                </span>
+
+                <span>
+                  R&amp;D
+                </span>
+
+              </div>
+
+            </div>
+
+            <div>
+
+              <div class="visual-label">
+                Featured project
+              </div>
+
+              <div class="visual-name">
+                Hybrid FreshBox
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section>
+
+      <div class="container">
+
+        <div class="bio glass">
+
+          <div>
+
+            <div class="eyebrow">
+              About the Lab
+            </div>
+
+            <h3>
+              What LifeKey Innovation does
+            </h3>
+
+            <p>
+
+              LifeKey Innovation explores practical solutions to
+              everyday problems. We study existing products and
+              technologies, ask how they can be modernized or combined
+              differently, and turn promising ideas into clear product
+              concepts that engineers, manufacturers, entrepreneurs
+              and investors can understand and develop.
+
+            </p>
+
+          </div>
+
+
+          <div>
+
+            <h3>
+              Our innovation philosophy
+            </h3>
+
+            <p>
+
+              We do not assume that an idea is new simply because
+              we have not seen it before. Promising concepts are
+              checked against existing products, patents and
+              technical research before LifeKey describes them as
+              potentially novel.
+
+            </p>
+
+            <div class="pill-row">
+
+              <span class="pill">
+                Problem Solving
+              </span>
+
+              <span class="pill">
+                Product Modernization
+              </span>
+
+              <span class="pill">
+                Concept Design
+              </span>
+
+              <span class="pill">
+                Prior-Art Research
+              </span>
+
+              <span class="pill">
+                Engineering Thinking
+              </span>
+
+              <span class="pill">
+                Commercial Opportunity
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CATEGORIES -->
+
+    <section id="categories">
+
+      <div class="container">
+
+        <div class="section-head">
+
+          <div class="eyebrow">
+            Explore
+          </div>
+
+          <h2>
+            Innovation Categories
+          </h2>
+
+          <p>
+
+            Different places where LifeKey can investigate problems,
+            modernize existing products and develop future concepts.
+
+          </p>
+
+        </div>
+
+
+        <div class="categories">
+
+
+          <a
+            class="category glass"
+            href="#featured"
+          >
+
+            <div class="category-icon">
+              🏠
+            </div>
+
+            <h3>
+              Home &amp; Smart Living
+            </h3>
+
+            <p>
+              Smarter everyday products, furniture and household solutions.
+            </p>
+
+          </a>
+
+
+          <a
+            class="category glass"
+            href="#featured"
+          >
+
+            <div class="category-icon">
+              ⚡
+            </div>
+
+            <h3>
+              Electrical &amp; Energy
+            </h3>
+
+            <p>
+              Power, energy management, protection and efficiency.
+            </p>
+
+          </a>
+
+
+          <a
+            class="category glass"
+            href="#featured"
+          >
+
+            <div class="category-icon">
+              🔧
+            </div>
+
+            <h3>
+              Tools &amp; Technician
+            </h3>
+
+            <p>
+              Better equipment, portable work systems and field solutions.
+            </p>
+
+          </a>
+
+
+          <a
+            class="category glass"
+            href="#featured"
+          >
+
+            <div class="category-icon">
+              🍳
+            </div>
+
+            <h3>
+              Kitchen &amp; Appliances
+            </h3>
+
+            <p>
+              Modernizing the machines people use every day.
+            </p>
+
+          </a>
+
+
+          <a
+            class="category glass"
+            href="#featured"
+          >
+
+            <div class="category-icon">
+              💧
+            </div>
+
+            <h3>
+              Water &amp; Sanitation
+            </h3>
+
+            <p>
+              Storage, distribution, conservation and practical hygiene solutions.
+            </p>
+
+          </a>
+
+
+          <a
+            class="category glass"
+            href="#featured"
+          >
+
+            <div class="category-icon">
+              🌱
+            </div>
+
+            <h3>
+              Agriculture &amp; Food
+            </h3>
+
+            <p>
+              Food preservation, farming tools and post-harvest solutions.
+            </p>
+
+          </a>
+
+
+          <a
+            class="category glass"
+            href="#featured"
+          >
+
+            <div class="category-icon">
+              🚲
+            </div>
+
+            <h3>
+              Transport &amp; Mobility
+            </h3>
+
+            <p>
+              Portable systems, safer movement and mobile work solutions.
+            </p>
+
+          </a>
+
+
+          <a
+            class="category glass"
+            href="#featured"
+          >
+
+            <div class="category-icon">
+              🏭
+            </div>
+
+            <h3>
+              Industrial &amp; Manufacturing
+            </h3>
+
+            <p>
+              Ideas for workshops, factories and production environments.
+            </p>
+
+          </a>
+
+
+          <a
+            class="category glass"
+            href="#featured"
+          >
+
+            <div class="category-icon">
+              🤖
+            </div>
+
+            <h3>
+              AI &amp; Smart Technology
+            </h3>
+
+            <p>
+              Sensors, automation, intelligent control and connected products.
+            </p>
+
+          </a>
+
+
+          <a
+            class="category glass"
+            href="#featured"
+          >
+
+            <div class="category-icon">
+              🪑
+            </div>
+
+            <h3>
+              Smart Furniture
+            </h3>
+
+            <p>
+              Transforming, folding, compact and multifunctional spaces.
+            </p>
+
+          </a>
+
+
+          <a
+            class="category glass"
+            href="#featured"
+          >
+
+            <div class="category-icon">
+              ♻️
+            </div>
+
+            <h3>
+              Green &amp; Sustainable
+            </h3>
+
+            <p>
+              Energy, materials, reuse and waste-reduction concepts.
+            </p>
+
+          </a>
+
+
+          <a
+            class="category glass"
+            href="#featured"
+          >
+
+            <div class="category-icon">
+              🇳🇬
+            </div>
+
+            <h3>
+              African &amp; Nigerian Solutions
+            </h3>
+
+            <p>
+              Products designed around real local problems and conditions.
+            </p>
+
+          </a>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- FEATURED INNOVATION -->
+
+    <section id="featured">
+
+      <div class="container">
+
+        <div class="section-head">
+
+          <div class="eyebrow">
+            Featured Concept
+          </div>
+
+          <h2>
+            Innovation #001
+          </h2>
+
+        </div>
+
+
+        <article class="featured glass">
+
+
+          <div class="featured-art">
+
+            <div
+              class="freshbox"
+              aria-label="Hybrid FreshBox concept visualization"
+            >
+
+              <div class="freshbox-led"></div>
+
+            </div>
+
+          </div>
+
+
+          <div class="featured-copy">
+
+            <div class="number">
+              LifeKey Concept 001
+            </div>
+
+            <h2>
+              Hybrid<br>
+              FreshBox
+            </h2>
+
+            <div class="status">
+              EARLY-STAGE CONCEPT
+            </div>
+
+            <p>
+
+              A proposed modular food-preservation system exploring
+              passive cooling, active cooling, thermal storage,
+              controlled airflow and smart monitoring in a configurable
+              unit for homes, small shops, food sellers and off-grid users.
+
+            </p>
+
+            <div class="hero-actions">
+
+              <a
+                class="btn btn-primary"
+                href="#how-it-works"
+              >
+                Explore the Concept ↓
+              </a>
+
+              <a
+                class="btn btn-secondary"
+                href="#research"
+              >
+                Research Status
+              </a>
+
+            </div>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- HOW IT WORKS -->
+
+    <section id="how-it-works">
+
+      <div class="container">
+
+        <div class="section-head">
+
+          <div class="eyebrow">
+            Concept Architecture
+          </div>
+
+          <h2>
+            How FreshBox could work
+          </h2>
+
+          <p>
+
+            This is a conceptual system architecture.
+            The actual engineering design, component selection
+            and performance would require specialist validation.
+
+          </p>
+
+        </div>
+
+
+        <div class="flow">
+
+
+          <div class="flow-item">
+
+            <strong>
+              ☀️ Energy
+            </strong>
+
+            <span>
+              Solar / grid / suitable backup source
+            </span>
+
+          </div>
+
+
+          <div class="flow-item">
+
+            <strong>
+              ⚙️ Power Control
+            </strong>
+
+            <span>
+              Manages available energy
+            </span>
+
+          </div>
+
+
+          <div class="flow-item">
+
+            <strong>
+              ❄️ Cooling
+            </strong>
+
+            <span>
+              Active, passive and thermal options
+            </span>
+
+          </div>
+
+
+          <div class="flow-item">
+
+            <strong>
+              🌬️ Air Management
+            </strong>
+
+            <span>
+              Controlled circulation and humidity strategy
+            </span>
+
+          </div>
+
+
+          <div class="flow-item">
+
+            <strong>
+              📦 Food Modules
+            </strong>
+
+            <span>
+              Separate configurable storage zones
+            </span>
+
+          </div>
+
+
+        </div>
+
+
+        <div
+          class="concept-grid"
+          style="margin-top:18px"
+        >
+
+
+          <div class="concept-card glass">
+
+            <span class="big-icon">
+              ❄️
+            </span>
+
+            <h3>
+              Cooling Module
+            </h3>
+
+            <p>
+
+              Investigate efficient active cooling for situations
+              where refrigeration is required.
+
+            </p>
+
+          </div>
+
+
+          <div class="concept-card glass">
+
+            <span class="big-icon">
+              🧊
+            </span>
+
+            <h3>
+              Thermal Storage
+            </h3>
+
+            <p>
+
+              Explore ways to store cooling capacity and reduce
+              dependence on continuous power.
+
+            </p>
+
+          </div>
+
+
+          <div class="concept-card glass">
+
+            <span class="big-icon">
+              💧
+            </span>
+
+            <h3>
+              Humidity Management
+            </h3>
+
+            <p>
+
+              Different foods need different environmental conditions;
+              the concept explores controlled zones.
+
+            </p>
+
+          </div>
+
+
+          <div class="concept-card glass">
+
+            <span class="big-icon">
+              📡
+            </span>
+
+            <h3>
+              Smart Monitoring
+            </h3>
+
+            <p>
+
+              Possible sensors for temperature, humidity, energy
+              status and system alerts.
+
+            </p>
+
+          </div>
+
+
+          <div class="concept-card glass">
+
+            <span class="big-icon">
+              📦
+            </span>
+
+            <h3>
+              Modular Storage
+            </h3>
+
+            <p>
+
+              Removable compartments could allow the product
+              to be configured for different users.
+
+            </p>
+
+          </div>
+
+
+          <div class="concept-card glass">
+
+            <span class="big-icon">
+              ☀️
+            </span>
+
+            <h3>
+              Off-Grid Ready
+            </h3>
+
+            <p>
+
+              Future engineering could explore solar and
+              other low-energy configurations.
+
+            </p>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- VISUAL DEVELOPMENT -->
+
+    <section id="visuals">
+
+      <div class="container">
+
+        <div class="section-head">
+
+          <div class="eyebrow">
+            Visual Development
+          </div>
+
+          <h2>
+            From concept to 3D product
+          </h2>
+
+          <p>
+
+            Our future visual package will show the concept from
+            multiple angles, including a hero render, internal modules,
+            exploded engineering view and real-world use.
+
+          </p>
+
+        </div>
+
+
+        <div class="concept-grid">
+
+
+          <div class="concept-card glass">
+
+            <span class="big-icon">
+              🧊
+            </span>
+
+            <h3>
+              Hero 3D Render
+            </h3>
+
+            <p>
+
+              Premium futuristic product presentation.
+              Replace this placeholder with the final concept render.
+
+            </p>
+
+          </div>
+
+
+          <div class="concept-card glass">
+
+            <span class="big-icon">
+              🔬
+            </span>
+
+            <h3>
+              Exploded View
+            </h3>
+
+            <p>
+
+              Show the enclosure, cooling system, sensors,
+              controller and modular compartments.
+
+            </p>
+
+          </div>
+
+
+          <div class="concept-card glass">
+
+            <span class="big-icon">
+              🌍
+            </span>
+
+            <h3>
+              Real-World Scene
+            </h3>
+
+            <p>
+
+              Show how the product could fit into a Nigerian
+              home, small shop or farm environment.
+
+            </p>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- VIDEO -->
+
+    <section id="video">
+
+      <div class="container">
+
+        <div class="section-head">
+
+          <div class="eyebrow">
+            Concept Film
+          </div>
+
+          <h2>
+            See the idea come alive
+          </h2>
+
+        </div>
+
+
+        <div class="video glass">
+
+          <div>
+
+            <div class="play">
+              ▶
+            </div>
+
+            <h2>
+              Hybrid FreshBox — Concept Demonstration
+            </h2>
+
+            <p>
+
+              Video placeholder. The final 20–30 second concept film
+              can show the problem, FreshBox transformation, modular
+              compartments, smart interface, energy system and potential users.
+
+            </p>
+
+            <div
+              class="hero-actions"
+              style="justify-content:center"
+            >
+
+              <a
+                class="btn btn-secondary"
+                href="#research"
+              >
+                View Development Status
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- RESEARCH -->
+
+    <section id="research">
+
+      <div class="container">
+
+        <div class="research glass">
+
+          <div class="eyebrow">
+            Research Integrity
+          </div>
+
+          <h2>
+            What we know — and what still needs proof
+          </h2>
+
+          <p
+            style="color:var(--muted);margin-top:7px"
+          >
+
+            LifeKey does not automatically call an idea a new invention.
+            Existing products, patents, research and engineering
+            constraints must be investigated first.
+
+          </p>
+
+
+          <div class="research-grid">
+
+
+            <div class="research-item">
+
+              <b>
+                Problem identified
+              </b>
+
+              <span>
+                Food preservation under unreliable or expensive
+                energy conditions.
+              </span>
+
+            </div>
+
+
+            <div class="research-item">
+
+              <b>
+                Related technology exists
+              </b>
+
+              <span>
+                Solar cooling, evaporative cooling, thermal storage
+                and cold-room solutions already exist.
+              </span>
+
+            </div>
+
+
+            <div class="research-item">
+
+              <b>
+                LifeKey contribution
+              </b>
+
+              <span>
+                A proposed modular product direction combining
+                multiple preservation approaches.
+              </span>
+
+            </div>
+
+
+            <div class="research-item">
+
+              <b>
+                Patent status
+              </b>
+
+              <span>
+                Not claimed as a new patentable invention.
+                Deeper prior-art review is required.
+              </span>
+
+            </div>
+
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- DEVELOPMENT CTA -->
+
+    <section>
+
+      <div class="container">
+
+        <div class="cta glass">
+
+          <div
+            class="eyebrow"
+            style="justify-content:center"
+          >
+            Build With LifeKey
+          </div>
+
+          <h2>
+            Have the equipment to turn an idea into reality?
+          </h2>
+
+          <p>
+
+            LifeKey Innovation is exploring collaboration with
+            engineers, inventors, product designers, manufacturers,
+            entrepreneurs and investors who can help move promising
+            concepts toward engineering and prototypes.
+
+          </p>
+
+          <a
+            class="btn btn-primary"
+            href="index.html#contact"
+          >
+            Contact LifeKey Hub →
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- FUTURE INNOVATIONS -->
+
+    <section id="future">
+
+      <div class="container">
+
+        <div class="section-head">
+
+          <div class="eyebrow">
+            Growing Library
+          </div>
+
+          <h2>
+            More innovations coming
+          </h2>
+
+          <p>
+
+            Future concepts will be added here as they are
+            researched and developed.
+
+          </p>
+
+        </div>
+
+
+        <div class="concept-grid">
+
+
+          <div class="concept-card glass">
+
+            <span class="mini-status">
+              RESEARCHING
+            </span>
+
+            <span class="big-icon">
+              ⚡
+            </span>
+
+            <h3>
+              Innovation #002
+            </h3>
+
+            <p>
+
+              A new everyday energy or appliance concept —
+              under research.
+
+            </p>
+
+          </div>
+
+
+          <div class="concept-card glass">
+
+            <span class="mini-status">
+              RESEARCHING
+            </span>
+
+            <span class="big-icon">
+              🔧
+            </span>
+
+            <h3>
+              Innovation #003
+            </h3>
+
+            <p>
+
+              A practical technician/workshop modernization
+              concept — under research.
+
+            </p>
+
+          </div>
+
+
+          <div class="concept-card glass">
+
+            <span class="mini-status">
+              COMING SOON
+            </span>
+
+            <span class="big-icon">
+              💡
+            </span>
+
+            <h3>
+              Innovation #004
+            </h3>
+
+            <p>
+
+              Another everyday problem waiting to be redesigned.
+
+            </p>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+    <div class="container footer-row">
+
+      <div>
+
+        © <span id="year"></span>
+        LifeKey Hub • Innovation Lab
+
+      </div>
+
+      <div class="footer-links">
+
+        <a href="index.html">
+          Home
+        </a>
+
+        <a href="index.html#explore">
+          Explore
+        </a>
+
+        <a href="index.html#opportunities">
+          Opportunities
+        </a>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================= -->
+
+  <script>
+
+    const menuBtn =
+      document.getElementById("menuBtn");
+
+    const navLinks =
+      document.getElementById("navLinks");
+
+
+    menuBtn.addEventListener(
+      "click",
+      () => {
+
+        navLinks.classList.toggle("show");
+
+      }
+    );
+
+
+    navLinks
+      .querySelectorAll("a")
+      .forEach(link => {
+
+        link.addEventListener(
+          "click",
+          () => {
+
+            navLinks.classList.remove("show");
+
+          }
+        );
+
+      });
+
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+  </script>
+
+</body>
+</html>
