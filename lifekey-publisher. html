@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>LifeKey Publisher | Write & Publish</title>
+
+<meta name="robots" content="noindex,nofollow">
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    min-height:100vh;
+    color:#fff;
+    background:
+        radial-gradient(circle at 15% 10%,rgba(168,85,247,.18),transparent 30%),
+        radial-gradient(circle at 85% 30%,rgba(0,229,255,.10),transparent 30%),
+        linear-gradient(135deg,#03040a,#080612,#06100d);
+}
+
+header{
+    position:sticky;
+    top:0;
+    z-index:10;
+    padding:16px 6%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(3,4,10,.88);
+    border-bottom:1px solid rgba(255,255,255,.08);
+    backdrop-filter:blur(15px);
+}
+
+.logo{
+    color:#fff;
+    text-decoration:none;
+    font-size:1.3rem;
+    font-weight:900;
+}
+
+.logo span{
+    color:#00e5ff;
+}
+
+.back{
+    color:#ddd;
+    text-decoration:none;
+    padding:9px 15px;
+    border:1px solid rgba(192,132,252,.3);
+    border-radius:10px;
+}
+
+.container{
+    width:min(1000px,92%);
+    margin:40px auto 70px;
+}
+
+.hero{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 15px;
+    border-radius:30px;
+    color:#c084fc;
+    background:rgba(168,85,247,.08);
+    border:1px solid rgba(192,132,252,.3);
+    font-size:.78rem;
+    font-weight:bold;
+    letter-spacing:1px;
+}
+
+h1{
+    margin:18px 0 12px;
+    font-size:clamp(2rem,6vw,4rem);
+}
+
+.hero p{
+    color:#aaa7b7;
+    line-height:1.7;
+}
+
+.editor{
+    padding:30px;
+    border-radius:24px;
+    background:rgba(255,255,255,.045);
+    border:1px solid rgba(192,132,252,.22);
+    box-shadow:0 25px 60px rgba(0,0,0,.35);
+}
+
+label{
+    display:block;
+    margin:0 0 8px;
+    color:#ddd;
+    font-weight:bold;
+}
+
+.field{
+    margin-bottom:22px;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+    border:none;
+    outline:none;
+    color:#fff;
+    background:rgba(0,0,0,.3);
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:12px;
+    padding:14px;
+    font:inherit;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    border-color:#a855f7;
+}
+
+textarea{
+    min-height:350px;
+    resize:vertical;
+    line-height:1.7;
+}
+
+select option{
+    background:#090812;
+}
+
+.buttons{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-top:10px;
+}
+
+button{
+    border:none;
+    cursor:pointer;
+    padding:14px 22px;
+    border-radius:12px;
+    font-weight:bold;
+    font-size:.95rem;
+}
+
+.publish{
+    color:#001016;
+    background:linear-gradient(135deg,#00e5ff,#62f4ff);
+}
+
+.clear{
+    color:#fff;
+    background:rgba(255,255,255,.07);
+    border:1px solid rgba(255,255,255,.14);
+}
+
+.status{
+    display:none;
+    margin-top:22px;
+    padding:16px;
+    border-radius:12px;
+    line-height:1.6;
+}
+
+.status.show{
+    display:block;
+}
+
+.info{
+    margin-top:25px;
+    padding:20px;
+    border-radius:16px;
+    background:rgba(0,229,255,.04);
+    border:1px solid rgba(0,229,255,.15);
+    color:#aaa7b7;
+    line-height:1.7;
+    font-size:.9rem;
+}
+
+.warning{
+    margin-top:20px;
+    padding:18px;
+    border-radius:15px;
+    background:rgba(255,180,60,.06);
+    border:1px solid rgba(255,180,60,.2);
+    color:#aaa7b7;
+    line-height:1.6;
+    font-size:.88rem;
+}
+
+@media(max-width:600px){
+
+    .container{
+        width:94%;
+        margin-top:25px;
+    }
+
+    .editor{
+        padding:20px;
+    }
+
+    textarea{
+        min-height:300px;
+    }
+
+    .buttons button{
+        width:100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<a href="index.html" class="logo">
+Life<span>Key</span> Hub
+</a>
+
+<a href="index.html" class="back">
+← Back
+</a>
+
+</header>
+
+
+<main class="container">
+
+<div class="hero">
+
+<div class="badge">
+LIFEKEY UNIVERSAL PUBLISHER
+</div>
+
+<h1>
+Write. Publish. <span style="color:#c084fc;">Grow.</span>
+</h1>
+
+<p>
+This is the central writing space for LifeKey Hub.
+Choose a category, write or paste your article,
+and prepare it for publication.
+</p>
+
+</div>
+
+
+<div class="editor">
+
+<div class="field">
+
+<label for="category">
+Article Category
+</label>
+
+<select id="category">
+
+<option value="freelancing">
+Freelancing
+</option>
+
+<option value="affiliate-marketing">
+Affiliate Marketing
+</option>
+
+<option value="digital-marketing">
+Digital Marketing
+</option>
+
+<option value="email-marketing">
+Email Marketing
+</option>
+
+<option value="digital-products">
+Digital Products
+</option>
+
+<option value="money">
+Money & Finance
+</option>
+
+<option value="real-estate">
+Real Estate
+</option>
+
+<option value="innovation">
+Innovation
+</option>
+
+<option value="technology">
+Technology
+</option>
+
+<option value="education">
+Education
+</option>
+
+<option value="health">
+Health & Wellness
+</option>
+
+<option value="general">
+General LifeKey Article
+</option>
+
+</select>
+
+</div>
+
+
+<div class="field">
+
+<label for="title">
+Article Title
+</label>
+
+<input
+type="text"
+id="title"
+placeholder="Enter your article title..."
+>
+
+</div>
+
+
+<div class="field">
+
+<label for="description">
+Short Description
+</label>
+
+<input
+type="text"
+id="description"
+placeholder="Write a short description of the article..."
+>
+
+</div>
+
+
+<div class="field">
+
+<label for="article">
+Write or Paste Your Article
+</label>
+
+<textarea
+id="article"
+placeholder="Type your article here...
+
+You can write normally or paste your completed article.
+
+You do NOT need to write HTML code here."
+></textarea>
+
+</div>
+
+
+<div class="buttons">
+
+<button
+class="publish"
+onclick="prepareArticle()"
+>
+🚀 Publish Article
+</button>
+
+<button
+class="clear"
+onclick="clearEditor()"
+>
+Clear
+</button>
+
+</div>
+
+
+<div
+id="status"
+class="status"
+></div>
+
+
+<div class="info">
+
+<strong>How this works:</strong><br><br>
+
+1. Choose the category.<br>
+2. Enter your article title.<br>
+3. Add a short description.<br>
+4. Type or paste your normal article.<br>
+5. Press <strong>Publish Article</strong>.<br><br>
+
+The publisher prepares your article for the
+LifeKey website. The actual GitHub publication
+connection will be added to this system so that
+future articles do not require you to create
+HTML files manually.
+
+</div>
+
+
+<div class="warning">
+
+<strong>Important:</strong>
+
+This first version is the writing interface.
+The button does not yet have permission to
+automatically create files inside your GitHub
+repository. We will connect the secure GitHub
+publishing mechanism separately rather than
+putting a GitHub access token directly inside
+this public webpage.
+
+</div>
+
+</div>
+
+</main>
+
+
+<script>
+
+function prepareArticle(){
+
+const category =
+document.getElementById("category").value;
+
+const title =
+document.getElementById("title").value.trim();
+
+const description =
+document.getElementById("description").value.trim();
+
+const article =
+document.getElementById("article").value.trim();
+
+const status =
+document.getElementById("status");
+
+
+if(!title){
+
+showStatus(
+"Please enter an article title.",
+"error"
+);
+
+return;
+}
+
+
+if(!article){
+
+showStatus(
+"Please write or paste your article first.",
+"error"
+);
+
+return;
+}
+
+
+/*
+    TEMPORARY PUBLISH PREPARATION
+
+    The article data is collected here.
+
+    The next part of the system will send this
+    information securely to GitHub and create
+    the actual online article page.
+*/
+
+const articleData = {
+
+category:category,
+
+title:title,
+
+description:description,
+
+content:article,
+
+created:new Date().toISOString()
+
+};
+
+
+localStorage.setItem(
+"lifekey_pending_article",
+JSON.stringify(articleData)
+);
+
+
+showStatus(
+
+"✅ Your article is ready. The writing system has saved it temporarily. The next connection will make the Publish button create the real online article in your LifeKey Hub repository.",
+
+"success"
+
+);
+
+}
+
+
+function showStatus(message,type){
+
+const status =
+document.getElementById("status");
+
+status.textContent = message;
+
+status.className =
+"status show";
+
+if(type === "success"){
+
+status.style.border =
+"1px solid rgba(32,227,162,.35)";
+
+status.style.background =
+"rgba(32,227,162,.07)";
+
+}else{
+
+status.style.border =
+"1px solid rgba(255,90,90,.3)";
+
+status.style.background =
+"rgba(255,90,90,.07)";
+
+}
+
+}
+
+
+function clearEditor(){
+
+document.getElementById("title").value = "";
+
+document.getElementById("description").value = "";
+
+document.getElementById("article").value = "";
+
+document.getElementById("status").className =
+"status";
+
+}
+
+</script>
+
+</body>
+</html>
