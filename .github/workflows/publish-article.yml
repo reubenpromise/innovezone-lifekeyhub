@@ -1,1 +1,67 @@
 
+name: LifeKey Article Publisher
+
+on:
+  workflow_dispatch:
+    inputs:
+      title:
+        description: Article title
+        required: true
+        type: string
+
+      category:
+        description: Article category
+        required: true
+        type: string
+
+      content:
+        description: Article content
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Create article
+        run: |
+          mkdir -p articles
+          filename="articles/article-${{ github.run_number }}.html"
+
+          cat > "$filename" <<'EOF'
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>${{ inputs.title }} | LifeKey Hub</title>
+          <meta name="description" content="${{ inputs.title }}">
+          </head>
+
+          <body>
+
+          <h1>${{ inputs.title }}</h1>
+
+          <p><strong>Category:</strong> ${{ inputs.category }}</p>
+
+          <article>
+          ${{ inputs.content }}
+          </article>
+
+          </body>
+          </html>
+          EOF
+
+          git config user.name "LifeKey Publisher"
+          git config user.email "actions@github.com"
+
+          git add articles/
+          git commit -m "Publish LifeKey article"
+          git push
