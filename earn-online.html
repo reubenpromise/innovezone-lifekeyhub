@@ -1,0 +1,2325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>LifeKey Earn Online | Learn Skills, Build Income & Grow</title>
+
+<meta name="description" content="LifeKey Earn Online helps you discover freelancing, ghostwriting, research writing, digital marketing, affiliate marketing, email marketing and digital products.">
+
+<meta name="robots" content="index, follow">
+<meta name="author" content="LifeKey Hub">
+
+<style>
+
+/* =========================================================
+   LIFEKEY EARN ONLINE
+   FUTURISTIC GLASS / 3D DESIGN
+   ========================================================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+:root{
+--bg:#050816;
+--bg2:#081126;
+--border:rgba(192,132,252,.25);
+--text:#f4f8ff;
+--muted:#bdb9ca;
+--cyan:#00e5ff;
+--purple:#a855f7;
+--purple2:#c084fc;
+--blue:#477cff;
+--green:#20e3a2;
+--pink:#ff4fd8;
+}
+
+body{
+
+font-family:Arial,Helvetica,sans-serif;
+
+color:var(--text);
+
+background:
+
+radial-gradient(
+circle at 15% 10%,
+rgba(155,92,255,.20),
+transparent 32%
+),
+
+radial-gradient(
+circle at 85% 25%,
+rgba(75,35,130,.22),
+transparent 35%
+),
+
+radial-gradient(
+circle at 25% 85%,
+rgba(20,110,70,.14),
+transparent 32%
+),
+
+radial-gradient(
+circle at 80% 90%,
+rgba(0,229,255,.06),
+transparent 30%
+),
+
+linear-gradient(
+135deg,
+#03040a,
+#080612,
+#07100d,
+#05030b
+);
+
+min-height:100vh;
+}
+
+body::before{
+
+content:"";
+
+position:fixed;
+
+inset:0;
+
+pointer-events:none;
+
+opacity:.22;
+
+background-image:
+
+linear-gradient(
+rgba(255,255,255,.025) 1px,
+transparent 1px
+),
+
+linear-gradient(
+90deg,
+rgba(255,255,255,.025) 1px,
+transparent 1px
+);
+
+background-size:40px 40px;
+
+mask-image:
+linear-gradient(
+to bottom,
+black,
+transparent
+);
+
+z-index:-1;
+}
+
+a{
+color:inherit;
+text-decoration:none;
+}
+
+button{
+font:inherit;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+header{
+
+position:sticky;
+
+top:0;
+
+z-index:1000;
+
+backdrop-filter:blur(18px);
+
+background:
+rgba(5,8,22,.88);
+
+border-bottom:
+1px solid rgba(255,255,255,.08);
+}
+
+.nav{
+
+width:min(1180px,92%);
+
+margin:auto;
+
+min-height:72px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+gap:15px;
+}
+
+.logo{
+
+font-size:1.4rem;
+
+font-weight:900;
+
+letter-spacing:-.5px;
+
+white-space:nowrap;
+}
+
+.logo span{
+
+color:var(--cyan);
+
+text-shadow:
+0 0 20px rgba(0,229,255,.6);
+}
+
+.nav-links{
+
+display:flex;
+
+align-items:center;
+
+gap:20px;
+}
+
+.nav-links a{
+
+color:var(--muted);
+
+font-size:.9rem;
+
+font-weight:700;
+
+transition:.25s;
+}
+
+.nav-links a:hover{
+
+color:var(--cyan);
+}
+
+.menu-btn{
+
+display:none;
+
+background:
+rgba(255,255,255,.04);
+
+border:
+1px solid rgba(192,132,252,.3);
+
+color:white;
+
+padding:8px 12px;
+
+border-radius:10px;
+
+cursor:pointer;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero{
+
+width:min(1180px,92%);
+
+margin:auto;
+
+padding:
+75px 0 55px;
+
+text-align:center;
+}
+
+.badge{
+
+display:inline-flex;
+
+align-items:center;
+
+gap:8px;
+
+padding:
+9px 16px;
+
+border:
+1px solid rgba(192,132,252,.35);
+
+background:
+rgba(168,85,247,.08);
+
+border-radius:50px;
+
+color:var(--purple2);
+
+font-size:.78rem;
+
+font-weight:800;
+
+letter-spacing:1px;
+
+text-transform:uppercase;
+
+box-shadow:
+0 0 25px rgba(168,85,247,.08);
+}
+
+.pulse{
+
+width:8px;
+
+height:8px;
+
+border-radius:50%;
+
+background:var(--green);
+
+box-shadow:
+0 0 15px var(--green);
+
+animation:pulse 1.8s infinite;
+}
+
+@keyframes pulse{
+
+0%,100%{
+transform:scale(1);
+opacity:1;
+}
+
+50%{
+transform:scale(1.6);
+opacity:.5;
+}
+}
+
+.hero h1{
+
+font-size:
+clamp(2.6rem,7vw,5.2rem);
+
+line-height:1;
+
+letter-spacing:-3px;
+
+margin:
+25px auto 20px;
+
+max-width:950px;
+}
+
+.gradient{
+
+background:
+linear-gradient(
+90deg,
+var(--cyan),
+var(--blue),
+var(--purple),
+var(--pink)
+);
+
+-webkit-background-clip:text;
+
+background-clip:text;
+
+color:transparent;
+}
+
+.hero p{
+
+max-width:720px;
+
+margin:auto;
+
+color:var(--muted);
+
+font-size:1.05rem;
+
+line-height:1.7;
+}
+
+
+/* =========================================================
+   HERO BUTTONS
+   ========================================================= */
+
+.hero-buttons{
+
+margin-top:30px;
+
+display:flex;
+
+justify-content:center;
+
+gap:12px;
+
+flex-wrap:wrap;
+}
+
+.btn{
+
+display:inline-flex;
+
+align-items:center;
+
+justify-content:center;
+
+gap:8px;
+
+padding:
+13px 21px;
+
+border-radius:12px;
+
+font-weight:800;
+
+cursor:pointer;
+
+transition:.25s;
+}
+
+.btn-primary{
+
+background:
+linear-gradient(
+135deg,
+var(--cyan),
+#62f4ff
+);
+
+color:#001016;
+
+box-shadow:
+0 0 30px rgba(0,229,255,.18);
+}
+
+.btn-primary:hover{
+
+transform:
+translateY(-3px);
+
+box-shadow:
+0 0 40px rgba(0,229,255,.35);
+}
+
+.btn-secondary{
+
+background:
+rgba(255,255,255,.045);
+
+border:
+1px solid rgba(255,255,255,.15);
+
+color:white;
+}
+
+.btn-secondary:hover{
+
+transform:
+translateY(-3px);
+
+border-color:
+var(--purple2);
+}
+
+
+/* =========================================================
+   INTRO PANEL
+   ========================================================= */
+
+.intro{
+
+width:min(1000px,92%);
+
+margin:
+15px auto 50px;
+
+padding:30px;
+
+text-align:center;
+
+border-radius:24px;
+
+background:
+linear-gradient(
+145deg,
+rgba(255,255,255,.055),
+rgba(168,85,247,.035),
+rgba(10,30,20,.035)
+);
+
+border:
+1px solid rgba(192,132,252,.22);
+
+box-shadow:
+
+inset 0 1px 0
+rgba(255,255,255,.08),
+
+0 20px 55px
+rgba(0,0,0,.32);
+
+backdrop-filter:blur(16px);
+}
+
+.intro h2{
+
+font-size:1.55rem;
+
+margin-bottom:10px;
+
+color:white;
+}
+
+.intro p{
+
+color:var(--muted);
+
+line-height:1.7;
+}
+
+
+/* =========================================================
+   MAIN SECTION
+   ========================================================= */
+
+section{
+
+width:min(1180px,92%);
+
+margin:auto;
+
+padding:
+35px 0 70px;
+}
+
+.section-heading{
+
+text-align:center;
+
+margin-bottom:42px;
+}
+
+.section-heading .small{
+
+color:var(--purple2);
+
+text-transform:uppercase;
+
+font-size:.76rem;
+
+font-weight:900;
+
+letter-spacing:2px;
+
+text-shadow:
+0 0 12px rgba(168,85,247,.4);
+}
+
+.section-heading h2{
+
+font-size:
+clamp(2rem,5vw,3rem);
+
+margin:
+10px 0;
+
+color:white;
+
+text-shadow:
+0 0 20px rgba(168,85,247,.18);
+}
+
+.section-heading p{
+
+max-width:680px;
+
+margin:auto;
+
+color:var(--muted);
+
+line-height:1.6;
+}
+
+
+/* =========================================================
+   EARNING CARDS
+   ========================================================= */
+
+.earn-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(3,1fr);
+
+gap:20px;
+
+perspective:1200px;
+}
+
+.earn-card{
+
+position:relative;
+
+min-height:285px;
+
+padding:27px;
+
+border-radius:23px;
+
+overflow:hidden;
+
+background:
+linear-gradient(
+145deg,
+rgba(255,255,255,.065),
+rgba(168,85,247,.035),
+rgba(5,20,14,.08)
+);
+
+border:
+1px solid rgba(192,132,252,.22);
+
+box-shadow:
+
+inset 0 1px 0
+rgba(255,255,255,.09),
+
+inset 0 -20px 40px
+rgba(0,0,0,.16),
+
+0 20px 50px
+rgba(0,0,0,.32);
+
+backdrop-filter:blur(14px);
+
+transform-style:preserve-3d;
+
+transition:
+transform .35s ease,
+border-color .35s ease,
+box-shadow .35s ease;
+}
+
+.earn-card::before{
+
+content:"";
+
+position:absolute;
+
+width:180px;
+
+height:180px;
+
+top:-105px;
+
+right:-75px;
+
+border-radius:50%;
+
+background:
+radial-gradient(
+circle,
+rgba(168,85,247,.30),
+transparent 70%
+);
+
+filter:blur(15px);
+}
+
+.earn-card::after{
+
+content:"";
+
+position:absolute;
+
+width:150px;
+
+height:150px;
+
+bottom:-100px;
+
+left:-80px;
+
+border-radius:50%;
+
+background:
+radial-gradient(
+circle,
+rgba(20,130,75,.18),
+transparent 70%
+);
+
+filter:blur(18px);
+}
+
+.earn-card:hover{
+
+transform:
+translateY(-10px)
+rotateX(2deg)
+rotateY(-2deg)
+scale(1.01);
+
+border-color:
+rgba(192,132,252,.55);
+
+box-shadow:
+
+inset 0 1px 0
+rgba(255,255,255,.12),
+
+0 30px 65px
+rgba(0,0,0,.45),
+
+0 0 35px
+rgba(168,85,247,.13);
+}
+
+
+/* ICON */
+
+.card-icon{
+
+position:relative;
+
+z-index:2;
+
+width:58px;
+
+height:58px;
+
+display:grid;
+
+place-items:center;
+
+font-size:1.8rem;
+
+border-radius:16px;
+
+background:
+linear-gradient(
+145deg,
+rgba(168,85,247,.17),
+rgba(0,229,255,.035)
+);
+
+border:
+1px solid rgba(192,132,252,.25);
+
+box-shadow:
+
+inset 0 1px 0
+rgba(255,255,255,.10),
+
+0 10px 25px
+rgba(0,0,0,.25);
+
+transform:
+translateZ(25px);
+
+margin-bottom:20px;
+
+transition:.35s;
+}
+
+.earn-card:hover .card-icon{
+
+transform:
+translateZ(40px)
+rotateY(-8deg);
+
+box-shadow:
+0 0 28px
+rgba(168,85,247,.25);
+}
+
+.earn-card h3{
+
+position:relative;
+
+z-index:2;
+
+font-size:1.2rem;
+
+margin-bottom:10px;
+
+color:white;
+
+transform:
+translateZ(18px);
+}
+
+.earn-card p{
+
+position:relative;
+
+z-index:2;
+
+color:#bdb9ca;
+
+font-size:.91rem;
+
+line-height:1.6;
+}
+
+.card-link{
+
+position:relative;
+
+z-index:2;
+
+display:inline-block;
+
+margin-top:18px;
+
+color:var(--purple2);
+
+font-weight:900;
+
+font-size:.85rem;
+
+text-shadow:
+0 0 8px rgba(168,85,247,.35);
+
+}
+
+.earn-card:hover .card-link{
+
+color:var(--cyan);
+}
+
+
+/* =========================================================
+   START HERE
+   ========================================================= */
+
+.start-panel{
+
+margin-top:55px;
+
+padding:35px;
+
+border-radius:25px;
+
+background:
+
+radial-gradient(
+circle at 15% 20%,
+rgba(0,229,255,.10),
+transparent 30%
+),
+
+radial-gradient(
+circle at 85% 80%,
+rgba(168,85,247,.13),
+transparent 32%
+),
+
+rgba(255,255,255,.035);
+
+border:
+1px solid rgba(192,132,252,.25);
+
+box-shadow:
+
+inset 0 1px 0
+rgba(255,255,255,.08),
+
+0 25px 60px
+rgba(0,0,0,.35);
+
+text-align:center;
+}
+
+.start-panel h2{
+
+font-size:2rem;
+
+margin-bottom:12px;
+}
+
+.start-panel p{
+
+max-width:700px;
+
+margin:
+0 auto 22px;
+
+color:var(--muted);
+
+line-height:1.7;
+}
+
+
+/* =========================================================
+   HOW IT WORKS
+   ========================================================= */
+
+.steps{
+
+display:grid;
+
+grid-template-columns:
+repeat(4,1fr);
+
+gap:18px;
+
+margin-top:35px;
+}
+
+.step{
+
+padding:24px;
+
+border-radius:20px;
+
+background:
+rgba(255,255,255,.035);
+
+border:
+1px solid rgba(255,255,255,.09);
+
+box-shadow:
+0 15px 35px
+rgba(0,0,0,.25);
+
+transition:.3s;
+}
+
+.step:hover{
+
+transform:
+translateY(-7px);
+
+border-color:
+rgba(192,132,252,.45);
+}
+
+.step-number{
+
+font-size:.75rem;
+
+font-weight:900;
+
+color:var(--cyan);
+
+letter-spacing:2px;
+
+margin-bottom:10px;
+}
+
+.step h3{
+
+margin-bottom:8px;
+
+font-size:1rem;
+}
+
+.step p{
+
+color:var(--muted);
+
+font-size:.85rem;
+
+line-height:1.55;
+}
+
+
+/* =========================================================
+   OPPORTUNITIES PANEL
+   ========================================================= */
+
+.opportunities{
+
+margin-top:60px;
+
+padding:35px;
+
+border-radius:25px;
+
+background:
+linear-gradient(
+145deg,
+rgba(255,255,255,.045),
+rgba(168,85,247,.025)
+);
+
+border:
+1px solid rgba(192,132,252,.20);
+
+box-shadow:
+0 20px 50px
+rgba(0,0,0,.3);
+}
+
+.opportunities h2{
+
+text-align:center;
+
+margin-bottom:10px;
+}
+
+.opportunities > p{
+
+text-align:center;
+
+color:var(--muted);
+
+max-width:700px;
+
+margin:
+0 auto 25px;
+
+line-height:1.6;
+}
+
+.opportunity-list{
+
+display:grid;
+
+grid-template-columns:
+repeat(2,1fr);
+
+gap:12px;
+}
+
+.opportunity{
+
+padding:15px 18px;
+
+border-radius:13px;
+
+background:
+rgba(255,255,255,.035);
+
+border:
+1px solid rgba(255,255,255,.07);
+
+color:#ddd;
+
+font-size:.9rem;
+}
+
+.opportunity span{
+
+color:var(--cyan);
+
+margin-right:8px;
+}
+
+
+/* =========================================================
+   CTA
+   ========================================================= */
+
+.cta{
+
+margin-top:60px;
+
+padding:
+60px 30px;
+
+border-radius:28px;
+
+text-align:center;
+
+background:
+
+radial-gradient(
+circle at 20% 25%,
+rgba(0,229,255,.12),
+transparent 30%
+),
+
+radial-gradient(
+circle at 80% 75%,
+rgba(168,85,247,.14),
+transparent 32%
+),
+
+rgba(255,255,255,.035);
+
+border:
+1px solid rgba(192,132,252,.25);
+
+box-shadow:
+inset 0 1px 0
+rgba(255,255,255,.08),
+
+0 25px 70px
+rgba(0,0,0,.38);
+}
+
+.cta h2{
+
+font-size:
+clamp(2rem,5vw,3rem);
+
+margin-bottom:14px;
+}
+
+.cta p{
+
+max-width:650px;
+
+margin:
+0 auto 25px;
+
+color:var(--muted);
+
+line-height:1.7;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer{
+
+margin-top:30px;
+
+padding:
+45px 0 25px;
+
+border-top:
+1px solid rgba(168,85,247,.18);
+
+background:
+linear-gradient(
+180deg,
+rgba(5,4,10,.70),
+rgba(1,2,4,.98)
+);
+}
+
+.footer-inner{
+
+width:min(1180px,92%);
+
+margin:auto;
+
+display:grid;
+
+grid-template-columns:
+1.5fr 1fr 1fr;
+
+gap:30px;
+}
+
+.footer-col h3{
+
+margin-bottom:14px;
+}
+
+.footer-col p,
+.footer-col a{
+
+display:block;
+
+color:#aaa7b8;
+
+font-size:.88rem;
+
+margin-bottom:9px;
+}
+
+.footer-col a:hover{
+
+color:var(--cyan);
+}
+
+.footer-brand{
+
+font-size:1.35rem;
+
+font-weight:900;
+
+margin-bottom:14px;
+}
+
+.footer-brand span{
+
+color:var(--cyan);
+}
+
+.socials{
+
+display:flex;
+
+gap:8px;
+
+margin-top:15px;
+
+flex-wrap:wrap;
+}
+
+.social{
+
+width:38px;
+
+height:38px;
+
+display:grid;
+
+place-items:center;
+
+border-radius:10px;
+
+background:
+rgba(168,85,247,.055);
+
+border:
+1px solid rgba(192,132,252,.18);
+
+color:white;
+
+transition:.25s;
+}
+
+.social:hover{
+
+transform:
+translateY(-4px);
+
+border-color:
+rgba(192,132,252,.55);
+
+box-shadow:
+0 0 22px
+rgba(168,85,247,.18);
+}
+
+.copyright{
+
+width:min(1180px,92%);
+
+margin:
+30px auto 0;
+
+padding-top:18px;
+
+border-top:
+1px solid rgba(255,255,255,.06);
+
+text-align:center;
+
+font-size:.78rem;
+
+color:#77758a;
+}
+
+
+/* =========================================================
+   TOP BUTTON
+   ========================================================= */
+
+#topBtn{
+
+position:fixed;
+
+right:18px;
+
+bottom:18px;
+
+width:45px;
+
+height:45px;
+
+display:none;
+
+border-radius:50%;
+
+border:
+1px solid rgba(192,132,252,.4);
+
+background:
+rgba(7,5,13,.92);
+
+color:white;
+
+cursor:pointer;
+
+z-index:999;
+
+box-shadow:
+0 0 25px
+rgba(168,85,247,.18);
+}
+
+#topBtn:hover{
+
+background:
+linear-gradient(
+135deg,
+#7c3aed,
+#a855f7
+);
+
+transform:
+translateY(-4px);
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media(max-width:900px){
+
+.nav-links{
+
+display:none;
+
+position:absolute;
+
+top:72px;
+
+left:0;
+
+right:0;
+
+padding:20px;
+
+background:
+rgba(5,8,22,.98);
+
+border-bottom:
+1px solid rgba(255,255,255,.08);
+
+flex-direction:column;
+
+gap:18px;
+}
+
+.nav-links.active{
+
+display:flex;
+}
+
+.menu-btn{
+
+display:block;
+}
+
+.earn-grid{
+
+grid-template-columns:
+repeat(2,1fr);
+}
+
+.steps{
+
+grid-template-columns:
+repeat(2,1fr);
+}
+
+.footer-inner{
+
+grid-template-columns:
+repeat(2,1fr);
+}
+
+}
+
+@media(max-width:600px){
+
+.hero{
+
+padding-top:50px;
+}
+
+.hero h1{
+
+letter-spacing:-2px;
+}
+
+.hero p{
+
+font-size:.96rem;
+}
+
+.intro{
+
+padding:25px 20px;
+}
+
+.earn-grid{
+
+grid-template-columns:1fr;
+}
+
+.earn-card{
+
+min-height:260px;
+}
+
+.steps{
+
+grid-template-columns:1fr;
+}
+
+.opportunity-list{
+
+grid-template-columns:1fr;
+}
+
+.start-panel,
+.opportunities{
+
+padding:27px 20px;
+}
+
+.footer-inner{
+
+grid-template-columns:1fr;
+}
+
+section{
+
+padding:
+30px 0 55px;
+}
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+*{
+
+scroll-behavior:auto !important;
+
+animation:none !important;
+
+transition:none !important;
+}
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =======================================================
+     HEADER
+     ======================================================= -->
+
+<header>
+
+<div class="nav">
+
+<a href="index.html" class="logo">
+Life<span>Key</span> Hub
+</a>
+
+<div class="nav-links" id="navLinks">
+
+<a href="index.html">
+🏠 Home
+</a>
+
+<a href="index.html#explore">
+🔎 Explore
+</a>
+
+<a href="#earn">
+💰 Earn Online
+</a>
+
+<a href="#start">
+🚀 Start Here
+</a>
+
+</div>
+
+<button
+class="menu-btn"
+id="menuBtn"
+>
+☰
+</button>
+
+</div>
+
+</header>
+
+
+<!-- =======================================================
+     HERO
+     ======================================================= -->
+
+<main>
+
+<div class="hero">
+
+<div class="badge">
+
+<span class="pulse"></span>
+
+LifeKey Earn Online
+
+</div>
+
+<h1>
+
+Learn Skills.
+
+<span class="gradient">
+Build Income.
+</span>
+
+Grow Your Future.
+
+</h1>
+
+<p>
+
+Discover practical online income paths,
+learn valuable digital skills, build useful
+services and products, and gradually create
+multiple sources of income.
+
+</p>
+
+<div class="hero-buttons">
+
+<a
+href="#earn"
+class="btn btn-primary"
+>
+🚀 Explore Income Paths
+</a>
+
+<a
+href="#start"
+class="btn btn-secondary"
+>
+📚 Start Learning
+</a>
+
+</div>
+
+</div>
+
+
+<!-- =======================================================
+     INTRO
+     ======================================================= -->
+
+<div class="intro">
+
+<h2>
+One Hub. Multiple Online Income Paths.
+</h2>
+
+<p>
+
+LifeKey Earn Online is designed to bring
+different legitimate digital income models
+together in one organized place.
+
+You don't need to master everything at once.
+Choose one path, learn it properly, practice,
+build your portfolio or audience, and grow
+from there.
+
+</p>
+
+</div>
+
+
+<!-- =======================================================
+     EARNING PATHS
+     ======================================================= -->
+
+<section id="earn">
+
+<div class="section-heading">
+
+<div class="small">
+Explore The Paths
+</div>
+
+<h2>
+Your Online Earning Ecosystem
+</h2>
+
+<p>
+
+These are the seven core online income paths
+we are building first inside LifeKey Hub.
+
+Each path will eventually have its own
+complete learning and opportunity page.
+
+</p>
+
+</div>
+
+
+<div class="earn-grid">
+
+
+<!-- FREELANCING -->
+
+<a
+href="freelancing.html"
+class="earn-card"
+>
+
+<div class="card-icon">
+💻
+</div>
+
+<h3>
+Freelancing
+</h3>
+
+<p>
+
+Turn useful skills into services.
+Learn how to find clients, create profiles,
+build a portfolio, submit proposals and
+develop freelance income.
+
+</p>
+
+<span class="card-link">
+Explore Freelancing →
+</span>
+
+</a>
+
+
+<!-- GHOSTWRITING -->
+
+<a
+href="ghostwriting.html"
+class="earn-card"
+>
+
+<div class="card-icon">
+✍️
+</div>
+
+<h3>
+Ghostwriting
+</h3>
+
+<p>
+
+Learn how to write content for clients,
+creators, businesses and individuals while
+developing a professional writing service.
+
+</p>
+
+<span class="card-link">
+Explore Ghostwriting →
+</span>
+
+</a>
+
+
+<!-- RESEARCH WRITING -->
+
+<a
+href="research-writing.html"
+class="earn-card"
+>
+
+<div class="card-icon">
+🔎
+</div>
+
+<h3>
+Research Writing
+</h3>
+
+<p>
+
+Learn research techniques, information
+gathering, source evaluation, reports,
+research-based content and professional
+research services.
+
+</p>
+
+<span class="card-link">
+Explore Research Writing →
+</span>
+
+</a>
+
+
+<!-- DIGITAL MARKETING -->
+
+<a
+href="digital-marketing.html"
+class="earn-card"
+>
+
+<div class="card-icon">
+📣
+</div>
+
+<h3>
+Digital Marketing
+</h3>
+
+<p>
+
+Learn how businesses attract audiences,
+generate leads, promote products and build
+their online presence through digital
+marketing.
+
+</p>
+
+<span class="card-link">
+Explore Digital Marketing →
+</span>
+
+</a>
+
+
+<!-- AFFILIATE MARKETING -->
+
+<a
+href="affiliate-marketing.html"
+class="earn-card"
+>
+
+<div class="card-icon">
+🔗
+</div>
+
+<h3>
+Affiliate Marketing
+</h3>
+
+<p>
+
+Learn how affiliate programs work, how to
+choose useful products, create content,
+generate traffic and earn commissions.
+
+</p>
+
+<span class="card-link">
+Explore Affiliate Marketing →
+</span>
+
+</a>
+
+
+<!-- EMAIL MARKETING -->
+
+<a
+href="email-marketing.html"
+class="earn-card"
+>
+
+<div class="card-icon">
+📧
+</div>
+
+<h3>
+Email Marketing
+</h3>
+
+<p>
+
+Learn how to build an email audience,
+create useful campaigns, communicate with
+subscribers and develop email-based
+business opportunities.
+
+</p>
+
+<span class="card-link">
+Explore Email Marketing →
+</span>
+
+</a>
+
+
+<!-- DIGITAL PRODUCTS -->
+
+<a
+href="digital-products.html"
+class="earn-card"
+>
+
+<div class="card-icon">
+📘
+</div>
+
+<h3>
+Digital Products
+</h3>
+
+<p>
+
+Create useful ebooks, guides, templates,
+checklists, courses, digital resources and
+other products that can be distributed
+online.
+
+</p>
+
+<span class="card-link">
+Explore Digital Products →
+</span>
+
+</a>
+
+
+</div>
+
+
+<!-- =======================================================
+     START HERE
+     ======================================================= -->
+
+<div
+class="start-panel"
+id="start"
+>
+
+<h2>
+🚀 How We Will Build Your Income
+</h2>
+
+<p>
+
+You don't have to start all seven paths
+at the same time.
+
+LifeKey will guide you through them
+step-by-step, while we also build the
+website resources that support each path.
+
+</p>
+
+<a
+href="freelancing.html"
+class="btn btn-primary"
+>
+Start With Freelancing →
+</a>
+
+</div>
+
+
+<!-- =======================================================
+     FOUR STEP SYSTEM
+     ======================================================= -->
+
+<div class="steps">
+
+
+<div class="step">
+
+<div class="step-number">
+STEP 01
+</div>
+
+<h3>
+Learn
+</h3>
+
+<p>
+
+Understand the business model,
+skills, tools, platforms and
+basic requirements.
+
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">
+STEP 02
+</div>
+
+<h3>
+Build
+</h3>
+
+<p>
+
+Create your profile, portfolio,
+content, product, audience or
+service.
+
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">
+STEP 03
+</div>
+
+<h3>
+Participate
+</h3>
+
+<p>
+
+Start using legitimate platforms,
+finding clients, promoting services
+or reaching your target audience.
+
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="step-number">
+STEP 04
+</div>
+
+<h3>
+Grow
+</h3>
+
+<p>
+
+Improve your skills, increase your
+income opportunities and gradually
+develop additional income streams.
+
+</p>
+
+</div>
+
+
+</div>
+
+
+<!-- =======================================================
+     OPPORTUNITIES
+     ======================================================= -->
+
+<div class="opportunities">
+
+<h2>
+🌐 What We Will Build Around Each Path
+</h2>
+
+<p>
+
+Every major LifeKey earning section will
+eventually contain practical resources
+rather than just general information.
+
+</p>
+
+<div class="opportunity-list">
+
+<div class="opportunity">
+<span>✓</span>
+Beginner guides
+</div>
+
+<div class="opportunity">
+<span>✓</span>
+Step-by-step lessons
+</div>
+
+<div class="opportunity">
+<span>✓</span>
+Useful platforms
+</div>
+
+<div class="opportunity">
+<span>✓</span>
+Tools and resources
+</div>
+
+<div class="opportunity">
+<span>✓</span>
+Portfolio guidance
+</div>
+
+<div class="opportunity">
+<span>✓</span>
+Client-finding strategies
+</div>
+
+<div class="opportunity">
+<span>✓</span>
+Practical exercises
+</div>
+
+<div class="opportunity">
+<span>✓</span>
+Income opportunities
+</div>
+
+<div class="opportunity">
+<span>✓</span>
+Templates and examples
+</div>
+
+<div class="opportunity">
+<span>✓</span>
+Important warnings and scams to avoid
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =======================================================
+     FUTURE EXPANSION
+     ======================================================= -->
+
+<div class="cta">
+
+<h2>
+More Income Paths Are Coming.
+</h2>
+
+<p>
+
+The seven paths are our starting foundation,
+not the limit of LifeKey Earn Online.
+
+As the platform grows, additional legitimate
+online income opportunities can be researched,
+organized and added without overcrowding the hub.
+
+</p>
+
+<a
+href="index.html"
+class="btn btn-primary"
+>
+🔑 Return to LifeKey Hub
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<!-- =======================================================
+     FOOTER
+     ======================================================= -->
+
+<footer>
+
+<div class="footer-inner">
+
+
+<div class="footer-col">
+
+<div class="footer-brand">
+Life<span>Key</span> Hub
+</div>
+
+<p>
+
+Learn. Build. Earn. Grow.
+
+LifeKey Hub brings knowledge,
+skills, tools and opportunities
+together in one growing platform.
+
+</p>
+
+<div class="socials">
+
+<a
+class="social"
+href="#"
+aria-label="Facebook"
+>
+f
+</a>
+
+<a
+class="social"
+href="#"
+aria-label="YouTube"
+>
+▶
+</a>
+
+<a
+class="social"
+href="#"
+aria-label="LinkedIn"
+>
+in
+</a>
+
+<a
+class="social"
+href="#"
+aria-label="Instagram"
+>
+◎
+</a>
+
+<a
+class="social"
+href="#"
+aria-label="TikTok"
+>
+♪
+</a>
+
+<a
+class="social"
+href="#"
+aria-label="WhatsApp"
+>
+☎
+</a>
+
+</div>
+
+</div>
+
+
+<div class="footer-col">
+
+<h3>
+Earn Online
+</h3>
+
+<a href="freelancing.html">
+Freelancing
+</a>
+
+<a href="ghostwriting.html">
+Ghostwriting
+</a>
+
+<a href="research-writing.html">
+Research Writing
+</a>
+
+<a href="digital-marketing.html">
+Digital Marketing
+</a>
+
+</div>
+
+
+<div class="footer-col">
+
+<h3>
+More
+</h3>
+
+<a href="affiliate-marketing.html">
+Affiliate Marketing
+</a>
+
+<a href="email-marketing.html">
+Email Marketing
+</a>
+
+<a href="digital-products.html">
+Digital Products
+</a>
+
+<a href="index.html">
+LifeKey Home
+</a>
+
+</div>
+
+
+</div>
+
+
+<div class="copyright">
+
+© <span id="year"></span>
+LifeKey Hub.
+All rights reserved.
+
+</div>
+
+</footer>
+
+
+<!-- =======================================================
+     TOP BUTTON
+     ======================================================= -->
+
+<button
+id="topBtn"
+onclick="window.scrollTo({top:0,behavior:'smooth'})"
+>
+↑
+</button>
+
+
+<!-- =======================================================
+     JAVASCRIPT
+     ======================================================= -->
+
+<script>
+
+/* MOBILE MENU */
+
+const menuBtn =
+document.getElementById("menuBtn");
+
+const navLinks =
+document.getElementById("navLinks");
+
+menuBtn.addEventListener(
+"click",
+function(){
+
+navLinks.classList.toggle("active");
+
+}
+);
+
+
+/* CLOSE MENU AFTER CLICK */
+
+document
+.querySelectorAll("#navLinks a")
+.forEach(function(link){
+
+link.addEventListener(
+"click",
+function(){
+
+navLinks.classList.remove("active");
+
+}
+);
+
+});
+
+
+/* YEAR */
+
+document
+.getElementById("year")
+.textContent =
+new Date().getFullYear();
+
+
+/* TOP BUTTON */
+
+const topBtn =
+document.getElementById("topBtn");
+
+window.addEventListener(
+"scroll",
+function(){
+
+if(window.scrollY > 500){
+
+topBtn.style.display = "block";
+
+}else{
+
+topBtn.style.display = "none";
+
+}
+
+}
+);
+
+
+/* CARD REVEAL */
+
+const cards =
+document.querySelectorAll(".earn-card");
+
+const observer =
+new IntersectionObserver(
+function(entries){
+
+entries.forEach(function(entry){
+
+if(entry.isIntersecting){
+
+entry.target.style.opacity = "1";
+
+entry.target.style.transform =
+"translateY(0)";
+
+observer.unobserve(entry.target);
+
+}
+
+});
+
+},
+{
+threshold:.12
+}
+);
+
+
+cards.forEach(function(card){
+
+card.style.opacity = "0";
+
+card.style.transform =
+"translateY(25px)";
+
+card.style.transition =
+"opacity .6s ease, transform .6s ease";
+
+observer.observe(card);
+
+});
+
+</script>
+
+</body>
+</html>
