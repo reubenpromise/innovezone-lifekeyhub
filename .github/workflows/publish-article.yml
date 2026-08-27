@@ -1,0 +1,144 @@
+name: LifeKey Article Publisher
+
+on:
+  workflow_dispatch:
+    inputs:
+      title:
+        description: "Article title"
+        required: true
+        type: string
+
+      category:
+        description: "Article category"
+        required: true
+        type: string
+
+      content:
+        description: "Article content"
+        required: true
+        type: string
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Get repository
+        uses: actions/checkout@v4
+
+      - name: Create article
+        env:
+          TITLE: ${{ inputs.title }}
+          CATEGORY: ${{ inputs.category }}
+          CONTENT: ${{ inputs.content }}
+        run: |
+          python - <<'PY'
+          import os
+          import re
+          from pathlib import Path
+
+          title = os.environ["TITLE"]
+          category = os.environ["CATEGORY"]
+          content = os.environ["CONTENT"]
+
+          slug = re.sub(r'[^a-z0-9]+', '-', title.lower()).strip('-')
+
+          directory = Path("articles") / category.lower().replace(" ", "-")
+          directory.mkdir(parents=True, exist_ok=True)
+
+          filename = directory / f"{slug}.html"
+
+          page = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>{title} | LifeKey Hub</title>
+
+<meta name="description" content="{title}">
+
+<meta name="robots" content="index, follow">
+
+<style>
+body {{
+    font-family: Arial, sans-serif;
+    background:#050816;
+    color:#f4f8ff;
+    margin:0;
+    line-height:1.8;
+}}
+
+.container {{
+    width:min(900px,90%);
+    margin:auto;
+    padding:60px 0;
+}}
+
+.article {{
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(192,132,252,.25);
+    border-radius:24px;
+    padding:35px;
+}}
+
+h1 {{
+    font-size:clamp(2rem,6vw,4rem);
+}}
+
+.content {{
+    color:#c7c4d1;
+    white-space:pre-wrap;
+}}
+
+.back {{
+    display:inline-block;
+    margin-bottom:25px;
+    color:#00e5ff;
+    text-decoration:none;
+}}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<a class="back" href="../../{category}.html">
+← Back to {category}
+</a>
+
+<article class="article">
+
+<h1>{title}</h1>
+
+<div class="content">
+{content}
+</div>
+
+</article>
+
+</div>
+
+</body>
+</html>
+"""
+
+          filename.write_text(page, encoding="utf-8")
+
+          print(f"Created: {filename}")
+          PY
+
+      - name: Publish to GitHub
+        run: |
+          git config user.name "LifeKey Publisher"
+          git config user.email "actions@github.com"
+
+          git add articles/
+
+          git commit -m "Publish LifeKey article" || echo "No changes to commit"
+
+          git push
