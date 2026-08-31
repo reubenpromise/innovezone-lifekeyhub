@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description" content="LifeKey Hub Command Center - Manage income streams, content, opportunities, tools and digital operations.">
+
+<title>LifeKey Command Center | LifeKey Hub</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#07111f;
+    color:#f5f7fa;
+    line-height:1.6;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.container{
+    width:min(1200px,92%);
+    margin:auto;
+}
+
+/* HEADER */
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(7,17,31,.96);
+    border-bottom:1px solid rgba(255,255,255,.08);
+    backdrop-filter:blur(12px);
+}
+
+.nav{
+    min-height:72px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.logo{
+    font-size:1.25rem;
+    font-weight:800;
+}
+
+.logo span{
+    color:#55d6ff;
+}
+
+.back-home{
+    padding:9px 15px;
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:10px;
+    font-size:.9rem;
+}
+
+.back-home:hover{
+    background:rgba(255,255,255,.08);
+}
+
+/* HERO */
+.hero{
+    padding:70px 0 45px;
+    background:
+    radial-gradient(circle at top right,rgba(0,190,255,.15),transparent 35%),
+    radial-gradient(circle at bottom left,rgba(100,70,255,.12),transparent 35%);
+}
+
+.hero-content{
+    max-width:850px;
+}
+
+.badge{
+    display:inline-block;
+    padding:7px 13px;
+    border-radius:30px;
+    background:rgba(85,214,255,.1);
+    border:1px solid rgba(85,214,255,.25);
+    color:#55d6ff;
+    font-size:.82rem;
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-size:clamp(2.2rem,6vw,4.3rem);
+    line-height:1.05;
+    margin-bottom:20px;
+}
+
+.hero h1 span{
+    color:#55d6ff;
+}
+
+.hero p{
+    max-width:760px;
+    color:#b8c4d3;
+    font-size:1.05rem;
+}
+
+.hero-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:28px;
+}
+
+.btn{
+    display:inline-block;
+    padding:12px 18px;
+    border-radius:11px;
+    font-weight:700;
+    border:1px solid rgba(255,255,255,.12);
+}
+
+.btn-primary{
+    background:#55d6ff;
+    color:#04101c;
+}
+
+.btn-secondary{
+    background:rgba(255,255,255,.06);
+}
+
+/* SECTION */
+section{
+    padding:55px 0;
+}
+
+.section-title{
+    margin-bottom:25px;
+}
+
+.section-title h2{
+    font-size:1.8rem;
+    margin-bottom:7px;
+}
+
+.section-title p{
+    color:#98a8ba;
+}
+
+/* STATS */
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:16px;
+}
+
+.stat{
+    padding:22px;
+    border:1px solid rgba(255,255,255,.09);
+    border-radius:16px;
+    background:rgba(255,255,255,.04);
+}
+
+.stat-label{
+    color:#9eacbd;
+    font-size:.85rem;
+}
+
+.stat-value{
+    font-size:1.8rem;
+    font-weight:800;
+    margin-top:5px;
+}
+
+/* INCOME STREAMS */
+.stream-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+}
+
+.stream{
+    padding:24px;
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:18px;
+    background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.025));
+    transition:.25s;
+}
+
+.stream:hover{
+    transform:translateY(-3px);
+    border-color:rgba(85,214,255,.35);
+}
+
+.stream-top{
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    align-items:flex-start;
+}
+
+.stream-number{
+    color:#55d6ff;
+    font-weight:800;
+    font-size:.85rem;
+}
+
+.stream h3{
+    margin-top:5px;
+    font-size:1.25rem;
+}
+
+.stream p{
+    color:#aab7c6;
+    margin:10px 0 16px;
+    font-size:.92rem;
+}
+
+.status{
+    display:inline-block;
+    font-size:.75rem;
+    padding:5px 9px;
+    border-radius:20px;
+    background:rgba(70,220,150,.1);
+    color:#72e6ae;
+    border:1px solid rgba(70,220,150,.2);
+}
+
+.open-btn{
+    display:inline-block;
+    padding:9px 13px;
+    border-radius:9px;
+    background:rgba(85,214,255,.09);
+    color:#55d6ff;
+    border:1px solid rgba(85,214,255,.2);
+    font-size:.85rem;
+    font-weight:700;
+}
+
+/* WORKSPACE */
+.workspace{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
+}
+
+.workspace-card{
+    padding:22px;
+    border:1px solid rgba(255,255,255,.09);
+    border-radius:16px;
+    background:rgba(255,255,255,.035);
+}
+
+.workspace-card .icon{
+    font-size:1.8rem;
+    margin-bottom:8px;
+}
+
+.workspace-card h3{
+    margin-bottom:7px;
+}
+
+.workspace-card p{
+    color:#9eacbd;
+    font-size:.9rem;
+    margin-bottom:15px;
+}
+
+/* QUICK LINKS */
+.quick-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:13px;
+}
+
+.quick{
+    padding:17px;
+    border:1px solid rgba(255,255,255,.09);
+    border-radius:13px;
+    background:rgba(255,255,255,.035);
+    text-align:center;
+    font-weight:700;
+}
+
+.quick:hover{
+    background:rgba(85,214,255,.08);
+}
+
+/* OTHER AREAS */
+.other-grid{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.other{
+    padding:9px 13px;
+    border-radius:30px;
+    border:1px solid rgba(255,255,255,.1);
+    color:#b7c2cf;
+    background:rgba(255,255,255,.035);
+}
+
+/* ROADMAP */
+.roadmap{
+    display:grid;
+    gap:12px;
+}
+
+.step{
+    display:flex;
+    gap:15px;
+    align-items:flex-start;
+    padding:17px;
+    border-left:3px solid #55d6ff;
+    background:rgba(255,255,255,.035);
+    border-radius:0 12px 12px 0;
+}
+
+.step-number{
+    font-weight:800;
+    color:#55d6ff;
+}
+
+/* FOOTER */
+footer{
+    padding:35px 0;
+    border-top:1px solid rgba(255,255,255,.08);
+    color:#8998aa;
+    text-align:center;
+}
+
+.footer-links{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:18px;
+    margin-bottom:15px;
+}
+
+/* MOBILE */
+@media(max-width:850px){
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .stream-grid{
+        grid-template-columns:1fr;
+    }
+
+    .workspace{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .quick-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:550px){
+    .hero{
+        padding:50px 0 35px;
+    }
+
+    .stats{
+        grid-template-columns:1fr 1fr;
+        gap:10px;
+    }
+
+    .stat{
+        padding:16px;
+    }
+
+    .stat-value{
+        font-size:1.4rem;
+    }
+
+    .workspace{
+        grid-template-columns:1fr;
+    }
+
+    .quick-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .nav{
+        min-height:62px;
+    }
+
+    .logo{
+        font-size:1rem;
+    }
+
+    .back-home{
+        padding:7px 10px;
+        font-size:.78rem;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="container nav">
+        <a href="index.html" class="logo">
+            🔑 LifeKey <span>Command Center</span>
+        </a>
+
+        <a href="index.html" class="back-home">
+            ← LifeKey Hub
+        </a>
+    </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+
+            <div class="badge">⚡ LIFEKEY OPERATING CENTER</div>
+
+            <h1>
+                Your <span>Command Center</span>
+                for Building, Earning & Growing.
+            </h1>
+
+            <p>
+                One central place to access your most important income streams,
+                content operations, opportunities, tools and LifeKey projects.
+                Build each stream step by step and monitor your progress as
+                LifeKey Hub grows.
+            </p>
+
+            <div class="hero-actions">
+                <a href="#income" class="btn btn-primary">
+                    💰 My Income Streams
+                </a>
+
+                <a href="#content" class="btn btn-secondary">
+                    📝 Content Center
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- INCOME OVERVIEW -->
+<section>
+    <div class="container">
+
+        <div class="section-title">
+            <h2>💰 Income Overview</h2>
+            <p>
+                Your central area for monitoring the performance of your income streams.
+            </p>
+        </div>
+
+        <div class="stats">
+
+            <div class="stat">
+                <div class="stat-label">Income This Month</div>
+                <div class="stat-value">₦0</div>
+            </div>
+
+            <div class="stat">
+                <div class="stat-label">Income This Year</div>
+                <div class="stat-value">₦0</div>
+            </div>
+
+            <div class="stat">
+                <div class="stat-label">Active Streams</div>
+                <div class="stat-value">0</div>
+            </div>
+
+            <div class="stat">
+                <div class="stat-label">Best Stream</div>
+                <div class="stat-value">—</div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- CORE INCOME STREAMS -->
+<section id="income">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>🚀 My Core Income Streams</h2>
+            <p>
+                These are the income areas we are concentrating on first.
+            </p>
+        </div>
+
+        <div class="stream-grid">
+
+            <!-- 01 -->
+            <div class="stream">
+                <div class="stream-top">
+                    <div>
+                        <div class="stream-number">01</div>
+                        <h3>🔗 Affiliate Marketing</h3>
+                    </div>
+                    <span class="status">Building</span>
+                </div>
+
+                <p>
+                    Promote useful products and services, create content,
+                    generate traffic and build affiliate income.
+                </p>
+
+                <a href="affiliate-marketing.html" class="open-btn">
+                    Open Workspace →
+                </a>
+            </div>
+
+
+            <!-- 02 -->
+            <div class="stream">
+                <div class="stream-top">
+                    <div>
+                        <div class="stream-number">02</div>
+                        <h3>👨‍💻 Freelancing</h3>
+                    </div>
+                    <span class="status">Building</span>
+                </div>
+
+                <p>
+                    Develop marketable skills, find clients, provide services
+                    and build freelance income.
+                </p>
+
+                <a href="freelancing.html" class="open-btn">
+                    Open Workspace →
+                </a>
+            </div>
+
+
+            <!-- 03 -->
+            <div class="stream">
+                <div class="stream-top">
+                    <div>
+                        <div class="stream-number">03</div>
+                        <h3>📦 Digital Products</h3>
+                    </div>
+                    <span class="status">Building</span>
+                </div>
+
+                <p>
+                    Create ebooks, templates, guides, courses and other
+                    digital products that can generate income.
+                </p>
+
+                <a href="digital-products.html" class="open-btn">
+                    Open Workspace →
+                </a>
+            </div>
+
+
+            <!-- 04 -->
+            <div class="stream">
+                <div class="stream-top">
+                    <div>
+                        <div class="stream-number">04</div>
+                        <h3>🛒 Dropshipping</h3>
+                    </div>
+                    <span class="status">Available</span>
+                </div>
+
+                <p>
+                    Explore online product businesses, suppliers, stores,
+                    marketing and fulfillment.
+                </p>
+
+                <a href="dropshipping.html" class="open-btn">
+                    Open Workspace →
+                </a>
+            </div>
+
+
+            <!-- 05 -->
+            <div class="stream">
+                <div class="stream-top">
+                    <div>
+                        <div class="stream-number">05</div>
+                        <h3>📈 Trading & Investing</h3>
+                    </div>
+                    <span class="status">Monitoring</span>
+                </div>
+
+                <p>
+                    Track investing knowledge, markets, trading concepts,
+                    risk management and long-term opportunities.
+                </p>
+
+                <a href="trading-investing.html" class="open-btn">
+                    Open Workspace →
+                </a>
+            </div>
+
+
+            <!-- 06 -->
+            <div class="stream">
+                <div class="stream-top">
+                    <div>
+                        <div class="stream-number">06</div>
+                        <h3>🏠 Real Estate</h3>
+                    </div>
+                    <span class="status">Exploring</span>
+                </div>
+
+                <p>
+                    Explore property knowledge, real estate opportunities,
+                    investment concepts and related business models.
+                </p>
+
+                <a href="real-estate.html" class="open-btn">
+                    Open Workspace →
+                </a>
+            </div>
+
+
+            <!-- 07 -->
+            <div class="stream">
+                <div class="stream-top">
+                    <div>
+                        <div class="stream-number">07</div>
+                        <h3>🌐 Earn Online</h3>
+                    </div>
+                    <span class="status">Active</span>
+                </div>
+
+                <p>
+                    Your broader online earning hub covering digital skills,
+                    platforms and practical income opportunities.
+                </p>
+
+                <a href="earn-online.html" class="open-btn">
+                    Open Workspace →
+                </a>
+            </div>
+
+
+            <!-- 08 -->
+            <div class="stream">
+                <div class="stream-top">
+                    <div>
+                        <div class="stream-number">08</div>
+                        <h3>💰 Monetization Platforms</h3>
+                    </div>
+                    <span class="status">Exploring</span>
+                </div>
+
+                <p>
+                    Research ways websites, apps, social platforms and content
+                    can generate revenue.
+                </p>
+
+                <a href="monetization-platforms.html" class="open-btn">
+                    Open Workspace →
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- CONTENT CENTER -->
+<section id="content">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>📝 Content Center</h2>
+            <p>
+                Your future workspace for creating content that supports your income streams.
+            </p>
+        </div>
+
+        <div class="workspace">
+
+            <div class="workspace-card">
+                <div class="icon">📰</div>
+                <h3>Articles</h3>
+                <p>
+                    Create and organize LifeKey articles for your different
+                    income and knowledge areas.
+                </p>
+                <a href="blog.html" class="open-btn">
+                    Open Blog →
+                </a>
+            </div>
+
+            <div class="workspace-card">
+                <div class="icon">📚</div>
+                <h3>Article Library</h3>
+                <p>
+                    Access the article area where individual LifeKey articles
+                    will be developed and published.
+                </p>
+                <a href="articles/" class="open-btn">
+                    Open Articles →
+                </a>
+            </div>
+
+            <div class="workspace-card">
+                <div class="icon">🚀</div>
+                <h3>LifeKey Publisher</h3>
+                <p>
+                    Your publishing-related workspace for turning ideas into
+                    useful public content.
+                </p>
+                <a href="lifekey-publisher.%20html" class="open-btn">
+                    Open Publisher →
+                </a>
+            </div>
+
+            <div class="workspace-card">
+                <div class="icon">🎬</div>
+                <h3>Video Content</h3>
+                <p>
+                    Plan and organize videos that support your website,
+                    articles and income streams.
+                </p>
+                <a href="#roadmap" class="open-btn">
+                    Coming Soon
+                </a>
+            </div>
+
+            <div class="workspace-card">
+                <div class="icon">🖼️</div>
+                <h3>Images & Graphics</h3>
+                <p>
+                    Plan article images, thumbnails, diagrams, illustrations
+                    and promotional graphics.
+                </p>
+                <a href="#roadmap" class="open-btn">
+                    Coming Soon
+                </a>
+            </div>
+
+            <div class="workspace-card">
+                <div class="icon">💡</div>
+                <h3>Content Ideas</h3>
+                <p>
+                    Keep future article, video and business-content ideas
+                    organized for later production.
+                </p>
+                <a href="#roadmap" class="open-btn">
+                    Coming Soon
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- QUICK ACCESS -->
+<section>
+    <div class="container">
+
+        <div class="section-title">
+            <h2>⚡ Quick Access</h2>
+            <p>
+                Frequently used LifeKey areas.
+            </p>
+        </div>
+
+        <div class="quick-grid">
+
+            <a href="index.html" class="quick">🏠 Home</a>
+
+            <a href="blog.html" class="quick">📰 Blog</a>
+
+            <a href="lifekey-tools.html" class="quick">🧰 Tools</a>
+
+            <a href="innovation.html" class="quick">💡 Innovation</a>
+
+            <a href="ai-artificial-intelligence.html" class="quick">🤖 AI</a>
+
+            <a href="build-online.html" class="quick">🌐 Build Online</a>
+
+            <a href="money.html" class="quick">💰 Money</a>
+
+            <a href="earn-online.html" class="quick">🚀 Earn Online</a>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- OTHER LIFEKEY AREAS -->
+<section>
+    <div class="container">
+
+        <div class="section-title">
+            <h2>🌍 Other LifeKey Areas</h2>
+            <p>
+                Important sections that remain part of LifeKey Hub but are not
+                the current core income focus.
+            </p>
+        </div>
+
+        <div class="other-grid">
+
+            <span class="other">❤️ Health & Wellness</span>
+            <span class="other">📚 Education</span>
+            <span class="other">🌱 Agriculture</span>
+            <span class="other">📜 History</span>
+            <span class="other">🏛️ Politics & Current Affairs</span>
+            <span class="other">💼 Business</span>
+            <span class="other">💻 Web Design</span>
+            <span class="other">🎨 Graphic Design</span>
+            <span class="other">🤖 AI</span>
+            <span class="other">💡 Innovation</span>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ROADMAP -->
+<section id="roadmap">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>🧭 Command Center Roadmap</h2>
+            <p>
+                We will build this control center gradually as LifeKey Hub grows.
+            </p>
+        </div>
+
+        <div class="roadmap">
+
+            <div class="step">
+                <div class="step-number">01</div>
+                <div>
+                    <strong>Core income streams</strong>
+                    <p>
+                        Connect and organize the income pages that already exist.
+                    </p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">02</div>
+                <div>
+                    <strong>Income monitoring</strong>
+                    <p>
+                        Add proper monthly, yearly and per-stream income tracking.
+                    </p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">03</div>
+                <div>
+                    <strong>Content operations</strong>
+                    <p>
+                        Build a better system for articles, images, videos and publishing.
+                    </p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">04</div>
+                <div>
+                    <strong>Additional income streams</strong>
+                    <p>
+                        Add Digital Marketing, Ghostwriting, Research Writing,
+                        Email Marketing, Copywriting and other carefully selected
+                        opportunities when their pages are ready.
+                    </p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">05</div>
+                <div>
+                    <strong>Advanced Command Center</strong>
+                    <p>
+                        Later we can add more advanced tracking, automation,
+                        data storage and other management features.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+</main>
+
+
+<footer>
+    <div class="container">
+
+        <div class="footer-links">
+            <a href="index.html">LifeKey Hub</a>
+            <a href="blog.html">Blog</a>
+            <a href="earn-online.html">Earn Online</a>
+            <a href="innovation.html">Innovation</a>
+            <a href="lifekey-tools.html">Tools</a>
+        </div>
+
+        <p>
+            © 2026 LifeKey Hub — Command Center
+        </p>
+
+    </div>
+</footer>
+
+</body>
+</html>
