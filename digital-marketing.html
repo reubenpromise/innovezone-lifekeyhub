@@ -1,0 +1,754 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Digital Marketing & Technology | LifeKey Hub</title><meta name="description" content="Learn digital marketing, ghostwriting, research writing, email marketing, copywriting, SEO, social media marketing, content marketing, AI tools and online growth with LifeKey Hub."><style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+:root{
+--bg:#050816;
+--bg2:#081126;
+--card:rgba(13,23,48,.85);
+--border:rgba(168,85,247,.28);
+--text:#f4f8ff;
+--muted:#bdb9ca;
+--purple:#a855f7;
+--purple2:#c084fc;
+--cyan:#00e5ff;
+--green:#20e3a2;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+
+font-family:Arial,Helvetica,sans-serif;
+
+color:var(--text);
+
+background:
+radial-gradient(circle at 15% 10%,rgba(168,85,247,.18),transparent 30%),
+radial-gradient(circle at 85% 20%,rgba(0,229,255,.10),transparent 30%),
+radial-gradient(circle at 40% 90%,rgba(32,227,162,.08),transparent 35%),
+linear-gradient(135deg,#03040a,#080612,#07100d);
+
+line-height:1.6;
+
+}
+
+a{
+color:inherit;
+text-decoration:none;
+}
+
+
+/* ================= HEADER ================= */
+
+header{
+
+position:sticky;
+
+top:0;
+
+z-index:1000;
+
+background:rgba(5,8,22,.92);
+
+backdrop-filter:blur(18px);
+
+border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+.nav{
+
+width:min(1180px,92%);
+
+margin:auto;
+
+min-height:70px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+gap:20px;
+
+}
+
+.logo{
+
+font-size:1.4rem;
+
+font-weight:900;
+
+}
+
+.logo span{
+
+color:var(--purple2);
+
+}
+
+.nav a{
+
+color:var(--muted);
+
+font-size:.9rem;
+
+}
+
+.nav a:hover{
+
+color:var(--cyan);
+
+}
+
+.back-btn{
+
+padding:10px 16px;
+
+border:1px solid var(--border);
+
+border-radius:10px;
+
+background:rgba(168,85,247,.08);
+
+font-weight:bold;
+
+}
+
+
+/* ================= HERO ================= */
+
+.hero{
+
+width:min(1100px,92%);
+
+margin:auto;
+
+padding:90px 0 70px;
+
+text-align:center;
+
+}
+
+.badge{
+
+display:inline-block;
+
+padding:8px 16px;
+
+border-radius:50px;
+
+background:rgba(168,85,247,.12);
+
+border:1px solid rgba(192,132,252,.35);
+
+color:var(--purple2);
+
+font-size:.8rem;
+
+font-weight:bold;
+
+margin-bottom:22px;
+
+}
+
+.hero h1{
+
+font-size:clamp(2.5rem,7vw,5rem);
+
+line-height:1.05;
+
+margin-bottom:22px;
+
+}
+
+.gradient{
+
+background:
+linear-gradient(
+90deg,
+var(--cyan),
+var(--purple2),
+var(--purple),
+var(--green)
+);
+
+-webkit-background-clip:text;
+
+background-clip:text;
+
+color:transparent;
+
+}
+
+.hero p{
+
+max-width:750px;
+
+margin:auto;
+
+color:var(--muted);
+
+font-size:1.05rem;
+
+}
+
+
+/* ================= SECTIONS ================= */
+
+section{
+
+width:min(1180px,92%);
+
+margin:auto;
+
+padding:45px 0;
+
+}
+
+.section-heading{
+
+margin-bottom:35px;
+
+}
+
+.small{
+
+color:var(--purple2);
+
+font-size:.78rem;
+
+font-weight:bold;
+
+letter-spacing:2px;
+
+text-transform:uppercase;
+
+margin-bottom:8px;
+
+}
+
+.section-heading h2{
+
+font-size:clamp(1.8rem,5vw,3rem);
+
+margin-bottom:12px;
+
+}
+
+.section-heading p{
+
+color:var(--muted);
+
+max-width:750px;
+
+}
+
+
+/* ================= CARDS ================= */
+
+.cards{
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:20px;
+
+}
+
+.card{
+
+position:relative;
+
+padding:28px;
+
+border-radius:22px;
+
+background:
+linear-gradient(
+145deg,
+rgba(255,255,255,.065),
+rgba(168,85,247,.04),
+rgba(0,229,255,.02)
+);
+
+border:1px solid var(--border);
+
+box-shadow:
+inset 0 1px 0 rgba(255,255,255,.08),
+0 18px 45px rgba(0,0,0,.3);
+
+transition:.3s;
+
+overflow:hidden;
+
+}
+
+.card::before{
+
+content:"";
+
+position:absolute;
+
+width:140px;
+
+height:140px;
+
+top:-80px;
+
+right:-70px;
+
+border-radius:50%;
+
+background:rgba(168,85,247,.18);
+
+filter:blur(20px);
+
+}
+
+.card:hover{
+
+transform:translateY(-8px);
+
+border-color:rgba(192,132,252,.6);
+
+box-shadow:
+0 25px 60px rgba(0,0,0,.4),
+0 0 30px rgba(168,85,247,.12);
+
+}
+
+.icon{
+
+width:58px;
+
+height:58px;
+
+display:grid;
+
+place-items:center;
+
+font-size:1.8rem;
+
+border-radius:16px;
+
+background:rgba(168,85,247,.12);
+
+border:1px solid rgba(192,132,252,.25);
+
+margin-bottom:20px;
+
+}
+
+.card h3{
+
+font-size:1.2rem;
+
+margin-bottom:10px;
+
+}
+
+.card p{
+
+color:var(--muted);
+
+font-size:.92rem;
+
+}
+
+.learn{
+
+display:inline-block;
+
+margin-top:18px;
+
+color:var(--cyan);
+
+font-size:.85rem;
+
+font-weight:bold;
+
+}
+
+
+/* ================= LEARNING PATH ================= */
+
+.path{
+
+display:grid;
+
+grid-template-columns:repeat(4,1fr);
+
+gap:18px;
+
+}
+
+.step{
+
+padding:25px;
+
+border-radius:20px;
+
+background:rgba(255,255,255,.04);
+
+border:1px solid rgba(255,255,255,.08);
+
+}
+
+.step-number{
+
+font-size:2rem;
+
+font-weight:900;
+
+color:var(--purple2);
+
+margin-bottom:10px;
+
+}
+
+.step h3{
+
+margin-bottom:8px;
+
+}
+
+.step p{
+
+color:var(--muted);
+
+font-size:.9rem;
+
+}
+
+
+/* ================= CTA ================= */
+
+.cta{
+
+text-align:center;
+
+padding:70px 30px;
+
+border-radius:28px;
+
+background:
+radial-gradient(circle at 20% 20%,rgba(168,85,247,.18),transparent 30%),
+radial-gradient(circle at 80% 80%,rgba(0,229,255,.10),transparent 30%),
+rgba(255,255,255,.035);
+
+border:1px solid var(--border);
+
+}
+
+.cta h2{
+
+font-size:clamp(2rem,5vw,3.2rem);
+
+margin-bottom:15px;
+
+}
+
+.cta p{
+
+max-width:650px;
+
+margin:0 auto 25px;
+
+color:var(--muted);
+
+}
+
+.btn{
+
+display:inline-block;
+
+padding:14px 22px;
+
+border-radius:12px;
+
+background:
+linear-gradient(
+135deg,
+var(--purple),
+var(--purple2),
+var(--cyan)
+);
+
+color:#081126;
+
+font-weight:900;
+
+}
+
+
+/* ================= FOOTER ================= */
+
+footer{
+
+margin-top:60px;
+
+padding:35px 0;
+
+text-align:center;
+
+border-top:1px solid rgba(255,255,255,.08);
+
+color:var(--muted);
+
+}
+
+footer strong{
+
+color:white;
+
+}
+
+
+/* ================= MOBILE ================= */
+
+@media(max-width:900px){
+
+.cards{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+.path{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:600px){
+
+.cards{
+
+grid-template-columns:1fr;
+
+}
+
+.path{
+
+grid-template-columns:1fr;
+
+}
+
+.hero{
+
+padding:65px 0 45px;
+
+}
+
+.nav{
+
+min-height:60px;
+
+}
+
+}
+
+</style></head><body><!-- ================= HEADER ================= --><header><div class="nav"><a href="index.html" class="logo">Life<span>Key</span> Hub
+
+</a><a href="index.html#explore" class="back-btn">← Back to Explore
+
+</a></div></header><!-- ================= HERO ================= --><div class="hero"><div class="badge">💻 LIFEKEY DIGITAL MARKETING & TECHNOLOGY
+
+</div><h1>Learn. Create.
+
+<span class="gradient">Market. Grow.
+
+</span></h1><p>Explore practical digital skills and technology opportunities.
+Learn how digital marketing, writing, content, websites,
+AI tools and online platforms can help you build valuable skills,
+create services and develop legitimate income opportunities.
+
+</p></div><!-- ================= DIGITAL SKILLS ================= --><section><div class="section-heading"><div class="small">Digital Skills
+
+</div><h2>Build Valuable Online Skills
+
+</h2><p>Explore practical skills that can be developed for freelancing,
+business, content creation, marketing and online opportunities.
+
+</p></div><div class="cards"><div class="card"><div class="icon">📣</div><h3>Digital Marketing</h3><p>Learn the foundations of promoting products,
+services and brands through digital channels,
+online platforms and modern marketing strategies.
+
+</p><span class="learn">Explore Digital Marketing →
+
+</span></div><div class="card"><div class="icon">✍️</div><h3>Ghostwriting</h3><p>Learn how writers create books, articles,
+social media content and other written materials
+for clients who publish under their own name.
+
+</p><span class="learn">Explore Ghostwriting →
+
+</span></div><div class="card"><div class="icon">🔎</div><h3>Research Writing</h3><p>Learn research methods, information gathering,
+fact checking, organizing ideas and producing
+useful research-based written content.
+
+</p><span class="learn">Explore Research Writing →
+
+</span></div><div class="card"><div class="icon">📧</div><h3>Email Marketing</h3><p>Learn how businesses communicate with audiences
+through email campaigns, newsletters, automated
+messages and customer relationships.
+
+</p><span class="learn">Explore Email Marketing →
+
+</span></div><div class="card"><div class="icon">📝</div><h3>Copywriting</h3><p>Learn persuasive writing for advertisements,
+sales pages, websites, emails and marketing
+campaigns.
+
+</p><span class="learn">Explore Copywriting →
+
+</span></div><div class="card"><div class="icon">📄</div><h3>Content Writing</h3><p>Explore articles, blog posts, website content,
+guides and other useful written content
+for businesses and online audiences.
+
+</p><span class="learn">Explore Content Writing →
+
+</span></div><div class="card"><div class="icon">📱</div><h3>Social Media Marketing</h3><p>Learn how brands and businesses use social media
+for content, communities, visibility,
+audience growth and marketing.
+
+</p><span class="learn">Explore Social Media →
+
+</span></div><div class="card"><div class="icon">🔍</div><h3>SEO</h3><p>Learn search engine optimization, keywords,
+useful content, website structure and
+organic online visibility.
+
+</p><span class="learn">Explore SEO →
+
+</span></div><div class="card"><div class="icon">📢</div><h3>Content Marketing</h3><p>Learn how useful articles, videos,
+guides and other content can attract,
+educate and build an audience.
+
+</p><span class="learn">Explore Content Marketing →
+
+</span></div><div class="card"><div class="icon">🤝</div><h3>Affiliate Marketing</h3><p>Learn how creators and marketers promote
+relevant products and services and may
+earn commissions through affiliate programs.
+
+</p><span class="learn">Explore Affiliate Marketing →
+
+</span></div><div class="card"><div class="icon">💼</div><h3>Freelance Digital Services</h3><p>Explore how digital skills can become services
+such as writing, marketing, research,
+design and online support.
+
+</p><span class="learn">Explore Freelance Services →
+
+</span></div><div class="card"><div class="icon">🤖</div><h3>AI for Marketing</h3><p>Explore how artificial intelligence tools
+can support research, content ideas,
+productivity, automation and digital work.
+
+</p><span class="learn">Explore AI Tools →
+
+</span></div></div></section><!-- ================= TECHNOLOGY ================= --><section><div class="section-heading"><div class="small">Technology
+
+</div><h2>Technology & Online Growth
+
+</h2><p>Technology creates new tools, platforms and opportunities.
+Understanding how to use these tools can help individuals
+and businesses work more effectively online.
+
+</p></div><div class="cards"><div class="card"><div class="icon">🌐</div><h3>Websites & Online Presence</h3><p>Learn about websites, domains, hosting,
+SEO, publishing and building an online presence.
+
+</p><span class="learn">Explore Websites →
+
+</span></div><div class="card"><div class="icon">⚙️</div><h3>Automation</h3><p>Explore digital tools that can help automate
+repetitive tasks, organize work and improve
+productivity.
+
+</p><span class="learn">Explore Automation →
+
+</span></div><div class="card"><div class="icon">📊</div><h3>Analytics & Data</h3><p>Learn how digital platforms use data,
+analytics and performance information
+to understand online activity.
+
+</p><span class="learn">Explore Analytics →
+
+</span></div><div class="card"><div class="icon">🛠️</div><h3>Digital Tools</h3><p>Discover useful tools and platforms for
+writing, design, marketing, websites,
+productivity and online work.
+
+</p><span class="learn">Explore Tools →
+
+</span></div><div class="card"><div class="icon">🚀</div><h3>Online Business Growth</h3><p>Learn how digital tools, content,
+marketing and technology can support
+the growth of online businesses.
+
+</p><span class="learn">Explore Growth →
+
+</span></div><div class="card"><div class="icon">🧠</div><h3>Future Digital Skills</h3><p>Explore emerging skills, AI tools,
+digital careers and technologies
+shaping the future of work.
+
+</p><span class="learn">Explore Future Skills →
+
+</span></div></div></section><!-- ================= LEARNING PATH ================= --><section><div class="section-heading"><div class="small">LifeKey Learning Path
+
+</div><h2>Start Small. Build Skills. Create Value.
+
+</h2><p>You do not need to learn everything at once.
+Choose one skill, practice it and gradually
+build your knowledge and portfolio.
+
+</p></div><div class="path"><div class="step"><div class="step-number">01
+
+</div><h3>Choose a Skill</h3><p>Select one area such as copywriting,
+ghostwriting, email marketing or SEO.
+
+</p></div><div class="step"><div class="step-number">02
+
+</div><h3>Learn & Practice</h3><p>Study the fundamentals and practice
+with real or sample projects.
+
+</p></div><div class="step"><div class="step-number">03
+
+</div><h3>Build a Portfolio</h3><p>Create examples that demonstrate
+what you can do.
+
+</p></div><div class="step"><div class="step-number">04
+
+</div><h3>Create Opportunities</h3><p>Explore freelancing, business,
+content creation and other legitimate
+ways to apply your skills.
+
+</p></div></div></section><!-- ================= CTA ================= --><section><div class="cta"><h2>Your Digital Skills Can Grow.
+
+</h2><p>Start with one skill. Learn the basics.
+Practice consistently. Build something useful.
+Then continue growing.
+
+</p><a href="index.html#explore" class="btn">🚀 Explore More LifeKey Skills
+
+</a></div></section><!-- ================= FOOTER ================= --><footer><strong>LifeKey Hub
+
+</strong><br>Unlocking knowledge, ideas, skills
+and opportunities for a better future.
+
+<br><br>
+
+© <span id="year"></span> LifeKey Hub.
+All rights reserved.
+
+</footer><script>
+
+document
+.getElementById("year")
+.textContent=
+new Date().getFullYear();
+
+</script></body></html>
