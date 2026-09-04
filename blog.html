@@ -1455,6 +1455,11 @@ All rights reserved.
 
 <script>
 
+/* =====================================================
+   LIFEKEY BLOG JAVASCRIPT
+   AUTOMATIC ARTICLE SYSTEM
+   ===================================================== */
+
 
 /* =====================================================
    YEAR
@@ -1462,6 +1467,354 @@ All rights reserved.
 
 document.getElementById("year").textContent =
 new Date().getFullYear();
+
+
+/* =====================================================
+   PUBLISHED ARTICLES
+   ===================================================== */
+
+let publishedArticles = [];
+
+
+/* =====================================================
+   SECURITY / HTML ESCAPE
+   ===================================================== */
+
+function escapeHTML(value){
+
+return String(value || "")
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
+
+}
+
+
+/* =====================================================
+   CATEGORY ICON
+   ===================================================== */
+
+function getArticleIcon(category){
+
+const value =
+String(category || "").toLowerCase();
+
+if(value.includes("money"))
+return "💰";
+
+if(value.includes("business"))
+return "💼";
+
+if(value.includes("technology"))
+return "💻";
+
+if(value.includes("artificial"))
+return "🤖";
+
+if(value.includes("digital"))
+return "🌐";
+
+if(value.includes("freelanc"))
+return "🧑‍💻";
+
+if(value.includes("trading"))
+return "📈";
+
+if(value.includes("real estate"))
+return "🏠";
+
+if(value.includes("innovation"))
+return "💡";
+
+if(value.includes("education"))
+return "🎓";
+
+if(value.includes("health"))
+return "❤️";
+
+if(value.includes("agriculture"))
+return "🌱";
+
+return "📝";
+
+}
+
+
+/* =====================================================
+   CATEGORY MAPPING
+   ===================================================== */
+
+function getFilterCategory(category){
+
+const value =
+String(category || "").toLowerCase();
+
+
+if(value.includes("money"))
+return "money";
+
+if(value.includes("trading"))
+return "money";
+
+if(value.includes("real estate"))
+return "money";
+
+if(value.includes("business"))
+return "business";
+
+if(value.includes("technology"))
+return "technology";
+
+if(value.includes("artificial"))
+return "technology";
+
+if(value.includes("digital"))
+return "digital";
+
+if(value.includes("freelanc"))
+return "digital";
+
+if(value.includes("innovation"))
+return "innovation";
+
+if(value.includes("education"))
+return "education";
+
+if(value.includes("health"))
+return "health";
+
+if(value.includes("agriculture"))
+return "agriculture";
+
+return "general";
+
+}
+
+
+/* =====================================================
+   LOAD ARTICLES FROM articles.json
+   ===================================================== */
+
+async function loadPublishedArticles(){
+
+const grid =
+document.getElementById("articleGrid");
+
+const comingSoon =
+document.getElementById("comingSoon");
+
+
+try{
+
+const response =
+await fetch("articles.json?cache=" + Date.now());
+
+
+if(!response.ok){
+
+throw new Error(
+"Could not load articles.json"
+);
+
+}
+
+
+const data =
+await response.json();
+
+
+if(!Array.isArray(data)){
+
+throw new Error(
+"articles.json must contain an array"
+);
+
+}
+
+
+publishedArticles = data;
+
+
+/* =====================================================
+   CREATE PUBLISHED ARTICLE CARDS
+   ===================================================== */
+
+publishedArticles.forEach(function(article){
+
+if(
+!article.title ||
+!article.url
+){
+
+return;
+
+}
+
+
+const card =
+document.createElement("article");
+
+card.className = "article-card";
+
+
+const category =
+article.category ||
+"General";
+
+
+const filterCategory =
+getFilterCategory(category);
+
+
+const title =
+article.title;
+
+
+const description =
+article.description ||
+"Discover this practical LifeKey Hub article.";
+
+
+const date =
+article.publishedAt ||
+"LifeKey Hub";
+
+
+const icon =
+getArticleIcon(category);
+
+
+/* =====================================================
+   SAFE ARTICLE URL
+   ===================================================== */
+
+let articleURL =
+String(article.url);
+
+
+if(
+articleURL.startsWith("javascript:") ||
+articleURL.startsWith("data:")
+){
+
+articleURL = "#";
+
+}
+
+
+/* =====================================================
+   ARTICLE CARD
+   ===================================================== */
+
+card.dataset.category =
+filterCategory;
+
+card.dataset.title =
+title;
+
+
+card.innerHTML = `
+
+<div class="article-image">
+${icon}
+</div>
+
+<div class="article-content">
+
+<div class="article-category">
+${escapeHTML(category)}
+</div>
+
+<h3>
+${escapeHTML(title)}
+</h3>
+
+<p>
+${escapeHTML(description)}
+</p>
+
+<div class="article-meta">
+
+<span>
+LifeKey Hub
+</span>
+
+<span>
+${escapeHTML(date)}
+</span>
+
+</div>
+
+<a
+href="${escapeHTML(articleURL)}"
+class="read-more"
+>
+Read Article →
+</a>
+
+</div>
+
+`;
+
+
+/* =====================================================
+   ADD BEFORE COMING SOON MESSAGE
+   ===================================================== */
+
+grid.insertBefore(
+card,
+comingSoon
+);
+
+});
+
+
+/* =====================================================
+   HIDE COMING SOON IF ARTICLES EXIST
+   ===================================================== */
+
+if(publishedArticles.length > 0){
+
+comingSoon.style.display = "none";
+
+}else{
+
+comingSoon.style.display = "block";
+
+}
+
+
+}catch(error){
+
+console.error(
+"LifeKey article loading error:",
+error
+);
+
+}
+
+
+/* =====================================================
+   REFRESH SEARCH / FILTER STATE
+   ===================================================== */
+
+const activeButton =
+document.querySelector(
+".category-btn.active"
+);
+
+if(activeButton){
+
+filterArticles(
+"all",
+activeButton
+);
+
+}
+
+}
 
 
 /* =====================================================
@@ -1476,13 +1829,19 @@ document.querySelectorAll(".article-card");
 const buttons =
 document.querySelectorAll(".category-btn");
 
+
 buttons.forEach(function(btn){
 
 btn.classList.remove("active");
 
 });
 
+
+if(button){
+
 button.classList.add("active");
+
+}
 
 
 let visible = 0;
@@ -1492,6 +1851,7 @@ articles.forEach(function(article){
 
 const articleCategory =
 article.dataset.category;
+
 
 if(
 category === "all" ||
@@ -1519,9 +1879,16 @@ if(visible === 0){
 
 comingSoon.style.display = "block";
 
+}else if(
+category === "all" &&
+publishedArticles.length > 0
+){
+
+comingSoon.style.display = "none";
+
 }else{
 
-comingSoon.style.display = "block";
+comingSoon.style.display = "none";
 
 }
 
@@ -1541,11 +1908,18 @@ document
 .trim()
 .toLowerCase();
 
+
 const message =
 document.getElementById("searchMessage");
 
+
 const articles =
 document.querySelectorAll(".article-card");
+
+
+const comingSoon =
+document.getElementById("comingSoon");
+
 
 let found = 0;
 
@@ -1558,7 +1932,20 @@ article.style.display = "block";
 
 });
 
+
 message.textContent = "";
+
+
+if(publishedArticles.length > 0){
+
+comingSoon.style.display = "none";
+
+}else{
+
+comingSoon.style.display = "block";
+
+}
+
 
 return;
 
@@ -1568,10 +1955,13 @@ return;
 articles.forEach(function(article){
 
 const title =
-(article.dataset.title || "").toLowerCase();
+(article.dataset.title || "")
+.toLowerCase();
+
 
 const text =
 article.innerText.toLowerCase();
+
 
 if(
 title.includes(query) ||
@@ -1597,10 +1987,14 @@ message.textContent =
 found +
 " matching LifeKey article(s) found.";
 
+comingSoon.style.display = "none";
+
 }else{
 
 message.textContent =
 "No matching article found yet.";
+
+comingSoon.style.display = "block";
 
 }
 
@@ -1625,6 +2019,12 @@ searchArticles();
 
 });
 
+
+/* =====================================================
+   START LIFEKEY ARTICLE SYSTEM
+   ===================================================== */
+
+loadPublishedArticles();
 
 </script>
 
