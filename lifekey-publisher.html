@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>LifeKey Publisher</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+margin:0;
+min-height:100vh;
+font-family:Arial,sans-serif;
+color:#f7f2ff;
+background:
+radial-gradient(circle at 20% 10%,rgba(115,55,220,.35),transparent 28%),
+radial-gradient(circle at 80% 20%,rgba(0,210,180,.16),transparent 25%),
+radial-gradient(circle at 50% 90%,rgba(90,30,180,.22),transparent 35%),
+linear-gradient(135deg,#05020b,#11051e 45%,#03080b);
+overflow-x:hidden;
+}
+
+body:before,body:after{
+content:"";
+position:fixed;
+width:280px;height:280px;
+border-radius:50%;
+filter:blur(80px);
+opacity:.22;
+pointer-events:none;
+z-index:-1;
+}
+body:before{
+background:#8b4dff;
+top:80px;left:-100px;
+}
+body:after{
+background:#00d9bd;
+right:-100px;bottom:100px;
+}
+
+header{
+position:sticky;
+top:0;
+z-index:20;
+padding:18px 15px;
+text-align:center;
+background:rgba(5,3,12,.82);
+backdrop-filter:blur(18px);
+border-bottom:1px solid rgba(190,150,255,.18);
+}
+
+.logo{
+font-size:24px;
+font-weight:800;
+background:linear-gradient(90deg,#fff,#cba8ff,#7fffe8);
+-webkit-background-clip:text;
+background-clip:text;
+color:transparent;
+}
+
+.header-subtitle{
+margin-top:5px;
+font-size:12px;
+color:#aaa0b9;
+}
+
+main{
+width:100%;
+max-width:980px;
+margin:auto;
+padding:28px 14px 70px;
+}
+
+.hero{
+text-align:center;
+padding:15px 5px 28px;
+}
+
+.hero h1{
+margin:0;
+font-size:clamp(30px,7vw,50px);
+background:linear-gradient(90deg,#fff,#bd9aff,#8dffe9);
+-webkit-background-clip:text;
+background-clip:text;
+color:transparent;
+}
+
+.hero p{
+margin:12px auto 0;
+max-width:650px;
+color:#aaa1b5;
+line-height:1.6;
+}
+
+.panel{
+margin-bottom:22px;
+padding:21px;
+background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.025));
+border:1px solid rgba(210,180,255,.18);
+border-radius:22px;
+box-shadow:0 20px 60px rgba(0,0,0,.35),inset 0 1px rgba(255,255,255,.05);
+backdrop-filter:blur(18px);
+}
+
+.section-heading{
+display:flex;
+align-items:center;
+gap:10px;
+margin-bottom:18px;
+font-size:17px;
+font-weight:800;
+color:#e7d8ff;
+}
+
+.section-number{
+display:flex;
+align-items:center;
+justify-content:center;
+width:30px;height:30px;
+border-radius:50%;
+background:linear-gradient(135deg,rgba(139,77,255,.7),rgba(0,210,180,.35));
+font-size:12px;
+}
+
+label{
+display:block;
+margin:15px 0 7px;
+color:#dcd2e8;
+font-size:13px;
+font-weight:700;
+}
+
+input,select,textarea{
+width:100%;
+border:1px solid rgba(255,255,255,.14);
+border-radius:12px;
+background:rgba(4,2,10,.72);
+color:#fff;
+padding:13px 14px;
+font-family:inherit;
+font-size:15px;
+outline:none;
+}
+
+input:focus,select:focus,textarea:focus{
+border-color:rgba(170,120,255,.7);
+box-shadow:0 0 0 3px rgba(130,70,255,.1);
+}
+
+textarea{
+resize:vertical;
+line-height:1.7;
+}
+
+#description{min-height:115px}
+#content{min-height:360px}
+
+.hint{
+margin-top:7px;
+color:#887e96;
+font-size:12px;
+line-height:1.5;
+}
+
+/* TOOLBAR */
+
+.toolbar{
+display:flex;
+flex-wrap:wrap;
+gap:7px;
+margin-bottom:12px;
+}
+
+.toolbar button,.menu button{
+border:1px solid rgba(190,150,255,.2);
+border-radius:9px;
+background:rgba(255,255,255,.055);
+color:#eee;
+padding:9px 11px;
+font-size:12px;
+font-weight:700;
+cursor:pointer;
+}
+
+.toolbar button:hover,.menu button:hover{
+background:rgba(145,85,255,.2);
+}
+
+.tool-group{
+position:relative;
+}
+
+.menu{
+display:none;
+position:absolute;
+top:calc(100% + 7px);
+left:0;
+z-index:50;
+min-width:190px;
+padding:7px;
+border-radius:13px;
+background:rgba(15,7,28,.97);
+border:1px solid rgba(190,150,255,.25);
+box-shadow:0 15px 45px rgba(0,0,0,.55);
+}
+
+.menu.open{
+display:block;
+}
+
+.menu button{
+display:block;
+width:100%;
+text-align:left;
+margin:3px 0;
+}
+
+/* OPTIONS */
+
+.option-row{
+display:flex;
+flex-wrap:wrap;
+gap:15px;
+margin-top:18px;
+}
+
+.checkbox{
+display:flex;
+align-items:center;
+gap:8px;
+color:#d5cbdc;
+font-size:13px;
+}
+
+.checkbox input{
+width:auto;
+accent-color:#9d69ff;
+}
+
+/* PREVIEW */
+
+.preview{
+display:none;
+margin-top:18px;
+padding:22px;
+border-radius:17px;
+background:rgba(3,2,8,.72);
+border:1px solid rgba(180,140,255,.17);
+}
+
+.preview.active{display:block}
+
+.preview-label{
+color:#9e7be5;
+font-size:11px;
+font-weight:800;
+text-transform:uppercase;
+letter-spacing:1px;
+}
+
+.preview h2{
+margin:10px 0;
+font-size:28px;
+}
+
+.preview-description{
+color:#aaa1b2;
+line-height:1.6;
+}
+
+.preview-content{
+margin-top:22px;
+line-height:1.8;
+}
+
+.preview-content h2{font-size:23px;margin-top:30px}
+.preview-content h3{font-size:19px;margin-top:25px}
+.preview-content p{margin:0 0 16px}
+
+/* BUTTONS */
+
+.action-buttons{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+}
+
+.action-buttons button{
+flex:1;
+min-width:150px;
+padding:15px;
+border:none;
+border-radius:12px;
+font-size:14px;
+font-weight:800;
+cursor:pointer;
+}
+
+.publish-btn{
+color:white;
+background:linear-gradient(135deg,#7141e8,#a75cff,#48d9c1);
+}
+
+.preview-btn{color:white;background:rgba(255,255,255,.09)}
+.clear-btn{color:#ffbaba;background:rgba(255,70,70,.09)}
+
+#status{
+display:none;
+margin-top:18px;
+padding:15px;
+border-radius:12px;
+white-space:pre-wrap;
+text-align:left;
+line-height:1.6;
+font-size:13px;
+}
+
+#status.success{
+display:block;
+color:#aaffcb;
+background:rgba(30,190,100,.1);
+border:1px solid rgba(30,190,100,.25);
+}
+
+#status.error{
+display:block;
+color:#ffb3b3;
+background:rgba(255,50,50,.1);
+border:1px solid rgba(255,50,50,.25);
+}
+
+#status.warning{
+display:block;
+color:#ffe09a;
+background:rgba(255,180,40,.1);
+border:1px solid rgba(255,180,40,.25);
+}
+
+footer{
+text-align:center;
+padding:25px 15px 40px;
+color:#70677a;
+font-size:11px;
+}
+
+@media(max-width:600px){
+main{padding-left:10px;padding-right:10px}
+.panel{padding:17px;border-radius:18px}
+.action-buttons button{min-width:100%}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">⚡ LifeKey Publisher</div>
+<div class="header-subtitle">
+Create, format and publish LifeKey Hub articles
+</div>
+</header>
+
+<main>
+
+<section class="hero">
+<h1>LifeKey Publisher</h1>
+<p>
+Your private publishing engine for creating knowledge,
+opportunities, ideas and resources for the LifeKey Hub.
+</p>
+</section>
+
+<!-- 01 -->
+
+<section class="panel">
+
+<div class="section-heading">
+<span class="section-number">01</span>
+Article Information
+</div>
+
+<label>Publisher Password</label>
+<input type="password" id="password"
+placeholder="Enter publisher password"
+autocomplete="off">
+
+<div class="hint">
+Your password is sent securely to the publishing system.
+Visitors never need this password.
+</div>
+
+<label>Category</label>
+
+<select id="category" required>
+
+<option value="">-- Select Article Category --</option>
+
+<option>Money & Opportunities</option>
+<option>Money & Finance</option>
+<option>Trading-Investing</option>
+<option>Freelancing</option>
+<option>Affiliate Marketing</option>
+<option>Digital Products</option>
+<option>Dropshipping</option>
+<option>Real Estate</option>
+<option>Build Your Online Presence</option>
+<option>Earn Online</option>
+<option>Monetization Platforms</option>
+
+<option>Business & Entrepreneurship</option>
+<option>Digital Marketing & Technology</option>
+<option>Web Design</option>
+<option>Graphic Design</option>
+<option>AI & Artificial Intelligence</option>
+<option>LifeKey Creative Studio</option>
+<option>Innovation</option>
+
+<option>Engineering</option>
+<option>Repairs & Maintenance</option>
+<option>Energy & Power</option>
+<option>Agriculture & Food</option>
+<option>Fish Farming & Agriculture</option>
+<option>Environment</option>
+
+<option>Education & Learning</option>
+<option>Personal Development</option>
+<option>Home & Living</option>
+<option>Health & Wellness</option>
+
+<option>History</option>
+<option>Politics & Current Affairs</option>
+<option>Portfolio</option>
+<option>Technology</option>
+<option>Opportunities</option>
+<option>Projects & Experiments</option>
+<option>General LifeKey Article</option>
+
+</select>
+
+<label>Article Title</label>
+<input type="text" id="title"
+placeholder="Enter the article title" required>
+
+<label>Article Description</label>
+<textarea id="description"
+placeholder="Write a short description for search engines, previews and social sharing..."></textarea>
+
+<label>Tags</label>
+<input type="text" id="tags"
+placeholder="innovation, technology, Nigeria, ideas">
+
+<div class="hint">
+Separate multiple tags with commas.
+</div>
+
+</section>
+
+
+<!-- 02 -->
+
+<section class="panel">
+
+<div class="section-heading">
+<span class="section-number">02</span>
+Article Content
+</div>
+
+<div class="hint" style="margin-bottom:12px">
+Write your article below. The most-used tools are shown directly.
+Less-used tools are grouped to keep the Publisher clean.
+</div>
+
+<div class="toolbar">
+
+<button type="button"
+onclick="insertMarkdown('## ','')">
+H2
+</button>
+
+<button type="button"
+onclick="insertMarkdown('### ','')">
+H3
+</button>
+
+<button type="button"
+onclick="insertMarkdown('**','**')">
+Bold
+</button>
+
+<button type="button"
+onclick="insertMarkdown('- ','')">
+List
+</button>
+
+<button type="button"
+onclick="insertLink()">
+🔗 Link
+</button>
+
+<button type="button"
+onclick="insertImage()">
+🖼️ Image
+</button>
+
+
+<!-- MEDIA -->
+
+<div class="tool-group">
+
+<button type="button"
+onclick="toggleMenu('mediaMenu')">
+🌐 Media ▾
+</button>
+
+<div class="menu" id="mediaMenu">
+
+<button type="button"
+onclick="insertYouTube();closeMenus()">
+▶️ YouTube
+</button>
+
+<button type="button"
+onclick="insertSocial('Facebook');closeMenus()">
+📘 Facebook
+</button>
+
+<button type="button"
+onclick="insertSocial('Instagram');closeMenus()">
+📸 Instagram
+</button>
+
+<button type="button"
+onclick="insertSocial('TikTok');closeMenus()">
+🎵 TikTok
+</button>
+
+<button type="button"
+onclick="insertSocial('X');closeMenus()">
+𝕏 X / Twitter
+</button>
+
+<button type="button"
+onclick="insertSocial('Pinterest');closeMenus()">
+📌 Pinterest
+</button>
+
+<button type="button"
+onclick="insertSocial('Audio / Podcast');closeMenus()">
+🎧 Audio / Podcast
+</button>
+
+<button type="button"
+onclick="insertSocial('Website');closeMenus()">
+🔗 External Website
+</button>
+
+</div>
+</div>
+
+
+<!-- MORE -->
+
+<div class="tool-group">
+
+<button type="button"
+onclick="toggleMenu('moreMenu')">
+📦 More ▾
+</button>
+
+<div class="menu" id="moreMenu">
+
+<button type="button"
+onclick="insertBox('INFO');closeMenus()">
+💡 Info Box
+</button>
+
+<button type="button"
+onclick="insertBox('TIP');closeMenus()">
+✅ Tip Box
+</button>
+
+<button type="button"
+onclick="insertBox('WARNING');closeMenus()">
+⚠️ Warning
+</button>
+
+<button type="button"
+onclick="insertBox('AFFILIATE');closeMenus()">
+💰 Affiliate Box
+</button>
+
+<button type="button"
+onclick="insertTable();closeMenus()">
+📊 Table
+</button>
+
+</div>
+</div>
+
+</div>
+
+
+<textarea id="content"
+placeholder="Start writing your article here..."
+required></textarea>
+
+<div class="hint">
+Tip: Write your article first, then use the toolbar to add special sections.
+</div>
+
+</section>
+
+
+<!-- 03 -->
+
+<section class="panel">
+
+<div class="section-heading">
+<span class="section-number">03</span>
+SEO & Publishing Options
+</div>
+
+<label>SEO Title</label>
+<input type="text" id="seoTitle"
+placeholder="Optional search-engine title">
+
+<label>SEO Description</label>
+<textarea id="seoDescription"
+placeholder="Optional SEO description"
+style="min-height:100px"></textarea>
+
+<label>Social Image URL</label>
+<input type="url" id="ogImage"
+placeholder="https://example.com/image.jpg">
+
+<div class="hint">
+Optional image URL for social sharing.
+</div>
+
+<div class="option-row">
+
+<label class="checkbox">
+<input type="checkbox" id="featured">
+Feature this article
+</label>
+
+<label class="checkbox">
+<input type="checkbox" id="commentsEnabled" checked>
+Allow comments when comments are activated
+</label>
+
+</div>
+
+</section>
+
+
+<!-- 04 -->
+
+<section class="panel">
+
+<div class="section-heading">
+<span class="section-number">04</span>
+Preview
+</div>
+
+<div id="preview" class="preview">
+
+<div class="preview-label">
+LifeKey Article Preview
+</div>
+
+<h2 id="previewTitle">
+Your article title will appear here
+</h2>
+
+<div id="previewDescription"
+class="preview-description">
+Your article description will appear here.
+</div>
+
+<div id="previewContent"
+class="preview-content">
+Your article content preview will appear here.
+</div>
+
+</div>
+
+</section>
+
+
+<!-- 05 -->
+
+<section class="panel">
+
+<div class="section-heading">
+<span class="section-number">05</span>
+Publish
+</div>
+
+<div class="action-buttons">
+
+<button type="button"
+class="preview-btn"
+onclick="togglePreview()">
+👁️ Preview
+</button>
+
+<button type="button"
+class="publish-btn"
+id="publishBtn"
+onclick="publishArticle()">
+🚀 Publish Article
+</button>
+
+<button type="button"
+class="clear-btn"
+onclick="clearForm()">
+Clear
+</button>
+
+</div>
+
+<div id="status"></div>
+
+</section>
+
+</main>
+
+<footer>
+LifeKey Hub • Private Publisher • LifeKey Knowledge Engine
+</footer>
+
+
+<script>
+
+/* MENU */
+
+function toggleMenu(id){
+closeMenus();
+document.getElementById(id).classList.toggle("open");
+}
+
+function closeMenus(){
+document.querySelectorAll(".menu")
+.forEach(menu=>menu.classList.remove("open"));
+}
+
+document.addEventListener("click",function(e){
+if(!e.target.closest(".tool-group")){
+closeMenus();
+}
+});
+
+
+/* CURSOR INSERT */
+
+function insertAtCursor(text){
+
+const area=document.getElementById("content");
+
+const start=area.selectionStart;
+const end=area.selectionEnd;
+
+area.value=
+area.value.substring(0,start)+
+text+
+area.value.substring(end);
+
+area.focus();
+
+area.selectionStart=start+text.length;
+area.selectionEnd=start+text.length;
+}
+
+
+/* MARKDOWN */
+
+function insertMarkdown(before,after){
+
+const area=document.getElementById("content");
+
+const start=area.selectionStart;
+const end=area.selectionEnd;
+
+const selected=area.value.substring(start,end);
+
+const replacement=before+selected+after;
+
+area.value=
+area.value.substring(0,start)+
+replacement+
+area.value.substring(end);
+
+area.focus();
+
+area.selectionStart=start+before.length;
+area.selectionEnd=start+before.length+selected.length;
+}
+
+
+/* LINK */
+
+function insertLink(){
+
+const url=prompt("Enter the link URL:");
+if(!url)return;
+
+const text=prompt("Enter the link text:","Read more");
+if(!text)return;
+
+insertAtCursor(`[LINK:${text}|${url}]`);
+}
+
+
+/* IMAGE */
+
+function insertImage(){
+
+const url=prompt("Enter the image URL:");
+if(!url)return;
+
+const alt=prompt("Enter image description:","LifeKey image");
+
+insertAtCursor(
+`[IMAGE:${url}|${alt||"LifeKey image"}]`
+);
+}
+
+
+/* YOUTUBE */
+
+function insertYouTube(){
+
+const url=prompt("Paste the YouTube video URL:");
+if(!url)return;
+
+insertAtCursor(`[YOUTUBE:${url}]`);
+}
+
+
+/* SOCIAL */
+
+function insertSocial(platform){
+
+const url=prompt(
+"Paste the "+platform+" URL:"
+);
+
+if(!url)return;
+
+insertAtCursor(
+`[SOCIAL:${platform}|${url}]`
+);
+}
+
+
+/* BOX */
+
+function insertBox(type){
+
+let text="";
+
+if(type==="INFO")
+text=prompt("Enter information for the Info Box:");
+
+if(type==="TIP")
+text=prompt("Enter your tip:");
+
+if(type==="WARNING")
+text=prompt("Enter the warning:");
+
+if(type==="AFFILIATE")
+text=prompt("Enter the affiliate message:");
+
+if(!text)return;
+
+insertAtCursor(`[${type}:${text}]`);
+}
+
+
+/* TABLE */
+
+function insertTable(){
+
+insertAtCursor(
+`[TABLE]
+Column 1 | Column 2 | Column 3
+Value 1 | Value 2 | Value 3
+Value 4 | Value 5 | Value 6
+[/TABLE]`
+);
+}
+
+
+/* ESCAPE */
+
+function escapeHTML(value){
+
+return String(value)
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
+}
+
+
+/* PREVIEW */
+
+function previewFormat(value){
+
+let text=escapeHTML(value);
+
+text=text.replace(
+/^### (.*)$/gm,
+"<h3>$1</h3>"
+);
+
+text=text.replace(
+/^## (.*)$/gm,
+"<h2>$1</h2>"
+);
+
+text=text.replace(
+/\*\*(.*?)\*\*/g,
+"<strong>$1</strong>"
+);
+
+text=text.replace(
+/\[LINK:(.*?)\|(.*?)\]/g,
+'<a href="$2" target="_blank">$1</a>'
+);
+
+text=text.replace(
+/\[IMAGE:(.*?)\|(.*?)\]/g,
+'<img src="$1" alt="$2" style="max-width:100%;border-radius:12px;">'
+);
+
+text=text.replace(
+/\[YOUTUBE:(.*?)\]/g,
+'<p>▶️ YouTube: $1</p>'
+);
+
+text=text.replace(
+/\[SOCIAL:(.*?)\|(.*?)\]/g,
+"<p>🌐 $1: $2</p>"
+);
+
+text=text.replace(
+/\[INFO:(.*?)\]/g,
+'<div style="padding:14px;border-radius:10px;background:rgba(100,130,255,.12);margin:15px 0"><strong>💡 Info:</strong><br>$1</div>'
+);
+
+text=text.replace(
+/\[TIP:(.*?)\]/g,
+'<div style="padding:14px;border-radius:10px;background:rgba(50,200,130,.12);margin:15px 0"><strong>✅ Tip:</strong><br>$1</div>'
+);
+
+text=text.replace(
+/\[WARNING:(.*?)\]/g,
+'<div style="padding:14px;border-radius:10px;background:rgba(255,170,50,.12);margin:15px 0"><strong>⚠️ Warning:</strong><br>$1</div>'
+);
+
+text=text.replace(
+/\[AFFILIATE:(.*?)\]/g,
+'<div style="padding:14px;border-radius:10px;background:rgba(180,100,255,.12);margin:15px 0"><strong>💰 Affiliate:</strong><br>$1</div>'
+);
+
+text=text.replace(
+/(^|\n)- (.*)/g,
+"$1• $2"
+);
+
+return text
+.split(/\n\s*\n/)
+.map(block=>{
+
+if(
+block.startsWith("<h2>")||
+block.startsWith("<h3>")||
+block.startsWith("<div")||
+block.startsWith("<img")
+)
+return block;
+
+return "<p>"+
+block.replace(/\n/g,"<br>")+
+"</p>";
+
+})
+.join("");
+}
+
+
+/* PREVIEW */
+
+function togglePreview(){
+
+const preview=document.getElementById("preview");
+
+document.getElementById("previewTitle").textContent=
+document.getElementById("title").value.trim()||
+"Your article title will appear here";
+
+document.getElementById("previewDescription").textContent=
+document.getElementById("description").value.trim()||
+"Your article description will appear here.";
+
+document.getElementById("previewContent").innerHTML=
+previewFormat(
+document.getElementById("content").value||
+"Your article content preview will appear here."
+);
+
+preview.classList.toggle("active");
+}
+
+
+/* STATUS */
+
+function showStatus(message,type){
+
+const status=document.getElementById("status");
+
+status.textContent=message;
+status.className=type;
+}
+
+
+/* PUBLISH */
+
+async function publishArticle(){
+
+const password=document.getElementById("password").value.trim();
+const category=document.getElementById("category").value.trim();
+const title=document.getElementById("title").value.trim();
+const description=document.getElementById("description").value.trim();
+const content=document.getElementById("content").value.trim();
+
+const tagsText=document.getElementById("tags").value.trim();
+
+const seoTitle=document.getElementById("seoTitle").value.trim();
+const seoDescription=document.getElementById("seoDescription").value.trim();
+const ogImage=document.getElementById("ogImage").value.trim();
+
+const featured=document.getElementById("featured").checked;
+const commentsEnabled=document.getElementById("commentsEnabled").checked;
+
+if(!password){
+showStatus("Please enter the publisher password.","error");
+return;
+}
+
+if(!category){
+showStatus("Please select an article category.","error");
+return;
+}
+
+if(!title){
+showStatus("Please enter the article title.","error");
+return;
+}
+
+if(!content){
+showStatus("Please write the article content.","error");
+return;
+}
+
+const tags=tagsText
+?tagsText.split(",").map(t=>t.trim()).filter(Boolean)
+:[];
+
+const button=document.getElementById("publishBtn");
+
+button.disabled=true;
+button.textContent="⏳ Publishing...";
+
+showStatus("Publishing article...","warning");
+
+try{
+
+const response=await fetch("/api/publish",{
+
+method:"POST",
+
+headers:{
+"Content-Type":"application/json",
+"X-Publisher-Password":password
+},
+
+body:JSON.stringify({
+
+category,
+title,
+description,
+content,
+tags,
+seoTitle,
+seoDescription,
+ogImage,
+featured,
+commentsEnabled
+
+})
+
+});
+
+const responseText=await response.text();
+
+let result=null;
+
+try{
+result=responseText?JSON.parse(responseText):null;
+}catch(_){
+result=null;
+}
+
+if(!response.ok||!result||!result.success){
+
+throw new Error(
+result?.message||
+result?.error||
+responseText||
+"Publishing failed."
+);
+}
+
+if(result.warning){
+
+showStatus(
+"⚠️ "+result.message+
+"\n\nArticle: "+result.title+
+"\nPath: "+result.path,
+"warning"
+);
+
+}else{
+
+showStatus(
+"✅ ARTICLE PUBLISHED SUCCESSFULLY!\n\n"+
+"Title: "+result.title+
+"\nCategory: "+result.category+
+"\nPath: "+result.path+
+"\n\narticles.json was updated automatically.",
+"success"
+);
+
+document.getElementById("password").value="";
+}
+
+}catch(error){
+
+showStatus(
+"❌ PUBLISHING FAILED\n\n"+
+error.message,
+"error"
+);
+
+}finally{
+
+button.disabled=false;
+button.textContent="🚀 Publish Article";
+
+}
+
+}
+
+
+/* CLEAR */
+
+function clearForm(){
+
+document.getElementById("password").value="";
+document.getElementById("category").value="";
+document.getElementById("title").value="";
+document.getElementById("description").value="";
+document.getElementById("tags").value="";
+document.getElementById("content").value="";
+document.getElementById("seoTitle").value="";
+document.getElementById("seoDescription").value="";
+document.getElementById("ogImage").value="";
+
+document.getElementById("featured").checked=false;
+document.getElementById("commentsEnabled").checked=true;
+
+document.getElementById("preview").classList.remove("active");
+
+document.getElementById("status").className="";
+document.getElementById("status").textContent="";
+}
+
+</script>
+
+</body>
+</html>
