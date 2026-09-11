@@ -1,5 +1,28 @@
 [
   {
+    "id": "1789115342746",
+    "title": "lifekey innovezone test 2",
+    "description": "testing the publishers test 2",
+    "category": "Innovation",
+    "folder": "innovation",
+    "slug": "lifekey-innovezone-test-2",
+    "url": "articles/innovation/lifekey-innovezone-test-2.html",
+    "publishedAt": "2026-09-11",
+    "author": "LifeKey Hub",
+    "tags": [
+      "innove",
+      "one",
+      "technology",
+      "lifekeyhub"
+    ],
+    "featured": false,
+    "commentsEnabled": true,
+    "views": 0,
+    "likes": 0,
+    "shares": 0,
+    "categoryDestination": "../../innovation.html"
+  },
+  {
     "id": "1789108422027",
     "title": "lifekey innovezone test",
     "description": ": A test article for the LifeKey Innovation publishing system.",
