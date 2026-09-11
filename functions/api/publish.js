@@ -476,7 +476,7 @@ export async function onRequestPost(context) {
       category,
       path: filePath,
       url:
-        `/articles/${folder}/${slug}.html`,
+  `articles/${folder}/${slug}.html`,
       indexUpdated: true
     });
 
