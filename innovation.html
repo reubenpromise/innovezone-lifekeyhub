@@ -3245,5 +3245,92 @@
 
   </script>
 
+<script>
+async function loadInnovationArticles() {
+  const box = document.getElementById("innovationArticles");
+
+  if (!box) return;
+
+  try {
+    const response = await fetch("articles.json?ts=" + Date.now());
+
+    if (!response.ok) {
+      throw new Error("Could not load articles.json");
+    }
+
+    const articles = await response.json();
+
+    const innovationArticles = articles
+      .filter(article => article.category === "Innovation")
+      .sort(
+        (a, b) =>
+          new Date(b.publishedAt) - new Date(a.publishedAt)
+      );
+
+    if (!innovationArticles.length) {
+      box.innerHTML = `
+        <div class="concept-card glass" style="grid-column:1/-1">
+          <span class="big-icon">💡</span>
+          <h3>No Innovation Articles Yet</h3>
+          <p>
+            New Innovation articles published through LifeKey Publisher
+            will appear here automatically.
+          </p>
+        </div>
+      `;
+      return;
+    }
+
+    box.innerHTML = innovationArticles.map(article => `
+      <article class="concept-card glass">
+        <span class="big-icon">💡</span>
+
+        <div class="mini-status">
+          ${escapeHtml(article.category || "Innovation")}
+        </div>
+
+        <h3>${escapeHtml(article.title || "")}</h3>
+
+        <p>
+          ${escapeHtml(article.description || "")}
+        </p>
+
+        <p style="margin-top:10px;font-size:.75rem;color:var(--muted)">
+          ${escapeHtml(article.author || "LifeKey Hub")}
+          •
+          ${escapeHtml(article.publishedAt || "")}
+        </p>
+
+        <a class="discovery-link" href="${escapeHtml(article.url || "#")}">
+          Read Article →
+        </a>
+      </article>
+    `).join("");
+
+  } catch (error) {
+    box.innerHTML = `
+      <div class="concept-card glass" style="grid-column:1/-1">
+        <span class="big-icon">⚠️</span>
+        <h3>Articles temporarily unavailable</h3>
+        <p>Please refresh the page.</p>
+      </div>
+    `;
+
+    console.error(error);
+  }
+}
+
+function escapeHtml(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+loadInnovationArticles();
+</script>
+
 </body>
 </html>
