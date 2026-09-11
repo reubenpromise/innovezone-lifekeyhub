@@ -388,7 +388,7 @@ export async function onRequestPost(context) {
       category,
       folder,
       slug,
-      url: `/articles/${folder}/${slug}.html`,
+      url: `articles/${folder}/${slug}.html`,
       publishedAt: new Date().toISOString().split("T")[0],
       author: "LifeKey Hub",
       tags,
@@ -456,7 +456,7 @@ export async function onRequestPost(context) {
           title,
           category,
           path: filePath,
-          url: `/articles/${folder}/${slug}.html`,
+          url: `articles/${folder}/${slug}.html`,
           indexError:
             indexUpdateResult?.message ||
             indexUpdateText
