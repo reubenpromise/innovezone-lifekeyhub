@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LifeKey Universal Publisher V2</title>
+<meta name="robots" content="noindex,nofollow">
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;color:#f5f1ff;font:15px/1.6 system-ui,-apple-system,Segoe UI,sans-serif;background:#05020d;overflow-x:hidden}
+body:before,body:after{content:"";position:fixed;inset:auto;pointer-events:none;z-index:-2;border-radius:50%;filter:blur(45px);opacity:.32}
+body:before{width:420px;height:420px;left:-140px;top:8%;background:radial-gradient(circle,#7c35ff,transparent 68%);animation:float 12s ease-in-out infinite}
+body:after{width:480px;height:480px;right:-180px;bottom:0;background:radial-gradient(circle,#00ff9d,transparent 65%);animation:float 16s ease-in-out infinite reverse}
+@keyframes float{50%{transform:translate(50px,-35px) scale(1.08)}}
+.gridbg{position:fixed;inset:0;z-index:-3;background:
+radial-gradient(circle at 50% -10%,#39205f55,transparent 40%),
+linear-gradient(#ffffff05 1px,transparent 1px),linear-gradient(90deg,#ffffff05 1px,transparent 1px);
+background-size:auto,42px 42px,42px 42px;mask-image:linear-gradient(to bottom,#fff,transparent 92%)}
+.wrap{max-width:1150px;margin:auto;padding:18px}
+.glass{background:linear-gradient(145deg,#171024e8,#0d0917e8);border:1px solid #ffffff18;border-radius:20px;box-shadow:0 20px 60px #0008,0 0 30px #7d3cff12;backdrop-filter:blur(16px);padding:18px;margin:15px 0}
+.brand{display:flex;align-items:center;gap:12px}.orb{width:44px;height:44px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#9f68ff 18%,#4e16a8 48%,#06100c 72%);box-shadow:0 0 25px #9b5cff88}
+h1{margin:0;font-size:clamp(25px,5vw,42px);background:linear-gradient(90deg,#fff,#c88dff,#7dffc3);-webkit-background-clip:text;color:transparent}
+h2{color:#aaffd0;margin-top:0}h3{color:#d6b6ff}label{display:block;font-weight:700;margin:12px 0 6px;color:#eee}
+input,select,textarea{width:100%;border:1px solid #ffffff1d;background:#08050f;color:#fff;border-radius:11px;padding:12px;outline:none}
+input:focus,select:focus,textarea:focus{border-color:#8e5cff;box-shadow:0 0 0 3px #8e5cff18}
+textarea{min-height:280px;resize:vertical}.smallarea{min-height:95px}
+.row{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}.row3{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
+@media(max-width:760px){.row,.row3{grid-template-columns:1fr}}
+.toolbar{position:sticky;top:6px;z-index:5;display:flex;flex-wrap:wrap;gap:4px;padding:9px;background:#100a19eF;border:1px solid #ffffff18;border-radius:14px;backdrop-filter:blur(18px)}
+button{border:1px solid #ffffff16;border-radius:9px;padding:10px 12px;background:#24183a;color:#fff;font-weight:800;cursor:pointer}
+button:hover{filter:brightness(1.2)}button.primary{background:linear-gradient(135deg,#1b8b59,#17b874);box-shadow:0 0 25px #17b87433}button.secondary{background:#35205a}
+.menu{position:relative;display:inline-block}.menu-panel{display:none;position:absolute;left:0;top:calc(100% + 6px);min-width:235px;padding:8px;background:#110a1beF;border:1px solid #ffffff1d;border-radius:13px;box-shadow:0 18px 50px #000b;z-index:20}.menu.open .menu-panel{display:block}.menu-panel button{display:block;width:100%;text-align:left;margin:3px 0}
+.checks{display:flex;gap:20px;flex-wrap:wrap}.checks label{font-weight:500}
+.preview{background:#fff;color:#16111d;border-radius:15px;padding:25px;min-height:130px}.preview h1,.preview h2,.preview h3{color:#20132e;background:none;-webkit-text-fill-color:initial}.preview img{max-width:100%}
+.status{white-space:pre-wrap;border-radius:12px;padding:13px;background:#07050b;border:1px solid #ffffff12}.ok{color:#83ffb2}.err{color:#ff9696}.muted{opacity:.7}
+.seopreview{border:1px solid #ffffff14;border-radius:12px;padding:13px;background:#09070d}.seopreview strong{color:#8ab4ff;font-size:18px}.seopreview .url{color:#61b76c;font-size:13px}
+</style>
+</head>
+<body>
+<div class="gridbg"></div><div class="wrap">
+<section class="glass">
+<div class="brand"><div class="orb"></div><div><h1>LifeKey Universal Publisher</h1><div class="muted">V2 • One engine for every LifeKey category</div></div></div>
+</section>
+
+<form id="publisherForm">
+<section class="glass">
+<h2>🔐 Publishing & Structure</h2>
+<label>Publisher Password</label><input id="password" type="password" autocomplete="off" required>
+<div class="row">
+<div><label>Main Category</label><select id="category" required></select></div>
+<div><label>Subcategory / Section</label><select id="subcategory" required></select></div>
+</div>
+<label>➕ Create New Section (optional)</label><input id="newSection" placeholder="Type a new section name to use it instead">
+<div class="row">
+<div><label>Article Title</label><input id="title" required></div>
+<div><label>Tags / Keywords</label><input id="tags" placeholder="innovation, technology, nigeria"></div>
+</div>
+<label>Short Description</label><textarea id="description" class="smallarea" required></textarea>
+</section>
+
+<section class="glass">
+<h2>✍️ Article Editor</h2>
+<div class="toolbar" id="toolbar">
+<button type="button" onclick="insert('## ','')">H2</button>
+<button type="button" onclick="insert('### ','')">H3</button>
+<button type="button" onclick="wrap('**','**')">Bold</button>
+<button type="button" onclick="insert('- ','')">• List</button>
+<button type="button" onclick="insert('1. ','')">1. List</button>
+<button type="button" onclick="insert('> ','')">Quote</button>
+<button type="button" onclick="insert('[Link text](https://example.com)','')">🔗 Link</button>
+<button type="button" onclick="insert('![Image description](https://example.com/image.jpg)','')">🖼️ Image</button>
+
+<div class="menu" id="mediaMenu"><button type="button" onclick="toggleMenu('mediaMenu')">🌐 Media ▾</button><div class="menu-panel">
+<button type="button" onclick="insert('[▶️ YouTube](https://youtube.com/)','')">▶️ YouTube</button>
+<button type="button" onclick="insert('[📘 Facebook](https://facebook.com/)','')">📘 Facebook</button>
+<button type="button" onclick="insert('[📸 Instagram](https://instagram.com/)','')">📸 Instagram</button>
+<button type="button" onclick="insert('[🎵 TikTok](https://tiktok.com/)','')">🎵 TikTok</button>
+<button type="button" onclick="insert('[𝕏 X/Twitter](https://x.com/)','')">𝕏 X/Twitter</button>
+<button type="button" onclick="insert('[📌 Pinterest](https://pinterest.com/)','')">📌 Pinterest</button>
+<button type="button" onclick="insert('[🎧 Audio / Podcast](https://example.com/audio)','')">🎧 Audio / Podcast</button>
+<button type="button" onclick="insert('[🔗 External Website](https://example.com/)','')">🔗 External Website</button>
+</div></div>
+
+<div class="menu" id="moreMenu"><button type="button" onclick="toggleMenu('moreMenu')">📦 More ▾</button><div class="menu-panel">
+<button type="button" onclick="insert('> INFO: Information here','')">💡 Info Box</button>
+<button type="button" onclick="insert('> TIP: Your useful tip here','')">✅ Tip Box</button>
+<button type="button" onclick="insert('> WARNING: Important warning here','')">⚠️ Warning</button>
+<button type="button" onclick="insert('💰 AFFILIATE: This article may contain affiliate links.','')">💰 Affiliate Box</button>
+<button type="button" onclick="insert('| Item | Details |\\n|---|---|\\n| Example | Value |','')">📊 Table</button>
+<button type="button" onclick="insert('---','')">➖ Divider</button>
+<button type="button" onclick="insert('[READ MORE →](https://example.com)','')">🔘 CTA Button</button>
+<button type="button" onclick="insert('```\\ncode here\\n```','')">💻 Code Block</button>
+</div></div>
+</div>
+<label>Article Content</label><textarea id="content" required placeholder="Write your article here..."></textarea>
+</section>
+
+<section class="glass">
+<h2>🔎 SEO</h2>
+<div class="row">
+<div><label>SEO Title</label><input id="seoTitle" placeholder="Leave blank to use article title"></div>
+<div><label>Social Image URL</label><input id="socialImage" placeholder="https://..."></div>
+</div>
+<label>SEO Description</label><textarea id="seoDescription" class="smallarea" placeholder="Leave blank to use article description"></textarea>
+<div class="seopreview"><strong id="seoPrevTitle">Article title</strong><div class="url">https://reubenpromise.github.io/innovezone-lifekeyhub/...</div><div id="seoPrevDesc" class="muted">Search description preview...</div></div>
+<div class="checks">
+<label><input id="featured" type="checkbox"> ⭐ Featured</label>
+<label><input id="commentsEnabled" type="checkbox" checked> 💬 Comments enabled</label>
+</div>
+</section>
+
+<section class="glass">
+<h2>👁️ Article Preview</h2>
+<button type="button" class="secondary" onclick="preview()">Preview Article</button>
+<div id="preview" class="preview"></div>
+</section>
+
+<section class="glass">
+<button class="primary" type="submit">🚀 PUBLISH ARTICLE</button>
+<div id="status" class="status" style="margin-top:12px"></div>
+</section>
+</form>
+</div>
+<script>
+const CONFIG={
+"Money & Opportunities":["Getting Started","Strategies","Resources"],"Money & Finance":["Personal Finance","Saving & Budgeting","Making Money"],
+"Trading-Investing":["Investing Basics","Markets","Risk Management"],"Freelancing":["Getting Started","Platforms","Skills & Strategies"],
+"Affiliate Marketing":["Getting Started","Affiliate Platforms","Strategies","Tools & Resources"],"Digital Products":["Ideas & Creation","Selling","Marketing"],
+"Dropshipping":["Getting Started","Products & Suppliers","Marketing"],"Real Estate":["Property Basics","Investing","Opportunities"],
+"Build Your Online Presence":["Websites","Branding","Audience Growth"],"Earn Online":["Methods","Tools","Strategies"],
+"Monetization Platforms":["Platforms","Strategies","Requirements"],"Business & Entrepreneurship":["Business Ideas","Startups","Growth"],
+"Digital Marketing & Technology":["Digital Marketing","Technology","Tools"],"Web Design":["Design","Development","Tools"],
+"Graphic Design":["Design","Tools","Tutorials"],"Innovation":["Hidden Inventions & Technology","African & Nigerian Innovation","Amazing Engineering","Forgotten & Overlooked","Industrial Technology","Sustainable Solutions"],
+"AI & Artificial Intelligence":["AI Basics","AI Tools","AI Business","AI Development"],"LifeKey Creative Studio":["Creative Ideas","Video","Music","Storytelling"],
+"Health & Wellness":["Wellness","Fitness","Nutrition"],"Education & Learning":["Learning","Skills","Study Resources"],
+"Fish Farming & Agriculture":["Fish Farming","Agriculture","Food"],"History":["African History","World History","People & Events"],
+"Politics & Current Affairs":["Nigeria","Africa","World"],"Portfolio":["Projects","Case Studies","Showcase"],
+"Technology":["Emerging Technology","How It Works","Tools"],"Engineering":["Electrical","Mechanical","Civil & Industrial"],
+"Repairs & Maintenance":["Appliances","Electrical","Mechanical"],"Energy & Power":["Electricity","Solar","Generators & Backup"],
+"Agriculture & Food":["Farming","Food","Processing"],"Environment":["Climate","Waste","Sustainability"],
+"Personal Development":["Mindset","Productivity","Life Skills"],"Home & Living":["Home","Family","Practical Living"],
+"Opportunities":["Jobs","Grants","Programs"],"Projects & Experiments":["Experiments","Builds","Research"],
+"General LifeKey Article":["General"]
+};
+const $=id=>document.getElementById(id),cat=$('category'),sub=$('subcategory');
+Object.keys(CONFIG).forEach(c=>cat.add(new Option(c,c)));
+function loadSections(){sub.innerHTML='';(CONFIG[cat.value]||['General']).forEach(s=>sub.add(new Option(s,s)))}cat.onchange=loadSections;loadSections();
+function insert(a,b){const t=$('content'),s=t.selectionStart,e=t.selectionEnd,v=t.value;t.value=v.slice(0,s)+a+v.slice(s,e)+b+v.slice(e);t.focus();t.selectionStart=s+a.length;t.selectionEnd=s+a.length+(e-s)}
+function wrap(a,b){insert(a,b)}
+function toggleMenu(id){document.querySelectorAll('.menu').forEach(x=>x.id===id?x.classList.toggle('open'):x.classList.remove('open'))}
+document.addEventListener('click',e=>{if(!e.target.closest('.menu'))document.querySelectorAll('.menu').forEach(x=>x.classList.remove('open'))});
+function esc(s){return String(s??'').replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]))}
+function md(s){let x=esc(s);x=x.replace(/```([\s\S]*?)```/g,'<pre>$1</pre>').replace(/^### (.*)$/gm,'<h3>$1</h3>').replace(/^## (.*)$/gm,'<h2>$1</h2>').replace(/^\> INFO: (.*)$/gm,'<aside><b>💡 INFO:</b> $1</aside>').replace(/^\> TIP: (.*)$/gm,'<aside><b>✅ TIP:</b> $1</aside>').replace(/^\> WARNING: (.*)$/gm,'<aside><b>⚠️ WARNING:</b> $1</aside>').replace(/^\> (.*)$/gm,'<blockquote>$1</blockquote>').replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/!\[(.*?)\]\((https?:\/\/[^)]+)\)/g,'<img alt="$1" src="$2">').replace(/\[(.*?)\]\((https?:\/\/[^)]+)\)/g,'<a href="$2" target="_blank" rel="noopener">$1</a>');
+let o='',ul=false,ol=false;for(const l of x.split('\\n')){if(/^[-*] /.test(l)){if(!ul){if(ol){o+='</ol>';ol=false}o+='<ul>';ul=true}o+='<li>'+l.slice(2)+'</li>'}else if(/^\\d+\\. /.test(l)){if(!ol){if(ul){o+='</ul>';ul=false}o+='<ol>';ol=true}o+='<li>'+l.replace(/^\\d+\\. /,'')+'</li>'}else{if(ul){o+='</ul>';ul=false}if(ol){o+='</ol>';ol=false}if(l.trim()&&!/^<h[23]>|^<aside>|^<blockquote>|^<pre>|^<hr/.test(l))o+='<p>'+l+'</p>';else o+=l}}if(ul)o+='</ul>';if(ol)o+='</ol>';return o}
+function preview(){$('preview').innerHTML='<h1>'+esc($('title').value||'Article title')+'</h1><p>'+esc($('description').value)+'</p>'+md($('content').value)}
+function seoPrev(){ $('seoPrevTitle').textContent=$('seoTitle').value||$('title').value||'Article title'; $('seoPrevDesc').textContent=$('seoDescription').value||$('description').value||'Search description preview...' }
+['title','seoTitle','description','seoDescription'].forEach(id=>$(id).addEventListener('input',seoPrev));
+$('publisherForm').onsubmit=async e=>{e.preventDefault();$('status').className='status';$('status').textContent='Publishing...';const data={password:$('password').value,category:cat.value,subcategory:$('newSection').value.trim()||sub.value,title:$('title').value,description:$('description').value,tags:$('tags').value,content:$('content').value,seoTitle:$('seoTitle').value,seoDescription:$('seoDescription').value,socialImage:$('socialImage').value,featured:$('featured').checked,commentsEnabled:$('commentsEnabled').checked};try{const r=await fetch('/api/publish-v2',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});const txt=await r.text();let j;try{j=JSON.parse(txt)}catch{throw new Error(txt||'Invalid server response')}if(!r.ok)throw new Error(j.error||txt);$('status').className='status ok';$('status').textContent='ARTICLE PUBLISHED SUCCESSFULLY!\\n\\n'+JSON.stringify(j,null,2);$('password').value='';}catch(err){$('status').className='status err';$('status').textContent='PUBLISHING FAILED\\n\\n'+err.message}}
+</script>
+</body></html>
