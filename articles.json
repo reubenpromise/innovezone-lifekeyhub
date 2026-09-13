@@ -1,5 +1,35 @@
 [
   {
+    "id": "1789327313535",
+    "title": "#001 — The Hidden Invention",
+    "description": "LifeKey Innovation #001 explores an interesting hidden invention and the technology behind it.",
+    "seoTitle": "LifeKey Innovation #001 — Hidden Inventions & Technology",
+    "seoDescription": ": Explore LifeKey Innovation #001, featuring inventions, technology, creative ideas and possibilities for solving real-world problems",
+    "category": "Innovation",
+    "subcategory": "Hidden Inventions & Technology",
+    "articleNumber": 1,
+    "folder": "innovation",
+    "sectionFolder": "hidden-inventions-technology",
+    "slug": "001-the-hidden-invention",
+    "url": "https://reubenpromise.github.io/innovezone-lifekeyhub/articles/innovation/hidden-inventions-technology/001-the-hidden-invention.html",
+    "canonicalURL": "https://reubenpromise.github.io/innovezone-lifekeyhub/articles/innovation/hidden-inventions-technology/001-the-hidden-invention.html",
+    "publishedAt": "2026-09-13",
+    "author": "LifeKey Hub",
+    "tags": [
+      "innovation",
+      "invention",
+      "technology",
+      "LifeKey",
+      "hidden inventions"
+    ],
+    "featured": false,
+    "commentsEnabled": true,
+    "views": 0,
+    "likes": 0,
+    "shares": 0,
+    "categoryDestination": "../../innovation.html"
+  },
+  {
     "id": "1789115342746",
     "title": "lifekey innovezone test 2",
     "description": "testing the publishers test 2",
