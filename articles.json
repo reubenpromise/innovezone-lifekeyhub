@@ -1,5 +1,35 @@
 [
   {
+    "id": "1789335850791",
+    "title": "the future of hidden technology",
+    "description": "a lifekey article for checking direct publishing and navigation",
+    "seoTitle": "the future of hidden technology",
+    "seoDescription": "a lifekey article for checking direct publishing and navigation",
+    "category": "Innovation",
+    "subcategory": "Hidden Inventions & Technology",
+    "articleNumber": 3,
+    "folder": "innovation",
+    "sectionFolder": "hidden-inventions-technology",
+    "slug": "the-future-of-hidden-technology",
+    "url": "https://reubenpromise.github.io/innovezone-lifekeyhub/articles/innovation/hidden-inventions-technology/the-future-of-hidden-technology.html",
+    "canonicalURL": "https://reubenpromise.github.io/innovezone-lifekeyhub/articles/innovation/hidden-inventions-technology/the-future-of-hidden-technology.html",
+    "publishedAt": "2026-09-13",
+    "author": "LifeKey Hub",
+    "tags": [
+      "innovation",
+      "invention",
+      "technology",
+      "LifeKey",
+      "hidden inventions"
+    ],
+    "featured": false,
+    "commentsEnabled": true,
+    "views": 0,
+    "likes": 0,
+    "shares": 0,
+    "categoryDestination": "../../innovation.html"
+  },
+  {
     "id": "1789335351987",
     "title": "lifekey health articles",
     "description": "testing lifekey article",
