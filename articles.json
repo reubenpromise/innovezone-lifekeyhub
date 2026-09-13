@@ -1,5 +1,32 @@
 [
   {
+    "id": "1789331446923",
+    "title": "navigation test",
+    "description": "testing lifekey navigation article",
+    "seoTitle": "lifekey navigation test",
+    "seoDescription": "testing life key nacigation article",
+    "category": "Innovation",
+    "subcategory": "Hidden Inventions & Technology",
+    "articleNumber": 2,
+    "folder": "innovation",
+    "sectionFolder": "hidden-inventions-technology",
+    "slug": "navigation-test",
+    "url": "https://reubenpromise.github.io/innovezone-lifekeyhub/articles/innovation/hidden-inventions-technology/navigation-test.html",
+    "canonicalURL": "https://reubenpromise.github.io/innovezone-lifekeyhub/articles/innovation/hidden-inventions-technology/navigation-test.html",
+    "publishedAt": "2026-09-13",
+    "author": "LifeKey Hub",
+    "tags": [
+      "innovezone",
+      "technology"
+    ],
+    "featured": false,
+    "commentsEnabled": true,
+    "views": 0,
+    "likes": 0,
+    "shares": 0,
+    "categoryDestination": "../../innovation.html"
+  },
+  {
     "id": "1789327313535",
     "title": "#001 — The Hidden Invention",
     "description": "LifeKey Innovation #001 explores an interesting hidden invention and the technology behind it.",
