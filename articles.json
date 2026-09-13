@@ -1,5 +1,32 @@
 [
   {
+    "id": "1789335351987",
+    "title": "lifekey health articles",
+    "description": "testing lifekey article",
+    "seoTitle": "lifekey navigation test",
+    "seoDescription": "testing life key nacigation article",
+    "category": "Health & Wellness",
+    "subcategory": "Wellness",
+    "articleNumber": 1,
+    "folder": "health-wellness",
+    "sectionFolder": "wellness",
+    "slug": "lifekey-health-articles",
+    "url": "https://reubenpromise.github.io/innovezone-lifekeyhub/articles/health-wellness/wellness/lifekey-health-articles.html",
+    "canonicalURL": "https://reubenpromise.github.io/innovezone-lifekeyhub/articles/health-wellness/wellness/lifekey-health-articles.html",
+    "publishedAt": "2026-09-13",
+    "author": "LifeKey Hub",
+    "tags": [
+      "health living",
+      "lifekey"
+    ],
+    "featured": false,
+    "commentsEnabled": true,
+    "views": 0,
+    "likes": 0,
+    "shares": 0,
+    "categoryDestination": "../../health-wellness.html"
+  },
+  {
     "id": "1789331446923",
     "title": "navigation test",
     "description": "testing lifekey navigation article",
