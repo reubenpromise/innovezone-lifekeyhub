@@ -1,1 +1,1255 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>LifeKey Engineering Simulator</title>
+
+<meta name="description" content="LifeKey Engineering Simulator — interactive engineering training, machine simulation, fault diagnosis, repair and retesting.">
+
+<style>
+:root{
+  --bg:#050611;
+  --panel:#0b1020;
+  --panel2:#10172b;
+  --line:#26345a;
+  --cyan:#00eaff;
+  --green:#00ff9d;
+  --purple:#9b5cff;
+  --yellow:#ffd84d;
+  --red:#ff4d6d;
+  --text:#eef5ff;
+  --muted:#8fa4c7;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:
+    radial-gradient(circle at 15% 10%,rgba(0,234,255,.12),transparent 25%),
+    radial-gradient(circle at 85% 20%,rgba(155,92,255,.14),transparent 28%),
+    linear-gradient(135deg,#03040b,#080b18 50%,#03040b);
+  color:var(--text);
+  min-height:100vh;
+}
+
+body:before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  opacity:.18;
+  background-image:
+    linear-gradient(rgba(0,234,255,.08) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,234,255,.08) 1px,transparent 1px);
+  background-size:35px 35px;
+}
+
+a{
+  color:inherit;
+}
+
+button,
+select{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+.header{
+  position:sticky;
+  top:0;
+  z-index:20;
+  border-bottom:1px solid rgba(0,234,255,.18);
+  background:rgba(3,5,14,.9);
+  backdrop-filter:blur(15px);
+}
+
+.header-inner{
+  max-width:1450px;
+  margin:auto;
+  padding:16px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.logo{
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  border:1px solid var(--cyan);
+  box-shadow:0 0 25px rgba(0,234,255,.35);
+  display:grid;
+  place-items:center;
+  font-weight:900;
+  color:var(--cyan);
+  background:radial-gradient(circle,#122c42,#050611);
+}
+
+.brand-title{
+  font-size:18px;
+  font-weight:900;
+  letter-spacing:.7px;
+}
+
+.brand-sub{
+  color:var(--muted);
+  font-size:11px;
+  margin-top:3px;
+}
+
+.status-pill{
+  padding:8px 12px;
+  border:1px solid rgba(0,255,157,.4);
+  border-radius:999px;
+  color:var(--green);
+  font-size:11px;
+  font-weight:bold;
+  background:rgba(0,255,157,.05);
+}
+
+.container{
+  max-width:1450px;
+  margin:auto;
+  padding:25px 18px 70px;
+}
+
+.hero{
+  text-align:center;
+  padding:28px 10px 30px;
+}
+
+.hero h1{
+  margin:0;
+  font-size:clamp(30px,5vw,60px);
+  letter-spacing:1px;
+  background:linear-gradient(90deg,var(--cyan),#fff,var(--purple),var(--green));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.hero p{
+  max-width:850px;
+  margin:15px auto 0;
+  color:var(--muted);
+  line-height:1.7;
+}
+
+.rule{
+  margin:20px auto 0;
+  display:inline-block;
+  padding:11px 18px;
+  border:1px solid rgba(255,216,77,.4);
+  color:var(--yellow);
+  border-radius:10px;
+  background:rgba(255,216,77,.05);
+  font-weight:bold;
+}
+
+.panel{
+  background:
+    linear-gradient(145deg,rgba(15,23,43,.92),rgba(6,10,23,.92));
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:20px;
+  margin-bottom:18px;
+  box-shadow:
+    0 15px 50px rgba(0,0,0,.28),
+    inset 0 1px 0 rgba(255,255,255,.03);
+}
+
+.panel-title{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:17px;
+}
+
+.panel-title h2,
+.panel-title h3{
+  margin:0;
+}
+
+.panel-title span{
+  color:var(--muted);
+  font-size:12px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+}
+
+.field label{
+  display:block;
+  color:var(--muted);
+  font-size:11px;
+  margin-bottom:7px;
+  text-transform:uppercase;
+  letter-spacing:.7px;
+}
+
+select{
+  width:100%;
+  background:#080d1b;
+  border:1px solid #304064;
+  color:var(--text);
+  padding:13px 12px;
+  border-radius:10px;
+  outline:none;
+}
+
+select:focus{
+  border-color:var(--cyan);
+  box-shadow:0 0 15px rgba(0,234,255,.12);
+}
+
+.machine-status{
+  margin-top:15px;
+  padding:14px;
+  border-radius:12px;
+  border:1px solid #304064;
+  background:#070c18;
+}
+
+.status-title{
+  font-weight:900;
+  margin-bottom:5px;
+}
+
+.status-description{
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.5;
+}
+
+.status-verified{
+  color:var(--green);
+}
+
+.status-training{
+  color:var(--yellow);
+}
+
+.status-coming{
+  color:var(--cyan);
+}
+
+.status-incomplete{
+  color:#ff9f43;
+}
+
+.mode-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+}
+
+.mode{
+  padding:17px;
+  border:1px solid #29385d;
+  border-radius:13px;
+  background:#080d1b;
+  transition:.2s;
+}
+
+.mode:hover,
+.mode.active{
+  border-color:var(--cyan);
+  box-shadow:0 0 22px rgba(0,234,255,.12);
+  transform:translateY(-2px);
+}
+
+.mode strong{
+  display:block;
+  margin-bottom:7px;
+}
+
+.mode small{
+  color:var(--muted);
+  line-height:1.4;
+}
+
+.command-bar{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:15px;
+}
+
+.btn{
+  border:1px solid #33466f;
+  color:white;
+  background:#0b1325;
+  padding:11px 16px;
+  border-radius:10px;
+  font-weight:bold;
+}
+
+.btn:hover{
+  border-color:var(--cyan);
+  box-shadow:0 0 18px rgba(0,234,255,.12);
+}
+
+.btn.primary{
+  background:linear-gradient(135deg,#073a48,#101b3b);
+  border-color:var(--cyan);
+  color:var(--cyan);
+}
+
+.btn.green{
+  border-color:var(--green);
+  color:var(--green);
+}
+
+.btn.red{
+  border-color:var(--red);
+  color:var(--red);
+}
+
+.btn.yellow{
+  border-color:var(--yellow);
+  color:var(--yellow);
+}
+
+.btn:disabled{
+  opacity:.35;
+  cursor:not-allowed;
+}
+
+.sim-layout{
+  display:grid;
+  grid-template-columns:1.25fr .75fr;
+  gap:18px;
+}
+
+.machine-stage{
+  min-height:560px;
+  position:relative;
+  overflow:hidden;
+  border:1px solid #26365d;
+  border-radius:16px;
+  background:
+    radial-gradient(circle at 50% 45%,rgba(0,234,255,.08),transparent 32%),
+    linear-gradient(180deg,#090f20,#050811);
+}
+
+.stage-grid{
+  position:absolute;
+  inset:0;
+  opacity:.15;
+  background-image:
+    linear-gradient(#00eaff 1px,transparent 1px),
+    linear-gradient(90deg,#00eaff 1px,transparent 1px);
+  background-size:40px 40px;
+  transform:perspective(500px) rotateX(55deg) scale(1.6);
+  transform-origin:center bottom;
+}
+
+.washer{
+  position:absolute;
+  width:min(340px,70%);
+  height:430px;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  border:2px solid #6d83a9;
+  border-radius:22px;
+  background:
+    linear-gradient(135deg,rgba(255,255,255,.08),rgba(0,234,255,.025)),
+    #101827;
+  box-shadow:
+    0 0 35px rgba(0,234,255,.1),
+    inset 0 0 35px rgba(255,255,255,.025);
+}
+
+.washer-top{
+  height:75px;
+  border-bottom:1px solid #405174;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:15px;
+}
+
+.display{
+  width:125px;
+  height:34px;
+  border:1px solid var(--green);
+  color:var(--green);
+  background:#020c0b;
+  border-radius:6px;
+  display:grid;
+  place-items:center;
+  font-size:11px;
+  box-shadow:0 0 15px rgba(0,255,157,.15);
+}
+
+.dial{
+  width:42px;
+  height:42px;
+  border:2px solid #7e93b9;
+  border-radius:50%;
+}
+
+.door{
+  position:absolute;
+  width:205px;
+  height:205px;
+  left:50%;
+  top:52%;
+  transform:translate(-50%,-50%);
+  border-radius:50%;
+  border:12px solid #293b5c;
+  background:
+    radial-gradient(circle,#07121d 0 53%,#18334b 54% 57%,#050a13 58%);
+  box-shadow:
+    inset 0 0 30px rgba(0,234,255,.15),
+    0 0 20px rgba(0,234,255,.08);
+}
+
+.drum{
+  position:absolute;
+  width:112px;
+  height:112px;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  border-radius:50%;
+  border:1px dashed rgba(0,234,255,.5);
+}
+
+.component{
+  position:absolute;
+  padding:7px 9px;
+  font-size:10px;
+  border-radius:7px;
+  background:rgba(4,9,19,.9);
+  border:1px solid #395074;
+  color:#b9c9e4;
+}
+
+.c-door{left:10px;top:120px}
+.c-valve{right:10px;top:105px}
+.c-pump{left:15px;bottom:85px}
+.c-motor{right:12px;bottom:105px}
+.c-pcb{right:12px;top:165px}
+
+.water-flow{
+  position:absolute;
+  width:5px;
+  height:70px;
+  right:48px;
+  top:145px;
+  background:var(--cyan);
+  opacity:0;
+  box-shadow:0 0 15px var(--cyan);
+}
+
+.water-flow.active{
+  opacity:1;
+  animation:flow 1s linear infinite;
+}
+
+@keyframes flow{
+  0%{transform:translateY(-20px);opacity:0}
+  30%{opacity:1}
+  100%{transform:translateY(55px);opacity:0}
+}
+
+.drum.spin{
+  animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+  to{transform:translate(-50%,-50%) rotate(360deg)}
+}
+
+.machine-message{
+  position:absolute;
+  bottom:15px;
+  left:15px;
+  right:15px;
+  padding:12px;
+  background:rgba(2,6,15,.9);
+  border:1px solid #2a3b5e;
+  border-radius:10px;
+  font-size:12px;
+  color:var(--muted);
+}
+
+.steps{
+  display:grid;
+  gap:8px;
+}
+
+.step{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:10px;
+  border-radius:9px;
+  background:#070c18;
+  border:1px solid #202e4d;
+  font-size:12px;
+}
+
+.step .dot{
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  border:1px solid #5c7097;
+}
+
+.step.active{
+  border-color:var(--cyan);
+  color:var(--cyan);
+}
+
+.step.active .dot{
+  background:var(--cyan);
+  box-shadow:0 0 12px var(--cyan);
+}
+
+.step.pass{
+  border-color:var(--green);
+  color:var(--green);
+}
+
+.step.pass .dot{
+  background:var(--green);
+}
+
+.step.fail{
+  border-color:var(--red);
+  color:var(--red);
+}
+
+.step.fail .dot{
+  background:var(--red);
+}
+
+.readings{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:9px;
+  margin-top:14px;
+}
+
+.reading{
+  padding:11px;
+  background:#070c18;
+  border:1px solid #202e4d;
+  border-radius:9px;
+}
+
+.reading small{
+  display:block;
+  color:var(--muted);
+  margin-bottom:5px;
+}
+
+.reading strong{
+  font-size:15px;
+}
+
+.lab-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+
+.log{
+  min-height:180px;
+  max-height:300px;
+  overflow:auto;
+  background:#050912;
+  border:1px solid #1d2b48;
+  border-radius:10px;
+  padding:12px;
+  font-family:monospace;
+  font-size:11px;
+}
+
+.log-entry{
+  padding:7px 0;
+  border-bottom:1px solid rgba(255,255,255,.04);
+  color:#9eb2d3;
+}
+
+.log-entry.good{color:var(--green)}
+.log-entry.bad{color:var(--red)}
+.log-entry.warn{color:var(--yellow)}
+.log-entry.info{color:var(--cyan)}
+
+.test-card{
+  padding:15px;
+  border:1px solid #293a60;
+  background:#070c18;
+  border-radius:12px;
+}
+
+.test-card h3{
+  margin-top:0;
+}
+
+.test-card p{
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.5;
+}
+
+.result{
+  padding:15px;
+  border-radius:12px;
+  border:1px solid #293a60;
+  background:#070c18;
+  margin-top:12px;
+}
+
+.result-title{
+  font-weight:900;
+  margin-bottom:6px;
+}
+
+.possible{color:var(--yellow)}
+.confirmed{color:var(--red)}
+.corrected{color:var(--green)}
+.neutral{color:var(--muted)}
+
+.success{
+  display:none;
+  text-align:center;
+  padding:25px;
+  margin-top:18px;
+  border:1px solid var(--green);
+  border-radius:15px;
+  background:rgba(0,255,157,.05);
+  box-shadow:0 0 30px rgba(0,255,157,.08);
+}
+
+.success.show{
+  display:block;
+}
+
+.success h2{
+  color:var(--green);
+  margin:0 0 8px;
+}
+
+.library{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+}
+
+.machine-card{
+  padding:14px;
+  border:1px solid #27375b;
+  background:#070c18;
+  border-radius:12px;
+}
+
+.machine-card strong{
+  display:block;
+  margin-bottom:7px;
+}
+
+.machine-card small{
+  color:var(--muted);
+}
+
+.badge{
+  display:inline-block;
+  margin-top:9px;
+  padding:4px 7px;
+  border-radius:6px;
+  font-size:9px;
+  font-weight:bold;
+}
+
+.badge.training{
+  color:var(--yellow);
+  border:1px solid rgba(255,216,77,.4);
+}
+
+.badge.coming{
+  color:var(--cyan);
+  border:1px solid rgba(0,234,255,.35);
+}
+
+.footer{
+  text-align:center;
+  color:#687b9d;
+  font-size:11px;
+  padding:25px 10px;
+  line-height:1.7;
+}
+
+@media(max-width:1000px){
+  .grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .mode-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .sim-layout,
+  .lab-grid{
+    grid-template-columns:1fr;
+  }
+
+  .library{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:600px){
+  .container{
+    padding:15px 10px 50px;
+  }
+
+  .header-inner{
+    padding:12px;
+  }
+
+  .brand-sub{
+    display:none;
+  }
+
+  .grid,
+  .mode-grid,
+  .library{
+    grid-template-columns:1fr;
+  }
+
+  .panel{
+    padding:14px;
+    border-radius:14px;
+  }
+
+  .machine-stage{
+    min-height:470px;
+  }
+
+  .washer{
+    width:280px;
+    height:370px;
+  }
+
+  .door{
+    width:170px;
+    height:170px;
+  }
+
+  .component{
+    font-size:8px;
+  }
+
+  .readings{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="brand">
+      <div class="logo">LK</div>
+      <div>
+        <div class="brand-title">LIFEKEY ENGINEERING</div>
+        <div class="brand-sub">Virtual Engineering Laboratory</div>
+      </div>
+    </div>
+
+    <div class="status-pill">
+      ● ENGINEERING CORE ONLINE
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+<section class="hero">
+  <h1>ENGINEERING SIMULATOR</h1>
+
+  <p>
+    Explore machine operation, engineering principles, diagnostic testing,
+    controlled faults, virtual repair and verification.
+  </p>
+
+  <div class="rule">
+    NO TEST → NO CONFIRMED FAULT
+  </div>
+</section>
+
+
+<!-- MACHINE SELECTOR -->
+
+<section class="panel">
+
+  <div class="panel-title">
+    <h2>01 — MACHINE CONFIGURATION</h2>
+    <span>Universal Machine Architecture</span>
+  </div>
+
+  <div class="grid">
+
+    <div class="field">
+      <label>Engineering Category</label>
+      <select id="categorySelect"></select>
+    </div>
+
+    <div class="field">
+      <label>Machine</label>
+      <select id="machineSelect"></select>
+    </div>
+
+    <div class="field">
+      <label>Manufacturer</label>
+      <select id="manufacturerSelect"></select>
+    </div>
+
+    <div class="field">
+      <label>Model</label>
+      <select id="modelSelect"></select>
+    </div>
+
+    <div class="field">
+      <label>System</label>
+      <select id="systemSelect"></select>
+    </div>
+
+    <div class="field">
+      <label>Operating Mode</label>
+      <select id="modeSelect">
+        <option value="normal">Normal Simulation</option>
+        <option value="diagnose">Diagnose</option>
+        <option value="training">Fault Training</option>
+        <option value="repair">Repair & Retest</option>
+      </select>
+    </div>
+
+  </div>
+
+  <div class="machine-status">
+    <div id="machineStatusTitle" class="status-title">
+      SELECT A MACHINE
+    </div>
+
+    <div id="machineStatusDescription" class="status-description">
+      Select a category and machine to load its engineering model.
+    </div>
+  </div>
+
+</section>
+
+
+<!-- MACHINE LIBRARY -->
+
+<section class="panel">
+
+  <div class="panel-title">
+    <h2>02 — MACHINE LIBRARY</h2>
+    <span>Expandable architecture</span>
+  </div>
+
+  <div class="library" id="machineLibrary"></div>
+
+</section>
+
+
+<!-- MODES -->
+
+<section class="panel">
+
+  <div class="panel-title">
+    <h2>03 — SIMULATION MODE</h2>
+    <span>Choose your engineering activity</span>
+  </div>
+
+  <div class="mode-grid">
+
+    <div class="mode active" data-mode="normal">
+      <strong>▶ NORMAL SIMULATION</strong>
+      <small>Observe the machine operating sequence and understand what happens normally.</small>
+    </div>
+
+    <div class="mode" data-mode="diagnose">
+      <strong>⌕ DIAGNOSE</strong>
+      <small>Perform tests and use evidence to determine whether a fault can be confirmed.</small>
+    </div>
+
+    <div class="mode" data-mode="training">
+      <strong>⚠ FAULT TRAINING</strong>
+      <small>A controlled hidden fault can be inserted for diagnostic practice.</small>
+    </div>
+
+    <div class="mode" data-mode="repair">
+      <strong>⚙ REPAIR & RETEST</strong>
+      <small>Repair a confirmed fault and verify the complete operating sequence.</small>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- COMMAND CENTER -->
+
+<section class="panel">
+
+  <div class="panel-title">
+    <h2>04 — COMMAND CENTER</h2>
+    <span id="engineStatus">READY</span>
+  </div>
+
+  <div class="command-bar">
+
+    <button class="btn primary" id="startBtn">
+      ▶ START
+    </button>
+
+    <button class="btn" id="pauseBtn">
+      ❚❚ PAUSE
+    </button>
+
+    <button class="btn" id="resetBtn">
+      ↻ RESET
+    </button>
+
+    <button class="btn red" id="faultBtn">
+      ⚠ INJECT FAULT
+    </button>
+
+    <button class="btn yellow" id="testBtn">
+      ⌕ PERFORM TEST
+    </button>
+
+    <button class="btn green" id="replaceBtn">
+      ⚙ REPLACE
+    </button>
+
+    <button class="btn green" id="retestBtn">
+      ↻ RETEST MACHINE
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- SIMULATION -->
+
+<section class="panel">
+
+  <div class="panel-title">
+    <h2>05 — DIGITAL MACHINE</h2>
+    <span id="machineTypeLabel">WASHING MACHINE TRAINING MODEL</span>
+  </div>
+
+  <div class="sim-layout">
+
+    <div class="machine-stage">
+
+      <div class="stage-grid"></div>
+
+      <div class="washer" id="washerVisual">
+
+        <div class="washer-top">
+
+          <div class="display" id="washerDisplay">
+            READY
+          </div>
+
+          <div class="dial"></div>
+
+        </div>
+
+        <div class="door">
+
+          <div class="drum" id="drum"></div>
+
+        </div>
+
+        <div class="component c-door">
+          DOOR LOCK
+        </div>
+
+        <div class="component c-valve">
+          WATER VALVE
+        </div>
+
+        <div class="component c-pump">
+          DRAIN PUMP
+        </div>
+
+        <div class="component c-motor">
+          MOTOR
+        </div>
+
+        <div class="component c-pcb">
+          CONTROL PCB
+        </div>
+
+        <div class="water-flow" id="waterFlow"></div>
+
+      </div>
+
+      <div class="machine-message" id="machineMessage">
+        Machine ready. Select START to begin the operating sequence.
+      </div>
+
+    </div>
+
+
+    <!-- SEQUENCE -->
+
+    <div>
+
+      <div class="test-card">
+
+        <h3>Operating Sequence</h3>
+
+        <div class="steps">
+
+          <div class="step" data-step="0">
+            <span class="dot"></span>
+            POWER
+          </div>
+
+          <div class="step" data-step="1">
+            <span class="dot"></span>
+            DOOR LOCK
+          </div>
+
+          <div class="step" data-step="2">
+            <span class="dot"></span>
+            FILL
+          </div>
+
+          <div class="step" data-step="3">
+            <span class="dot"></span>
+            WATER LEVEL
+          </div>
+
+          <div class="step" data-step="4">
+            <span class="dot"></span>
+            WASH
+          </div>
+
+          <div class="step" data-step="5">
+            <span class="dot"></span>
+            DRAIN
+          </div>
+
+          <div class="step" data-step="6">
+            <span class="dot"></span>
+            SPIN
+          </div>
+
+          <div class="step" data-step="7">
+            <span class="dot"></span>
+            VERIFY
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="test-card" style="margin-top:14px">
+
+        <h3>Live Engineering Readings</h3>
+
+        <div class="readings">
+
+          <div class="reading">
+            <small>Supply</small>
+            <strong id="powerReading">—</strong>
+          </div>
+
+          <div class="reading">
+            <small>Door Status</small>
+            <strong id="doorReading">—</strong>
+          </div>
+
+          <div class="reading">
+            <small>Water Level</small>
+            <strong id="waterReading">—</strong>
+          </div>
+
+          <div class="reading">
+            <small>Motor Feedback</small>
+            <strong id="motorReading">—</strong>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- DIAGNOSTIC LAB -->
+
+<section class="panel">
+
+  <div class="panel-title">
+    <h2>06 — DIAGNOSTIC LABORATORY</h2>
+    <span>Evidence-based diagnosis</span>
+  </div>
+
+  <div class="lab-grid">
+
+    <div class="test-card">
+
+      <h3>Current Diagnostic State</h3>
+
+      <div class="result">
+
+        <div class="result-title neutral" id="diagnosisStatus">
+          NO FAULT CONFIRMED
+        </div>
+
+        <div id="diagnosisText">
+          No diagnostic test has confirmed a fault.
+        </div>
+
+      </div>
+
+      <div class="result">
+
+        <div class="result-title">
+          Engineering Rule
+        </div>
+
+        <div id="engineeringRule">
+          A symptom alone does not prove a failed component.
+          Perform an appropriate test and compare the result with the
+          expected engineering condition.
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="test-card">
+
+      <h3>Next Recommended Test</h3>
+
+      <p id="nextTest">
+        Start the machine and observe the operating sequence.
+      </p>
+
+      <button class="btn yellow" id="nextTestBtn">
+        PERFORM RECOMMENDED TEST
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- EVIDENCE -->
+
+<section class="panel">
+
+  <div class="panel-title">
+    <h2>07 — EVIDENCE LOG</h2>
+    <span>Condition → Test → Result → Rule</span>
+  </div>
+
+  <div class="log" id="evidenceLog">
+
+    <div class="log-entry info">
+      [SYSTEM] Engineering laboratory initialized.
+    </div>
+
+    <div class="log-entry">
+      [RULE] NO TEST → NO CONFIRMED FAULT.
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- SUCCESS -->
+
+<section class="success" id="successPanel">
+
+  <h2>✓ SUCCESSFUL REPAIR</h2>
+
+  <p>
+    The confirmed fault has been corrected and the machine has
+    successfully completed its required operating sequence.
+  </p>
+
+  <strong>
+    FAULT CORRECTED → REPAIR VERIFIED → MACHINE OPERATING NORMALLY
+  </strong>
+
+</section>
+
+
+<section class="panel">
+
+  <div class="panel-title">
+    <h2>08 — ENGINEERING STATUS</h2>
+    <span>LifeKey Engineering Core</span>
+  </div>
+
+  <p style="color:var(--muted);line-height:1.7">
+
+    The simulator separates machine knowledge from the diagnostic engine.
+    The engineering model determines expected machine behavior.
+    The diagnostic engine uses tests and results as evidence.
+    Artificial intelligence may eventually assist the technician,
+    but it must not invent a fault without engineering evidence.
+
+  </p>
+
+  <div class="machine-status">
+
+    <div class="status-title status-verified">
+      CURRENT VERIFIED TRAINING MODULE: WASHING MACHINE
+    </div>
+
+    <div class="status-description">
+
+      This first module
