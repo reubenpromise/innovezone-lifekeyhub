@@ -1,5 +1,35 @@
 [
   {
+    "id": "1789559774723",
+    "title": "lifekey navigation test 006",
+    "description": "tedting lifekey article navigation and category link",
+    "seoTitle": "lifekey navigation test 006",
+    "seoDescription": "tedting lifekey article navigation and category link",
+    "category": "Innovation",
+    "subcategory": "Hidden Inventions & Technology",
+    "articleNumber": 6,
+    "folder": "innovation",
+    "sectionFolder": "hidden-inventions-technology",
+    "slug": "lifekey-navigation-test-006",
+    "url": "https://reubenpromise.github.io/innovezone-lifekeyhub/articles/innovation/hidden-inventions-technology/lifekey-navigation-test-006.html",
+    "canonicalURL": "https://reubenpromise.github.io/innovezone-lifekeyhub/articles/innovation/hidden-inventions-technology/lifekey-navigation-test-006.html",
+    "publishedAt": "2026-09-16",
+    "author": "LifeKey Hub",
+    "tags": [
+      "innovation",
+      "invention",
+      "technology",
+      "LifeKey",
+      "hidden inventions"
+    ],
+    "featured": false,
+    "commentsEnabled": true,
+    "views": 0,
+    "likes": 0,
+    "shares": 0,
+    "categoryDestination": "https://reubenpromise.github.io/innovezone-lifekeyhub/innovation.html"
+  },
+  {
     "id": "1789338484051",
     "title": "lifekey final navigation test",
     "description": "testing the life key universal publishing articles navigation",
