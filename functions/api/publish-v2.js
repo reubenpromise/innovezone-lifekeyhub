@@ -9,7 +9,7 @@ const BRANCH = "main";
 const SITE = "https://reubenpromise.github.io/innovezone-lifekeyhub";
 
 const DEST = {
-  "Innovation": "../../innovation.html",
+  "Innovation": "../../../innovation.html",
   "Affiliate Marketing": "../../affiliate-marketing.html",
   "Money & Opportunities": "../../money.html",
   "Money & Finance": "../../money.html",
