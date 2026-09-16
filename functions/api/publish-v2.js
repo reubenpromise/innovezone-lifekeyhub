@@ -389,7 +389,7 @@ padding:14px
 
 <header>
 
-<a href="../../index.html">
+<a href="../../../index.html">
 ⚡ LifeKey Hub
 </a>
 
