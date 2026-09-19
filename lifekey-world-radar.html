@@ -617,7 +617,65 @@ It does not replace the separate Lead Generation Engine.
 </p>
 
 </section>
+<!-- LIFEKEY INTELLIGENCE DATABASE -->
 
+<section class="database" id="intelligenceDatabase">
+
+    <h2>🧠 Opportunity Intelligence Database</h2>
+
+    <p>
+        LifeKey custody for discoveries, evidence,
+        movements, problems, gaps and opportunities.
+    </p>
+
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin:18px 0;">
+
+        <input
+            id="radarSearch"
+            type="text"
+            placeholder="🔎 Search intelligence..."
+            style="flex:1;min-width:220px;"
+        >
+
+        <select id="radarSector">
+            <option value="">All Sectors</option>
+        </select>
+
+        <select id="radarStatus">
+            <option value="">All Statuses</option>
+            <option value="DISCOVERED">DISCOVERED</option>
+            <option value="RESEARCHING">RESEARCHING</option>
+            <option value="VALIDATED">VALIDATED</option>
+            <option value="TESTING">TESTING</option>
+            <option value="ACTIVE">ACTIVE</option>
+            <option value="PAUSED">PAUSED</option>
+            <option value="ARCHIVED">ARCHIVED</option>
+        </select>
+
+        <button
+            class="btn primary"
+            onclick="openOpportunityForm()"
+        >
+            ＋ Add Intelligence
+        </button>
+
+    </div>
+
+    <div id="opportunityList">
+
+        <div class="empty">
+
+            No intelligence records yet.
+
+            <br><br>
+
+            Add the first discovery to LifeKey custody.
+
+        </div>
+
+    </div>
+
+</section>
 </main>
 
 
