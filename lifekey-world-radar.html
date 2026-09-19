@@ -832,5 +832,76 @@ function closeOpportunityForm() {
 }
 
 </script>
+
+<script>
+
+document.getElementById("intelligenceForm").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    let records = JSON.parse(localStorage.getItem("lifekeyRadarRecords")) || [];
+
+    let nextNumber = records.length + 1;
+
+    let record = {
+
+        id: "LKR-" + String(nextNumber).padStart(4, "0"),
+
+        dateObserved: new Date().toISOString().split("T")[0],
+
+        market: document.getElementById("market").value,
+
+        company: document.getElementById("company").value,
+
+        product: document.getElementById("product").value,
+
+        technology: document.getElementById("technology").value,
+
+        geography: document.getElementById("geography").value,
+
+        movement: document.getElementById("movement").value,
+
+        demand: document.getElementById("demand").value,
+
+        problem: document.getElementById("problem").value,
+
+        buyer: document.getElementById("buyer").value,
+
+        competitors: document.getElementById("competitors").value,
+
+        gap: document.getElementById("gap").value,
+
+        evidence: document.getElementById("evidence").value,
+
+        lifeKeyOpportunity:
+            document.getElementById("lifeKeyOpportunity").value,
+
+        monetization:
+            document.getElementById("monetization").value,
+
+        status:
+            document.getElementById("status").value
+
+    };
+
+    records.push(record);
+
+    localStorage.setItem(
+        "lifekeyRadarRecords",
+        JSON.stringify(records)
+    );
+
+    alert(
+        "✅ Intelligence saved to LifeKey custody!\n\nOpportunity ID: "
+        + record.id
+    );
+
+    document.getElementById("intelligenceForm").reset();
+
+    closeOpportunityForm();
+
+});
+
+</script>
 </body>
 </html>
