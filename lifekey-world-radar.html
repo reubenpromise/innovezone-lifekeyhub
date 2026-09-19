@@ -676,6 +676,135 @@ It does not replace the separate Lead Generation Engine.
     </div>
 
 </section>
+
+<!-- STEP 3: ADD INTELLIGENCE FORM -->
+
+<section id="opportunityForm" style="display:none;">
+
+    <h2>➕ Add Intelligence</h2>
+
+    <p>
+        Record a real-world movement, discovery, problem,
+        demand, gap or opportunity for LifeKey custody.
+    </p>
+
+    <form id="intelligenceForm">
+
+        <input
+            type="text"
+            id="market"
+            placeholder="Market"
+        >
+
+        <input
+            type="text"
+            id="company"
+            placeholder="Company / Organization"
+        >
+
+        <input
+            type="text"
+            id="product"
+            placeholder="Product / Service"
+        >
+
+        <input
+            type="text"
+            id="technology"
+            placeholder="Technology"
+        >
+
+        <input
+            type="text"
+            id="geography"
+            placeholder="Geography / Location"
+        >
+
+        <textarea
+            id="movement"
+            placeholder="🌍 What is moving or changing?"
+        ></textarea>
+
+        <textarea
+            id="demand"
+            placeholder="📈 What demand is appearing?"
+        ></textarea>
+
+        <textarea
+            id="problem"
+            placeholder="⚠️ What problem is appearing?"
+        ></textarea>
+
+        <textarea
+            id="buyer"
+            placeholder="👥 Who needs it / Who is the buyer?"
+        ></textarea>
+
+        <textarea
+            id="competitors"
+            placeholder="🏢 Competitors / Existing solutions"
+        ></textarea>
+
+        <textarea
+            id="gap"
+            placeholder="🔎 What gap or opportunity do you see?"
+        ></textarea>
+
+        <textarea
+            id="evidence"
+            placeholder="📚 Evidence / Source / Link"
+        ></textarea>
+
+        <textarea
+            id="lifeKeyOpportunity"
+            placeholder="💡 What could LifeKey do with this?"
+        ></textarea>
+
+        <select id="monetization">
+            <option value="">Possible Monetization Route</option>
+            <option>Lead Generation</option>
+            <option>Affiliate</option>
+            <option>Freelance</option>
+            <option>Service</option>
+            <option>Digital Product</option>
+            <option>Physical Product</option>
+            <option>Job / Contract</option>
+            <option>Invention / Innovation</option>
+            <option>Multiple Routes</option>
+        </select>
+
+        <select id="status">
+            <option value="DISCOVERED">DISCOVERED</option>
+            <option value="RESEARCHING">RESEARCHING</option>
+            <option value="VALIDATED">VALIDATED</option>
+            <option value="TESTING">TESTING</option>
+            <option value="ACTIVE">ACTIVE</option>
+            <option value="PAUSED">PAUSED</option>
+            <option value="ARCHIVED">ARCHIVED</option>
+        </select>
+
+        <div style="margin-top:15px;display:flex;gap:10px;flex-wrap:wrap;">
+
+            <button
+                type="submit"
+                class="btn primary"
+            >
+                💾 Save Intelligence
+            </button>
+
+            <button
+                type="button"
+                class="btn"
+                onclick="closeOpportunityForm()"
+            >
+                ✕ Cancel
+            </button>
+
+        </div>
+
+    </form>
+
+</section>
 </main>
 
 
