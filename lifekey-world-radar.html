@@ -903,5 +903,141 @@ document.getElementById("intelligenceForm").addEventListener("submit", function(
 });
 
 </script>
+<script>
+
+function displayIntelligenceRecords() {
+
+    const container =
+        document.getElementById("opportunityList");
+
+    if (!container) return;
+
+    const records =
+        JSON.parse(
+            localStorage.getItem("lifekeyRadarRecords")
+        ) || [];
+
+    if (records.length === 0) {
+
+        container.innerHTML = `
+            <div class="empty">
+
+                No intelligence records yet.
+
+                <br><br>
+
+                Add the first discovery to LifeKey custody.
+
+            </div>
+        `;
+
+        return;
+    }
+
+    container.innerHTML = "";
+
+    records.forEach(function(record) {
+
+        const card =
+            document.createElement("div");
+
+        card.style.cssText = `
+            background:#11101d;
+            border:1px solid #2b2740;
+            border-radius:16px;
+            padding:18px;
+            margin-top:12px;
+        `;
+
+        card.innerHTML = `
+
+            <div style="
+                display:flex;
+                justify-content:space-between;
+                gap:10px;
+                flex-wrap:wrap;
+            ">
+
+                <strong>
+                    🌍 ${record.id}
+                </strong>
+
+                <span style="
+                    padding:6px 10px;
+                    border-radius:20px;
+                    background:#201936;
+                    color:#42e8a5;
+                    font-size:12px;
+                ">
+                    ${record.status}
+                </span>
+
+            </div>
+
+            <h3>
+                ${record.market || "Unnamed Market"}
+            </h3>
+
+            <p>
+                <strong>🏢 Company:</strong>
+                ${record.company || "Not recorded"}
+            </p>
+
+            <p>
+                <strong>📦 Product:</strong>
+                ${record.product || "Not recorded"}
+            </p>
+
+            <p>
+                <strong>🌍 Movement:</strong>
+                ${record.movement || "Not recorded"}
+            </p>
+
+            <p>
+                <strong>📈 Demand:</strong>
+                ${record.demand || "Not recorded"}
+            </p>
+
+            <p>
+                <strong>⚠️ Problem:</strong>
+                ${record.problem || "Not recorded"}
+            </p>
+
+            <p>
+                <strong>🔎 Gap:</strong>
+                ${record.gap || "Not recorded"}
+            </p>
+
+            <p>
+                <strong>💡 LifeKey Opportunity:</strong>
+                ${record.lifeKeyOpportunity || "Not recorded"}
+            </p>
+
+            <p>
+                <strong>💰 Route:</strong>
+                ${record.monetization || "Not recorded"}
+            </p>
+
+            <p style="
+                color:#aaa5bd;
+                font-size:12px;
+            ">
+
+                📅 Observed:
+                ${record.dateObserved}
+
+            </p>
+
+        `;
+
+        container.appendChild(card);
+
+    });
+
+}
+
+displayIntelligenceRecords();
+
+</script>
 </body>
 </html>
